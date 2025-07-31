@@ -1,0 +1,203 @@
+= Cloud-Native Pipeline - Staging
+:source-highlighter: rouge
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+== Learning Objectives
+
+By the end of this section, you will:
+
+* Understand how Tekton pipelines execute cloud-native CI/CD workflows
+* See automated security scanning and validation in action
+* Experience GitOps-based deployment to staging environments
+* Learn about cloud-native monitoring and observability
+
+== Understanding Cloud-Native Pipeline Execution
+
+Your code commit has triggered a sophisticated cloud-native pipeline that demonstrates enterprise-grade automation:
+
+=== Tekton Pipeline Advantages
+
+=== Cloud-Native Architecture
+
+* Kubernetes-native execution - Pipelines run as pods
+* Automatic scaling - Pipeline capacity scales with cluster resources
+* Resource efficiency - Each pipeline step optimizes resource usage
+* Multi-tenancy support - Secure isolation between different teams
+
+=== Enterprise Security Integration
+
+* Container image scanning at every build
+* Supply chain verification with cryptographic signing  
+* Policy enforcement before any deployment
+* Compliance reporting for audit requirements
+
+== Activity 1: Monitoring Your Tekton Pipeline
+
+=== Step 1: Access OpenShift Console
+
+. Navigate to the OpenShift Console:
++
+link:{openshift_url}[*OpenShift Console*^]
+
+. Sign in with your credentials:
++
+[source,bash]
+----
+Username: {username}
+Password: {password}
+----
+
+=== Step 2: View Pipeline Execution
+
+. In the OpenShift Console, navigate to *Pipelines → Pipelines*
+. Look for your pipeline named `my-quarkus-tkn-on-push`
+. Click on the pipeline name to view details
+
+. You'll see the pipeline execution with multiple stages:
+  * **Clone Repository** - Fetch source code
+  * **Build Application** - Compile Quarkus application  
+  * **Build Container** - Create container image
+  * **Security Scan** - Vulnerability assessment
+  * **Sign Image** - Cryptographic signing
+  * **Deploy to Stage** - GitOps deployment
+
+=== Step 3: Examine Security Validation
+
+. Click on the *Security Scan* stage to see detailed results
+. Review the vulnerability assessment report
+. Notice how the pipeline automatically fails if critical vulnerabilities are found
+
+TIP: The security scanning happens automatically without any developer intervention - security is built into the development process.
+
+=== Step 4: Verify Image Signing
+
+. Click on the *Sign Image* stage  
+. See how your container image is cryptographically signed
+. This signature ensures image integrity throughout the supply chain
+
+IMPORTANT: Signed images provide tamper-proof evidence of what was built, when, and by whom - critical for enterprise compliance.
+
+== Activity 2: Understanding GitOps Deployment
+
+=== Step 1: View GitOps Repository
+
+. Return to Red Hat Developer Hub
+. Navigate to your component overview
+. Click on the *GitLab* repository link for your GitOps manifests
+
+=== Step 2: Examine Deployment Manifests
+
+. In the GitOps repository, navigate to the `environments/stage` directory
+. Review the Kubernetes manifests that define your staging deployment:
+  * **Deployment.yaml** - Application configuration
+  * **Service.yaml** - Network exposure
+  * **Route.yaml** - External access
+
+=== Step 3: See GitOps Automation
+
+. Notice that the image tag in the deployment manifest has been automatically updated
+. This demonstrates GitOps automation - your pipeline updated the desired state
+. ArgoCD will now automatically sync this change to the staging environment
+
+TIP: GitOps ensures that your staging environment exactly matches what's defined in Git - providing consistency and auditability.
+
+== Activity 3: Validating Staging Deployment
+
+=== Step 1: Access Staging Application
+
+. In the OpenShift Console, navigate to *Topology*
+. Switch to the staging namespace/project
+. Find your application deployment and click on the route URL
+. Verify your application is running successfully
+
+=== Step 2: Review Application Health
+
+. Check the application pod status and resource usage
+. Review the deployment logs for any issues
+. Verify all health checks are passing
+
+=== Step 3: Test Application Functionality
+
+. Access your Quarkus application endpoints
+. Verify the application responds correctly
+. Test any specific functionality relevant to your changes
+
+== Understanding Cloud-Native Benefits in Action
+
+=== What You Just Witnessed
+
+**Automated Quality Gates:**
+* Code was automatically built and tested
+* Security vulnerabilities were scanned and reported
+* Container images were signed for integrity
+* Deployment only proceeded after all validations passed
+
+**GitOps Deployment Model:**
+* Desired state defined declaratively in Git
+* Automatic synchronization to target environments
+* Complete audit trail of all changes
+* Easy rollback capabilities if issues occur
+
+**Cloud-Native Scalability:**
+* Pipeline executed using cluster resources
+* Automatic resource allocation and cleanup
+* No dedicated CI/CD infrastructure to maintain
+* Scales with your Kubernetes platform
+
+== Business Value Demonstrated
+
+=== Speed and Efficiency
+* **Build to staging deployment**: Under 10 minutes
+* **Zero manual intervention** required
+* **Parallel execution** of pipeline stages
+* **Automatic promotion** based on validation results
+
+=== Security and Compliance  
+* **100% automated security scanning**
+* **Cryptographic proof** of image integrity
+* **Policy enforcement** before deployment
+* **Complete audit trail** for compliance reporting
+
+=== Operational Excellence
+* **Declarative infrastructure** - No configuration drift
+* **Automatic healing** if staging environment deviates
+* **Consistent deployments** across all environments
+* **Self-service capabilities** reduce platform team load
+
+== Troubleshooting Common Issues
+
+=== Pipeline Failures
+
+If your pipeline fails:
+
+. Check the failed stage logs in the OpenShift Console
+. Common issues include:
+  * **Security vulnerabilities** - Review scan results and update dependencies
+  * **Build errors** - Check application code syntax and dependencies
+  * **Resource limits** - Verify cluster has sufficient capacity
+
+=== GitOps Sync Issues
+
+If staging deployment doesn't update:
+
+. Verify ArgoCD application status
+. Check GitOps repository for manifest syntax
+. Ensure proper RBAC permissions for ArgoCD
+
+TIP: Most issues are automatically resolved by the platform's self-healing capabilities.
+
+== What's Next
+
+Your application is now successfully running in the staging environment with full security validation! 
+
+In the next section, **Production - Releasing to production**, you'll:
+
+* Review staging validation results and metrics
+* Understand production deployment approval workflows  
+* Execute a secure production release
+* Monitor production application health and security posture
+
+The cloud-native staging validation is complete - let's move to production deployment!

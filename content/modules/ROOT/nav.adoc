@@ -1,7 +1,31 @@
-* xref:module-01.adoc[1. RPM Native Container]
-** xref:module-01.adoc#repositories[Repositories]
-** xref:module-01.adoc#software[Software]
+* xref:index.adoc[Workshop Overview]
 
-* xref:module-02.adoc[2. GitHub Sourced Container]
-** xref:module-02.adoc#prerequisites[Install Prerequisites]
-** xref:module-02.adoc#container[Enable Container]
+* xref:lab-access.adoc[Lab Access Information]
+
+* xref:introduction.adoc[Introduction to RHADS]
+
+* Cloud-Native Pipeline with OpenShift Pipelines
+
+** xref:tekton-intro.adoc[Module Introduction]
+
+** xref:tekton-dev.adoc[Development - Building your application]
+
+** xref:tekton-stage.adoc[Staging - Promoting to stage environment]
+
+** xref:tekton-prod.adoc[Production - Releasing to production]
+
+** xref:tekton-finish.adoc[Module Summary]
+
+* Enterprise Pipeline with Jenkins
+
+** xref:jenkins-intro.adoc[Module Introduction]
+
+** xref:jenkins-dev.adoc[Development - Building your application]
+
+** xref:jenkins-stage.adoc[Staging - Promoting to stage environment]
+
+** xref:jenkins-prod.adoc[Production - Releasing to production]
+
+** xref:jenkins-finish.adoc[Module Summary]
+
+* xref:glossary.adoc[Glossary]

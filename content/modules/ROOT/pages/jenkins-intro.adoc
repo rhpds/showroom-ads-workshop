@@ -1,0 +1,222 @@
+= Enterprise Pipeline - Module Introduction
+:source-highlighter: rouge
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+== Module Overview
+
+Welcome to the enterprise integration path! In this module, you'll experience how Red Hat Advanced Developer Suite enhances existing Jenkins investments, providing modern capabilities while preserving valuable infrastructure and expertise.
+
+== Learning Objectives
+
+By completing this module, you will:
+
+* **Modernize Jenkins workflows** using self-service software templates
+* **Integrate enterprise security** into existing Jenkins pipelines
+* **Experience enhanced Jenkins** with automatic security scanning and signing
+* **Understand GitOps deployment** from Jenkins-based CI/CD
+* **See investment preservation** while gaining modern capabilities
+
+== Target Audience
+
+This module is ideal for:
+
+* **Organizations with Jenkins investments** wanting to modernize without replacement
+* **Enterprise teams** with established Jenkins expertise and infrastructure
+* **Platform engineers** enhancing existing CI/CD capabilities
+* **Organizations** balancing innovation with investment protection
+
+== Technology Stack
+
+In this module, you'll work with:
+
+**Development Environment:**
+* Red Hat Developer Hub - Self-service portal
+* OpenShift Dev Spaces - Browser-based IDE
+* GitLab - Source code management
+
+**CI/CD Platform:**
+* Jenkins - Enhanced with modern security integration
+* Red Hat Quay - Container image registry
+* OpenShift GitOps (ArgoCD) - Automated deployment
+
+**Security & Compliance:**
+* Trusted Artifact Signer - Container image signing
+* Advanced Cluster Security - Vulnerability scanning
+* Enterprise Contract - Policy enforcement
+
+## Business Context: ACME's Jenkins Modernization
+
+ACME has significant Jenkins investments powering critical applications. They need to:
+
+* **Preserve Jenkins infrastructure** representing millions in investment
+* **Enhance security capabilities** without disrupting existing workflows
+* **Provide self-service options** to reduce platform team overhead
+* **Modernize gradually** while maintaining operational stability
+
+**The Challenge:**
+Traditional Jenkins setups require extensive manual configuration and lack modern security integration.
+
+**The Solution:**
+RHADS transforms Jenkins into a modern, secure, self-service platform while preserving existing investments and expertise.
+
+== Module Structure
+
+This module follows ACME's Jenkins enhancement workflow:
+
+=== 1. Development - Building your application
+* Access Red Hat Developer Hub
+* Create a new Quarkus application using Jenkins-enhanced templates  
+* Set up your modern development environment
+* Make your first code change and trigger an enhanced Jenkins build
+
+=== 2. Staging - Promoting to stage environment
+* Understand the enhanced Jenkins pipeline execution
+* Review integrated security scanning and validation
+* Promote your application to the staging environment
+* Verify deployment using GitOps automation
+
+=== 3. Production - Releasing to production
+* Review staging validation and enhanced approvals
+* Execute production deployment with Jenkins
+* Monitor application health and security posture
+* Understand the modernized Jenkins supply chain
+
+== Key Advantages of This Approach
+
+**Investment Preservation:**
+* Leverage existing Jenkins infrastructure and knowledge
+* Maintain familiar workflows and processes
+* Preserve team expertise and operational procedures
+* Protect substantial technology investments
+
+**Enhanced Capabilities:**
+* Add modern security scanning without pipeline disruption
+* Integrate container image signing and verification
+* Provide self-service capabilities for developers
+* Enable GitOps deployment patterns
+
+**Gradual Modernization:**
+* Enhance existing pipelines incrementally
+* Introduce new capabilities without breaking changes
+* Allow teams to adapt at their own pace
+* Minimize disruption to production workloads
+
+IMPORTANT: This approach demonstrates how RHADS enhances rather than replaces existing Jenkins investments, providing a practical modernization path.
+
+== Understanding Jenkins Enhancement Benefits
+
+=== For Jenkins Administrators
+
+**Reduced Configuration Overhead:**
+* Self-service templates eliminate repetitive pipeline setup
+* Standardized security integration across all projects
+* Automated best practices enforcement
+* Reduced maintenance burden for custom configurations
+
+**Enhanced Security Integration:**
+* Modern vulnerability scanning integrated seamlessly
+* Container image signing and verification workflows
+* Policy enforcement without pipeline disruption
+* Compliance reporting and audit trail generation
+
+**Improved Developer Experience:**
+* Self-service project creation reduces tickets and delays
+* Standardized templates ensure consistency
+* Integrated development environments
+* Automatic GitOps deployment configuration
+
+=== For Development Teams
+
+**Familiar Workflows:**
+* Jenkins pipelines work exactly as expected
+* Existing Jenkins knowledge remains valuable
+* Gradual introduction of new capabilities
+* No disruption to established practices
+
+**Enhanced Capabilities:**
+* Automatic security scanning and validation
+* Modern development environment access
+* GitOps deployment automation
+* Complete supply chain security
+
+**Faster Project Setup:**
+* Self-service application creation in minutes
+* Pre-configured Jenkins pipelines with security
+* Automatic repository and infrastructure setup
+* Immediate productivity without waiting
+
+== Investment Protection Strategy
+
+=== Preserving Jenkins Value
+
+**Infrastructure Reuse:**
+* Existing Jenkins controllers and agents remain operational
+* Current compute and storage investments continue to provide value
+* Network configurations and security boundaries maintained
+* Operational procedures and runbooks remain valid
+
+**Knowledge Preservation:**
+* Jenkins expertise continues to be valuable and relevant
+* Existing pipeline patterns can be enhanced incrementally
+* Team training investments are protected
+* Institutional knowledge remains applicable
+
+**Gradual Enhancement:**
+* New projects can adopt enhanced templates immediately
+* Existing projects can be migrated at appropriate times
+* Risk is minimized through incremental adoption
+* Teams can learn new capabilities progressively
+
+=== Modernization Benefits
+
+**Immediate Value:**
+* Self-service capabilities reduce platform team load
+* Integrated security scanning improves security posture
+* Standardized templates reduce configuration errors
+* GitOps deployment automation improves reliability
+
+**Long-term Strategic Value:**
+* Foundation for eventual cloud-native migration if desired
+* Enhanced security and compliance capabilities
+* Improved developer productivity and satisfaction
+* Reduced operational overhead and maintenance burden
+
+== Prerequisites
+
+This workshop assumes:
+
+* Basic familiarity with Jenkins concepts and pipelines
+* Understanding of Git and development workflows
+* Awareness of container and CI/CD pipeline concepts
+* Some experience with OpenShift or Kubernetes (helpful but not required)
+
+TIP: Even if you're new to Red Hat Developer Hub or GitOps, the workshop guides you through each step with clear explanations focused on enhancing your Jenkins experience.
+
+== Implementation Approach
+
+=== When This Approach Excels
+
+**Enterprise Enhancement Benefits:**
+* Significant existing infrastructure and expertise preserved
+* Large number of existing pipelines can be enhanced incrementally
+* Team preference for familiar tooling and workflows maintained
+* Gradual modernization approach reduces risk and disruption
+* Investment protection is prioritized
+
+**Key Capabilities Provided:**
+* Self-service developer portal capabilities
+* Integrated security scanning and compliance
+* GitOps deployment automation
+* Complete supply chain security
+* Reduced platform team overhead
+
+== What's Next
+
+Ready to see how RHADS enhances your Jenkins investment while providing modern capabilities?
+
+Click **Development - Building your application** to begin creating your first Jenkins-enhanced application with integrated security and self-service capabilities!
+
+This approach demonstrates that modernization doesn't require replacement - it can enhance and protect your existing investments while providing cutting-edge capabilities.

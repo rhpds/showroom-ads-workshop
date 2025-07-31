@@ -1,0 +1,324 @@
+= Cloud-Native Pipeline - Development
+:source-highlighter: rouge
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+== Learning Objectives
+
+By the end of this section, you will:
+
+* Access Red Hat Developer Hub and understand its value proposition
+* Create a new secure Quarkus application using cloud-native templates
+* Experience self-service development that eliminates weeks of setup time
+* Understand how security is built into the development process from day one
+
+== Your Development Challenge
+
+As ACME's newest developer, you're facing the same frustration that developers everywhere experience when trying to create cloud-native applications:
+
+=== Your Current Reality: Weeks of Waiting
+
+Here's what you've been dealing with in your traditional development environment:
+
+* 3-5 business days submitting tickets and waiting for the platform team to set up your Kubernetes resources
+* 1-2 weeks of back-and-forth emails trying to get cloud-native CI/CD pipelines configured
+* Multiple handoff meetings between you, the platform team, and security - each one adding delays
+* Complex security integration that you don't fully understand but somehow need to implement
+* Manual setup of GitOps repositories and deployment manifests that feels like starting from scratch every time
+
+=== What This Really Costs You
+
+* You spend more time in meetings than writing code
+* Platform teams are overwhelmed and can't respond quickly to your requests
+* Security integration feels like black magic that only senior developers understand
+* Every new project feels like reinventing the wheel
+
+=== Your New Reality with RHADS: Self-Service in Minutes
+
+But you're about to discover a completely different way of working:
+
+* Zero waiting time: You'll create GitLab repos and cloud-native pipelines instantly - no tickets, no waiting
+* Zero configuration complexity: Kubernetes resources get generated automatically - you focus on your application code
+* Zero security gaps: Container scanning and signing happen automatically - security becomes invisible to you
+* Zero platform team dependency: You become self-sufficient and productive immediately
+
+=== What This Means for Your Daily Work
+
+* Cloud-native project setup: 3-4 weeks → 5 minutes
+* Pipeline configuration: Manual meetings → Self-service automation
+* Security compliance: 100% consistent without you needing to become a security expert
+* Your productivity: Immediate access to everything you need
+
+IMPORTANT: Today you'll experience this transformation firsthand by creating a production-ready Kubernetes application in minutes, not weeks. You'll be amazed at how empowering this feels!
+
+== Activity 1: Your First Steps into Your New Digital Kingdom
+
+Let's embark on your journey by logging into your new development environment. You're about to discover how different this experience is from what you're used to!
+
+=== Step 1: Open Red Hat Developer Hub
+
+* Excited to explore your new tools, you navigate to the Red Hat Developer Hub using the URL from your welcome email:
++
+link:{rhdh_url}[*Red Hat Developer Hub*^]
+
+* You see the authentication page and click the *GitLab* button to start your journey:
++
+TIP: Your organization uses GitLab as the authentication provider - this integration will save you time throughout your development workflow.
+
+=== Step 2: Authenticate
+
+* You enter your lab credentials that were provided to you:
++
+[source,bash]
+----
+Username: {rhdh_user}
+Password: {rhdh_user_password}
+----
+
+* After clicking *Sign in*, you're prompted to authorize access
+
+* You click *Authorize keycloak* to grant the necessary permissions
+
+image::3_Authorize.png[]
+
+* Moments later, you're welcomed by the Red Hat Developer Hub landing page - your new development home!
+
+image::4_RHDH_Landing_Page.png[]
+
+IMPORTANT: If you encounter any authentication issues, you can always reference the "Lab Access Information" page for your credentials.
+
+=== What You Just Discovered
+
+You've just accessed something revolutionary - your organization's **Internal Developer Portal (IDP)** that's been optimized for developers like you. As you look around, you realize this platform provides everything you've been wishing for:
+
+* Self-service application templates that eliminate waiting for platform teams
+* Integrated Kubernetes and OpenShift resources that "just work"  
+* Automated pipeline creation that handles the complex stuff for you
+* A streamlined onboarding experience that gets you productive immediately
+
+"This is going to change everything," you think to yourself as you explore the interface.
+
+== Activity 2: Creating Your First Cloud-Native Application
+
+Now comes the exciting part - you're about to experience the magic of self-service application creation that will transform how you work!
+
+=== Step 1: Discovering Software Templates
+
+* Eager to get started on your Black Friday project, you spot the **+ Self-service** button in the top-right corner of the Developer Hub
+* You click **+ Self-service** and are amazed to see a catalog of ready-to-use templates - no more starting from scratch!
+
+=== Step 2: Choosing Your Cloud-Native Template
+
+* As you browse through the available templates, one catches your eye:
++
+`*Securing a Quarkus Service Software Supply Chain (Tekton)*`
+
+* "Perfect!" you think, "This is exactly what I need for a modern cloud-native application"
+* You click *Choose* to select this template, excited to see what happens next
+
+TIP: You're about to witness something amazing - this single template will automatically create your complete cloud-native environment with pipelines, Kubernetes resources, and security scanning. No tickets, no waiting, no manual configuration!
+
+=== Step 3: Configure Your Cloud-Native Application
+
+The template form will guide you through cloud-native configuration with three main sections:
+
+==== Application Information
+
+Accept the default values or customize for your cloud-native application:
+
+[cols="1,2", options="header"]
+|===
+| Field | Default Value
+| Name | `my-quarkus-tkn`
+| Group ID | `redhat.rhdh`  
+| Artifact ID | `my-quarkus-tkn`
+| Java Package Name | `org.redhat.rhdh`
+| Description | `A cool cloud-native Quarkus app`
+|===
+
+Click *Next* to continue.
+
+==== Image Registry Information
+
+These settings determine where your cloud-native container images will be stored:
+
+[cols="1,2", options="header"]
+|===
+| Field | Default Value
+| Image Registry | `Quay`
+| Organization | `tssc`
+|===
+
+Click *Next* to continue.
+
+==== Repository Information
+
+This configures your cloud-native source code repository and Tekton integration:
+
+[cols="1,2", options="header"]
+|===
+| Field | Default Value  
+| Source Repo | `GitLab`
+| Repo Owner | `development`
+| Verify Commits | `enabled`
+|===
+
+Note that **Verify Commits** is enabled - this ensures all code commits are cryptographically signed for cloud-native security.
+
+Click *Review* to see a summary of your cloud-native configuration.
+
+=== Step 4: Create Your Cloud-Native Application
+
+. Review all the settings in the summary page
+. Click *Create* to generate your cloud-native application
+
+The cloud-native software template will now:
+
+* Create GitLab repositories for your source code and GitOps manifests
+* Set up Tekton pipelines with automated security scanning
+* Configure Kubernetes resources for your application
+* Set up container image signing and verification
+* Deploy the cloud-native application infrastructure to OpenShift
+
+TIP: This entire cloud-native setup that traditionally takes weeks is completed in under a minute!
+
+=== Step 5: Access Your New Cloud-Native Component
+
+. Once the template execution completes, click *Open Component in Catalog*
+. You'll see your new cloud-native application component with links to:
+  * Source code repository with Kubernetes manifests
+  * Tekton CI/CD pipelines  
+  * Application overview and health status
+  * OpenShift Dev Spaces development environment
+
+== Activity 3: Exploring Your New Cloud-Native Development Environment
+
+=== Step 1: Accessing Your Browser-Based IDE
+
+* Back in your component overview, you notice a link for *OpenShift Dev Spaces* and click it curiously
+* "A browser-based development environment?" you wonder, "This should be interesting..."
+
+* If you're redirected to an authentication page, you click *Log in with OpenShift*
+
+* You sign in with the same credentials you've been using:
++
+[source,bash]
+----
+Username: {rhdh_user}
+Password: {rhdh_user_password}
+----
+
+* When prompted, you click *Allow selected permissions* to grant access to your development workspace
+
+=== Step 2: Explore the Cloud-Native Development Environment
+
+Once your workspace loads, you'll see:
+
+* **Pre-configured Quarkus project** with cloud-native best practices
+* **Kubernetes manifests** in the `/deploy` directory
+* **Tekton pipeline definitions** showing your CI/CD workflow
+* **Container configuration** with security scanning integration
+
+=== Step 3: Making Your First Code Change
+
+Time to make your mark on the Black Friday project! Let's trigger your first automated pipeline:
+
+* You expand the `docs` folder in the file explorer, feeling confident about diving into the code
+* You open the `index.md` file and decide to document your modern setup
+* You add this line at the end of the document, proud of what you're building:
++
+[source,markdown]
+----
+This application uses cloud-native Tekton pipelines for secure CI/CD.
+----
+
+* You save the file (Ctrl+S or Cmd+S), ready to see the magic happen
+
+=== Step 4: Your First Signed Commit
+
+* You open a terminal in Dev Spaces (*Terminal → New Terminal*) - no need to install anything locally!
+* You stage your changes, feeling the anticipation build:
++
+[source,bash]
+----
+git add .
+----
+
+* You commit your changes with confidence:
++
+[source,bash]
+----
+git commit -m "Add cloud-native pipeline documentation"
+----
+
+* Something interesting happens - you're prompted for signed commit authentication. You follow the browser flow to cryptographically sign your commit
+
+image::90_Gitsign_Commit_Message.png[]
+
+* After completing the signing process, you feel a sense of accomplishment
+
+image::93_Gitsign_Commit_Signed.png[]
+
+* You push your changes and watch the magic happen:
++
+[source,bash]
+----
+git push
+----
+
+TIP: You just witnessed something powerful - your commit was automatically signed for security, and now it's triggering a complete cloud-native pipeline. No manual work, no tickets, no waiting!
+
+== What You Just Accomplished
+
+Congratulations! You've just experienced the power of cloud-native development with RHADS:
+
+=== Time Savings
+* **Traditional cloud-native setup**: 3-4 weeks of Kubernetes and Tekton configuration
+* **RHADS cloud-native approach**: Less than 5 minutes of self-service
+
+=== Cloud-Native Security by Default  
+Your application includes:
+* Automated container vulnerability scanning
+* Image signing and verification with cloud-native tools
+* Tekton pipeline security enforcement
+* Kubernetes-native security policies
+
+=== Zero Platform Overhead
+Everything was created automatically:
+* GitLab repositories with Kubernetes manifests
+* Tekton pipelines deployed and configured
+* Security tools integrated with cloud-native workflows
+* OpenShift resources provisioned
+
+== Understanding Cloud-Native Benefits
+
+=== Developer Experience
+* **Browser-based development** - No local Kubernetes setup required
+* **Live reload capabilities** - See changes instantly
+* **Integrated debugging** - Cloud-native application troubleshooting
+* **Collaborative workspaces** - Team development in the cloud
+
+=== Operational Advantages
+* **Kubernetes-native scaling** - Applications scale with platform capabilities
+* **GitOps automation** - Declarative, auditable deployments
+* **Resource efficiency** - Optimal resource utilization
+* **Multi-cloud portability** - Run anywhere Kubernetes runs
+
+=== Security Enhancements
+* **Container-first security** - Security scanning at every layer
+* **Immutable infrastructure** - Consistent, secure deployments
+* **Policy enforcement** - Platform-level security controls
+* **Complete audit trails** - Full supply chain visibility
+
+== Next Steps
+
+In the next section, **Staging - Promoting to stage environment**, you'll:
+
+* See your Tekton pipeline execute with cloud-native automation
+* Understand how security validation works in cloud-native pipelines
+* Experience GitOps deployment to staging environments
+* Learn about cloud-native monitoring and observability
+
+Your cloud-native foundation is now in place - let's see your Tekton pipeline in action!

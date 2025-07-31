@@ -1,0 +1,55 @@
+= Glossary
+
+== A
+
+[id='ads']
+*Red Hat Advanced Developer Suite (RHADS)*:: An integrated suite of tools and services that enables organizations to build, test, and deploy secure cloud-native applications with automated security and compliance built into the development process.
+
+== C
+
+[id='cicd']
+*CI/CD (Continuous Integration/Continuous Deployment)*:: The practice of automating the integration of code changes and their deployment to production, enabling faster and more reliable software delivery.
+
+== G
+
+[id='gitops']
+*GitOps*:: A deployment methodology that uses Git repositories as the single source of truth for infrastructure and application configuration, enabling automated and auditable deployments.
+
+== I
+
+[id='idp']
+*Internal Developer Portal (IDP)*:: A centralized platform that provides developers with self-service access to tools, documentation, templates, and resources needed for application development and deployment.
+
+== O
+
+[id='openshift']
+*Red Hat OpenShift*:: An enterprise Kubernetes platform that provides a complete application development and deployment environment with built-in security, monitoring, and management capabilities.
+
+[id='ods']
+*OpenShift Dev Spaces*:: A browser-based development environment that provides fully configured workspaces for cloud-native application development.
+
+== Q
+
+[id='quarkus']
+*Quarkus*:: A Kubernetes-native Java framework designed for building cloud-native applications with fast startup times, low memory usage, and excellent developer experience.
+
+[id='quay']
+*Red Hat Quay*:: An enterprise container image registry that provides secure storage, scanning, and distribution of container images.
+
+== R
+
+[id='rhdh']
+*Red Hat Developer Hub*:: Red Hat's enterprise-ready Internal Developer Portal based on Backstage, providing self-service capabilities, software templates, and unified access to development tools.
+
+== S
+
+[id='software-template']
+*Software Template*:: Pre-configured templates in Red Hat Developer Hub that automate the creation of new applications with standardized architecture, security, and deployment configurations.
+
+[id='supply-chain']
+*Software Supply Chain*:: The entire process and infrastructure involved in developing, building, testing, and delivering software, including all the tools, dependencies, and security measures.
+
+== T
+
+[id='tekton']
+*Tekton*:: An open-source framework for creating cloud-native CI/CD pipelines on Kubernetes, providing the foundation for OpenShift Pipelines.

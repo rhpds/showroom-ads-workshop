@@ -1,19 +1,31 @@
 name: modules
-title: Default Title
+title: "Red Hat Advanced Developer Suite Workshop"
 version: master
 nav:
   - modules/ROOT/nav.adoc
 
 asciidoc:
   attributes:
-    lab_name: "I'm the lab_name var"
+    lab_name: "Red Hat Advanced Developer Suite Workshop"
     release-version: master
     page-pagination: true
-    my_var: "foo"
+    experimental:
+    sectnums!:
+    numbered!:
+    chapter-signifier: 
+    part-signifier:
     guid: my-guid
-    ssh_user: devops
-    ssh_password: devops
-    ssh_command: ssh someone@example.com
-    page-links:
-    - url: https://redhat.com
-      text: Red Hat
+    rhdh_url: https://backstage-backstage.apps.cluster-{guid}.{guid}.sandbox.opentlc.com
+    rhdh_user: user
+    rhdh_user_password: password
+    openshift_url: https://console-openshift-console.apps.cluster-{guid}.{guid}.sandbox.opentlc.com
+    openshift_api_url: https://api.cluster-{guid}.{guid}.sandbox.opentlc.com:6443
+    username: user
+    password: password
+    ssh_user: lab-user
+    ssh_password: lab-user
+    ssh_command: ssh devops@bastion.{guid}.example.opentlc.com
+
+  extensions:
+    - ./content/lib/tab-block.js
+    - ./content/lib/remote-include-processor.js

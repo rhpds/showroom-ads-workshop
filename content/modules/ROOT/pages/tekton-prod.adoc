@@ -1,0 +1,240 @@
+= Cloud-Native Pipeline - Production
+:source-highlighter: rouge
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+== Learning Objectives
+
+By the end of this section, you will:
+
+* Understand production deployment approval workflows
+* Execute a secure production release using GitOps
+* Monitor production application health and security posture
+* Comprehend the complete cloud-native supply chain security model
+
+== Understanding Production Deployment Strategy
+
+Production deployments in cloud-native environments require additional safeguards and approval processes:
+
+=== Enterprise Production Requirements
+
+**Security Validation:**
+* All security scans must pass with zero critical vulnerabilities
+* Container images must be signed and verified
+* Supply chain integrity must be validated
+* Compliance policies must be enforced
+
+**Operational Readiness:**
+* Staging environment validation must be successful
+* Health checks and monitoring must be configured
+* Rollback procedures must be verified
+* Capacity planning must be confirmed
+
+**Governance and Approval:**
+* Change management processes must be followed
+* Stakeholder approvals may be required
+* Deployment windows and maintenance schedules considered
+* Risk assessment and mitigation plans validated
+
+== Activity 1: Production Release Preparation
+
+=== Step 1: Validate Staging Success
+
+. In the OpenShift Console, review your staging deployment metrics
+. Verify all health checks are passing consistently
+. Check application performance and resource utilization
+. Confirm security scan results show no critical issues
+
+=== Step 2: Review Security Posture
+
+. Navigate to *Security → Vulnerability Management* in OpenShift Console
+. Review the security scan results for your container image
+. Verify the image signature validation status
+. Check compliance policy adherence
+
+TIP: Production deployments should only proceed when all security validations pass - this demonstrates "security by default" in action.
+
+=== Step 3: Examine Supply Chain Evidence
+
+. In Red Hat Developer Hub, navigate to your component overview
+. Review the supply chain attestations and signatures
+. See the complete build provenance information
+. Understand how this provides audit trail for compliance
+
+IMPORTANT: Supply chain security provides cryptographic proof of exactly what was built, how it was built, and who authorized the build.
+
+== Activity 2: Production Deployment Execution
+
+=== Step 1: Trigger Production Promotion
+
+The production deployment in this environment is configured for manual approval to demonstrate enterprise governance:
+
+. In your GitOps repository, navigate to the `environments/prod` directory
+. Create a new branch for your production deployment:
++
+[source,bash]
+----
+git checkout -b prod-release-v1.0
+----
+
+. Update the production deployment manifest with the validated staging image
+. Commit your changes:
++
+[source,bash]
+----
+git add .
+git commit -m "Deploy validated application to production"
+git push origin prod-release-v1.0
+----
+
+. Create a merge request for production deployment approval
+
+=== Step 2: Production Deployment Validation
+
+. Monitor the GitOps sync process in ArgoCD
+. Watch as the production deployment manifests are applied
+. Verify the production namespace receives the new deployment
+. Confirm all production health checks pass
+
+=== Step 3: Verify Production Application
+
+. Access your production application via its route
+. Verify all functionality works as expected
+. Check application logs for any errors or warnings
+. Validate production monitoring is capturing metrics
+
+== Activity 3: Production Monitoring and Observability
+
+=== Step 1: Application Health Monitoring
+
+. In OpenShift Console, navigate to your production application
+. Review the application metrics and dashboards
+. Check resource utilization and performance indicators
+. Verify readiness and liveness probes are functioning
+
+=== Step 2: Security Monitoring
+
+. Monitor security events and alerts
+. Review container security policies enforcement
+. Check for any runtime security violations
+. Validate network policies are properly configured
+
+=== Step 3: Compliance Reporting
+
+. Generate compliance reports showing:
+  * Security scan results and remediation status
+  * Container image signatures and verification
+  * Deployment approvals and audit trails
+  * Policy compliance across the supply chain
+
+TIP: These reports demonstrate how RHADS provides automated compliance documentation for auditors.
+
+== Understanding Complete Supply Chain Security
+
+=== What You've Accomplished
+
+**End-to-End Security:**
+* Source code was cryptographically signed
+* Container images were scanned for vulnerabilities
+* Images were signed with tamper-proof signatures
+* Deployment manifests were validated and approved
+* Runtime security policies are actively enforced
+
+**Complete Audit Trail:**
+* Every build step is recorded and attested
+* All security scan results are preserved
+* Image signatures provide integrity validation
+* GitOps commits show exactly what was deployed
+* Compliance reports document adherence to policies
+
+**Automated Governance:**
+* Security policies are enforced automatically
+* Manual approvals are captured in audit trails
+* Compliance violations prevent deployment
+* Rollback capabilities ensure rapid recovery
+
+== Business Value Realized
+
+=== ACME's Transformation Complete
+
+**Speed Achievements:**
+* **Total deployment time**: 4 weeks → 1 week
+* **Security review time**: 2 weeks → Automated  
+* **Production readiness**: Manual process → Automated validation
+* **Developer productivity**: Dramatically increased
+
+**Security Improvements:**
+* **100% vulnerability scanning** - No exceptions
+* **Cryptographic integrity** - Complete supply chain verification
+* **Policy compliance** - Automatically enforced
+* **Audit readiness** - Continuous compliance documentation
+
+**Operational Excellence:**
+* **Consistent deployments** - No configuration drift
+* **Predictable outcomes** - Standardized processes
+* **Rapid rollbacks** - GitOps-enabled recovery
+* **Reduced overhead** - Self-service developer capabilities
+
+=== Enterprise Impact
+
+**For Developers:**
+* Focus on business value creation, not infrastructure
+* Immediate access to production-ready environments
+* Built-in security that doesn't slow development
+* Modern tooling that attracts top talent
+
+**For Security Teams:**
+* Automated policy enforcement reduces manual work
+* Complete visibility into all deployments
+* Cryptographic proof of compliance
+* Reduced security incidents and faster remediation
+
+**For Operations:**
+* Standardized deployment processes reduce complexity
+* Self-healing infrastructure reduces maintenance
+* Complete observability improves troubleshooting
+* Platform scales automatically with demand
+
+== Real-World Applications
+
+=== When to Use This Approach
+
+**Ideal Scenarios:**
+* **New cloud-native applications** - Start with best practices
+* **Microservices architectures** - Consistent deployment patterns
+* **Compliance-heavy industries** - Automated audit trails
+* **DevOps transformation** - Modern pipeline automation
+
+**Key Benefits:**
+* **Faster time to market** - Eliminate manual bottlenecks
+* **Improved security posture** - Automated vulnerability management
+* **Reduced operational overhead** - Self-service capabilities
+* **Enhanced compliance** - Continuous policy enforcement
+
+== Reflection and Assessment
+
+Take a moment to consider:
+
+1. **Developer Experience**: How does this cloud-native approach compare to traditional development workflows?
+
+2. **Security Integration**: What security capabilities are now automatically included that would typically require manual configuration?
+
+3. **Operational Impact**: How would this approach affect your organization's platform and security teams?
+
+4. **Business Value**: What business outcomes could your organization achieve with this level of automation?
+
+== Congratulations!
+
+You've successfully completed the cloud-native development path using OpenShift Pipelines (Tekton)! You've experienced:
+
+* **Self-service application creation** with enterprise security built-in
+* **Cloud-native development** using modern browser-based tools
+* **Automated CI/CD pipelines** with integrated security scanning  
+* **GitOps deployment** from development through production
+* **Complete supply chain security** with audit trails and compliance reporting
+
+This represents the future of enterprise application development - secure, automated, and developer-friendly.
+
+**Next:** Consider exploring the Enterprise Pipeline module to see alternative RHADS implementation approaches, or review the complete workshop summary to plan your organization's implementation strategy.

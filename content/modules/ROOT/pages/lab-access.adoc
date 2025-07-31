@@ -1,0 +1,27 @@
+= Lab Access Information
+
+For your convenience, this page contains access information to all systems in your lab environment.
+
+== Red Hat Developer Hub Access
+
+Your main entry point to the workshop activities:
+
+* **URL**: link:{rhdh_url}[Red Hat Developer Hub^]  
+* **Username**: `{rhdh_user}`
+* **Password**: `{rhdh_user_password}`
+
+TIP: Use the GitLab authentication option when prompted to sign in.
+
+== OpenShift Console Access
+
+For viewing your applications and pipeline runs:
+
+* **URL**: link:{openshift_url}[OpenShift Console^]
+* **Username**: `{username}`  
+* **Password**: `{password}`
+
+== Lab Environment Details
+
+Your lab environment identifier: `{guid}`
+
+IMPORTANT: Keep this lab access page open in a separate tab throughout the workshop for easy reference to credentials and URLs.

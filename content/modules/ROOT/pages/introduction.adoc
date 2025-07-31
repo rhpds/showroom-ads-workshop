@@ -1,0 +1,148 @@
+= Introduction to Red Hat Advanced Developer Suite
+:source-highlighter: rouge
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+== Your New Role at ACME Retail
+
+Congratulations on your new position at ACME Retail! You've just joined as a developer on the e-commerce platform team, and you're excited to make an impact. ACME's platform processes millions of transactions daily, but as you'll soon discover, their development practices haven't kept pace with the business growth.
+
+**Your Challenge:** Your team has been tasked with delivering critical checkout service updates for Black Friday in just 4 weeks. However, the current development and deployment process typically takes 10 weeks.
+
+**The Problems You'll Face:** Like most enterprise developers, you'll encounter familiar obstacles:
+
+* 6-8 week deployment cycles due to manual processes that slow everything down
+* 2-week security review bottlenecks that delay every release
+* Manual compliance audits across 50+ applications in your portfolio
+* Platform teams drowning in repetitive setup requests from developers like you
+* Configuration inconsistencies that create bugs and delays across different projects
+
+*Throughout this workshop, you'll experience firsthand how Red Hat Advanced Developer Suite transforms your daily development experience.*
+
+== Your Solution: Red Hat Advanced Developer Suite
+
+You're about to discover how Red Hat Advanced Developer Suite (RHADS) will transform your development experience. Instead of the manual security gates that currently slow you down, RHADS makes security and compliance *automatic*, revolutionizing how you deliver software:
+
+=== What This Means for You as a Developer
+
+* You can create new projects yourself with zero waiting time
+* No more delays waiting for security reviews or coordination meetings
+* You'll use familiar development tools and workflows - no steep learning curves
+* Instant access to production-ready environments whenever you need them
+
+=== How This Helps Your Security Team
+
+* Automated policy enforcement runs across all your projects automatically
+* Complete audit trails and compliance reports generate themselves
+* 75% reduction in manual security reviews means faster approvals
+* Consistent security posture across your entire application portfolio
+
+=== What Your Platform Team Will Experience
+
+* Standardized patterns eliminate the custom configurations that create tickets
+* Dramatic reduction in setup requests from developers like you
+* Your platform team can focus on innovation instead of repetitive tasks
+* Measurable compliance and governance become automatic
+
+== Workshop Paths
+
+This workshop offers two learning paths that demonstrate different approaches to implementing Red Hat Advanced Developer Suite:
+
+=== Path 1: Cloud-Native with OpenShift Pipelines
+
+=== Learning Flow
+
+* Self-service project creation via Red Hat Developer Hub
+* Cloud-native development with OpenShift Dev Spaces
+* Automated security with cloud-native pipelines
+* GitOps deployment to staging and production
+
+=== Value Proposition
+
+Modern cloud-native development velocity with enterprise security
+
+=== Path 2: Enterprise Integration
+
+=== Learning Flow
+
+* Self-service project creation via Red Hat Developer Hub
+* Enhanced enterprise pipelines with integrated security
+* Automated validation and GitOps deployment
+* Enterprise-grade workflows and protection
+
+=== Value Proposition
+
+Enterprise integration with modern capabilities
+
+IMPORTANT: Both paths demonstrate core RHADS capabilities including self-service development, integrated security, and automated deployment workflows.
+
+== Your Personal Journey
+
+Throughout this workshop, you'll experience your own transformation as you solve the Black Friday deadline crisis:
+
+. *Week 1:* You create the checkout service using the self-service portal with automatic CI/CD and security - no waiting for platform teams!
+. *Week 2-3:* You watch as every build you make gets automatically scanned, signed, and validated for compliance - no manual security reviews blocking your progress
+. *Week 4:* You deploy to production using your existing infrastructure - meeting the deadline with confidence
+
+*Your Result: Black Friday ready with weeks to spare - and you're the hero who made it happen!*
+
+== Workshop Environment
+
+Your lab environment includes all the components needed to experience RHADS:
+
+=== Core Platform
+
+* Red Hat Developer Hub (Internal Developer Portal)
+* OpenShift Container Platform
+* GitLab (Source Code Management)
+* Red Hat Quay (Container Registry)
+
+=== Security & Compliance
+
+* Automated vulnerability scanning
+* Container image signing and verification
+* Policy enforcement and compliance checking
+* Supply chain security validation
+
+=== CI/CD Options
+
+* OpenShift Pipelines - Cloud-native implementation
+* Enterprise Pipeline Integration - Enhanced enterprise workflows
+
+== Success Metrics
+
+By completing this workshop, you'll understand how RHADS delivers:
+
+=== Speed Improvements
+
+* Project setup: 6 weeks → 2 days
+* Development cycle: 10 weeks → 4 weeks
+* Security reviews: Manual → Automated
+
+=== Quality & Security
+
+* 100% policy compliance across all applications
+* Zero production security incidents
+* Automated audit trails for compliance reporting
+
+=== Efficiency Gains
+
+* 75% reduction in manual security reviews
+* 60% fewer platform team setup requests  
+* Zero configuration drift across environments
+
+TIP: Keep these metrics in mind as you work through the exercises - you'll experience these improvements firsthand.
+
+== Choose Your Learning Path
+
+Ready to become the hero who saves Black Friday? Select the path that matches your team's technology approach:
+
+**🚀 Start with Cloud-Native Pipeline** → Go to the *Cloud-Native Pipeline* module  
+*Perfect if your team is embracing modern cloud-native development practices*
+
+**🔧 Start with Enterprise Pipeline** → Go to the *Enterprise Pipeline* module  
+*Ideal if your organization has existing enterprise tooling investments*
+
+Either path will give you the hands-on experience to transform your development workflow and meet that Black Friday deadline!

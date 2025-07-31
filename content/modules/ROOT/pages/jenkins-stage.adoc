@@ -1,0 +1,229 @@
+= Enterprise Pipeline - Staging
+:source-highlighter: rouge
+:toc: macro
+:toclevels: 2
+
+toc::[]
+
+== Learning Objectives
+
+By the end of this section, you will:
+
+* Monitor enhanced Jenkins pipeline execution with integrated security
+* Understand how security validation works within familiar Jenkins workflows  
+* Experience GitOps-based deployment triggered from Jenkins
+* Learn about monitoring and observability in enhanced Jenkins environments
+
+== Understanding Enhanced Jenkins Pipeline Benefits
+
+Your code commit has triggered a sophisticated Jenkins pipeline that demonstrates how RHADS enhances existing Jenkins investments:
+
+=== Jenkins Enhancement Advantages
+
+=== Familiar Jenkins Experience
+
+* Standard Jenkins interface - No learning curve for existing teams
+* Traditional pipeline patterns - Existing knowledge remains valuable
+* Jenkins best practices - Enhanced with modern security capabilities
+* Gradual adoption - Teams can enhance pipelines incrementally
+
+=== Modern Security Integration
+
+* Automated vulnerability scanning integrated into Jenkins stages
+* Container image signing using familiar Jenkins pipeline syntax
+* Policy enforcement without disrupting Jenkins workflows
+* Compliance reporting generated automatically from Jenkins builds
+
+== Activity 1: Monitoring Your Enhanced Jenkins Pipeline
+
+=== Step 1: Access Jenkins Build Dashboard
+
+. Navigate to your Jenkins instance (link from your component overview)
+. Click on your triggered build number
+. Review the pipeline execution with enhanced stages:
+  * **Checkout** - Source code retrieval
+  * **Build** - Application compilation
+  * **Test** - Automated testing
+  * **Security Scan** - Integrated vulnerability assessment
+  * **Build Image** - Container image creation
+  * **Sign Image** - Cryptographic signing
+  * **Deploy to Stage** - GitOps-triggered deployment
+
+=== Step 2: Examine Security Integration
+
+. Click on the *Security Scan* stage in your Jenkins build
+. Review the detailed vulnerability assessment report
+. Notice how security scanning integrates seamlessly with Jenkins logging
+. See how the pipeline automatically fails for critical vulnerabilities
+
+TIP: The security scanning uses the same Jenkins pipeline syntax your team already knows - no new tools to learn.
+
+=== Step 3: Verify Image Signing Process
+
+. Click on the *Sign Image* stage
+. See how your container image is cryptographically signed
+. Review the signing artifacts and verification process
+. Understand how this provides supply chain security within Jenkins
+
+IMPORTANT: Image signing provides tamper-proof evidence integrated into your familiar Jenkins workflows.
+
+=== Step 4: Monitor GitOps Integration
+
+. Review the *Deploy to Stage* logs
+. See how Jenkins triggers GitOps repository updates
+. Notice how modern deployment patterns integrate with Jenkins CI
+. Understand the bridge between Jenkins CI and GitOps CD
+
+== Activity 2: Understanding Enhanced Jenkins Architecture
+
+=== Step 1: Review Jenkins Pipeline Definition
+
+. In your source code repository, open `Jenkinsfile`
+. Review how security tools are integrated using familiar Jenkins syntax
+. Notice how the pipeline maintains standard Jenkins patterns
+. See how enhancements are additive, not disruptive
+
+=== Step 2: Examine Security Tool Integration
+
+. Review the Jenkins pipeline stages for security integration
+. Notice how vulnerability scanning fits into standard Jenkins workflow
+. See how container signing uses Jenkins credentials and secrets
+. Understand how policy enforcement integrates with Jenkins approvals
+
+=== Step 3: Understand GitOps Bridge
+
+. Examine how Jenkins updates GitOps repositories
+. See the GitLab repository changes triggered by your Jenkins build
+. Review the staging deployment manifests
+. Notice how Jenkins CI seamlessly triggers GitOps CD
+
+TIP: This architecture preserves Jenkins value while adding modern GitOps capabilities.
+
+== Activity 3: Validating Staging Deployment
+
+=== Step 1: Access Staging Application
+
+. In the OpenShift Console, navigate to *Topology*
+. Switch to the staging namespace/project
+. Find your application deployment
+. Click on the route URL to access your running application
+
+=== Step 2: Review Enhanced Monitoring
+
+. Check the application health and status
+. Review deployment logs showing the GitOps sync process
+. Verify security policies are enforced in the staging environment
+. See how Jenkins build artifacts flow through to deployment
+
+=== Step 3: Test Application Functionality
+
+. Access your Quarkus application endpoints
+. Verify the application responds correctly with your changes
+. Test functionality to ensure staging validation is successful
+. Prepare for production promotion workflow
+
+== Understanding Jenkins Investment Protection
+
+=== What You Just Witnessed
+
+**Enhanced Jenkins Capabilities:**
+* Existing Jenkins infrastructure provides modern security scanning
+* Familiar Jenkins pipeline syntax accommodates new security tools
+* Traditional Jenkins workflows trigger modern GitOps deployments
+* Jenkins expertise remains valuable while gaining new capabilities
+
+**Investment Protection:**
+* No disruption to existing Jenkins operations
+* Existing pipelines can be enhanced incrementally
+* Jenkins knowledge and skills remain relevant
+* Infrastructure investments continue to provide value
+
+**Modern Integration:**
+* Container security scanning integrated into Jenkins stages
+* GitOps deployment triggered from familiar Jenkins workflows
+* Supply chain security using Jenkins credential management
+* Compliance reporting generated from Jenkins build history
+
+== Business Value Demonstrated
+
+=== Enhanced Jenkins Efficiency
+* **Build to staging deployment**: Under 15 minutes with Jenkins
+* **Security integration**: No additional tools to learn or manage
+* **Familiar monitoring**: Jenkins dashboard shows all build status
+* **Team productivity**: No retraining required for existing teams
+
+=== Investment Preservation with Modern Capabilities
+* **Infrastructure reuse**: Existing Jenkins controllers and agents utilized
+* **Knowledge preservation**: Jenkins expertise enhanced, not replaced
+* **Gradual adoption**: Teams can modernize at their own pace
+* **Risk reduction**: Familiar patterns with enhanced security
+
+=== Operational Excellence
+* **Consistent security**: Automated scanning in every Jenkins build
+* **Audit readiness**: Jenkins build history provides compliance trails
+* **Self-service capabilities**: Reduced platform team overhead
+* **Scalable enhancement**: Templates can enhance any Jenkins pipeline
+
+== Troubleshooting Enhanced Jenkins Pipelines
+
+=== Common Enhancement Issues
+
+If your enhanced Jenkins pipeline fails:
+
+. **Security scan failures**: Review vulnerability reports in Jenkins logs
+. **Image signing issues**: Check Jenkins credentials and signing configuration
+. **GitOps sync problems**: Verify repository permissions and webhook configuration
+. **Resource constraints**: Monitor Jenkins agent capacity and availability
+
+=== Jenkins-Specific Solutions
+
+**Leverage Existing Jenkins Expertise:**
+* Use familiar Jenkins troubleshooting approaches
+* Review pipeline logs using standard Jenkins interface
+* Apply existing Jenkins debugging techniques
+* Utilize Jenkins community knowledge and resources
+
+TIP: Enhanced Jenkins pipelines troubleshoot like traditional Jenkins - your existing knowledge applies directly.
+
+== Comparing Enhanced Jenkins with Traditional Approaches
+
+=== Traditional Jenkins Setup
+
+**Manual Configuration Required:**
+* Custom pipeline creation for each project
+* Manual security tool integration and configuration
+* Separate deployment automation setup
+* Individual credential and secret management
+
+**Enhanced Jenkins with RHADS:**
+* **Automated pipeline creation** from self-service templates
+* **Integrated security scanning** with zero configuration
+* **Built-in GitOps deployment** triggered automatically
+* **Standardized credential management** across all pipelines
+
+=== Value Proposition
+
+**For Jenkins Administrators:**
+* Reduced manual pipeline setup and maintenance
+* Standardized security integration across all projects
+* Enhanced capabilities without infrastructure changes
+* Preserved investment in Jenkins expertise and infrastructure
+
+**For Development Teams:**
+* Self-service project creation reduces waiting time
+* Familiar Jenkins interface with enhanced capabilities
+* Automatic security scanning without workflow changes
+* Modern development environment integrated with Jenkins
+
+== What's Next
+
+Your application is now successfully running in the staging environment with Jenkins-powered CI/CD and integrated security!
+
+In the next section, **Production - Releasing to production**, you'll:
+
+* Review staging validation results within Jenkins dashboard
+* Execute production deployment using enhanced Jenkins workflows
+* Monitor production application health through Jenkins integration
+* Understand the complete enhanced Jenkins supply chain security model
+
+The enhanced Jenkins staging validation is complete - let's move to production deployment with familiar Jenkins patterns!
