@@ -1,17 +1,24 @@
-=== Getting Started
+= Red Hat Advanced Developer Suite Workshop
 
-This template is designed to be used as a base for your showroom lab guides.
+This workshop provides hands-on experience with Red Hat Advanced Developer Suite (RHADS), focusing on modern software delivery practices that accelerate secure application development and deployment.
 
-The content is built using Antora, a static site generator for creating documentation sites from AsciiDoc documents.
+== Workshop Overview
 
-This git repo template was created to make it easy for you to start developing your lab instructions.
+**Target Audience:** Developers and DevOps professionals looking to experience modern secure software delivery
 
-Features:
+**Learning Style:** Personal narrative journey where learners become the protagonist solving real business challenges
 
-. 0% cruft
-. Red Hat Demo Platform UI Bundle default
-. Dev Mode extension that displays the asciidoc attributes you have to work with
-. Content is generated using Antora, a static site generator for creating documentation sites from AsciiDoc documents.
+**Business Context:** You're a new developer at ACME Retail facing a Black Friday deadline crisis - learn how RHADS transforms traditional 10-week delivery cycles into 4-week successes
+
+**Key Technologies:** Red Hat Developer Hub, OpenShift Pipelines (Tekton), Jenkins, GitLab, Quay, Advanced Cluster Security, Trusted Artifact Signer
+
+== Workshop Features
+
+. **Dual Learning Paths**: Choose between cloud-native (Tekton) or enterprise (Jenkins) implementation approaches
+. **Personal Narrative Style**: Based on the successful storytelling approach from showroom-lb1696-jenkins-rhtap
+. **Hands-on Activities**: Real development experience with modern security-integrated workflows
+. **Progressive Learning**: From setup through production deployment with built-in security
+. **Self-Service Focus**: Experience how RHADS eliminates traditional platform team bottlenecks
 
 == Getting Started
 
@@ -45,65 +52,125 @@ Live-reload is not supported.
 . Open http://localhost:8080 in your browser
 . Run ./utilities/lab-build to build your html
 
-To rebuild your html, run `./utilites/build`.
+To rebuild your html, run `./utilities/lab-build`.
 
-== Editing Files
+== Workshop Learning Paths
 
-Now you are ready to go!
-You can start editing the files in the `content/modules/ROOT/pages/` directory.
+The workshop offers two distinct paths that demonstrate different approaches to implementing RHADS:
 
-Many modern editors such as Visual Studio Code offer live Asciidoc Preview extensions.
+=== 🚀 Cloud-Native Pipeline Path (Tekton)
+**Perfect for teams embracing modern cloud-native development practices**
 
-=== Understanding the Basic Template Directory Structure
+* **tekton-intro.adoc** - Introduction to cloud-native development challenges
+* **tekton-dev.adoc** - Development phase with self-service app creation 
+* **tekton-stage.adoc** - Staging environment promotion and testing
+* **tekton-prod.adoc** - Production deployment with GitOps
+* **tekton-finish.adoc** - Summary and next steps
+
+=== 🔧 Enterprise Pipeline Path (Jenkins)  
+**Ideal for organizations with existing enterprise tooling investments**
+
+* **jenkins-intro.adoc** - Introduction to enterprise development enhancement
+* **jenkins-dev.adoc** - Development phase with enhanced Jenkins integration
+* **jenkins-stage.adoc** - Staging environment with enterprise workflows
+* **jenkins-prod.adoc** - Production deployment maintaining enterprise patterns
+* **jenkins-finish.adoc** - Summary and enterprise transformation insights
+
+=== Workshop Directory Structure
 
 [source,sh]
 ----
 ./content/modules/ROOT/
 ├── assets
-│   └── images                       # Images used in your content
-│       └── example-image.png
-├── examples                         # You can add downloadable assets here
-│   └── example-bash-script.sh       # e.g. an example bash script
-├── nav.adoc                         # Navigation for your lab
-├── pages                            # Your content goes here
-│   ├── index.adoc                   # First page of your lab, e.g. overview etc
-│   ├── module-01.adoc
-│   └── module-02.adoc               # Sample lab has 2 modules including index.adoc
-└── partials                         # You can add partials here, reusable content inserted inline into your modules
-    └── example_partial.adoc
+│   └── images                       # Workshop screenshots and diagrams
+│       ├── 3_Authorize.png          # Authentication flow
+│       ├── 4_RHDH_Landing_Page.png  # Developer Hub welcome
+│       ├── 90_Gitsign_Commit_Message.png # Commit signing process  
+│       └── 93_Gitsign_Commit_Signed.png  # Successful signed commit
+├── nav.adoc                         # Workshop navigation structure
+└── pages                            # Workshop content
+    ├── index.adoc                   # Workshop overview and introduction
+    ├── lab-access.adoc              # Lab access credentials and environment info
+    ├── introduction.adoc            # ACME story and personal narrative setup
+    ├── tekton-intro.adoc            # Cloud-native path introduction
+    ├── tekton-dev.adoc              # Cloud-native development activities  
+    ├── tekton-stage.adoc            # Cloud-native staging workflow
+    ├── tekton-prod.adoc             # Cloud-native production deployment
+    ├── tekton-finish.adoc           # Cloud-native path summary
+    ├── jenkins-intro.adoc           # Enterprise path introduction
+    ├── jenkins-dev.adoc             # Enterprise development activities
+    ├── jenkins-stage.adoc           # Enterprise staging workflow  
+    ├── jenkins-prod.adoc            # Enterprise production deployment
+    ├── jenkins-finish.adoc          # Enterprise path summary
+    └── glossary.adoc                # Key terminology and definitions
 ----
 
-== Adding Additional Links
+== Personal Narrative Approach
 
-You can add links to external content in the convenient "Links" drop-down on the upper-right of the Showroom Summit 2024 UI.
+This workshop follows the engaging storytelling style pioneered in `showroom-lb1696-jenkins-rhtap`:
 
-../content/antora.yml
-[source,yaml]
+**You as the Protagonist:** Learners become a new developer at ACME Retail facing real business challenges
+
+**Emotional Investment:** Personal stakes in solving the Black Friday deadline crisis
+
+**Progressive Empowerment:** Journey from frustration with traditional processes to confidence with RHADS
+
+**Hands-on Discovery:** Learning through doing rather than just reading about concepts
+
+=== Narrative Elements
+
+* **Personal challenges:** "You've been dealing with 1-2 weeks of Jenkins setup tickets..."
+* **Emotional reactions:** "Finally!" you think, "A template that includes security built-in"  
+* **Internal thoughts:** "This is going to change everything," you think to yourself
+* **Achievement moments:** "You feel a sense of accomplishment" with successful signed commits
+* **Progressive discovery:** From "Your Current Reality" to "Your New Reality with RHADS"
+
+== Workshop Flow
+
+. **Introduction** - Meet your new role at ACME and the Black Friday challenge
+. **Path Selection** - Choose between cloud-native (Tekton) or enterprise (Jenkins) approach
+. **Development Phase** - Create your first secure application with self-service templates
+. **Staging Phase** - Experience automated promotion and testing workflows  
+. **Production Phase** - Deploy with confidence using GitOps and integrated security
+. **Reflection** - Understand the transformation you've experienced
+
+== Technical Implementation
+
+The workshop demonstrates key RHADS capabilities:
+
+* **Self-Service Development** - Red Hat Developer Hub templates eliminate platform team bottlenecks
+* **Integrated Security** - Automatic vulnerability scanning, image signing, and policy enforcement
+* **GitOps Deployment** - Automated, auditable deployments across environments
+* **Developer Experience** - Browser-based development with OpenShift Dev Spaces
+* **Pipeline Automation** - Both Tekton (cloud-native) and Jenkins (enterprise) implementations
+* **Compliance** - Built-in audit trails and governance without developer friction
+
+== Contributing
+
+When editing workshop content:
+
+. Use the personal narrative voice ("You" rather than "The user")
+. Include emotional context and reactions
+. Focus on the learner's journey and transformation
+. Maintain technical accuracy while emphasizing the human experience
+. Use screenshots and images to support the narrative flow
+
+== Development Setup
+
+=== Using Containers (Recommended)
+
+[source,sh]
 ----
-asciidoc:
-  attributes:
-    page-links:
-    - url: https://redhat.com
-      text: Red Hat
+podman run --rm --name antora -v $PWD:/antora -p 8080:8080 -i -t ghcr.io/juliaaano/antora-viewer
 ----
 
-image::ui-links.png[]
-
-== Dev Mode
-
-As a convenience to developers, the Dev Mode Extention (disabled by default) displays the asciidoc attributes you have to work with while writing your lab instructions.
-
-. Disable/Enable Dev Mode by changing `enabled: true` or `enabled: false`
-+
-.default-site.yml
-[source,yaml]
+For SELinux environments:
 ----
-extensions:
-  - id: dev-mode
-    require: ./content/lib/dev-mode.js
-    enabled: false
+podman run --rm --name antora -v $PWD:/antora:z -p 8080:8080 -i -t ghcr.io/juliaaano/antora-viewer
 ----
 
-. Produces
-+
-image::dev-mode.png[]
+=== Using Local Files
+
+. Run ./utilities/lab-serve
+. Open http://localhost:8080 in your browser  
+. Run ./utilities/lab-build to build your html
