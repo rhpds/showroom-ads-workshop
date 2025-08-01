@@ -171,13 +171,13 @@ Click *Review* to see a summary of your OpenShift Pipelines configuration.
 
 === Step 4: Create Your OpenShift Pipelines Application
 
-* Review all the settings in the summary page
+. Review all the settings in the summary page
 
 image::tekton-dev-4.png[]
 
 image::tekton-dev-5.png[]
 
-* Click *Create* to generate your OpenShift Pipelines application
+. Click *Create* to generate your OpenShift Pipelines application
 
 The OpenShift Pipelines software template will now:
 
@@ -191,13 +191,13 @@ TIP: This entire OpenShift Pipelines setup that traditionally takes weeks is com
 
 === Step 5: Access Your New OpenShift Pipelines Component
 
-* Once the template execution completes, click *Open Component in Catalog*
+. Once the template execution completes, click *Open Component in Catalog*
 
-* In Red Hat Developer Hub, go to the *Catalog* and locate your new component (`my-quarkus-tkn`)
+. In Red Hat Developer Hub, go to the *Catalog* and locate your new component (`my-quarkus-tkn`)
 
 image::tekton-dev-6.png[]
 
-* Click the component name to open its *Overview* page
+. Click the component name to open its *Overview* page
 
 image::tekton-dev-7.png[]
 
@@ -278,7 +278,7 @@ Pipeline as Code means your CI/CD pipeline definitions live alongside your appli
 * **Location**: `{gitlab_url}/rhdh/tssc-sample-pipelines[^]`
 * **Purpose**: Contains reusable Tekton pipeline and task definitions
 * **Components**:
-  - `pipelines/` - Complete pipeline definitions
+  - `pipelines/` - Complete workflow definitions
   - `tasks/` - Individual pipeline step definitions
 * **What it provides**: The building blocks your application pipelines reference
 
@@ -294,9 +294,9 @@ Pipeline as Code means your CI/CD pipeline definitions live alongside your appli
 
 Now that you understand the concept, let's look at the actual pipeline files that were generated for you:
 
-* In OpenShift Dev Spaces (or back in your component overview), navigate to your repository
-* Open the `.tekton/` directory to see your pipeline definitions
-* You'll find three files that control your entire CI/CD workflow:
+. In OpenShift Dev Spaces (or back in your component overview), navigate to your repository
+. Open the `.tekton/` directory to see your pipeline definitions
+. You'll find three files that control your entire CI/CD workflow:
 
 **📄 `.tekton/on-push.yaml`**
 
@@ -351,7 +351,13 @@ image::tekton-dev-9.png[]
 
 image::tekton-dev-10.png[]
 
-* When prompted to authenticate with GitLab, you enter your credentials
+* When prompted to authenticate with GitLab, you enter your credentials:
++
+[source,bash,subs="attributes"]
+----
+Username: {gitlab_user}
+Password: {gitlab_user_password}
+----
 
 image::tekton-dev-11.png[]
 
@@ -379,6 +385,7 @@ Password: {rhdh_user_password}
 Once your workspace loads, you'll see:
 
 * **Pre-configured Quarkus project** with OpenShift Pipelines best practices
+* **Kubernetes manifests** in the `/deploy` directory
 * **Tekton pipeline definitions** showing your OpenShift Pipelines workflow
 * **Container configuration** with security scanning integration
 
@@ -414,19 +421,7 @@ git add .
 git commit -m "Add OpenShift Pipelines documentation"
 ----
 
-* Something interesting happens - you're prompted for signed commit authentication. You need to follow the browser flow to cryptographically sign your commit:
-  - Click on the browser link that appears in your terminal
-  - Login with your credentials if prompted:
-+
-[source,bash,subs="attributes"]
-----
-Username: {rhdh_user}
-Password: {rhdh_user_password}
-----
-  - Copy the authentication code from the browser
-+
-image::tekton-dev-16.png[]
-  - Paste the code back into your terminal to complete the signing process
+* Something interesting happens - you're prompted for signed commit authentication. You follow the browser flow to cryptographically sign your commit
 
 * After completing the signing process, you feel a sense of accomplishment - your commit is now cryptographically signed for security
 

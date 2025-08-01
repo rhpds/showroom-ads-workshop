@@ -40,8 +40,14 @@ Let's create a Git tag to trigger the staging pipeline:
 
 === Step 1: Access Your GitLab Repository
 
-. Open your GitLab repository from the component overview
-
+. In Developer Hub, navigate to the component *Overview* tab and click the *View Source* link to open your GitLab repository. If prompted for credentials, use:
++
+[source,bash,subs="attributes"]
+----
+Username: {gitlab_user}
+Password: {gitlab_user_password}
+----
+image::tekton-stage-5.png[]
 image::tekton-stage-1.png[]
 
 === Step 2: Create a Git Tag
@@ -216,7 +222,7 @@ TIP: Most issues are automatically resolved by the platform's self-healing capab
 
 == What's Next
 
-Your application is now successfully running in the staging environment with full security validation! 
+Your application is now successfully running in the staging environment with full security validation!
 
 In the next section, **Production - Releasing to production**, you'll:
 
