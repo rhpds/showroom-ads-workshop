@@ -26,6 +26,7 @@ Traditional production deployments take 2-3 weeks with manual security reviews, 
 Transform risky manual processes into confident automated workflows using Red Hat Advanced Developer Suite (RHADS).
 
 **Expected Business Outcomes:**
+
 * Production deployment time: 2-3 weeks → 30 minutes
 * Zero manual security reviews or bottlenecks
 * Eliminate human error through automation
@@ -82,6 +83,7 @@ You've initiated an automated production pipeline that will perform enterprise s
 In this activity, you'll explore how the production pipeline automatically performs enterprise-grade security validation, demonstrating how automation reduces risk while accelerating delivery.
 
 **Business Value:**
+
 * SOC 2/PCI compliance automated (saves weeks of manual evidence collection)
 * Security violations caught before reaching customers
 * Zero manual review bottlenecks
@@ -100,6 +102,7 @@ In this activity, you'll explore how the production pipeline automatically perfo
 This task provides perfect traceability by extracting the Git tag to ensure complete audit trail and compliance automation.
 
 **What Happens:**
+
 * Git release tag (e.g., `v1.0`) is extracted from the release
 * Tag becomes part of the destination image name for production
 * Ensures direct correlation between source code version and deployed image
@@ -111,6 +114,7 @@ This task provides perfect traceability by extracting the Git tag to ensure comp
 This task gives absolute certainty about production deployments by creating definitive proof of what was deployed and why.
 
 **Process:**
+
 * The Git release tag is mapped to the image produced during staging
 * The tag is used to locate the previously built container image
 * A metadata file named `images.json` is created with complete traceability information
@@ -143,6 +147,7 @@ This is the most critical business protection activity — you'll observe automa
 === Understanding the Business Risk and Protection
 
 **Business Risk Without Automated Validation:**
+
 * Security vulnerabilities in production could cost millions in damages and compliance fines
 * Manual security reviews create 2-3 week deployment delays
 * Human error in security checks leads to production incidents
@@ -204,6 +209,7 @@ ec validate image \
 ----
 
 **Security Validations Performed:**
+
 * Digital signature verification with Cosign
 * SBOM presence validation (e.g., SPDX, CycloneDX formats)
 * Provenance metadata verification (how the image was built)
@@ -217,6 +223,7 @@ ec validate image \
 * Note how this prevents security incidents before they reach customers
 
 **Business Impact:**
+
 * Security incident prevention: Saves potential millions in damages
 * Compliance confidence: Automatic evidence for audits
 * Deployment velocity: Minutes instead of weeks for security approval
@@ -249,6 +256,7 @@ skopeo copy \
 ----
 
 **What This Accomplishes:**
+
 * Creates a new tag prefixed with `prod-` (e.g., `prod-v1.0`) that clearly identifies the image as production-ready
 * Ensures complete traceability — the exact source and validation steps that led to this image are known
 * Only images that pass Enterprise Contract validation make it this far, preventing unsafe code deployment
@@ -312,6 +320,7 @@ patchesStrategicMerge:
 === Step 4: Validate GitOps Deployment Process
 
 **Automated Process Flow:**
+
 * The container image reference in the production overlay is updated by this patch
 * The patch is committed and pushed to the GitOps repository by OpenShift Pipelines
 * Argo CD watches this repository and detects the change immediately
@@ -376,6 +385,7 @@ You've demonstrated how enterprise security and business velocity reinforce each
 - **Audit Readiness:** Continuous compliance evidence generated automatically
 
 **Risk Mitigation:**
+
 * Eliminated human error in production deployments
 * Prevented security vulnerabilities from reaching customers
 * Ensured consistent security standards across all deployments
@@ -400,12 +410,14 @@ Take a moment to consider these questions about your workshop experience:
 === Recommended Follow-up Activities
 
 **For Technical Teams:**
+
 * Explore Enterprise Contract policy customization for your organization's requirements
 * Investigate integration with existing security scanning tools
 * Review GitOps repository structure and branching strategies
 * Examine monitoring and alerting integration options
 
 **For Business Leaders:**
+
 * Calculate potential ROI based on deployment time reduction and risk mitigation
 * Plan organizational change management for DevOps transformation
 * Consider compliance requirements and audit trail benefits
@@ -425,6 +437,7 @@ The following demonstrations can further illustrate enterprise transformation ca
 You've successfully experienced the future of enterprise application deployment — secure, automated, and business-focused* This represents a fundamental shift from traditional deployment practices to modern, risk-mitigated automation that enables competitive advantage through technology.
 
 **Key Achievements:**
+
 * Implemented end-to-end automated production deployment
 * Experienced enterprise-grade security validation
 * Observed GitOps-based deployment automation

@@ -89,12 +89,14 @@ Congratulations! You've successfully completed the **OpenShift Pipelines (Tekton
 * Focus shifts from setup to innovation
 
 **For Platform Teams:**
+
 * Dramatic reduction in manual setup and configuration requests
 * Standardized patterns reduce maintenance overhead
 * Self-service capabilities scale team effectiveness
 * Platform investment focuses on innovation, not repetitive tasks
 
 **For Security Teams:**
+
 * Automated security scanning eliminates manual bottlenecks
 * Policy enforcement is consistent and auditable
 * Reduced security incidents through built-in best practices
@@ -111,6 +113,7 @@ Congratulations! You've successfully completed the **OpenShift Pipelines (Tekton
 - **DevOps transformation initiatives** - Modernize development practices
 
 **Organizational Readiness:**
+
 * Teams comfortable with OpenShift Pipelines concepts and tooling
 * Kubernetes platform already deployed and managed
 * Container-based application architectures
@@ -119,12 +122,14 @@ Congratulations! You've successfully completed the **OpenShift Pipelines (Tekton
 === Scaling Considerations
 
 **Team Adoption:**
+
 * Provide training on OpenShift Pipelines development concepts
 * Start with pilot projects to demonstrate value
 * Establish OpenShift Pipelines best practices and standards
 * Create internal documentation and knowledge sharing
 
 **Platform Evolution:**
+
 * Plan for multi-cluster deployments and federated management
 * Consider disaster recovery and business continuity requirements
 * Implement proper monitoring, alerting, and observability
@@ -144,6 +149,7 @@ The OpenShift Pipelines approach demonstrated in this module can be combined wit
 === Migration Strategies
 
 **Gradual Adoption:**
+
 * Start with new projects using OpenShift Pipelines approaches
 * Modernize existing applications incrementally
 * Maintain legacy systems while building OpenShift Pipelines capabilities
@@ -193,16 +199,19 @@ Take a moment to consider these questions:
 == Additional Resources
 
 **Red Hat Documentation:**
+
 * link:https://developers.redhat.com/products/advanced-developer-suite[Red Hat Advanced Developer Suite^]
 * link:https://docs.openshift.com/pipelines/[OpenShift Pipelines Documentation^]
 * link:https://developers.redhat.com/products/openshift-dev-spaces[OpenShift Dev Spaces^]
 
 **Open Source Projects:**
+
 * link:https://tekton.dev/[Tekton Pipelines^]
 * link:https://argoproj.github.io/argo-cd/[ArgoCD GitOps^]
 * link:https://backstage.io/[Backstage (Developer Hub foundation)^]
 
 **Community Resources:**
+
 * link:https://www.redhat.com/en/blog/topics/devops[Red Hat DevOps Blog^]
 * link:https://developers.redhat.com/[Red Hat Developer Portal^]
 * link:https://access.redhat.com/documentation/[Red Hat Product Documentation^]
@@ -212,6 +221,7 @@ Take a moment to consider these questions:
 Thank you for completing the OpenShift Pipelines module! You've experienced the future of enterprise application development with Red Hat Advanced Developer Suite.
 
 **Continue Your Journey:**
+
 * Explore the **Jenkins** module to see alternative RHADS implementation approaches
 * Review the complete workshop resources and additional learning materials
 * Plan your organization's implementation strategy based on your experience today

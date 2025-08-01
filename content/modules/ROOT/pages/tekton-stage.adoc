@@ -166,12 +166,14 @@ This step enforces multiple critical validations that protect your business and 
 - **Provenance attestation** to verify source repository integrity
 
 **Business Value:**
+
 * Security validation: 1-2 weeks → Minutes
 * Early risk detection prevents costly production incidents
 * Same security standards as production ensure audit readiness
 * Automatic CVE scanning and policy compliance
 
 **Enterprise Impact:**
+
 * Security incident prevention: Issues caught before customer exposure
 * Audit confidence: Staging proves production security compliance
 * Deployment velocity: Minutes for security validation instead of weeks

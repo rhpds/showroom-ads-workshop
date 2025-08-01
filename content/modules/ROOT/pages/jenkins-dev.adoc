@@ -491,6 +491,7 @@ As your Jenkins pipeline executes, you can observe each stage in the familiar Bl
 image::jenkins-dev-20.png[]
 
 **Stage: verify-commit**
+
 * Verifies that your Git commit was cryptographically signed using `gitsign`
 * Downloads and uses the gitsign client to verify commit signatures
 * Integrates with Red Hat Trusted Application Signer (RHTAS) via Rekor and TUF
@@ -498,12 +499,14 @@ image::jenkins-dev-20.png[]
 * This enterprise security happens automatically in your Jenkins workflow
 
 **Stage: mvn package**
+
 * Runs `mvn clean package` in a dedicated Maven container
 * Compiles and packages your Quarkus application
 * Produces the runnable JAR for container image creation
 * Uses Maven 3.8.6 with OpenJDK 11 for consistent builds
 
 **Stage: init**
+
 * Prepares the Jenkins build environment using the `rhtap` library
 * Sets IMAGE_URL with the Git commit as the tag
 * Generates ISO timestamp for effective time tracking
@@ -511,6 +514,7 @@ image::jenkins-dev-20.png[]
 * Standardizes behavior across all Jenkins pipelines
 
 **Stage: build**
+
 * Uses `buildah_rhtap()` function to containerize your application
 * Automatically signs the image and creates attestations using `cosign_sign_attest()`
 * Generates provenance metadata and SLSA attestations for supply chain security
@@ -518,6 +522,7 @@ image::jenkins-dev-20.png[]
 * All security integration happens transparently in Jenkins
 
 **Stage: deploy-and-upload-to-tpa (parallel)**
+
 * *deploy*: Uses `update_deployment()` to update GitOps repository with new image tag
 * *upload_sbom_to_trustification*: Processes and uploads SBOM files to Trustification
   - Updates SBOM component name to match the application
@@ -526,12 +531,14 @@ image::jenkins-dev-20.png[]
 * No manual coordination required between Jenkins and deployment teams
 
 **Stage: acs (parallel)**
+
 * *acs_deploy_check*: Verifies Kubernetes manifests for security compliance
 * *acs_image_check*: Enforces policy on container image configuration
 * *acs_image_scan*: Performs vulnerability scanning using Red Hat Advanced Cluster Security
 * All security validation integrated into your Jenkins workflow
 
 **Stage: summary**
+
 * Executes `show_sbom_rhdh()` to display SBOM information for Developer Hub integration
 * Runs `summary()` function to provide comprehensive build status and artifacts
 * Shows build status and key artifacts (SBOM, scan summary, security results)

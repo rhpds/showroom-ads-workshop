@@ -188,12 +188,14 @@ IMPORTANT: This approach demonstrates how RHADS enhances rather than replaces ex
 === Modernization Benefits
 
 **Immediate Value:**
+
 * Self-service capabilities reduce platform team load
 * Integrated security scanning improves security posture
 * Standardized templates reduce configuration errors
 * GitOps deployment automation improves reliability
 
 **Long-term Strategic Value:**
+
 * Foundation for eventual OpenShift Pipelines migration if desired
 * Enhanced security and compliance capabilities
 * Improved developer productivity and satisfaction
@@ -215,6 +217,7 @@ TIP: Even if you're new to Red Hat Developer Hub or GitOps, the workshop guides 
 === When This Approach Excels
 
 **Enterprise Enhancement Benefits:**
+
 * Significant existing infrastructure and expertise preserved
 * Large number of existing pipelines can be enhanced incrementally
 * Team preference for familiar tooling and workflows maintained
@@ -222,6 +225,7 @@ TIP: Even if you're new to Red Hat Developer Hub or GitOps, the workshop guides 
 * Investment protection is prioritized
 
 **Key Capabilities Provided:**
+
 * Self-service developer portal capabilities
 * Integrated security scanning and compliance
 * GitOps deployment automation

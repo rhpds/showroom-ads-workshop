@@ -92,18 +92,21 @@ This module demonstrated how RHADS enhances existing Jenkins investments while p
 === Enhanced Jenkins Adoption Path
 
 **Step 1: Template Implementation**
+
 * Deploy enhanced Jenkins templates for new project creation
 * Establish self-service capabilities through Red Hat Developer Hub
 * Train teams on enhanced template usage and capabilities
 * Document enhanced Jenkins patterns and best practices
 
 **Step 2: Existing Pipeline Enhancement**
+
 * Gradually enhance existing Jenkins pipelines with security integration
 * Migrate critical applications to enhanced Jenkins patterns
 * Implement GitOps deployment for existing applications
 * Expand self-service capabilities across organization
 
 **Step 3: Comprehensive Enhancement**
+
 * Standardize enhanced Jenkins patterns across all projects
 * Implement advanced monitoring and observability capabilities
 * Establish comprehensive compliance and audit automation
@@ -150,12 +153,14 @@ This module demonstrated how RHADS enhances existing Jenkins investments while p
 === Hybrid Approach Considerations
 
 **Enterprise Implementation:**
+
 * Use enhanced approach for existing applications and teams
 * Leverage Red Hat Developer Hub templates for self-service capabilities
 * Allow teams to enhance at their own pace based on requirements
 * Maintain operational stability while gaining modern capabilities
 
 **Enhancement Planning:**
+
 * Start with enhanced approaches to protect existing investments
 * Plan gradual enhancement of capabilities over time
 * Develop modern development expertise while maintaining operational stability
@@ -164,6 +169,7 @@ This module demonstrated how RHADS enhances existing Jenkins investments while p
 === Enterprise Integration
 
 **Existing Tool Ecosystems:**
+
 * Integrate enhanced Jenkins with existing enterprise security tools
 * Connect to organizational identity and access management systems
 * Align with enterprise change management and approval processes
@@ -188,12 +194,14 @@ This module demonstrated how RHADS enhances existing Jenkins investments while p
 === Continued Learning
 
 **Enhanced Jenkins Capabilities:**
+
 * Advanced Jenkins pipeline patterns with integrated security
 * Enterprise Jenkins federation and management strategies
 * Jenkins integration with OpenShift Pipelines and hybrid environments
 * Advanced monitoring and observability for enhanced Jenkins
 
 **Broader RHADS Ecosystem:**
+
 * Red Hat Developer Hub customization and enterprise integration
 * Advanced GitOps patterns and deployment strategies
 * Enterprise security tool integration and policy management
@@ -214,16 +222,19 @@ Take a moment to consider these strategic questions:
 == Additional Resources
 
 **Red Hat Enhanced Jenkins Documentation:**
+
 * link:https://developers.redhat.com/products/advanced-developer-suite[Red Hat Advanced Developer Suite^]
 * link:https://docs.openshift.com/pipelines/[OpenShift Pipelines Integration^]
 * link:https://developers.redhat.com/products/openshift-dev-spaces[OpenShift Dev Spaces^]
 
 **Jenkins Enhancement Patterns:**
+
 * link:https://www.jenkins.io/doc/book/pipeline/[Jenkins Pipeline Documentation^]
 * link:https://plugins.jenkins.io/[Jenkins Plugin Ecosystem^]
 * link:https://www.jenkins.io/doc/book/managing/security/[Jenkins Security Best Practices^]
 
 **Enterprise Integration Resources:**
+
 * link:https://www.redhat.com/en/solutions/trusted-software-supply-chain[Trusted Software Supply Chain^]
 * link:https://access.redhat.com/documentation/[Red Hat Product Documentation^]
 * link:https://developers.redhat.com/[Red Hat Developer Portal^]
@@ -233,6 +244,7 @@ Take a moment to consider these strategic questions:
 Thank you for completing the Enhanced Jenkins module! You've experienced how Red Hat Advanced Developer Suite preserves and enhances existing investments while providing modern capabilities.
 
 **Continue Your Journey:**
+
 * Explore the **OpenShift Pipelines (Tekton)** module to see alternative implementation approaches
 * Review complete workshop resources and implementation planning materials
 * Develop your organization's RHADS implementation strategy based on today's experience
