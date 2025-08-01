@@ -10,7 +10,7 @@ Your main entry point to the workshop activities:
 * **Username**: `{rhdh_user}`
 * **Password**: `{rhdh_user_password}`
 
-TIP: Use the GitLab authentication option when prompted to sign in.
+TIP: Use the OIDC authentication option when prompted to sign in. Authentication is powered by Red Hat build of Keycloak for secure access.
 
 == OpenShift Console Access
 

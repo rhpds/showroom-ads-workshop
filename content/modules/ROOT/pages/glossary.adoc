@@ -20,6 +20,11 @@
 [id='idp']
 *Internal Developer Portal (IDP)*:: A centralized platform that provides developers with self-service access to tools, documentation, templates, and resources needed for application development and deployment.
 
+== K
+
+[id='keycloak']
+*Red Hat build of Keycloak*:: An enterprise-ready identity and access management solution that provides OIDC authentication and authorization services for secure application access.
+
 == O
 
 [id='openshift']

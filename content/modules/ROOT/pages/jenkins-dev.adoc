@@ -60,9 +60,9 @@ Let's start your journey into a completely new Jenkins experience - one where yo
 +
 link:{rhdh_url}[*Red Hat Developer Hub*^]
 
-. You see the familiar authentication page and click the *GitLab* button to sign in:
+. You see the familiar authentication page and click the *Sign In* button to sign in:
 +
-TIP: Your organization uses GitLab authentication, which seamlessly integrates with your enhanced Jenkins workflows.
+TIP: Your organization uses OIDC authentication powered by Red Hat build of Keycloak, which seamlessly integrates with your enhanced Jenkins workflows.
 
 === Step 2: Authenticate
 
@@ -76,7 +76,7 @@ Password: {rhdh_user_password}
 
 . After clicking *Sign in*, you're prompted to authorize access
 
-. You click *Authorize keycloak* to grant the necessary permissions
+. You click *Authorize* to grant the necessary permissions to Red Hat build of Keycloak
 
 image::3_Authorize.png[]
 

@@ -63,9 +63,9 @@ Let's embark on your journey by logging into your new development environment. Y
 +
 link:{rhdh_url}[*Red Hat Developer Hub*^]
 
-* You see the authentication page and click the *GitLab* button to start your journey:
+* You see the authentication page and click the *Sign In* button to start your journey:
 +
-TIP: Your organization uses GitLab as the authentication provider - this integration will save you time throughout your development workflow.
+TIP: Your organization uses OIDC authentication powered by Red Hat build of Keycloak - this secure authentication integration will save you time throughout your development workflow.
 
 === Step 2: Authenticate
 
@@ -79,7 +79,7 @@ Password: {rhdh_user_password}
 
 * After clicking *Sign in*, you're prompted to authorize access
 
-* You click *Authorize keycloak* to grant the necessary permissions
+* You click *Authorize* to grant the necessary permissions to Red Hat build of Keycloak
 
 image::3_Authorize.png[]
 
