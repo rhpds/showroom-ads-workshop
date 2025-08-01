@@ -49,8 +49,8 @@ Let's create a Git tag to trigger the automated staging pipeline and observe how
 
 === Step 1: Access Your GitLab Repository
 
-. Open your GitLab repository at {gitlab_url}/development/qrks-tkn-{user}[qrks-tkn-{user}^]
-. Sign in using:
+* Open your GitLab repository at {gitlab_url}/development/qrks-tkn-{user}[qrks-tkn-{user}^]
+* Sign in using:
 +
 [source,bash,subs="attributes"]
 ----
@@ -64,13 +64,13 @@ image::tekton-stage-1.png[]
 
 Creating a Git tag simulates a release event that triggers the staging pipeline.
 
-. In the left menu, click on *Code > Tags > New Tag*
+* In the left menu, click on *Code > Tags > New Tag*
 +
 image::tekton-stage-2.png[]
 
-. Enter a version tag like `v1.0`
-. Choose the target branch (typically `main`)
-. Click *Create Tag*
+* Enter a version tag like `v1.0`
+* Choose the target branch (typically `main`)
+* Click *Create Tag*
 +
 image::tekton-stage-3.png[]
 
@@ -93,27 +93,27 @@ The CLI approach does the same thing — triggers the pipeline tied to this Git 
 
 === Step 3: Monitor Pipeline Execution
 
-. Go to Red Hat Developer Hub
-. Navigate to the *qrks-tkn-{user}* component
-. Click the *CI* tab to see pipeline runs
-. Expand the job labeled *promote-to-stage* to follow its progress
+* Go to Red Hat Developer Hub
+* Navigate to the *qrks-tkn-{user}* component
+* Click the *CI* tab to see pipeline runs
+* Expand the job labeled *promote-to-stage* to follow its progress
 +
 image::tekton-stage-4.png[]
 
 [TIP]
 ====
-Use the Developer Hub view to observe each task as it executes. You'll see automation in action — no manual approvals, just policy-driven promotion.
+Use the Developer Hub view to observe each task as it executes* You'll see automation in action — no manual approvals, just policy-driven promotion.
 ====
 
 == Activity 2: Understanding Pipeline Tasks
 
-The staging pipeline provides production-level confidence while eliminating manual bottlenecks. Let's examine each task in detail.
+The staging pipeline provides production-level confidence while eliminating manual bottlenecks* Let's examine each task in detail.
 
 === Task 1.1: extract-destination-image-tag
 
 **Purpose:** Perfect traceability through Git tags
 
-This task extracts the commit ID of the Git tag. The commit ID becomes the image tag of the image we are promoting to staging, enabling:
+This task extracts the commit ID of the Git tag* The commit ID becomes the image tag of the image we are promoting to staging, enabling:
 
 * Coordinated feature rollouts
 * Complete audit trails for compliance
@@ -179,7 +179,7 @@ This step enforces multiple critical validations that protect your business and 
 
 [IMPORTANT]
 ====
-If any check fails, the pipeline halts. If everything passes, the image moves forward to the next promotion step.
+If any check fails, the pipeline halts* If everything passes, the image moves forward to the next promotion step.
 ====
 
 **Technical Implementation:**
@@ -198,7 +198,7 @@ Then, the Enterprise Contract CLI performs validation:
 [source,bash,subs="attributes"]
 ----
 ec validate image \
-  --image quay.tssc-quay/tssc/qrks-tkn-{user}:abc123... \
+  --image quay.tssc-quay/tssc/qrks-tkn-{user}:abc123..* \
   --policy default \
   --public-key k8s://openshift/trusted-keys \
   --output json
@@ -233,7 +233,7 @@ This task promotes the validated image with a human-readable tag (e.g., `v1.0`),
 [source,bash,subs="attributes"]
 ----
 skopeo copy \
-  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:abc123... \
+  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:abc123..* \
   docker://quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
 ----
 
@@ -255,7 +255,7 @@ This task ensures validated changes reach staging automatically through GitOps, 
 
 [NOTE]
 ====
-No manual `kubectl`, no YAML editing in the console — the system reacts to Git. That's the GitOps advantage.
+No manual `kubectl`, no YAML editing in the console — the system reacts to Git* That's the GitOps advantage.
 ====
 
 **GitOps Implementation Details:**
@@ -299,26 +299,26 @@ spec:
 
 Watch how ArgoCD automatically syncs your validated changes to the staging environment.
 
-ArgoCD (OpenShift GitOps) continuously monitors your GitOps repository and automatically applies any changes to your staging environment. When the pipeline updates deployment manifests, ArgoCD detects these changes and deploys them without any manual intervention - ensuring your staging environment always matches what's defined in Git.
+ArgoCD (OpenShift GitOps) continuously monitors your GitOps repository and automatically applies any changes to your staging environment* When the pipeline updates deployment manifests, ArgoCD detects these changes and deploys them without any manual intervention - ensuring your staging environment always matches what's defined in Git.
 
 === Step 1: Verify Deployment Updates
 
-. Access your GitOps repository at {gitlab_url}/development/qrks-tkn-{user}-gitops[qrks-tkn-{user}-gitops^]
-. Check the updated deployment manifests in the `components/qrks-tkn-{user}/overlays/stage` directory
-. Notice how the image tag has been automatically updated to your release version
-. Observe that this happens without any manual intervention
+* Access your GitOps repository at {gitlab_url}/development/qrks-tkn-{user}-gitops[qrks-tkn-{user}-gitops^]
+* Check the updated deployment manifests in the `components/qrks-tkn-{user}/overlays/stage` directory
+* Notice how the image tag has been automatically updated to your release version
+* Observe that this happens without any manual intervention
 
 === Step 2: Monitor ArgoCD Synchronization
 
-. ArgoCD automatically detects the Git changes in your GitOps repository
-. ArgoCD syncs these changes to the staging environment
-. The deployment completes successfully without manual kubectl commands
+* ArgoCD automatically detects the Git changes in your GitOps repository
+* ArgoCD syncs these changes to the staging environment
+* The deployment completes successfully without manual kubectl commands
 
 === Step 3: Validate Staging Environment
 
-. Access your staging application through its route
-. Verify that your changes are live and functioning correctly
-. Confirm that the staging environment matches your expectations
+* Access your staging application through its route
+* Verify that your changes are live and functioning correctly
+* Confirm that the staging environment matches your expectations
 
 == What You've Learned
 
@@ -330,7 +330,7 @@ You've experienced how Red Hat Advanced Developer Suite transforms enterprise st
 | Phase | Purpose
 
 | 1.1 extract-destination-image-tag
-| Extracts the commit ID of the Git tag. The commit ID is the image tag of the image we are promoting to `stage`.
+| Extracts the commit ID of the Git tag* The commit ID is the image tag of the image we are promoting to `stage`.
 
 | 1.2 gather-images-to-verify
 | Selects the image based on the commit ID and generates `images.json`.

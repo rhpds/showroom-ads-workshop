@@ -13,20 +13,20 @@ Welcome to the enterprise integration path! In this module, you'll experience ho
 
 By completing this module, you will:
 
-* **Modernize Jenkins workflows** using self-service software templates
-* **Integrate enterprise security** into existing Jenkins pipelines
-* **Experience enhanced Jenkins** with automatic security scanning and signing
-* **Understand GitOps deployment** from Jenkins-based CI/CD
-* **See investment preservation** while gaining modern capabilities
+- **Modernize Jenkins workflows** using self-service software templates
+- **Integrate enterprise security** into existing Jenkins pipelines
+- **Experience enhanced Jenkins** with automatic security scanning and signing
+- **Understand GitOps deployment** from Jenkins-based CI/CD
+- **See investment preservation** while gaining modern capabilities
 
 == Target Audience
 
 This module is ideal for:
 
-* **Organizations with Jenkins investments** wanting to modernize without replacement
-* **Enterprise teams** with established Jenkins expertise and infrastructure
-* **Platform engineers** enhancing existing CI/CD capabilities
-* **Organizations** balancing innovation with investment protection
+- **Organizations with Jenkins investments** wanting to modernize without replacement
+- **Enterprise teams** with established Jenkins expertise and infrastructure
+- **Platform engineers** enhancing existing CI/CD capabilities
+- **Organizations** balancing innovation with investment protection
 
 == Technology Stack
 
@@ -54,10 +54,10 @@ In this module, you'll work with:
 
 ACME has significant Jenkins investments powering critical applications. They need to:
 
-* **Preserve Jenkins infrastructure** representing millions in investment
-* **Enhance security capabilities** without disrupting existing workflows
-* **Provide self-service options** to reduce platform team overhead
-* **Modernize gradually** while maintaining operational stability
+- **Preserve Jenkins infrastructure** representing millions in investment
+- **Enhance security capabilities** without disrupting existing workflows
+- **Provide self-service options** to reduce platform team overhead
+- **Modernize gradually** while maintaining operational stability
 
 **The Challenge:**
 Traditional Jenkins setups require extensive manual configuration and lack modern security integration.

@@ -54,10 +54,10 @@ In this module, you'll work with:
 
 ACME's development team is modernizing their architecture with OpenShift Pipelines. They need:
 
-* **Fast iteration cycles** for competitive advantage
-* **Scalable development practices** for their growing team
-* **Built-in security** that doesn't slow down development
-* **Modern tooling** that attracts top developer talent
+- **Fast iteration cycles** for competitive advantage
+- **Scalable development practices** for their growing team
+- **Built-in security** that doesn't slow down development
+- **Modern tooling** that attracts top developer talent
 
 **The Challenge:**
 Traditional development processes take too long and don't scale with modern Kubernetes architectures.

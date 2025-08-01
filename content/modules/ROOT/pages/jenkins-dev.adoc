@@ -1,4 +1,4 @@
-= Jenkins - Development
+= Jenkins Pipelines - Development
 :source-highlighter: rouge
 :toc: macro
 :toclevels: 2
@@ -9,70 +9,72 @@ toc::[]
 
 By the end of this section, you will:
 
-* Access Red Hat Developer Hub and create Jenkins-enhanced applications
-* Create a new secure Quarkus application using Jenkins integration templates
-* Experience self-service development that enhances your existing Jenkins investment
-* Understand how modern security is integrated into familiar Jenkins workflows
+* Understand how organizations preserve Jenkins investments while gaining modern self-service capabilities
+* Create a new secure Quarkus application using Jenkins pipeline templates
+* Experience self-service development that reduces setup time from weeks to minutes
+* Learn how security is automatically integrated into Jenkins workflows
+* See how existing Jenkins expertise becomes more valuable with enhanced capabilities
 
-== Your Enterprise Development Challenge
+== Your Jenkins Development Challenge
 
-As ACME's newest developer working with enterprise tooling, you know the pain of traditional development workflows all too well:
+As a developer joining a team with significant Jenkins investments, you're facing familiar enterprise development challenges while working with trusted Jenkins infrastructure:
 
-=== Your Current Reality: Weeks of Jenkins Setup
+=== Your Current Jenkins Reality: Weeks of Setup
 
-Here's what you've been dealing with in your enterprise Jenkins environment:
+Here's what you've been experiencing with traditional Jenkins pipeline setup:
 
-- **1-2 weeks** submitting DevOps tickets and waiting for custom Jenkins pipelines to be created
-- **Multiple coordination meetings** with platform teams, security teams, and other developers - each one slowing you down
-- **Manual security integration** that requires specialized knowledge you don't have
-- **Configuration inconsistencies** that create mysterious failures across different Jenkins pipelines
+* 1-2 weeks waiting for the DevOps team to create custom Jenkins pipelines for your project
+* Multiple coordination meetings between development, platform, and security teams
+* Manual integration of security tools into Jenkins workflows that feels complex and error-prone
+* High risk of configuration inconsistencies across different Jenkins pipelines
+* Each custom Jenkins pipeline becomes a maintenance burden requiring ongoing platform team support
 
-**What This Really Means for You:**
+=== What This Really Costs Your Team
 
-* You spend more time waiting than coding - frustrating when you want to be productive
-* Platform teams are overwhelmed with setup requests from developers like you
-* Security integration feels like a black box that only DevOps specialists understand
-* Every new project feels like starting from scratch with custom Jenkins configurations
+* Platform team spends 40+ hours per new application on Jenkins pipeline setup
+* Security integration delays add another 1-2 weeks to project timelines
+* You spend more time coordinating Jenkins setup than writing code
+* Each Jenkins pipeline configuration feels like starting from scratch
+* Teams are hesitant to create new services due to Jenkins setup complexity
 
-=== Your New Reality with Enhanced Jenkins
+=== Your New Reality with RHADS: Enhanced Jenkins Self-Service
 
-But you're about to discover how RHADS transforms your Jenkins experience while keeping everything familiar:
+But you're about to discover how your Jenkins investment can be transformed:
 
-- **Zero Jenkins setup time**: You'll get production-ready Jenkins pipelines instantly - no tickets, no waiting for DevOps
-- **Zero platform coordination**: You become self-sufficient while using the Jenkins tools you already know
-- **Zero configuration drift**: Standardized templates eliminate the inconsistencies that cause failures
-- **Zero security gaps**: Enterprise security gets automatically integrated without you needing to understand the complexities
+* Zero Jenkins setup time: Instant production-ready Jenkins pipelines with security built-in
+* Zero platform coordination: Self-serve Jenkins capabilities without DevOps team involvement
+* Zero configuration drift: Standardized Jenkins templates ensure consistency
+* Zero security gaps: Enterprise security automatically integrated into Jenkins workflows
 
-**What This Transforms for Your Daily Work:**
+=== What This Means for Your Daily Jenkins Work
 
-* Jenkins pipeline creation: **1-2 weeks → 5 minutes**
-* Security integration: **Complex manual process → Automatic and invisible**
-* Platform team dependency: **75% reduction** in tickets and requests
-* Your satisfaction: **Self-service capabilities** while keeping your familiar Jenkins workflow
+* Jenkins pipeline creation time: 1-2 weeks → 5 minutes
+* Pipeline configuration: Manual coordination → Self-service automation with Jenkins expertise
+* Security compliance: 100% consistent without becoming a Jenkins security expert
+* Your productivity: Immediate access to enhanced Jenkins capabilities
 
-IMPORTANT: Today you'll experience this Jenkins transformation firsthand - creating a production-ready application with enterprise security in minutes, not weeks. You'll still be using Jenkins, but it will feel like a completely different experience!
+IMPORTANT: Today you'll experience how organizations can transform their Jenkins investment from a bottleneck into a competitive advantage, creating production-ready Jenkins applications in minutes while preserving valuable team expertise.
 
-== Activity 1: Your Gateway to Enhanced Jenkins Development
+== Activity 1: Accessing Your Enhanced Jenkins Environment
 
-Let's start your journey into a completely new Jenkins experience - one where you're in control!
+Let's begin your journey by logging into your modernized development environment that preserves your Jenkins workflows while adding powerful self-service capabilities.
 
 === Step 1: Open Red Hat Developer Hub
 
-. Ready to see how Jenkins can be transformed, you navigate to the Red Hat Developer Hub using the URL from your welcome email:
+* Navigate to the Red Hat Developer Hub, which now provides self-service Jenkins capabilities:
 +
 link:{rhdh_url}[*Red Hat Developer Hub*^]
 
-. You see the "Select a sign-in method" screen and click the *OIDC* option to sign in
+* You see the "Select a sign-in method" screen and click the *OIDC* option
 
 image::jenkins-dev-1.png[]
 
-TIP: Your organization uses OIDC authentication powered by Red Hat build of Keycloak, which seamlessly integrates with your enhanced Jenkins workflows.
+TIP: This secure authentication integration will streamline your Jenkins workflow access and eliminate multiple login prompts.
 
 === Step 2: Enter Your Credentials
 
-. You're presented with the Red Hat Trusted Artifact Signer login form with username and password fields
-
-. You enter your lab credentials, anticipating what you'll discover:
+* You're presented with the authentication form
+* Enter your lab credentials:
 +
 [source,bash,subs="attributes"]
 ----
@@ -80,76 +82,66 @@ Username: {rhdh_user}
 Password: {rhdh_user_password}
 ----
 
-. Click the blue *Sign In* button to proceed
-
-=== Step 3: Authorize Access
-
-. After entering your credentials, you're prompted to authorize access to Red Hat Developer Hub
-
-. You click *Authorize* to grant the necessary permissions to Red Hat build of Keycloak
-
-. Moments later, you're welcomed by the Red Hat Developer Hub landing page - your new command center for Jenkins development!
-
-IMPORTANT: If you encounter any authentication issues, you can always reference the "Lab Access Information" page for your credentials.
+* Click the *Sign In* button to proceed
 
 === What You Just Discovered
 
-You've just accessed something that will change how you think about Jenkins development - your organization's **Internal Developer Portal (IDP)** that's been optimized to enhance your Jenkins experience. As you explore the interface, you realize this platform provides everything you've wished Jenkins could do:
+You've just accessed your organization's **Internal Developer Portal (IDP)** that's been specifically designed to enhance your Jenkins capabilities while preserving familiar workflows:
 
-* Self-service Jenkins pipeline templates that eliminate DevOps tickets
-* Integrated security tool configuration that "just works" with Jenkins
-* Automated Jenkins job creation that removes all the manual setup
-* A streamlined developer experience that makes Jenkins feel modern again
+* Self-service Jenkins pipeline templates that eliminate waiting for platform teams
+* Integrated Jenkins resources that "just work" with security built-in
+* Automated Jenkins pipeline creation that handles the complex security integration for you
+* A streamlined onboarding experience that makes Jenkins expertise more valuable
 
-"This is still Jenkins, but better," you think as you browse the enhanced interface.
+"This will transform how we work with Jenkins," you realize as you explore the enhanced interface.
 
-== Activity 2: Creating Your Enhanced Jenkins Application
+== Activity 2: Creating Your First Self-Service Jenkins Application
 
-Now comes the exciting part - you're about to experience Jenkins like you've never seen it before!
+Now comes the exciting part - you're about to experience the magic of self-service Jenkins application creation that preserves your Jenkins expertise while adding modern capabilities!
 
-=== Step 1: Discovering Enhanced Jenkins Templates
+=== Step 1: Discovering Jenkins Software Templates
 
-. Eager to tackle your Black Friday project with your enhanced Jenkins workflow, you spot the **+ Self-service** button in the top-right corner
-. You click **+ Self-service** and are delighted to see templates specifically designed for Jenkins - no more complex manual setup!
+* Ready to leverage your Jenkins skills on a new project, you spot the **+ Self-service** button in the top-right corner
+* You click **+ Self-service** and discover a catalog of ready-to-use Jenkins templates
 
 image::jenkins-dev-2.png[]
 
-=== Step 2: Choosing Your Enhanced Jenkins Template
+=== Step 2: Choosing Your Jenkins Pipeline Template
 
-. As you browse through the available templates, one immediately catches your attention:
+* As you browse through the available templates, one immediately catches your attention:
 +
 `*Securing a Quarkus Service Software Supply Chain (Jenkins)*`
 
-. "Finally!" you think, "A Jenkins template that includes security and modern practices built-in"
-. You click *Choose* to select this template, excited to see Jenkins enhanced with modern capabilities
+* "Perfect!" you think, "This leverages Jenkins - the tool I know and trust - but with modern security capabilities"
+* You click *Choose* to select this Jenkins template
 
 image::jenkins-dev-3.png[]
 
-TIP: You're about to witness something remarkable - this template will automatically create your complete Jenkins environment with security scanning, container signing, and GitOps deployment, all using the Jenkins patterns you already know and love!
+TIP: You're about to witness something powerful - this single template will automatically create your complete Jenkins environment with pipelines, security integration, and Kubernetes resources* No tickets, no waiting, no manual Jenkins configuration!
 
-=== Step 3: Configure Your Jenkins-Enhanced Application
+=== Step 3: Configure Your Jenkins Application
 
-The template form will guide you through Jenkins-enhanced configuration with three main sections:
+The template form will guide you through Jenkins pipeline configuration:
 
 ==== Application Information
 
-Accept the default values or customize for your Jenkins application:
+Ensure that the following values are set for your Jenkins application:
 
 [cols="1,2", options="header"]
 |===
 | Field | Default Value
-| Name | `my-quarkus-jenkins`
+| Name | `qrks-jnk-{user}`
 | Group ID | `redhat.rhdh`
-| Artifact ID | `my-quarkus-jenkins`
+| Artifact ID | `qrks-jnk-{user}`
 | Java Package Name | `org.redhat.rhdh`
-| Description | `A cool Quarkus app with enhanced Jenkins`
+| Description | `A cool Quarkus app with Jenkins`
 |===
 
 Click *Next* to continue.
 
 ==== Image Registry Information
 
-These settings determine where your container images will be stored:
+These settings determine where your Jenkins pipeline will store container images:
 
 [cols="1,2", options="header"]
 |===
@@ -162,7 +154,7 @@ Click *Next* to continue.
 
 ==== Repository Information
 
-This configures your source code repository and Jenkins integration:
+This configures your Jenkins integration with source control:
 
 [cols="1,2", options="header"]
 |===
@@ -172,264 +164,363 @@ This configures your source code repository and Jenkins integration:
 | Verify Commits | `enabled`
 |===
 
-Note that **Verify Commits** is enabled - this ensures all code commits are cryptographically signed for supply chain security, integrated seamlessly with your Jenkins workflow.
+Note that **Verify Commits** is enabled - this ensures Jenkins pipelines include cryptographic commit signing for enterprise security.
 
-Click *Review* to see a summary of your Jenkins-enhanced configuration.
+Click *Review* to see a summary of your Jenkins configuration.
 
-=== Step 4: Create Your Jenkins-Enhanced Application
+=== Step 4: Create Your Jenkins Application
 
-. Review all the settings in the summary page
-
-image::jenkins-dev-4.png[]
+* Review all the settings in the summary page
 
 image::jenkins-dev-5.png[]
 
-. Click *Create* to generate your Jenkins-enhanced application
+* Click *Create* to generate your Jenkins application
 
-The Jenkins-enhanced software template will now:
+The Jenkins software template will now:
 
 * Create GitLab repositories for your source code and GitOps manifests
-* Set up Jenkins pipelines with integrated security scanning and signing
-* Configure Jenkins jobs with enterprise security tool integration
-* Set up container image signing and verification workflows
-* Deploy the Jenkins pipeline infrastructure to your Jenkins environment
+* Set up Jenkins pipelines with automated security scanning and signing
+* Configure Kubernetes resources for your application
+* Set up container image signing and verification in Jenkins workflows
+* Deploy the Jenkins pipeline infrastructure and trigger the initial build
 
-TIP: This entire Jenkins enhancement that traditionally takes weeks is completed in under a minute!
+TIP: This entire Jenkins setup that traditionally takes weeks is completed in under a minute while preserving familiar Jenkins workflows!
 
-=== Step 5: Access Your New Jenkins-Enhanced Component
+=== Step 5: Access Your New Jenkins Component
 
-. Once the template execution completes, click *Open Component in Catalog*
-. You'll see your new Jenkins-enhanced application component with links to:
+* Once the template execution completes, click *Open Component in Catalog*
+
+* In Red Hat Developer Hub, go to the *Catalog* and locate your new component (`qrks-jnk-{user}`)
+
+image::jenkins-dev-6.png[]
+
+* Click the component name to open its *Overview* page
+
+image::jenkins-dev-7.png[]
+
+* You'll see your new Jenkins application component with links to:
   * Source code repository with Jenkins pipeline definitions
-  * Jenkins job dashboard and build history
-  * Application overview and deployment status
+  * Jenkins CI/CD pipelines and build status
+  * Application overview and health monitoring
   * OpenShift Dev Spaces development environment
 
-== Activity 3: Understanding Your Enhanced Jenkins Pipeline as Code
+== Activity 3: Understanding Your Generated Jenkins Environment
 
-=== Step 1: Examining Enhanced Jenkins Pipeline Files
+=== Step 1: Exploring the Jenkins Pipeline Structure
 
-Before accessing Jenkins, let's understand the pipeline files that were generated:
+The template you just used created a sophisticated Jenkins environment with key components:
 
-**📄 `Jenkinsfile.push` - Enhanced Development Pipeline**
+**🏗️ Developer Hub Configuration Repository:**
+
+- **Location**: Contains the Jenkins template you just used
+- **Purpose**: Defines the self-service Jenkins template that generated your application
+- **What it does**: Provides the blueprint for Jenkins pipeline creation with security integration
+
+**⚙️ Your Generated Application Repository:**
+
+- **Location**: `{gitlab_url}/development/qrks-jnk-{user}[^]`
+- **Purpose**: Contains your application source code with Jenkins pipeline definitions
+- **Jenkins files**: `Jenkinsfile` with complete pipeline definition including:
+  - Build and test automation
+  - Security scanning and image signing
+  - GitOps deployment integration
+
+=== Understanding Jenkins Pipelines as Code
+
+**What is Jenkins Pipelines as Code?**
+
+Your Jenkins pipeline definition lives alongside your application code in the same Git repository* This approach provides:
+
+- **Version Control**: Jenkins pipeline changes are tracked with your code changes
+- **Reproducibility**: Anyone can see exactly how your application is built in Jenkins
+- **Consistency**: The same Jenkins pipeline runs regardless of environment
+- **Developer Ownership**: You control your Jenkins pipeline without platform team dependencies
+
+**Your Jenkins Pipeline Stages:**
+
+**🔍 `verify-commit`**
 ```groovy
-pipeline {
-    agent any
-    stages {
-        stage('Checkout') { /* Standard Jenkins checkout */ }
-        stage('Build') { /* Familiar Quarkus build */ }
-        stage('Test') { /* Unit test execution */ }
-        stage('Security Scan') {
-            // Enhanced: Integrated vulnerability scanning
-            // Uses modern security tools via Jenkins plugins
-        }
-        stage('Build Image') { /* Container image creation */ }
-        stage('Sign Image') {
-            // Enhanced: Cryptographic signing via Jenkins
-            // Provides supply chain security
-        }
-        stage('Deploy Dev') {
-            // Enhanced: GitOps deployment triggered from Jenkins
-        }
-    }
-}
+// Verifies cryptographic commit signatures using gitsign
+// Downloads gitsign client and verifies commit signatures
+// Integrates with Red Hat Trusted Application Signer via TUF and Rekor
 ```
 
-**📄 `Jenkinsfile.tag` & `Jenkinsfile.release`**
-These files handle staging and production deployments using the same enhanced Jenkins patterns with modern security integration.
+**📦 `mvn package`**
+```groovy
+// Runs mvn clean package in Maven container
+// Compiles and packages Quarkus application
+// Uses Maven 3.8.6 with OpenJDK 11
+```
 
-**Why This Matters:**
+**⚙️ `init`**
+```groovy
+// Initializes RHTAP library and build environment
+// Sets IMAGE_URL with Git commit as tag
+// Generates timestamps and prepares shared functions
+```
 
-- **Familiar Syntax**: Standard Jenkins Pipeline DSL you already know
-- **Enhanced Security**: Modern vulnerability scanning integrated seamlessly
-- **GitOps Integration**: Automated deployment without abandoning Jenkins
-- **Investment Protection**: Your Jenkins expertise becomes more valuable
+**🔨 `build`**
+```groovy
+// Uses buildah_rhtap() to create container images
+// Signs images and creates attestations with cosign_sign_attest()
+// Generates SLSA provenance and captures image digest
+```
 
-TIP: These Jenkinsfiles reference shared functions from `{gitlab_url}/rhdh/tssc-sample-jenkins`, enabling consistent security practices across all Jenkins-enhanced applications.
+**🚀 `deploy-and-upload-to-tpa` (parallel)**
+```groovy
+// deploy: Updates GitOps repository with update_deployment()
+// upload_sbom_to_trustification: Processes and uploads SBOM files
+// Triggers automated deployment via GitOps
+```
 
-=== Step 2: Access Your Enhanced Jenkins Dashboard
+**🛡️ `acs` (parallel)**
+```groovy
+// acs_deploy_check: Verifies Kubernetes manifests
+// acs_image_check: Enforces container image policies
+// acs_image_scan: Scans for vulnerabilities with RHACS
+```
 
-. In your component overview, find and click the *Jenkins* link
-. This opens your Jenkins instance showing the automatically created job
+**📊 `summary`**
+```groovy
+// Executes show_sbom_rhdh() for Developer Hub integration
+// Runs summary() function for comprehensive build status
+// Displays artifacts, SBOM, and security scan results
+```
 
-. You can also open the integrated terminal in OpenShift Dev Spaces:
-  * From the top menu bar, click on `Terminal → New Terminal`
+**Why This Matters for Your Jenkins Work:**
 
-image::jenkins-dev-14.png[]
-. Review the Jenkins pipeline configuration that was automatically generated
+- **Familiar Tools**: You're using Jenkins Blue Ocean and interfaces you already know
+- **Enhanced Capabilities**: Your Jenkins expertise gains modern security and GitOps features
+- **Self-Service Power**: Modify Jenkins pipelines via pull requests instead of platform tickets
+- **Enterprise Security**: All the security integration happens automatically in your Jenkins workflows
 
-. You'll see an enhanced Jenkins pipeline with stages:
-  * **Checkout** - Source code retrieval
-  * **Build** - Quarkus application compilation
-  * **Test** - Automated testing execution
-  * **Security Scan** - Integrated vulnerability scanning
-  * **Build Image** - Container image creation
-  * **Sign Image** - Cryptographic signing
-  * **Deploy** - GitOps-based deployment
+== Activity 4: Making Your First Code Change
 
-TIP: Notice how modern security capabilities are seamlessly integrated into familiar Jenkins pipeline patterns.
+Time to trigger your enhanced Jenkins pipeline and see the automation in action!
 
-=== Step 2: Access Development Environment
+=== Step 1: Accessing Your Development Environment
 
-. Return to your component overview in Red Hat Developer Hub
-. Find and click the *OpenShift Dev Spaces* link
-. This launches a browser-based development environment integrated with your Jenkins workflow
+* In your component overview, you notice a link for *OpenShift Dev Spaces* and click it
+* "A browser-based development environment integrated with Jenkins?" you wonder
 
-. If redirected, click *Log in with OpenShift*
+* If prompted for authentication, click *Log in with OpenShift*
 
-. Sign in with your credentials:
+image::jenkins-dev-8.png[]
+
+* On the *Authorize Access* screen, click *Allow selected permissions*
+
+image::jenkins-dev-9.png[]
+
+* On the repository trust prompt, click the checkbox and then click *Continue*
+
+image::jenkins-dev-10.png[]
+
+* When prompted to authenticate with GitLab, enter your credentials:
 +
 [source,bash,subs="attributes"]
 ----
-Username: {rhdh_user}
-Password: {rhdh_user_password}
+Username: {gitlab_user}
+Password: {gitlab_user_password}
 ----
 
-. Click *Allow selected permissions* when prompted
+image::jenkins-dev-11.png[]
 
-=== Step 3: Make Your First Jenkins-Triggered Code Change
+* Click *Authorize devspaces* on the next window
 
-Once your workspace loads, let's trigger your enhanced Jenkins pipeline:
+image::jenkins-dev-12.png[]
 
-. Expand the `docs` folder in the file explorer
-. Open the `index.md` file
-. Add the following line at the end of the document:
+* Wait for the workspace to start and fully load VS Code
+* If prompted, trust all workspaces and authors
+
+image::jenkins-dev-13.png[]
+
+=== Step 2: Explore Your Jenkins-Integrated Development Environment
+
+Once your workspace loads, you'll see:
+
+- **Pre-configured Quarkus project** with Jenkins best practices
+- **Jenkins pipeline definition** (`Jenkinsfile`) showing your automated workflow
+- **Kubernetes manifests** optimized for Jenkins deployments
+- **Security configuration** that integrates with your Jenkins pipeline
+
+=== Step 3: Making Your First Code Change
+
+Let's trigger your enhanced Jenkins pipeline:
+
+* You expand the `docs` folder in the file explorer
+* You open the `index.md` file to document your Jenkins-powered setup
+* You add this line at the end of the document:
 +
 [source,markdown]
 ----
-This application uses enhanced Jenkins pipelines with integrated security scanning.
+This application uses Jenkins pipelines with enterprise security integration.
 ----
 
-. Save the file (Ctrl+S or Cmd+S)
+* You save the file (Ctrl+S or Cmd+S)
 
-=== Step 4: Commit and Trigger Jenkins Build
+=== Step 4: Your First Signed Commit for Jenkins
 
-. Open a terminal in Dev Spaces (*Terminal → New Terminal*)
-. Stage your changes:
+* You open a terminal in Dev Spaces (*Terminal → New Terminal*)
+* You stage your changes:
 +
 [source,bash]
 ----
 git add .
 ----
 
-. Commit your changes:
+* You commit your changes:
 +
 [source,bash]
 ----
-git commit -m "Add enhanced Jenkins pipeline documentation"
+git commit -m "Add Jenkins pipeline documentation"
 ----
 
-. You'll be prompted for signed commit authentication. Follow the browser authentication flow to sign your commit.
-
-. Push your changes:
+* You're prompted for signed commit authentication - this integrates with your Jenkins security workflow
+* You follow the browser flow to cryptographically sign your commit
+* After completing the signing process, your commit is cryptographically signed for enterprise security
+* You push your changes:
 +
 [source,bash]
 ----
 git push
 ----
 
-TIP: Your signed commit automatically triggers the enhanced Jenkins pipeline, demonstrating modern CI/CD automation with familiar Jenkins tooling.
+TIP: You just witnessed the power of enhanced Jenkins workflows - your commit triggered a complete Jenkins pipeline with enterprise security, all automatically configured and integrated!
+
+image::jenkins-dev-17.png[]
+
+== Activity 5: Monitoring Your Jenkins Pipeline
+
+Now let's see your enhanced Jenkins pipeline in action and understand what's happening behind the scenes.
+
+=== Step 1: Access Jenkins Pipeline Execution
+
+* Navigate back to Developer Hub
+* Go to the *CI* tab of your `qrks-jnk-{user}` component
+* You should see your Jenkins pipeline runs:
+  - `maven-ci-build`
+  - `promote-to-stage`
+  - `promote-to-prod`
 
 image::jenkins-dev-18.png[]
 
-== Activity 4: Monitoring Enhanced Jenkins Execution
-
-=== Step 1: View Jenkins Build Progress
-
-. Return to Red Hat Developer Hub and review your component's CI tab
+* Click on *View build* to open Jenkins
+* Click *Open Blue Ocean* to view the Jenkins pipeline visually
 
 image::jenkins-dev-19.png[]
 
-. Click on the *View build* link to open your Jenkins dashboard
-. Click on the build number for the triggered job
+=== Step 2: Understanding Your Jenkins Pipeline Stages
+
+As your Jenkins pipeline executes, you can observe each stage in the familiar Blue Ocean interface:
 
 image::jenkins-dev-20.png[]
 
-. Monitor the pipeline execution progress through each stage
-. Notice how security scanning and image signing are integrated seamlessly
+**Stage: verify-commit**
+* Verifies that your Git commit was cryptographically signed using `gitsign`
+* Downloads and uses the gitsign client to verify commit signatures
+* Integrates with Red Hat Trusted Application Signer (RHTAS) via Rekor and TUF
+* Ensures the commit came from a trusted developer identity
+* This enterprise security happens automatically in your Jenkins workflow
 
-=== Step 2: Review Enhanced Security Integration
+**Stage: mvn package**
+* Runs `mvn clean package` in a dedicated Maven container
+* Compiles and packages your Quarkus application
+* Produces the runnable JAR for container image creation
+* Uses Maven 3.8.6 with OpenJDK 11 for consistent builds
 
-. In the Jenkins build logs, review the security scanning results
-. See how container vulnerability assessment is integrated into the Jenkins workflow
-. Notice the image signing process that provides supply chain security
-. Understand how these enhancements preserve familiar Jenkins patterns
+**Stage: init**
+* Prepares the Jenkins build environment using the `rhtap` library
+* Sets IMAGE_URL with the Git commit as the tag
+* Generates ISO timestamp for effective time tracking
+* Initializes the RHTAP shared library functions
+* Standardizes behavior across all Jenkins pipelines
 
-=== Step 3: Verify GitOps Integration
+**Stage: build**
+* Uses `buildah_rhtap()` function to containerize your application
+* Automatically signs the image and creates attestations using `cosign_sign_attest()`
+* Generates provenance metadata and SLSA attestations for supply chain security
+* Captures the image digest for downstream pipeline stages
+* All security integration happens transparently in Jenkins
 
-. Check the GitOps repository changes triggered by your Jenkins pipeline
-. See how Jenkins automatically updates deployment manifests
-. Understand how this bridges Jenkins CI with modern GitOps CD patterns
+**Stage: deploy-and-upload-to-tpa (parallel)**
+* *deploy*: Uses `update_deployment()` to update GitOps repository with new image tag
+* *upload_sbom_to_trustification*: Processes and uploads SBOM files to Trustification
+  - Updates SBOM component name to match the application
+  - Removes non-CycloneDX JSON files from the SBOM directory
+  - Pushes Software Bill of Materials to Red Hat Trusted Profile Analyzer
+* No manual coordination required between Jenkins and deployment teams
 
-== What You Just Accomplished
+**Stage: acs (parallel)**
+* *acs_deploy_check*: Verifies Kubernetes manifests for security compliance
+* *acs_image_check*: Enforces policy on container image configuration
+* *acs_image_scan*: Performs vulnerability scanning using Red Hat Advanced Cluster Security
+* All security validation integrated into your Jenkins workflow
 
-Congratulations! You've just experienced the power of Jenkins enhancement with RHADS:
+**Stage: summary**
+* Executes `show_sbom_rhdh()` to display SBOM information for Developer Hub integration
+* Runs `summary()` function to provide comprehensive build status and artifacts
+* Shows build status and key artifacts (SBOM, scan summary, security results)
+* Provides comprehensive build information in familiar Jenkins interface
+* Uses reusable functions from the `rhtap` library
 
-=== Investment Preservation
-- **Familiar Jenkins interface** - No retraining required for your team
-- **Existing Jenkins patterns** - Pipelines work exactly as expected
-- **Infrastructure reuse** - Leverage your current Jenkins investment
-- **Knowledge retention** - Existing Jenkins expertise remains valuable
+=== Step 3: Exploring the Jenkins Pipeline Definition
 
-=== Modern Capabilities Added
-Your enhanced Jenkins environment now includes:
-* Automated vulnerability scanning integrated into familiar pipelines
-* Container image signing and verification workflows
-* GitOps deployment automation triggered from Jenkins
-* Self-service application creation reducing platform team overhead
+* In your GitLab repository, open the `Jenkinsfile` in the root directory
+* Notice how this *Pipelines as Code* approach gives you:
+  - CI logic living alongside your application code
+  - Easy updates via pull requests
+  - Version-controlled pipeline definitions
+  - Full transparency into the Jenkins build process
 
-=== Zero Disruption Enhancement
-Everything was enhanced automatically:
-* GitLab repositories with Jenkins pipeline definitions
-* Jenkins jobs configured with security integration
-* Security tools seamlessly integrated into Jenkins workflows
-* Modern development environment connected to Jenkins pipelines
+## What You Just Accomplished
+
+Congratulations! You've experienced the transformation of Jenkins capabilities with RHADS:
+
+=== Jenkins Enhancement Results
+- **Traditional Jenkins setup**: 1-2 weeks of manual pipeline configuration
+- **RHADS Jenkins approach**: Less than 5 minutes of self-service with enhanced security
+
+=== Security by Default in Jenkins
+Your Jenkins application now includes:
+* Automated container vulnerability scanning in Jenkins workflows
+* Image signing and verification integrated with Jenkins pipelines
+* Enterprise security policies enforced automatically
+* Complete audit trails generated through Jenkins processes
+
+=== Preserved Jenkins Investment
+Everything leverages your existing Jenkins knowledge:
+* Familiar Jenkins Blue Ocean interface with enhanced capabilities
+* Same Jenkins pipeline concepts with modern security integration
+* Jenkins expertise becomes more valuable, not obsolete
+* Proven Jenkins infrastructure enhanced rather than replaced
 
 == Understanding Enhanced Jenkins Benefits
 
 === Developer Experience
-- **Familiar workflows** - Jenkins patterns remain unchanged
-- **Enhanced capabilities** - Modern security without complexity
-- **Self-service creation** - No waiting for pipeline setup
-- **Integrated development** - Modern IDE connected to Jenkins
+- **Familiar Jenkins Interface** - Blue Ocean and tools you already know
+- **Enhanced Pipeline Capabilities** - Modern security without complexity
+- **Self-Service Power** - Create Jenkins pipelines without platform team dependency
+- **Integrated Development** - Cloud-based development environment with Jenkins integration
 
 === Operational Advantages
-- **Investment protection** - Existing Jenkins infrastructure valuable
-- **Gradual enhancement** - Modernize without disruption
-- **Reduced overhead** - Self-service reduces platform team load
-- **Consistent security** - Standardized across all applications
+- **Jenkins Investment Protection** - Leverage existing Jenkins infrastructure and expertise
+- **Enhanced Security** - Enterprise-grade security automatically integrated
+- **Standardized Pipelines** - Consistent Jenkins workflows across all applications
+- **Reduced Maintenance** - Shared Jenkins libraries eliminate custom pipeline overhead
 
-=== Security Enhancements
-- **Automated scanning** - Security integrated without workflow changes
-- **Supply chain protection** - Image signing and verification
-- **Policy enforcement** - Compliance built into Jenkins pipelines
-- **Audit trails** - Complete visibility into build and deployment processes
-
-== Real-World Jenkins Enhancement
-
-=== When This Approach Excels
-
-**Ideal Scenarios:**
-
-- **Existing Jenkins investments** - Protect substantial infrastructure investments
-- **Team expertise** - Leverage existing Jenkins knowledge and skills
-- **Gradual modernization** - Enhance capabilities without disruption
-- **Risk management** - Minimize change while gaining modern capabilities
-
-**Key Benefits:**
-
-- **Faster value realization** - Enhance existing systems immediately
-- **Reduced retraining costs** - Existing skills remain valuable
-- **Lower risk adoption** - Familiar patterns with enhanced capabilities
-- **Investment protection** - Maximize value from existing infrastructure
+=== Enterprise Security Enhancements
+- **Automated Security Scanning** - Integrated into familiar Jenkins workflows
+- **Cryptographic Signing** - Container and commit signing through Jenkins
+- **Policy Enforcement** - Enterprise security policies enforced automatically
+- **Complete Audit Trails** - Full compliance evidence through Jenkins processes
 
 == Next Steps
 
-In the next section, **Staging - Promoting to stage environment**, you'll:
+In the next section, **Staging - Jenkins Pipeline Promotion**, you'll:
 
-* See your enhanced Jenkins pipeline execute with integrated security
-* Understand how security validation works within Jenkins workflows
-* Experience GitOps deployment triggered from Jenkins
-* Learn about monitoring and observability in enhanced Jenkins environments
+* Experience Jenkins-based staging promotion using familiar tools
+* Learn how Git tags trigger Jenkins staging pipelines automatically
+* See how Enterprise Contract validation integrates with Jenkins workflows
+* Understand GitOps deployment through Jenkins pipeline automation
 
-Your enhanced Jenkins foundation is now in place - let's see your secure Jenkins pipeline in action!
+Your enhanced Jenkins foundation is now in place - let's see your staging promotion in action!

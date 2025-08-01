@@ -1,4 +1,4 @@
-= Jenkins - Staging
+= Jenkins Pipelines - Staging
 :source-highlighter: rouge
 :toc: macro
 :toclevels: 2
@@ -9,239 +9,372 @@ toc::[]
 
 By the end of this section, you will:
 
-* Monitor enhanced Jenkins pipeline execution with integrated security
-* Understand how security validation works within familiar Jenkins workflows
-* Experience GitOps-based deployment triggered from Jenkins
-* Learn about monitoring and observability in enhanced Jenkins environments
+* Understand how Jenkins staging validation transforms development cycles from days to minutes
+* Experience enterprise-grade security validation with Enterprise Contract integrated into Jenkins workflows
+* Trigger Jenkins staging pipelines using Git tags and observe automated promotion workflows
+* Learn how GitOps ensures validated changes reach staging environments through Jenkins automation
+* See how Jenkins expertise becomes more valuable with enhanced staging capabilities
 
-== Understanding Enhanced Jenkins Pipeline Benefits
+== Understanding Jenkins Staging Transformation
 
-Your code commit has triggered a sophisticated Jenkins pipeline that demonstrates how RHADS enhances existing Jenkins investments:
+Enterprise development teams with significant Jenkins investments often face substantial challenges with staging validation processes:
 
-=== Jenkins Enhancement Advantages
+=== Traditional Jenkins Staging Challenges
 
-=== Familiar Jenkins Experience
+- **3-5 days** required for manual Jenkins staging coordination and deployment
+- **1-2 weeks** for manual security reviews and compliance checks in Jenkins workflows
+- **Multiple coordination meetings** between development, platform, and security teams for Jenkins staging
+- **Manual Jenkins staging processes** that are error-prone and time-consuming
+- **Inconsistent Jenkins configurations** across different staging environments
 
-* Standard Jenkins interface - No learning curve for existing teams
-* Traditional pipeline patterns - Existing knowledge remains valuable
-* Jenkins best practices - Enhanced with modern security capabilities
-* Gradual adoption - Teams can enhance pipelines incrementally
+=== Red Hat Advanced Developer Suite Solution for Jenkins
 
-=== Modern Security Integration
+Red Hat Advanced Developer Suite (RHADS) transforms your Jenkins staging experience with:
 
-* Automated vulnerability scanning integrated into Jenkins stages
-* Container image signing using familiar Jenkins pipeline syntax
-* Policy enforcement without disrupting Jenkins workflows
-* Compliance reporting generated automatically from Jenkins builds
+- **Staging time: 3-5 days → 30 minutes** with automated Jenkins validation pipelines
+- **Security validation: 1-2 weeks → minutes** with integrated Enterprise Contract in Jenkins workflows
+- **Zero manual coordination overhead** while preserving Jenkins expertise
+- **Production-ready confidence** with every Jenkins staging deployment
+- **Enhanced Jenkins capabilities** that make your existing skills more valuable
 
-== Activity 1: Triggering the Enhanced Jenkins Staging Pipeline
+**Key Business Benefits for Jenkins Teams:**
 
-Let's create a Git tag to trigger the enhanced Jenkins staging pipeline:
+* Jenkins staging deployment time from days to minutes
+* Enhanced security validation integrated into familiar Jenkins workflows
+* Jenkins expertise becomes more valuable with modern capabilities
+* Platform teams focus on innovation instead of manual Jenkins coordination
+
+== Activity 1: Triggering the Jenkins Staging Pipeline
+
+Let's create a Git tag to trigger your automated Jenkins staging pipeline and observe how enterprise validation works within familiar Jenkins workflows.
 
 === Step 1: Access Your GitLab Repository
 
-. Open your GitLab repository from the component overview
-
+* Open your GitLab repository at {gitlab_url}/development/qrks-jnk-{user}[qrks-jnk-{user}^]
+* Sign in using:
++
+[source,bash,subs="attributes"]
+----
+Username: {gitlab_user}
+Password: {gitlab_user_password}
+----
++
 image::jenkins-stage-1.png[]
 
-=== Step 2: Create a Git Tag
+=== Step 2: Create a Git Tag for Jenkins Staging
 
-. Navigate to *Code > Tags > New Tag*
+Creating a Git tag triggers your Jenkins staging pipeline, demonstrating how simple actions can activate sophisticated workflows.
 
+* In the left menu, click on *Code > Tags > New Tag*
++
 image::jenkins-stage-2.png[]
 
-. Enter a version tag like `v1.0`
-. Choose the target branch (typically `main`)
-. Click *Create Tag*
-
+* Enter a version tag like `v1.0`
+* Choose the target branch (typically `main`)
+* Click *Create Tag*
++
 image::jenkins-stage-3.png[]
 
-TIP: Creating this tag triggers the enhanced Jenkins staging pipeline, demonstrating how modern automation integrates with familiar Jenkins workflows.
+[NOTE]
+====
+This tag creation triggers a GitLab webhook that activates your Jenkins staging pipeline — the one that promotes the image to the staging environment with enterprise security validation.
+====
 
-== Activity 2: Monitoring Your Enhanced Jenkins Pipeline
+=== Alternative: CLI Approach for Jenkins
 
-=== Step 1: Access Pipeline via Developer Hub
+If you prefer the command line approach that many Jenkins users are comfortable with:
 
-. Go to Red Hat Developer Hub
-. On the left menu, click on *Catalog*, then under *Kind* select `Component`, click *my-quarkus-jnk* component
+[source,bash]
+----
+git tag v1.0
+git push --tags
+----
 
-image::jenkins-stage-7.png[]
+This CLI method triggers the same Jenkins staging automation while maintaining the familiar developer workflow.
 
-. Click the *CI* tab to see pipeline runs
-. Click on the *View build* icon on the *promote-to-stage* build to follow progress
+=== Step 3: Monitor Jenkins Pipeline Execution
 
+* Navigate to Red Hat Developer Hub
+* Go to your `qrks-jnk-{user}` component
+* Click the *CI* tab to see your Jenkins pipeline runs
+* Look for the job labeled *promote-to-stage* and click *View build* to follow its progress
++
 image::jenkins-stage-4.png[]
 
-. Click *Open Blue Ocean* to view the pipeline stages
-
+* Click *Open Blue Ocean* to view the Jenkins pipeline stages in the familiar interface
++
 image::jenkins-stage-5.png[]
 
-=== Step 2: Review Enhanced Pipeline Stages
+[TIP]
+====
+Use the Developer Hub view combined with Jenkins Blue Ocean to observe each task as it executes* You'll see enterprise automation in action using familiar Jenkins tools — no manual approvals, just policy-driven promotion through enhanced Jenkins workflows.
+====
 
-Review the pipeline execution with enhanced stages:
-  * **Checkout** - Source code retrieval
-  * **Build** - Application compilation
-  * **Test** - Automated testing
-  * **Security Scan** - Integrated vulnerability assessment
-  * **Build Image** - Container image creation
-  * **Sign Image** - Cryptographic signing
-  * **Deploy to Stage** - GitOps-triggered deployment
+== Activity 2: Understanding Jenkins Pipeline Tasks
 
-=== Step 2: Examine Security Integration
-
-. Click on the *Security Scan* stage in your Jenkins build
-. Review the detailed vulnerability assessment report
-. Notice how security scanning integrates seamlessly with Jenkins logging
-. See how the pipeline automatically fails for critical vulnerabilities
-
-TIP: The security scanning uses the same Jenkins pipeline syntax your team already knows - no new tools to learn.
-
-=== Step 3: Verify Image Signing Process
-
-. Click on the *Sign Image* stage
-. See how your container image is cryptographically signed
-. Review the signing artifacts and verification process
-. Understand how this provides supply chain security within Jenkins
-
-IMPORTANT: Image signing provides tamper-proof evidence integrated into your familiar Jenkins workflows.
-
-=== Step 4: Monitor GitOps Integration
-
-. Review the *Deploy to Stage* logs
-. See how Jenkins triggers GitOps repository updates
-. Notice how modern deployment patterns integrate with Jenkins CI
-. Understand the bridge between Jenkins CI and GitOps CD
-
-== Activity 2: Understanding Enhanced Jenkins Architecture
-
-=== Step 1: Review Jenkins Pipeline Definition
-
-. In your source code repository, open `Jenkinsfile`
-. Review how security tools are integrated using familiar Jenkins syntax
-. Notice how the pipeline maintains standard Jenkins patterns
-. See how enhancements are additive, not disruptive
-
-=== Step 2: Examine Security Tool Integration
-
-. Review the Jenkins pipeline stages for security integration
-. Notice how vulnerability scanning fits into standard Jenkins workflow
-. See how container signing uses Jenkins credentials and secrets
-. Understand how policy enforcement integrates with Jenkins approvals
-
-=== Step 3: Understand GitOps Bridge
-
-. Examine how Jenkins updates GitOps repositories
-. See the GitLab repository changes triggered by your Jenkins build
-. Review the staging deployment manifests
-. Notice how Jenkins CI seamlessly triggers GitOps CD
-
-TIP: This architecture preserves Jenkins value while adding modern GitOps capabilities.
+Your Jenkins staging pipeline provides production-level confidence while eliminating manual bottlenecks and preserving your Jenkins expertise* Let's examine each task in detail.
 
 image::jenkins-stage-6.png[]
 
-== Activity 3: Validating Staging Deployment
+=== Task 1: gather-images
 
-=== Step 1: Access Staging Application
+**Purpose:** Perfect traceability through Git tags in Jenkins workflows
 
-. In the OpenShift Console, navigate to *Topology*
-. Switch to the staging namespace/project
-. Find your application deployment
-. Click on the route URL to access your running application
+This Jenkins task identifies exactly what needs to be promoted by:
 
-=== Step 2: Review Enhanced Monitoring
+* Resolving the Git tag back to its commit ID for precise tracking
+* Matching the commit to the corresponding container image built in development
+* Creating an authoritative `images.json` file for the Jenkins validation process
 
-. Check the application health and status
-. Review deployment logs showing the GitOps sync process
-. Verify security policies are enforced in the staging environment
-. See how Jenkins build artifacts flow through to deployment
+**Business Value for Jenkins Teams:**
+- **Complete Staging Traceability:** Every Jenkins staging deployment links to specific code changes
+- **Quality Assurance:** Jenkins staging validates exactly what will reach production
+- **Audit Readiness:** Complete Jenkins staging evidence trail for compliance reviews
+- **Development Confidence:** Teams know precisely what's being validated in Jenkins staging
 
-=== Step 3: Test Application Functionality
+**Sample `images.json` generated by Jenkins:**
+[source,json,subs="attributes"]
+----
+{
+  "components": [
+    {
+      "containerImage": "quay.tssc-quay/tssc/qrks-jnk-{user}:123456",
+      "source": {
+        "git": {
+          "url": "{gitlab_url}/development/qrks-jnk-{user}",
+          "revision": "123456"
+        }
+      }
+    }
+  ]
+}
+----
 
-. Access your Quarkus application endpoints
-. Verify the application responds correctly with your changes
-. Test functionality to ensure staging validation is successful
-. Prepare for production promotion workflow
+This mapping provides end-to-end traceability through your Jenkins workflow — you know exactly what code went into what image during staging validation.
 
-== What You Accomplished
+=== Task 2: verify-ec
 
-You've enhanced Jenkins with modern capabilities while preserving familiar workflows:
+**Purpose:** Critical business protection through automated security validation in Jenkins
 
-- **Jenkins pipelines with integrated security** using syntax you already know
-- **Automated vulnerability scanning** without changing Jenkins operations
-- **GitOps deployment** triggered from standard Jenkins builds
-- **Blue Ocean visualization** for monitoring enhanced pipeline execution
+This Jenkins stage enforces multiple critical validations that protect your business and customers while leveraging familiar Jenkins workflows:
 
-=== Operational Excellence
-- **Consistent security**: Automated scanning in every Jenkins build
-- **Audit readiness**: Jenkins build history provides compliance trails
-- **Self-service capabilities**: Reduced platform team overhead
-- **Scalable enhancement**: Templates can enhance any Jenkins pipeline
+**Enterprise Security Validations in Jenkins:**
+- **Digital signature verification** using cryptographic signing integrated with Jenkins
+- **Software Bill of Materials (SBOM) validation** for supply chain security
+- **CVE scanning** to catch security vulnerabilities before production
+- **Organizational policy compliance** ensuring enterprise security standards
+- **Provenance attestation** to verify source repository integrity
 
-== Troubleshooting Enhanced Jenkins Pipelines
+**Business Value for Jenkins Teams:**
+- **Zero Jenkins Staging Security Incidents:** Automated validation catches issues before production
+- **100% Consistent Standards:** Every Jenkins staging deployment meets enterprise security policies
+- **Instant Staging Validation:** Security validation in Jenkins staging happens in minutes, not weeks
+- **Production Confidence:** Only security-validated features progress from Jenkins staging
 
-=== Common Enhancement Issues
+**Technical Implementation in Jenkins:**
 
-If your enhanced Jenkins pipeline fails:
+Jenkins runs the `verify-ec` stage using the Red Hat Trusted Application Pipeline shared library:
 
-. **Security scan failures**: Review vulnerability reports in Jenkins logs
-. **Image signing issues**: Check Jenkins credentials and signing configuration
-. **GitOps sync problems**: Verify repository permissions and webhook configuration
-. **Resource constraints**: Monitor Jenkins agent capacity and availability
+First, Jenkins initializes Cosign trust using a TUF server:
+[source,bash]
+----
+cosign initialize \
+  --mirror https://tuf.tssc-tas.dev \
+  --root https://tuf.tssc-tas.dev/root.json
+----
 
-=== Jenkins-Specific Solutions
+Then Jenkins validates the image using Enterprise Contract:
+[source,bash]
+----
+ec validate image \
+  --image quay.tssc-quay/tssc/qrks-jnk-{user}:123456 \
+  --policy git::github.com/org/ec-policies//default \
+  --public-key k8s://openshift/trusted-keys \
+  --output json
+----
 
-**Leverage Existing Jenkins Expertise:**
+**Sample Jenkins validation output:**
+[source,json]
+----
+{
+  "successes": [
+    "Image is signed and verified with cosign",
+    "SBOM (CycloneDX) is present",
+    "Provenance matches repository",
+    "No critical vulnerabilities found"
+  ],
+  "failures": []
+}
+----
 
-* Use familiar Jenkins troubleshooting approaches
-* Review pipeline logs using standard Jenkins interface
-* Apply existing Jenkins debugging techniques
-* Utilize Jenkins community knowledge and resources
+[IMPORTANT]
+====
+If any security check fails, your Jenkins pipeline stops immediately — ensuring no risky code progresses to the next stage* This automated security gate in Jenkins protects your business without manual intervention.
+====
 
-TIP: Enhanced Jenkins pipelines troubleshoot like traditional Jenkins - your existing knowledge applies directly.
+=== Task 3: update-image-tag-for-stage
 
-== Comparing Enhanced Jenkins with Traditional Approaches
+**Purpose:** Quality gateway ensuring only validated images reach staging through Jenkins
 
-=== Traditional Jenkins Setup
+This Jenkins task promotes the validated image with a human-readable tag (e.g., `v1.0`), ensuring:
 
-**Manual Configuration Required:**
+- **Clear Staging Intent:** Release version tag signals this image passed all enterprise security checks in Jenkins staging
+- **Feature Validation:** Complete traceability from source code to staging deployment through Jenkins
+- **Quality Assurance:** Only validated, compliant features tested in staging through Jenkins workflows
+- **Production Preview:** Staging becomes accurate production preview using Jenkins-validated images
 
-* Custom pipeline creation for each project
-* Manual security tool integration and configuration
-* Separate deployment automation setup
-* Individual credential and secret management
+**Technical Implementation in Jenkins:**
 
-**Enhanced Jenkins with RHADS:**
+Jenkins uses `skopeo` to copy the image and apply the new tag:
+[source,bash]
+----
+skopeo copy \
+  docker://quay.tssc-quay/tssc/qrks-jnk-{user}:123456 \
+  docker://quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0
+----
 
-- **Automated pipeline creation** from self-service templates
-- **Integrated security scanning** with zero configuration
-- **Built-in GitOps deployment** triggered automatically
-- **Standardized credential management** across all pipelines
+[IMPORTANT]
+====
+This Jenkins process guarantees that only validated artifacts are promoted — no unauthorized image changes slip through to staging.
+====
 
-=== Value Proposition
+=== Task 4: deploy-to-stage
 
-**For Jenkins Administrators:**
+**Purpose:** Automated GitOps bridge for immediate feature validation through Jenkins
 
-* Reduced manual pipeline setup and maintenance
-* Standardized security integration across all projects
-* Enhanced capabilities without infrastructure changes
-* Preserved investment in Jenkins expertise and infrastructure
+This Jenkins task ensures validated changes reach staging automatically through GitOps integration:
 
-**For Development Teams:**
+- **Zero Manual Errors:** GitOps automation eliminates human staging deployment mistakes in Jenkins workflows
+- **100% Staging Audit Trail:** Every staging change tracked and traceable through Jenkins
+- **Consistent Process:** Same Jenkins staging deployment method for routine and emergency features
+- **Continuous Validation:** All staging changes follow the same validated Jenkins security process
 
-* Self-service project creation reduces waiting time
-* Familiar Jenkins interface with enhanced capabilities
-* Automatic security scanning without workflow changes
-* Modern development environment integrated with Jenkins
+**GitOps Implementation through Jenkins:**
+
+Jenkins updates the staging deployment configuration automatically:
+
+The pipeline uses `rhtap.update_deployment()` to patch the `kustomization.yaml` overlay for stage:
+
+**`kustomization.yaml`:**
+[source,yaml]
+----
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+patchesStrategicMerge:
+  - deployment-patch.yaml
+----
+
+**`deployment-patch.yaml`:**
+[source,yaml]
+----
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qrks-jnk-{user}
+spec:
+  template:
+    spec:
+      containers:
+        - name: qrks-jnk-{user}
+          image: quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0
+----
+
+Jenkins commits and pushes this change to the GitOps repository, and Argo CD detects the update and syncs the deployment to the `stage` environment automatically.
+
+[NOTE]
+====
+No manual `kubectl` commands, no YAML editing in the console — Jenkins triggers the GitOps system to react to Git changes* That's the enhanced Jenkins advantage with GitOps integration.
+====
+
+== Activity 3: Observing Jenkins-Integrated GitOps Deployment
+
+Watch how your Jenkins pipeline integrates with ArgoCD to automatically sync validated changes to the staging environment.
+
+=== Step 1: Monitor Jenkins Pipeline Progress
+
+* In Jenkins Blue Ocean, observe each stage completing:
+  - **gather-images**: Jenkins identifies the exact image to promote
+  - **verify-ec**: Jenkins validates enterprise security policies
+  - **update-image-tag-for-stage**: Jenkins tags the validated image
+  - **deploy-to-stage**: Jenkins updates GitOps manifests automatically
+
+* Notice how the Jenkins interface provides familiar monitoring while handling modern GitOps workflows
+
+=== Step 2: Verify GitOps Integration
+
+* Access your GitOps repository at {gitlab_url}/development/qrks-jnk-{user}-gitops[qrks-jnk-{user}-gitops^]
+* Check the updated deployment manifests in the `overlays/stage` directory
+* Notice how Jenkins automatically updated the image tag to your release version
+* Observe that this GitOps integration happens seamlessly within Jenkins workflows
+
+=== Step 3: Monitor ArgoCD Synchronization
+
+* ArgoCD automatically detects the Git changes made by your Jenkins pipeline
+* ArgoCD syncs these changes to the staging environment
+* The deployment completes successfully without manual intervention from Jenkins or kubectl commands
+
+=== Step 4: Validate Staging Environment Success
+
+* Access your staging application through its route
+* Verify that your changes are live and functioning correctly
+* Confirm that the staging environment reflects exactly what Jenkins validated
+
+== What You've Learned
+
+You've experienced how Red Hat Advanced Developer Suite transforms enterprise Jenkins staging validation while preserving valuable team expertise:
+
+=== Jenkins Pipeline Task Summary
+
+|===
+| Jenkins Task | Purpose
+
+| gather-images
+| Jenkins identifies exact image to promote based on Git tag and commit ID
+
+| verify-ec
+| Jenkins validates signature, SBOM, provenance, CVEs using Enterprise Contract CLI
+
+| update-image-tag-for-stage
+| Jenkins promotes validated image with human-readable tag (e.g., `v1.0`)
+
+| deploy-to-stage
+| Jenkins updates GitOps repository to trigger Argo CD deployment automatically
+|===
+
+=== Key Business Transformation for Jenkins Teams
+
+**Enhanced Jenkins Staging Benefits:**
+
+* Jenkins staging time: 3-5 days → 30 minutes using familiar tools
+* Production-grade validation catches issues early through Jenkins workflows
+* Zero manual coordination overhead while preserving Jenkins expertise
+* Teams trust Jenkins staging validation represents production reality
+
+**Enterprise Security Excellence in Jenkins:**
+
+* Automated security validation integrated into familiar Jenkins workflows
+* Complete audit trails for compliance requirements through Jenkins processes
+* Cryptographic proof of image integrity and source via Jenkins pipelines
+* Consistent security enforcement across all Jenkins deployments
+
+**Jenkins Investment Enhancement:**
+
+* Existing Jenkins infrastructure becomes more powerful and valuable
+* Jenkins expertise enhanced with modern security and GitOps capabilities
+* Teams continue using familiar Jenkins tools with enhanced automation
+* Platform efficiency improves while preserving Jenkins knowledge and investment
 
 == What's Next
 
-Your application is now successfully running in the staging environment with Jenkins-powered CI/CD and integrated security!
+Your application is now successfully validated and running in staging with enterprise-grade security through enhanced Jenkins workflows!
 
-In the next section, **Production - Releasing to production**, you'll:
+In the next section, **Production - Jenkins Pipeline Deployment**, you'll experience:
 
-* Review staging validation results within Jenkins dashboard
-* Execute production deployment using enhanced Jenkins workflows
-* Monitor production application health through Jenkins integration
-* Understand the complete enhanced Jenkins supply chain security model
+* Production deployment using familiar Jenkins tools with enhanced security
+* Advanced monitoring and observability integrated with Jenkins workflows
+* Complete audit trails that satisfy enterprise compliance requirements through Jenkins
+* Zero-downtime deployment strategies for production environments using Jenkins automation
 
-The enhanced Jenkins staging validation is complete - let's move to production deployment with familiar Jenkins patterns!
+The transformation from days-long staging cycles to 30-minute automated validation demonstrates how Red Hat Advanced Developer Suite enhances rather than replaces your valuable Jenkins investment and expertise.

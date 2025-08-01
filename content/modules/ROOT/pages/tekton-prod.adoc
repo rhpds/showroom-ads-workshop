@@ -33,7 +33,7 @@ Transform risky manual processes into confident automated workflows using Red Ha
 
 [NOTE]
 ====
-The examples and commands in this workshop demonstrate enterprise production deployment capabilities. Adapt repository URLs, credentials, and configurations as needed for your specific setup.
+The examples and commands in this workshop demonstrate enterprise production deployment capabilities* Adapt repository URLs, credentials, and configurations as needed for your specific setup.
 ====
 
 == Activity 1: Triggering Production Deployment with Git Release
@@ -42,8 +42,8 @@ In this activity, you'll initiate an enterprise-grade production deployment by c
 
 === Step 1: Access Your GitLab Repository
 
-. Open your GitLab repository at: {gitlab_url}/development/qrks-tkn-{user}[qrks-tkn-{user}^,subs="attributes"]
-. Log in using:
+* Open your GitLab repository at: {gitlab_url}/development/qrks-tkn-{user}[qrks-tkn-{user}^,subs="attributes"]
+* Log in using:
   * Username: `{gitlab_user}`
   * Password: `{gitlab_user_password}`
 
@@ -51,13 +51,13 @@ image::tekton-prod-1.png[]
 
 === Step 2: Create a GitLab Release
 
-. Navigate to *Deploy > Releases > Create a new release*
+* Navigate to *Deploy > Releases > Create a new release*
 
 image::tekton-prod-2.png[]
 
-. Select an existing tag (e.g., `v1.0`) or create a new one
-. Enter meaningful release notes describing the changes
-. Click *Create release*
+* Select an existing tag (e.g., `v1.0`) or create a new one
+* Enter meaningful release notes describing the changes
+* Click *Create release*
 
 image::tekton-prod-3.png[]
 
@@ -68,9 +68,9 @@ image::tekton-prod-3.png[]
 
 === Step 3: Monitor Pipeline Activation
 
-. Navigate to the `qrks-tkn-{user}` component in Red Hat Developer Hub
-. Click the *CI* tab to view pipeline runs
-. Look for a pipeline run labeled *promote-to-prod* and expand it to view details
+* Navigate to the `qrks-tkn-{user}` component in Red Hat Developer Hub
+* Click the *CI* tab to view pipeline runs
+* Look for a pipeline run labeled *promote-to-prod* and expand it to view details
 
 image::tekton-prod-4.png[]
 
@@ -89,9 +89,9 @@ In this activity, you'll explore how the production pipeline automatically perfo
 
 === Step 1: Examine Pipeline Task Execution
 
-. In the Developer Hub CI tab, observe the pipeline tasks executing in sequence
-. Note how each task builds upon the previous one's output
-. Observe the automated security checkpoints throughout the process
+* In the Developer Hub CI tab, observe the pipeline tasks executing in sequence
+* Note how each task builds upon the previous one's output
+* Observe the automated security checkpoints throughout the process
 
 === Step 2: Understand Image Tag Extraction
 
@@ -111,9 +111,9 @@ This task provides perfect traceability by extracting the Git tag to ensure comp
 This task gives absolute certainty about production deployments by creating definitive proof of what was deployed and why.
 
 **Process:**
-. The Git release tag is mapped to the image produced during staging
-. The tag is used to locate the previously built container image
-. A metadata file named `images.json` is created with complete traceability information
+* The Git release tag is mapped to the image produced during staging
+* The tag is used to locate the previously built container image
+* A metadata file named `images.json` is created with complete traceability information
 
 **Example images.json:**
 [source,json,subs="attributes"]
@@ -158,9 +158,9 @@ This is the most critical business protection activity — you'll observe automa
 
 **Pipeline Task:** `verify-enterprise-contract`
 
-. In the pipeline execution view, locate the `verify-enterprise-contract` task
-. Observe the task's progress through multiple security validations
-. Note the comprehensive security checks being performed automatically
+* In the pipeline execution view, locate the `verify-enterprise-contract` task
+* Observe the task's progress through multiple security validations
+* Note the comprehensive security checks being performed automatically
 
 **Enterprise Security Validations Performed:**
 - **Digital signature verification:** Proves the image hasn't been tampered with
@@ -212,9 +212,9 @@ ec validate image \
 
 === Step 4: Understanding Failure Protection
 
-. Observe that any failed validation would halt the pipeline automatically
-. This demonstrates protection against risky deployments
-. Note how this prevents security incidents before they reach customers
+* Observe that any failed validation would halt the pipeline automatically
+* This demonstrates protection against risky deployments
+* Note how this prevents security incidents before they reach customers
 
 **Business Impact:**
 * Security incident prevention: Saves potential millions in damages
@@ -237,8 +237,8 @@ In this activity, you'll observe how validated images are promoted to production
 
 This represents an enterprise quality gate — only validated images earn the "prod-" designation, ensuring enterprise security compliance.
 
-. Observe the `copy-image` task in the pipeline execution
-. Note how the validated image is promoted with a production label
+* Observe the `copy-image` task in the pipeline execution
+* Note how the validated image is promoted with a production label
 
 **Image Promotion Command:**
 [source,bash,subs="attributes"]
@@ -260,7 +260,7 @@ skopeo copy \
 
 This task serves as an automated bridge from security validation to customer value, ensuring validated changes reach production automatically without manual intervention or risk.
 
-=== Understanding Traditional vs. RHADS Deployment Approaches
+=== Understanding Traditional vs* RHADS Deployment Approaches
 
 **Traditional Production Deployment Risks:**
 
@@ -278,8 +278,8 @@ This task serves as an automated bridge from security validation to customer val
 
 === Step 3: Observe GitOps Repository Updates
 
-. Watch as the pipeline updates the GitOps repository automatically
-. Understand how this triggers Argo CD for production deployment
+* Watch as the pipeline updates the GitOps repository automatically
+* Understand how this triggers Argo CD for production deployment
 
 **Updated Deployment Manifest:**
 [source,yaml,subs="attributes"]
@@ -312,11 +312,11 @@ patchesStrategicMerge:
 === Step 4: Validate GitOps Deployment Process
 
 **Automated Process Flow:**
-. The container image reference in the production overlay is updated by this patch
-. The patch is committed and pushed to the GitOps repository by OpenShift Pipelines
-. Argo CD watches this repository and detects the change immediately
-. Argo CD syncs the deployment to the production cluster automatically
-. Only verified, tagged images are deployed by this process, maintaining full auditability
+* The container image reference in the production overlay is updated by this patch
+* The patch is committed and pushed to the GitOps repository by OpenShift Pipelines
+* Argo CD watches this repository and detects the change immediately
+* Argo CD syncs the deployment to the production cluster automatically
+* Only verified, tagged images are deployed by this process, maintaining full auditability
 
 **Business Impact:**
 - **Deployment Confidence:** Argo CD ensures exactly what was validated gets deployed
@@ -385,15 +385,15 @@ You've demonstrated how enterprise security and business velocity reinforce each
 
 Take a moment to consider these questions about your workshop experience:
 
-1. **Process Transformation:** How does this automated approach compare to traditional deployment processes in your organization?
+- **Process Transformation:** How does this automated approach compare to traditional deployment processes in your organization?
 
-2. **Security Integration:** What security capabilities are now automatically included that would typically require manual configuration and review?
+- **Security Integration:** What security capabilities are now automatically included that would typically require manual configuration and review?
 
-3. **Business Impact:** How would this level of automation affect your organization's ability to respond to market demands and competitive pressures?
+- **Business Impact:** How would this level of automation affect your organization's ability to respond to market demands and competitive pressures?
 
-4. **Operational Excellence:** What operational benefits would your platform and security teams gain from this approach?
+- **Operational Excellence:** What operational benefits would your platform and security teams gain from this approach?
 
-5. **Implementation Planning:** What would be the first steps to implement similar capabilities in your organization?
+- **Implementation Planning:** What would be the first steps to implement similar capabilities in your organization?
 
 == Next Steps and Advanced Topics
 
@@ -422,7 +422,7 @@ The following demonstrations can further illustrate enterprise transformation ca
 
 == Congratulations on Completing the Production Workshop!
 
-You've successfully experienced the future of enterprise application deployment — secure, automated, and business-focused. This represents a fundamental shift from traditional deployment practices to modern, risk-mitigated automation that enables competitive advantage through technology.
+You've successfully experienced the future of enterprise application deployment — secure, automated, and business-focused* This represents a fundamental shift from traditional deployment practices to modern, risk-mitigated automation that enables competitive advantage through technology.
 
 **Key Achievements:**
 * Implemented end-to-end automated production deployment
