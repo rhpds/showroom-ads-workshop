@@ -1,4 +1,6 @@
 = Lab Access Information
+:page-layout: home
+:!sectids:
 
 For your convenience, this page contains access information to all systems in your lab environment.
 
@@ -6,9 +8,12 @@ For your convenience, this page contains access information to all systems in yo
 
 Your main entry point to the workshop activities:
 
+[subs="attributes"]
+****
 * **URL**: link:{rhdh_url}[Red Hat Developer Hub^]
 * **Username**: `{rhdh_user}`
 * **Password**: `{rhdh_user_password}`
+****
 
 TIP: Use the OIDC authentication option when prompted to sign in. Authentication is powered by Red Hat build of Keycloak for secure access.
 
@@ -16,12 +21,18 @@ TIP: Use the OIDC authentication option when prompted to sign in. Authentication
 
 For viewing your applications and pipeline runs:
 
+[subs="attributes"]
+****
 * **URL**: link:{openshift_url}[OpenShift Console^]
 * **Username**: `{username}`
 * **Password**: `{password}`
+****
 
 == Lab Environment Details
 
+[subs="attributes"]
+****
 Your lab environment identifier: `{guid}`
+****
 
 IMPORTANT: Keep this lab access page open in a separate tab throughout the workshop for easy reference to credentials and URLs.
