@@ -107,6 +107,7 @@ Congratulations! You've successfully completed the **OpenShift Pipelines (Tekton
 === When OpenShift Pipelines Approaches Excel
 
 **Ideal Use Cases:**
+
 - **New application development** - Start with OpenShift Pipelines best practices
 - **Microservices architectures** - Consistent deployment and scaling patterns
 - **Container-first organizations** - Leverage existing Kubernetes investments
