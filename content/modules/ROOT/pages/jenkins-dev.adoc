@@ -60,11 +60,13 @@ Let's start your journey into a completely new Jenkins experience - one where yo
 +
 link:{rhdh_url}[*Red Hat Developer Hub*^]
 
-. You see the familiar authentication page and click the *Sign In* button to sign in:
+. You see the "Select a sign-in method" screen and click the *OIDC* option to sign in
 +
 TIP: Your organization uses OIDC authentication powered by Red Hat build of Keycloak, which seamlessly integrates with your enhanced Jenkins workflows.
 
-=== Step 2: Authenticate
+=== Step 2: Enter Your Credentials
+
+. You're presented with the Red Hat Trusted Artifact Signer login form with username and password fields
 
 . You enter your lab credentials, anticipating what you'll discover:
 +
@@ -74,15 +76,15 @@ Username: {rhdh_user}
 Password: {rhdh_user_password}
 ----
 
-. After clicking *Sign in*, you're prompted to authorize access
+. Click the blue *Sign In* button to proceed
+
+=== Step 3: Authorize Access
+
+. After entering your credentials, you're prompted to authorize access to Red Hat Developer Hub
 
 . You click *Authorize* to grant the necessary permissions to Red Hat build of Keycloak
 
-image::3_Authorize.png[]
-
 . Moments later, you're welcomed by the Red Hat Developer Hub landing page - your new command center for Jenkins development!
-
-image::4_RHDH_Landing_Page.png[]
 
 IMPORTANT: If you encounter any authentication issues, you can always reference the "Lab Access Information" page for your credentials.
 
@@ -114,6 +116,8 @@ Now comes the exciting part - you're about to experience Jenkins like you've nev
 
 . "Finally!" you think, "A Jenkins template that includes security and modern practices built-in"
 . You click *Choose* to select this template, excited to see Jenkins enhanced with modern capabilities
+
+image::jenkins-dev-1.png[]
 
 TIP: You're about to witness something remarkable - this template will automatically create your complete Jenkins environment with security scanning, container signing, and GitOps deployment, all using the Jenkins patterns you already know and love!
 
@@ -169,6 +173,9 @@ Click *Review* to see a summary of your Jenkins-enhanced configuration.
 === Step 4: Create Your Jenkins-Enhanced Application
 
 . Review all the settings in the summary page
+
+image::jenkins-dev-5.png[]
+
 . Click *Create* to generate your Jenkins-enhanced application
 
 The Jenkins-enhanced software template will now:
@@ -270,12 +277,21 @@ git push
 
 TIP: Your signed commit automatically triggers the enhanced Jenkins pipeline, demonstrating modern CI/CD automation with familiar Jenkins tooling.
 
+image::jenkins-dev-18.png[]
+
 == Activity 4: Monitoring Enhanced Jenkins Execution
 
 === Step 1: View Jenkins Build Progress
 
-. Return to your Jenkins dashboard
+. Return to Red Hat Developer Hub and review your component's CI tab
+
+image::jenkins-dev-19.png[]
+
+. Click on the *View build* link to open your Jenkins dashboard
 . Click on the build number for the triggered job
+
+image::jenkins-dev-20.png[]
+
 . Monitor the pipeline execution progress through each stage
 . Notice how security scanning and image signing are integrated seamlessly
 

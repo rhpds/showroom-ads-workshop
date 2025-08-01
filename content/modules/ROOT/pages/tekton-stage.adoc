@@ -34,9 +34,42 @@ Your code commit has triggered a sophisticated OpenShift Pipelines workflow that
 * Policy enforcement before any deployment
 * Compliance reporting for audit requirements
 
-== Activity 1: Monitoring Your Tekton Pipeline
+== Activity 1: Triggering the Staging Pipeline
 
-=== Step 1: Access OpenShift Console
+Let's create a Git tag to trigger the staging pipeline:
+
+=== Step 1: Access Your GitLab Repository
+
+. Open your GitLab repository from the component overview
+
+image::tekton-stage-1.png[]
+
+=== Step 2: Create a Git Tag
+
+. Navigate to *Code > Tags > New Tag*
+
+image::tekton-stage-2.png[]
+
+. Enter a version tag like `v1.0`
+. Choose the target branch (typically `main`)
+. Click *Create Tag*
+
+image::tekton-stage-3.png[]
+
+TIP: Creating this tag triggers the staging pipeline automatically - demonstrating event-driven OpenShift Pipelines automation.
+
+== Activity 2: Monitoring Your Tekton Pipeline
+
+=== Step 1: View Pipeline in Developer Hub
+
+. Go to Red Hat Developer Hub
+. Navigate to the *my-quarkus-tkn* component
+. Click the *CI* tab to see pipeline runs
+. Look for the pipeline run labeled *promote-to-stage* and expand it to view details
+
+image::tekton-stage-4.png[]
+
+=== Step 2: Access OpenShift Console
 
 . Navigate to the OpenShift Console:
 +
@@ -50,7 +83,7 @@ Username: {username}
 Password: {password}
 ----
 
-=== Step 2: View Pipeline Execution
+=== Step 3: View Pipeline Execution Details
 
 . In the OpenShift Console, navigate to *Pipelines → Pipelines*
 . Look for your pipeline named `my-quarkus-tkn-on-push`

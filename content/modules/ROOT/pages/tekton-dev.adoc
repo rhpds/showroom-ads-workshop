@@ -63,11 +63,13 @@ Let's embark on your journey by logging into your new development environment. Y
 +
 link:{rhdh_url}[*Red Hat Developer Hub*^]
 
-* You see the authentication page and click the *Sign In* button to start your journey:
+* You see the "Select a sign-in method" screen and click the *OIDC* option to start your journey
 +
 TIP: Your organization uses OIDC authentication powered by Red Hat build of Keycloak - this secure authentication integration will save you time throughout your development workflow.
 
-=== Step 2: Authenticate
+=== Step 2: Enter Your Credentials
+
+* You're presented with the Red Hat Trusted Artifact Signer login form with username and password fields
 
 * You enter your lab credentials that were provided to you:
 +
@@ -77,15 +79,15 @@ Username: {rhdh_user}
 Password: {rhdh_user_password}
 ----
 
-* After clicking *Sign in*, you're prompted to authorize access
+* Click the blue *Sign In* button to proceed
+
+=== Step 3: Authorize Access
+
+* After entering your credentials, you're prompted to authorize access to Red Hat Developer Hub
 
 * You click *Authorize* to grant the necessary permissions to Red Hat build of Keycloak
 
-image::3_Authorize.png[]
-
 * Moments later, you're welcomed by the Red Hat Developer Hub landing page - your new development home!
-
-image::4_RHDH_Landing_Page.png[]
 
 IMPORTANT: If you encounter any authentication issues, you can always reference the "Lab Access Information" page for your credentials.
 
@@ -117,6 +119,8 @@ Now comes the exciting part - you're about to experience the magic of self-servi
 
 * "Perfect!" you think, "This is exactly what I need for a modern application with OpenShift Pipelines"
 * You click *Choose* to select this template, excited to see what happens next
+
+image::tekton-dev-1.png[]
 
 TIP: You're about to witness something amazing - this single template will automatically create your complete OpenShift Pipelines environment with Tekton workflows, Kubernetes resources, and security scanning. No tickets, no waiting, no manual configuration!
 
@@ -172,6 +176,9 @@ Click *Review* to see a summary of your OpenShift Pipelines configuration.
 === Step 4: Create Your OpenShift Pipelines Application
 
 . Review all the settings in the summary page
+
+image::tekton-dev-5.png[]
+
 . Click *Create* to generate your OpenShift Pipelines application
 
 The OpenShift Pipelines software template will now:
@@ -187,11 +194,16 @@ TIP: This entire OpenShift Pipelines setup that traditionally takes weeks is com
 === Step 5: Access Your New OpenShift Pipelines Component
 
 . Once the template execution completes, click *Open Component in Catalog*
+
+image::tekton-dev-10.png[]
+
 . You'll see your new OpenShift Pipelines application component with links to:
   * Source code repository with Kubernetes manifests
   * Tekton CI/CD pipelines  
   * Application overview and health status
   * OpenShift Dev Spaces development environment
+
+image::tekton-dev-11.png[]
 
 == Activity 3: Exploring Your New OpenShift Pipelines Development Environment
 
@@ -255,11 +267,7 @@ git commit -m "Add OpenShift Pipelines documentation"
 
 * Something interesting happens - you're prompted for signed commit authentication. You follow the browser flow to cryptographically sign your commit
 
-image::90_Gitsign_Commit_Message.png[]
-
-* After completing the signing process, you feel a sense of accomplishment
-
-image::93_Gitsign_Commit_Signed.png[]
+* After completing the signing process, you feel a sense of accomplishment - your commit is now cryptographically signed for security
 
 * You push your changes and watch the magic happen:
 +
@@ -269,6 +277,8 @@ git push
 ----
 
 TIP: You just witnessed something powerful - your commit was automatically signed for security, and now it's triggering a complete OpenShift Pipelines workflow. No manual work, no tickets, no waiting!
+
+image::tekton-dev-17.png[]
 
 == What You Just Accomplished
 

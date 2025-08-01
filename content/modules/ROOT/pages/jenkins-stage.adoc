@@ -34,13 +34,51 @@ Your code commit has triggered a sophisticated Jenkins pipeline that demonstrate
 * Policy enforcement without disrupting Jenkins workflows
 * Compliance reporting generated automatically from Jenkins builds
 
-== Activity 1: Monitoring Your Enhanced Jenkins Pipeline
+== Activity 1: Triggering the Enhanced Jenkins Staging Pipeline
 
-=== Step 1: Access Jenkins Build Dashboard
+Let's create a Git tag to trigger the enhanced Jenkins staging pipeline:
 
-. Navigate to your Jenkins instance (link from your component overview)
-. Click on your triggered build number
-. Review the pipeline execution with enhanced stages:
+=== Step 1: Access Your GitLab Repository
+
+. Open your GitLab repository from the component overview
+
+image::jenkins-stage-1.png[]
+
+=== Step 2: Create a Git Tag
+
+. Navigate to *Code > Tags > New Tag*
+
+image::jenkins-stage-2.png[]
+
+. Enter a version tag like `v1.0`
+. Choose the target branch (typically `main`)
+. Click *Create Tag*
+
+image::jenkins-stage-3.png[]
+
+TIP: Creating this tag triggers the enhanced Jenkins staging pipeline, demonstrating how modern automation integrates with familiar Jenkins workflows.
+
+== Activity 2: Monitoring Your Enhanced Jenkins Pipeline
+
+=== Step 1: Access Pipeline via Developer Hub
+
+. Go to Red Hat Developer Hub
+. On the left menu, click on *Catalog*, then under *Kind* select `Component`, click *my-quarkus-jnk* component
+
+image::jenkins-stage-7.png[]
+
+. Click the *CI* tab to see pipeline runs
+. Click on the *View build* icon on the *promote-to-stage* build to follow progress
+
+image::jenkins-stage-4.png[]
+
+. Click *Open Blue Ocean* to view the pipeline stages
+
+image::jenkins-stage-5.png[]
+
+=== Step 2: Review Enhanced Pipeline Stages
+
+Review the pipeline execution with enhanced stages:
   * **Checkout** - Source code retrieval
   * **Build** - Application compilation
   * **Test** - Automated testing
@@ -98,6 +136,8 @@ IMPORTANT: Image signing provides tamper-proof evidence integrated into your fam
 . Notice how Jenkins CI seamlessly triggers GitOps CD
 
 TIP: This architecture preserves Jenkins value while adding modern GitOps capabilities.
+
+image::jenkins-stage-6.png[]
 
 == Activity 3: Validating Staging Deployment
 

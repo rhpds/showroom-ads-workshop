@@ -38,7 +38,42 @@ Production deployments in OpenShift Pipelines environments require additional sa
 * Deployment windows and maintenance schedules considered
 * Risk assessment and mitigation plans validated
 
-== Activity 1: Production Release Preparation
+== Activity 1: Triggering Production Deployment
+
+Let's create a GitLab release to trigger the production pipeline:
+
+=== Step 1: Access Your GitLab Repository
+
+. Open your GitLab repository from the component overview
+
+image::tekton-prod-1.png[]
+
+=== Step 2: Create a GitLab Release
+
+. Navigate to *Deploy > Releases > Create a new release*
+
+image::tekton-prod-2.png[]
+
+. Select an existing tag (e.g., `v1.0`) or create a new one
+. Optionally, enter release notes
+. Click *Create release*
+
+image::tekton-prod-3.png[]
+
+TIP: Creating this release triggers the production pipeline automatically - demonstrating secure, automated promotion to production.
+
+== Activity 2: Monitoring Your Production Pipeline
+
+=== Step 1: View Pipeline in Developer Hub
+
+. Go to Red Hat Developer Hub  
+. Navigate to the *my-quarkus-tkn* component
+. Click the *CI* tab to see pipeline runs
+. Look for a pipeline run labeled *promote-to-prod* and expand it to view details
+
+image::tekton-prod-4.png[]
+
+== Activity 3: Production Release Validation
 
 === Step 1: Validate Staging Success
 

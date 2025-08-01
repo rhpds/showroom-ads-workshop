@@ -38,7 +38,50 @@ Production deployments with enhanced Jenkins maintain familiar patterns while ad
 * Gradual enhancement possible for existing production pipelines
 * No disruption to established operational procedures
 
-== Activity 1: Production Release Preparation
+== Activity 1: Triggering Enhanced Jenkins Production Deployment
+
+Let's create a GitLab release to trigger the enhanced Jenkins production pipeline:
+
+=== Step 1: Access Your GitLab Repository
+
+. Open your GitLab repository from the component overview
+
+image::jenkins-prod-1.png[]
+
+=== Step 2: Create a GitLab Release
+
+. Navigate to *Deploy > Releases > Create a new release*
+
+image::jenkins-prod-2.png[]
+
+. Select an existing tag (e.g., `v1.0`) or create a new one
+. Optionally, enter release notes
+. Click *Create release*
+
+image::jenkins-prod-3.png[]
+
+TIP: Creating this release triggers the enhanced Jenkins production pipeline, demonstrating how modern release management integrates with Jenkins workflows.
+
+== Activity 2: Monitoring Your Enhanced Jenkins Production Pipeline
+
+=== Step 1: Access Pipeline via Developer Hub
+
+. Go to Red Hat Developer Hub
+. On the left menu, click on *Catalog*, then under *Kind* select `Component`, click *my-quarkus-jnk* component
+
+image::jenkins-prod-7.png[]
+
+. Click the *CI* tab to see pipeline runs
+. Locate the build labeled *promote-to-prod*
+. Click on the *View build* icon on the *promote-to-prod* build to follow progress
+
+image::jenkins-prod-4.png[]
+
+. Click *Open Blue Ocean* to view the pipeline stages
+
+image::jenkins-prod-5.png[]
+
+== Activity 3: Production Release Validation
 
 === Step 1: Validate Staging Success in Jenkins
 
@@ -64,6 +107,8 @@ TIP: All security validation is visible through familiar Jenkins interfaces - no
 . Understand how Jenkins provides enterprise audit capabilities
 
 IMPORTANT: Enhanced Jenkins provides complete supply chain security while maintaining familiar operational patterns.
+
+image::jenkins-prod-6.png[]
 
 == Activity 2: Production Deployment Execution
 
