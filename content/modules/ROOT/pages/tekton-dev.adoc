@@ -424,8 +424,8 @@ Username: {rhdh_user}
 Password: {rhdh_user_password}
 ----
   - Copy the authentication code from the browser
-  +
-  image::tekton-dev-16.png[]
++
+image::tekton-dev-16.png[]
   - Paste the code back into your terminal to complete the signing process
 
 * After completing the signing process, you feel a sense of accomplishment - your commit is now cryptographically signed for security
