@@ -172,9 +172,9 @@ Click *Review* to see a summary of your OpenShift Pipelines configuration.
 === Step 4: Create Your OpenShift Pipelines Application
 
 . Review all the settings in the summary page
-
++
 image::tekton-dev-4.png[]
-
++
 image::tekton-dev-5.png[]
 
 . Click *Create* to generate your OpenShift Pipelines application
