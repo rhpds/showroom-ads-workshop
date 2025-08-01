@@ -9,230 +9,364 @@ toc::[]
 
 By the end of this section, you will:
 
-* Understand how Tekton pipelines execute OpenShift Pipelines CI/CD workflows
-* See automated security scanning and validation in action
-* Experience GitOps-based deployment to staging environments
-* Learn about OpenShift Pipelines monitoring and observability
+* Understand how automated staging validation transforms development cycles from weeks to minutes
+* Experience enterprise-grade security validation with Enterprise Contract and Artifact Signer
+* Trigger staging pipelines using Git tags and observe automated promotion workflows
+* Learn how GitOps ensures validated changes reach staging environments automatically
 
-== Understanding OpenShift Pipelines Execution
+== Understanding Staging Validation Transformation
 
-Your code commit has triggered a sophisticated OpenShift Pipelines workflow that demonstrates enterprise-grade automation:
+Enterprise development teams often face significant challenges with staging validation processes:
 
-=== Tekton Pipeline Advantages
+=== Traditional Staging Challenges
 
-=== OpenShift Pipelines Architecture
+* **3-5 days** required for staging validation processes
+* **1-2 weeks** for manual security reviews and compliance checks
+* **Multiple coordination meetings** between development, security, and platform teams
+* **Manual deployment processes** that are error-prone and time-consuming
+* **"Works in staging, fails in production"** surprises due to environment inconsistencies
 
-* Kubernetes-native execution - Pipelines run as pods
-* Automatic scaling - Pipeline capacity scales with cluster resources
-* Resource efficiency - Each pipeline step optimizes resource usage
-* Multi-tenancy support - Secure isolation between different teams
+=== Red Hat Advanced Developer Suite Solution
 
-=== Enterprise Security Integration
+Red Hat Advanced Developer Suite (RHADS) transforms this experience with:
 
-* Container image scanning at every build
-* Supply chain verification with cryptographic signing
-* Policy enforcement before any deployment
-* Compliance reporting for audit requirements
+* **Staging time: 3-5 days → 30 minutes** with automated validation pipelines
+* **Security validation: 1-2 weeks → minutes** with integrated Enterprise Contract validation
+* **Zero manual coordination overhead** between teams
+* **Production-ready confidence** with every staging deployment
+* **Consistent validation** that eliminates environment surprises
+
+**Key Business Benefits:**
+
+* Feature validation: Weeks → Hours
+* Early risk detection prevents costly production incidents
+* Same security standards as production ensure audit readiness
+* Platform teams focus on innovation, not deployment coordination
 
 == Activity 1: Triggering the Staging Pipeline
 
-Let's create a Git tag to trigger the staging pipeline:
+Let's create a Git tag to trigger the automated staging pipeline and observe how enterprise validation works.
 
 === Step 1: Access Your GitLab Repository
 
-. In Developer Hub, navigate to the component *Overview* tab and click the *View Source* link to open your GitLab repository:
-+
-image::tekton-stage-5.png[]
-
-. If prompted for credentials, use:
+. Open your GitLab repository at {gitlab_url}/development/my-quarkus-tkn[my-quarkus-tkn^]
+. Sign in using:
 +
 [source,bash,subs="attributes"]
 ----
 Username: {gitlab_user}
 Password: {gitlab_user_password}
 ----
-
++
 image::tekton-stage-1.png[]
 
 === Step 2: Create a Git Tag
 
-. Navigate to *Code > Tags > New Tag*
+Creating a Git tag simulates a release event that triggers the staging pipeline.
 
+. In the left menu, click on *Code > Tags > New Tag*
++
 image::tekton-stage-2.png[]
 
 . Enter a version tag like `v1.0`
 . Choose the target branch (typically `main`)
 . Click *Create Tag*
-
++
 image::tekton-stage-3.png[]
 
-TIP: Creating this tag triggers the staging pipeline automatically - demonstrating event-driven OpenShift Pipelines automation.
+[NOTE]
+====
+This tag creation triggers a GitLab webhook that kicks off the OpenShift Pipelines pipeline — the one that promotes the image to the staging environment.
+====
 
-== Activity 2: Monitoring Your Tekton Pipeline
+=== Alternative: CLI Approach
 
-=== Step 1: View Pipeline in Developer Hub
+If you prefer the CLI, you can trigger the same automation:
+
+[source,bash]
+----
+git tag v1.0
+git push --tags
+----
+
+The CLI approach does the same thing — triggers the pipeline tied to this Git tag.
+
+=== Step 3: Monitor Pipeline Execution
 
 . Go to Red Hat Developer Hub
 . Navigate to the *my-quarkus-tkn* component
 . Click the *CI* tab to see pipeline runs
-. Look for the pipeline run labeled *promote-to-stage* and expand it to view details
-
+. Expand the job labeled *promote-to-stage* to follow its progress
++
 image::tekton-stage-4.png[]
 
-=== Step 2: Access OpenShift Console
+[TIP]
+====
+Use the Developer Hub view to observe each task as it executes. You'll see automation in action — no manual approvals, just policy-driven promotion.
+====
 
-. Navigate to the OpenShift Console:
-+
-link:{openshift_url}[*OpenShift Console*^]
+== Activity 2: Understanding Pipeline Tasks
 
-. Sign in with your credentials:
-+
-[source,bash,subs="attributes"]
+The staging pipeline provides production-level confidence while eliminating manual bottlenecks. Let's examine each task in detail.
+
+=== Task 1.1: extract-destination-image-tag
+
+**Purpose:** Perfect traceability through Git tags
+
+This task extracts the commit ID of the Git tag. The commit ID becomes the image tag of the image we are promoting to staging, enabling:
+
+* Coordinated feature rollouts
+* Complete audit trails for compliance
+* End-to-end traceability from code to deployment
+
+=== Task 1.2: gather-images-to-verify
+
+**Purpose:** Ensuring staging mirrors production exactly
+
+This task selects the image based on the commit ID and generates `images.json`, which:
+
+* Ensures same validated images eliminate "works in staging, fails in production" surprises
+* Provides a guarantee that staging validation represents real production deployment quality
+* Creates mapping between Git commit and container image for complete traceability
+
+[NOTE]
+====
+This mapping between Git commit and container image provides end-to-end traceability — we know exactly what code went into what image.
+====
+
+**Sample `images.json`:**
+[source,json,subs="attributes"]
 ----
-Username: {username}
-Password: {password}
+{
+  "components": [
+    {
+      "containerImage": "quay.tssc-quay/tssc/my-quarkus-tkn:abc123def456",
+      "source": {
+        "git": {
+          "url": "{gitlab_url}/development/my-quarkus-tkn",
+          "revision": "abc123def456"
+        }
+      }
+    }
+  ]
+}
 ----
 
-=== Step 3: View Pipeline Execution Details
+=== Task 2: verify-enterprise-contract
 
-. In the OpenShift Console, navigate to *Pipelines → Pipelines*
-. Look for your pipeline named `my-quarkus-tkn-on-push`
-. Click on the pipeline name to view details
+**Purpose:** Critical business protection through automated security validation
 
-. You'll see the pipeline execution with multiple stages:
-  * **Clone Repository** - Fetch source code
-  * **Build Application** - Compile Quarkus application
-  * **Build Container** - Create container image
-  * **Security Scan** - Vulnerability assessment
-  * **Sign Image** - Cryptographic signing
-  * **Deploy to Stage** - GitOps deployment
+This step enforces multiple critical validations that protect your business and customers:
 
-=== Step 3: Examine Security Validation
+**Enterprise Security Validations:**
+* **Container image signature verification** using cryptographic signing
+* **Software Bill of Materials (SBOM) validation** for supply chain security
+* **CVE scanning** to catch security vulnerabilities before production
+* **Policy compliance** ensuring enterprise security standards
+* **Provenance attestation** to verify source repository integrity
 
-. Click on the *Security Scan* stage to see detailed results
-. Review the vulnerability assessment report
-. Notice how the pipeline automatically fails if critical vulnerabilities are found
+**Business Value:**
+* Security validation: 1-2 weeks → Minutes
+* Early risk detection prevents costly production incidents
+* Same security standards as production ensure audit readiness
+* Automatic CVE scanning and policy compliance
 
-TIP: The security scanning happens automatically without any developer intervention - security is built into the development process.
+**Enterprise Impact:**
+* Security incident prevention: Issues caught before customer exposure
+* Audit confidence: Staging proves production security compliance
+* Deployment velocity: Minutes for security validation instead of weeks
+* Risk mitigation: 100% consistent security enforcement across environments
 
-=== Step 4: Verify Image Signing
+[IMPORTANT]
+====
+If any check fails, the pipeline halts. If everything passes, the image moves forward to the next promotion step.
+====
 
-. Click on the *Sign Image* stage
-. See how your container image is cryptographically signed
-. This signature ensures image integrity throughout the supply chain
+**Technical Implementation:**
 
-IMPORTANT: Signed images provide tamper-proof evidence of what was built, when, and by whom - critical for enterprise compliance.
+First, the pipeline bootstraps trust using `cosign` and a local TUF (The Update Framework) server:
 
-== Activity 2: Understanding GitOps Deployment
+[source,bash]
+----
+cosign initialize \
+  --mirror https://tuf.tssc-tas.svc \
+  --root https://tuf.tssc-tas.svc/root.json
+----
 
-=== Step 1: View GitOps Repository
+Then, the Enterprise Contract CLI performs validation:
 
-. Return to Red Hat Developer Hub
-. Navigate to your component overview
-. Click on the *GitLab* repository link for your GitOps manifests
+[source,bash]
+----
+ec validate image \
+  --image quay.tssc-quay/tssc/my-quarkus-tkn:abc123... \
+  --policy default \
+  --public-key k8s://openshift/trusted-keys \
+  --output json
+----
 
-=== Step 2: Examine Deployment Manifests
+**Sample validation output:**
+[source,json]
+----
+{
+  "successes": [
+    "Image is signed and verified with cosign",
+    "SBOM (CycloneDX) is present",
+    "Provenance attestation matches source repo",
+    "No critical vulnerabilities found"
+  ],
+  "failures": []
+}
+----
 
-. In the GitOps repository, navigate to the `environments/stage` directory
-. Review the Kubernetes manifests that define your staging deployment:
-  * **Deployment.yaml** - Application configuration
-  * **Service.yaml** - Network exposure
-  * **Route.yaml** - External access
+=== Task 3: copy-image
 
-=== Step 3: See GitOps Automation
+**Purpose:** Quality gateway ensuring only validated images reach staging
 
-. Notice that the image tag in the deployment manifest has been automatically updated
-. This demonstrates GitOps automation - your pipeline updated the desired state
-. ArgoCD will now automatically sync this change to the staging environment
+This task promotes the validated image with a human-readable tag (e.g., `v1.0`), ensuring:
 
-TIP: GitOps ensures that your staging environment exactly matches what's defined in Git - providing consistency and auditability.
+* Only validated, compliant images reach staging
+* Production-grade quality assurance
+* No unauthorized image changes slip through
 
-== Activity 3: Validating Staging Deployment
+**Technical Implementation:**
 
-=== Step 1: Access Staging Application
+[source,bash]
+----
+skopeo copy \
+  docker://quay.tssc-quay/tssc/my-quarkus-tkn:abc123... \
+  docker://quay.tssc-quay/tssc/my-quarkus-tkn:v1.0
+----
 
-. In the OpenShift Console, navigate to *Topology*
-. Switch to the staging namespace/project
-. Find your application deployment and click on the route URL
-. Verify your application is running successfully
+[IMPORTANT]
+====
+This guarantees that only validated artifacts are promoted — no sneaky image changes slip through.
+====
 
-=== Step 2: Review Application Health
+=== Task 4: update-deployment
 
-. Check the application pod status and resource usage
-. Review the deployment logs for any issues
-. Verify all health checks are passing
+**Purpose:** Automated GitOps bridge for immediate feature validation
 
-=== Step 3: Test Application Functionality
+This task ensures validated changes reach staging automatically through GitOps, enabling:
 
-. Access your Quarkus application endpoints
-. Verify the application responds correctly
-. Test any specific functionality relevant to your changes
+* QA teams can test immediately after development completion
+* Staging catches configuration issues before production
+* No manual coordination needed for deployments
+* Staging success reliably predicts production success
 
-== Understanding OpenShift Pipelines Benefits in Action
+[NOTE]
+====
+No manual `kubectl`, no YAML editing in the console — the system reacts to Git. That's the GitOps advantage.
+====
 
-=== What You Just Witnessed
+**GitOps Implementation Details:**
 
-**Automated Quality Gates:**
+The pipeline updates deployment files automatically:
 
-* Code was automatically built and tested
-* Security vulnerabilities were scanned and reported
-* Container images were signed for integrity
-* Deployment only proceeded after all validations passed
+**`kustomization.yaml`:**
+[source,yaml]
+----
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+patchesStrategicMerge:
+  - deployment-patch.yaml
+resources:
+  - ../../base
+----
 
-**GitOps Deployment Model:**
+**`deployment-patch.yaml`:**
+[source,yaml]
+----
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-quarkus-tkn
+spec:
+  template:
+    spec:
+      containers:
+        - name: my-quarkus-tkn
+          image: quay.tssc-quay/tssc/my-quarkus-tkn:v1.0
+----
 
-* Desired state defined declaratively in Git
-* Automatic synchronization to target environments
-* Complete audit trail of all changes
-* Easy rollback capabilities if issues occur
+**Example Git diff showing automatic update:**
+[source,diff]
+----
+-          image: quay.io/redhat-appstudio/rhtap-task-runner:latest
++          image: quay.tssc-quay/tssc/my-quarkus-tkn:v1.0
+----
 
-**OpenShift Pipelines Scalability:**
+== Activity 3: Observing GitOps Deployment
 
-* Pipeline executed using cluster resources
-* Automatic resource allocation and cleanup
-* No dedicated CI/CD infrastructure to maintain
-* Scales with your Kubernetes platform
+Watch how ArgoCD automatically syncs your validated changes to the staging environment.
 
-== What You Learned
+=== Step 1: Verify Deployment Updates
 
-You've experienced OpenShift Pipelines staging deployment with:
+. Check your GitOps repository for the updated deployment manifests
+. Notice how the image tag has been automatically updated to your release version
+. Observe that this happens without any manual intervention
 
-* **Automated pipeline execution** triggered by Git tags
-* **Security scanning and validation** built into every deployment
-* **GitOps-based promotion** to staging environments
-* **Kubernetes-native execution** that scales with your cluster
+=== Step 2: Monitor ArgoCD Synchronization
 
-== Troubleshooting Common Issues
+. Access the ArgoCD interface (if available)
+. Watch as ArgoCD detects the Git changes and syncs to staging
+. Verify that the deployment completes successfully
 
-=== Pipeline Failures
+=== Step 3: Validate Staging Environment
 
-If your pipeline fails:
+. Access your staging application through its route
+. Verify that your changes are live and functioning correctly
+. Confirm that the staging environment matches your expectations
 
-. Check the failed stage logs in the OpenShift Console
-. Common issues include:
-  * **Security vulnerabilities** - Review scan results and update dependencies
-  * **Build errors** - Check application code syntax and dependencies
-  * **Resource limits** - Verify cluster has sufficient capacity
+== What You've Learned
 
-=== GitOps Sync Issues
+You've experienced how Red Hat Advanced Developer Suite transforms enterprise staging validation:
 
-If staging deployment doesn't update:
+=== Pipeline Task Summary
 
-. Verify ArgoCD application status
-. Check GitOps repository for manifest syntax
-. Ensure proper RBAC permissions for ArgoCD
+|===
+| Phase | Purpose
 
-TIP: Most issues are automatically resolved by the platform's self-healing capabilities.
+| 1.1 extract-destination-image-tag
+| Extracts the commit ID of the Git tag. The commit ID is the image tag of the image we are promoting to `stage`.
+
+| 1.2 gather-images-to-verify
+| Selects the image based on the commit ID and generates `images.json`.
+
+| 2 verify-enterprise-contract
+| Validates signature, SBOM, provenance, CVEs — all enforced via the EC CLI.
+
+| 3 copy-image
+| Promotes the validated image with a human-readable tag (e.g., `v1.0`).
+
+| 4 update-deployment
+| Updates `overlays/stage` to trigger Argo CD deployment.
+|===
+
+=== Key Business Transformation
+
+**Staging Validation Benefits:**
+
+* Staging time: 3-5 days → 30 minutes
+* Production-grade validation catches issues early
+* Zero manual coordination overhead
+* Teams trust staging validation represents production reality
+
+**Enterprise Security Excellence:**
+
+* Automated security validation replaces weeks of manual review
+* Complete audit trails for compliance requirements
+* Cryptographic proof of image integrity and source
+* Consistent security enforcement across all deployments
 
 == What's Next
 
-Your application is now successfully running in the staging environment with full security validation!
+Your application is now successfully validated and running in staging with enterprise-grade security!
 
-In the next section, **Production - Releasing to production**, you'll:
+In the next section, you'll experience:
 
-* Review staging validation results and metrics
-* Understand production deployment approval workflows
-* Execute a secure production release
-* Monitor production application health and security posture
+* Production deployment with the same automated validation
+* Advanced monitoring and observability features
+* Complete audit trails that satisfy enterprise compliance requirements
+* Zero-downtime deployment strategies for production environments
 
-The OpenShift Pipelines staging validation is complete - let's move to production deployment!
+The transformation from weeks-long staging cycles to 30-minute automated validation demonstrates the power of Red Hat Advanced Developer Suite in modern enterprise development.
