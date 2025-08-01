@@ -199,11 +199,7 @@ cosign initialize \
 Enterprise Contract validation through Jenkins:
 [source,bash,subs="attributes"]
 ----
-ec validate image \
-  --image quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0 \
-  --policy default \
-  --public-key k8s://openshift/trusted-keys \
-  --output json
+ec validate image --image quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0 --policy default --public-key k8s://openshift/trusted-keys --output json
 ----
 
 **Sample Jenkins production validation output:**
@@ -241,9 +237,7 @@ This Jenkins task ensures only enterprise-validated images receive production de
 Jenkins uses `skopeo` to copy the image and apply a production tag with the `prod-` prefix:
 [source,bash,subs="attributes"]
 ----
-skopeo copy \
-  docker://quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0 \
-  docker://quay.tssc-quay/tssc/qrks-jnk-{user}:prod-v1.0
+skopeo copy docker://quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0 docker://quay.tssc-quay/tssc/qrks-jnk-{user}:prod-v1.0
 ----
 
 This Jenkins step doesn't rebuild the image* It simply re-tags a verified, immutable image — ensuring complete traceability and production readiness confidence.

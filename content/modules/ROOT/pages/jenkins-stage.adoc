@@ -186,11 +186,7 @@ cosign initialize \
 Then Jenkins validates the image using Enterprise Contract:
 [source,bash,subs="attributes"]
 ----
-ec validate image \
-  --image quay.tssc-quay/tssc/qrks-jnk-{user}:123456 \
-  --policy git::github.com/org/ec-policies//default \
-  --public-key k8s://openshift/trusted-keys \
-  --output json
+ec validate image --image quay.tssc-quay/tssc/qrks-jnk-{user}:123456 --policy git::github.com/org/ec-policies//default --public-key k8s://openshift/trusted-keys --output json
 ----
 
 **Sample Jenkins validation output:**
@@ -228,9 +224,7 @@ This Jenkins task promotes the validated image with a human-readable tag (e.g., 
 Jenkins uses `skopeo` to copy the image and apply the new tag:
 [source,bash,subs="attributes"]
 ----
-skopeo copy \
-  docker://quay.tssc-quay/tssc/qrks-jnk-{user}:123456 \
-  docker://quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0
+skopeo copy docker://quay.tssc-quay/tssc/qrks-jnk-{user}:123456 docker://quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0
 ----
 
 [IMPORTANT]
