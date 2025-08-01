@@ -197,7 +197,7 @@ cosign initialize \
 ----
 
 Enterprise Contract validation through Jenkins:
-[source,bash]
+[source,bash,subs="attributes"]
 ----
 ec validate image \
   --image quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0 \
@@ -239,7 +239,7 @@ This Jenkins task ensures only enterprise-validated images receive production de
 **Technical Implementation in Jenkins:**
 
 Jenkins uses `skopeo` to copy the image and apply a production tag with the `prod-` prefix:
-[source,bash]
+[source,bash,subs="attributes"]
 ----
 skopeo copy \
   docker://quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0 \
@@ -271,7 +271,7 @@ In the `deploy-to-prod` stage, Jenkins uses `rhtap.update_deployment()` to patch
 Jenkins commits and pushes this change to the GitOps repository under the `overlays/prod/` directory.
 
 **`deployment-patch.yaml` updated by Jenkins:**
-[source,yaml]
+[source,yaml,subs="attributes"]
 ----
 apiVersion: apps/v1
 kind: Deployment

@@ -184,7 +184,7 @@ cosign initialize \
 ----
 
 Then Jenkins validates the image using Enterprise Contract:
-[source,bash]
+[source,bash,subs="attributes"]
 ----
 ec validate image \
   --image quay.tssc-quay/tssc/qrks-jnk-{user}:123456 \
@@ -226,7 +226,7 @@ This Jenkins task promotes the validated image with a human-readable tag (e.g., 
 **Technical Implementation in Jenkins:**
 
 Jenkins uses `skopeo` to copy the image and apply the new tag:
-[source,bash]
+[source,bash,subs="attributes"]
 ----
 skopeo copy \
   docker://quay.tssc-quay/tssc/qrks-jnk-{user}:123456 \
@@ -267,7 +267,7 @@ patchesStrategicMerge:
 ----
 
 **`deployment-patch.yaml`:**
-[source,yaml]
+[source,yaml,subs="attributes"]
 ----
 apiVersion: apps/v1
 kind: Deployment

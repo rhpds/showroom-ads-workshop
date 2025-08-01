@@ -127,7 +127,7 @@ The template form will guide you through Jenkins pipeline configuration:
 
 Ensure that the following values are set for your Jenkins application:
 
-[cols="1,2", options="header"]
+[cols="1,2", options="header", subs="attributes"]
 |===
 | Field | Default Value
 | Name | `qrks-jnk-{user}`
@@ -220,10 +220,68 @@ The template you just used created a sophisticated Jenkins environment with key 
 
 - **Location**: `{gitlab_url}/development/qrks-jnk-{user}[^]`
 - **Purpose**: Contains your application source code with Jenkins pipeline definitions
-- **Jenkins files**: `Jenkinsfile` with complete pipeline definition including:
-  - Build and test automation
-  - Security scanning and image signing
-  - GitOps deployment integration
+- **Jenkins Pipeline Files**: Multiple Jenkins pipeline files configured for different Git events:
+
+**📁 Jenkins Pipeline Structure in Your Repository**
+
+Your Jenkins application repository at [qrks-jnk-{user}](https://gitlab-gitlab.apps.cluster-sc8ld.sc8ld.sandbox2279.opentlc.com/development/qrks-jnk-user9) contains specialized Jenkins pipeline files that trigger automatically based on Git events:
+
+- **📄 `Jenkinsfile.push`** - **Triggered on Code Commits**
+  - Activates when you commit and push code changes to your repository
+  - Runs development pipeline with build, test, and security scanning
+  - Performs continuous integration validation for development workflow
+
+- **🏷️ `Jenkinsfile.tag`** - **Triggered on Git Tags**
+  - Activates when you create a Git tag on a branch in your repository
+  - Runs staging pipeline for release candidate validation
+  - Prepares artifacts for staging environment deployment
+
+- **🚀 `Jenkinsfile.release`** - **Triggered on GitLab Releases**
+  - Activates when you create a release from an existing tag
+  - Runs production pipeline with enhanced security validation
+  - Deploys verified artifacts to production environment
+
+Each pipeline includes comprehensive security features:
+- Cryptographic commit verification and image signing
+- Enterprise Contract policy enforcement
+- Software Bill of Materials (SBOM) generation
+- Red Hat Advanced Cluster Security scanning
+
+**📚 Reusable Jenkins Library Functions**
+
+Your Jenkins pipelines leverage the powerful `rhtap` (Red Hat Trusted Application Pipeline) shared library, which provides standardized, enterprise-grade functions:
+
+- **🏗️ `buildah_rhtap()`** - Container image building with security integration
+  - Creates OCI-compliant container images using Buildah
+  - Automatically integrates with enterprise registries and signing
+  - Handles multi-architecture builds and security scanning
+
+- **🔐 `cosign_sign_attest()`** - Cryptographic signing and attestation
+  - Signs container images with enterprise PKI certificates
+  - Creates SLSA (Supply Chain Levels for Software Artifacts) provenance
+  - Generates cryptographic attestations for compliance
+
+- **📋 `update_deployment()`** - GitOps repository management
+  - Updates deployment manifests in GitOps repositories
+  - Handles environment-specific configurations automatically
+  - Triggers ArgoCD synchronization for deployment
+
+- **🛡️ `acs_deploy_check()` / `acs_image_check()` / `acs_image_scan()`** - Security validation
+  - Integrates with Red Hat Advanced Cluster Security (RHACS)
+  - Performs policy enforcement and vulnerability scanning
+  - Validates deployment manifests against security policies
+
+- **📊 `show_sbom_rhdh()`** - Software Bill of Materials integration
+  - Displays SBOM information in Red Hat Developer Hub
+  - Provides visibility into software components and dependencies
+  - Supports compliance and security auditing
+
+- **📈 `summary()`** - Build reporting and status
+  - Generates comprehensive build reports
+  - Provides pipeline execution summaries
+  - Integrates with Red Hat Developer Hub dashboards
+
+These shared library functions ensure consistency, security, and compliance across all your Jenkins pipelines while reducing code duplication and maintenance overhead.
 
 === Understanding Jenkins Pipelines as Code
 
