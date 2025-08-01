@@ -126,7 +126,7 @@ The template form will guide you through OpenShift Pipelines configuration with 
 
 ==== Application Information
 
-Accept the default values or customize for your OpenShift Pipelines application:
+Ensure that the following values are set for your template calues:
 
 [cols="1,2", options="header"]
 |===

@@ -1,4 +1,6 @@
-= OpenShift Pipelines - Production
+= OpenShift Pipelines - Production Deployment
+Red Hat Advanced Developer Suite: Enterprise Security and GitOps Promotion
+:icons: font
 :source-highlighter: rouge
 :toc: macro
 :toclevels: 2
@@ -7,47 +9,43 @@ toc::[]
 
 == Learning Objectives
 
-By the end of this section, you will:
+By the end of this workshop section, you will:
 
-* Understand production deployment approval workflows
-* Execute a secure production release using GitOps
-* Monitor production application health and security posture
-* Comprehend the complete OpenShift Pipelines supply chain security model
+* **Understand** enterprise production deployment workflows and security requirements
+* **Execute** a secure production release using automated GitOps promotion
+* **Implement** enterprise-grade security validation using Enterprise Contract
+* **Monitor** production deployment pipelines and validate security posture
+* **Comprehend** the complete supply chain security model and business value
 
-== Understanding Production Deployment Strategy
+== Workshop Scenario: Enterprise Production Transformation
 
-Production deployments in OpenShift Pipelines environments require additional safeguards and approval processes:
+**Business Challenge:**
+Traditional production deployments take 2-3 weeks with manual security reviews, creating bottlenecks during critical release periods.
 
-=== Enterprise Production Requirements
+**Solution Goal:**
+Transform risky manual processes into confident automated workflows using Red Hat Advanced Developer Suite (RHADS).
 
-**Security Validation:**
+**Expected Business Outcomes:**
+* Production deployment time: 2-3 weeks → 30 minutes
+* Zero manual security reviews or bottlenecks
+* Eliminate human error through automation
+* Complete SOC 2 and PCI audit trails automatically
 
-* All security scans must pass with zero critical vulnerabilities
-* Container images must be signed and verified
-* Supply chain integrity must be validated
-* Compliance policies must be enforced
+[NOTE]
+====
+The examples and commands in this workshop demonstrate enterprise production deployment capabilities. Adapt repository URLs, credentials, and configurations as needed for your specific setup.
+====
 
-**Operational Readiness:**
+== Activity 1: Triggering Production Deployment with Git Release
 
-* Staging environment validation must be successful
-* Health checks and monitoring must be configured
-* Rollback procedures must be verified
-* Capacity planning must be confirmed
-
-**Governance and Approval:**
-
-* Change management processes must be followed
-* Stakeholder approvals may be required
-* Deployment windows and maintenance schedules considered
-* Risk assessment and mitigation plans validated
-
-== Activity 1: Triggering Production Deployment
-
-Let's create a GitLab release to trigger the production pipeline:
+In this activity, you'll initiate an enterprise-grade production deployment by creating a Git release, demonstrating how manual processes transform into automated confidence.
 
 === Step 1: Access Your GitLab Repository
 
-. Open your GitLab repository from the component overview
+. Open your GitLab repository at: {gitlab_url}/development/qrks-tkn-{user}[qrks-tkn-{user}^,subs="attributes"]
+. Log in using:
+  * Username: `{gitlab_user}`
+  * Password: `{gitlab_user_password}`
 
 image::tekton-prod-1.png[]
 
@@ -58,190 +56,377 @@ image::tekton-prod-1.png[]
 image::tekton-prod-2.png[]
 
 . Select an existing tag (e.g., `v1.0`) or create a new one
-. Optionally, enter release notes
+. Enter meaningful release notes describing the changes
 . Click *Create release*
 
 image::tekton-prod-3.png[]
 
-TIP: Creating this release triggers the production pipeline automatically - demonstrating secure, automated promotion to production.
+[TIP]
+====
+**Business Impact:** This single Git release action triggers the entire enterprise-grade security validation pipeline automatically, replacing weeks of manual approval processes.
+====
 
-== Activity 2: Monitoring Your Production Pipeline
+=== Step 3: Monitor Pipeline Activation
 
-=== Step 1: View Pipeline in Developer Hub
-
-. Go to Red Hat Developer Hub
-. Navigate to the *qrks-tkn-{user}* component
-. Click the *CI* tab to see pipeline runs
+. Navigate to the `qrks-tkn-{user}` component in Red Hat Developer Hub
+. Click the *CI* tab to view pipeline runs
 . Look for a pipeline run labeled *promote-to-prod* and expand it to view details
 
 image::tekton-prod-4.png[]
 
-== Activity 3: Production Release Validation
+**What You've Accomplished:**
+You've initiated an automated production pipeline that will perform enterprise security validation before allowing deployment to production.
 
-=== Step 1: Validate Staging Success
+== Activity 2: Understanding Pipeline Security Validation
 
-. In the OpenShift Console, review your staging deployment metrics
-. Verify all health checks are passing consistently
-. Check application performance and resource utilization
-. Confirm security scan results show no critical issues
+In this activity, you'll explore how the production pipeline automatically performs enterprise-grade security validation, demonstrating how automation reduces risk while accelerating delivery.
 
-=== Step 2: Review Security Posture
+**Business Value:**
+* SOC 2/PCI compliance automated (saves weeks of manual evidence collection)
+* Security violations caught before reaching customers
+* Zero manual review bottlenecks
+* Confident deployments during peak shopping seasons
 
-. Navigate to *Security → Vulnerability Management* in OpenShift Console
-. Review the security scan results for your container image
-. Verify the image signature validation status
-. Check compliance policy adherence
+=== Step 1: Examine Pipeline Task Execution
 
-TIP: Production deployments should only proceed when all security validations pass - this demonstrates "security by default" in action.
+. In the Developer Hub CI tab, observe the pipeline tasks executing in sequence
+. Note how each task builds upon the previous one's output
+. Observe the automated security checkpoints throughout the process
 
-=== Step 3: Examine Supply Chain Evidence
+=== Step 2: Understand Image Tag Extraction
 
-. In Red Hat Developer Hub, navigate to your component overview
-. Review the supply chain attestations and signatures
-. See the complete build provenance information
-. Understand how this provides audit trail for compliance
+**Pipeline Task:** `extract-destination-image-tag`
 
-IMPORTANT: Supply chain security provides cryptographic proof of exactly what was built, how it was built, and who authorized the build.
+This task provides perfect traceability by extracting the Git tag to ensure complete audit trail and compliance automation.
 
-== Activity 2: Production Deployment Execution
+**What Happens:**
+* Git release tag (e.g., `v1.0`) is extracted from the release
+* Tag becomes part of the destination image name for production
+* Ensures direct correlation between source code version and deployed image
 
-=== Step 1: Trigger Production Promotion
+=== Step 3: Analyze Image Verification Preparation
 
-The production deployment in this environment is configured for manual approval to demonstrate enterprise governance:
+**Pipeline Task:** `gather-images-to-verify`
 
-. In your GitOps repository, navigate to the `environments/prod` directory
-. Create a new branch for your production deployment:
-+
+This task gives absolute certainty about production deployments by creating definitive proof of what was deployed and why.
+
+**Process:**
+. The Git release tag is mapped to the image produced during staging
+. The tag is used to locate the previously built container image
+. A metadata file named `images.json` is created with complete traceability information
+
+**Example images.json:**
+[source,json,subs="attributes"]
+----
+{
+  "components": [
+    {
+      "containerImage": "quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0",
+      "source": {
+        "git": {
+          "url": "{gitlab_url}/development/qrks-tkn-{user}",
+          "revision": "v1.0"
+        }
+      }
+    }
+  ]
+}
+----
+
+**Business Benefit:**
+This metadata ensures complete traceability — the image is cryptographically linked back to its source code and verified that it hasn't been tampered with, providing audit-ready documentation automatically.
+
+== Activity 3: Enterprise Contract Security Validation
+
+This is the most critical business protection activity — you'll observe automated security validation that prevents costly production incidents while eliminating manual security review delays.
+
+=== Understanding the Business Risk and Protection
+
+**Business Risk Without Automated Validation:**
+* Security vulnerabilities in production could cost millions in damages and compliance fines
+* Manual security reviews create 2-3 week deployment delays
+* Human error in security checks leads to production incidents
+* Inconsistent security standards across different teams and deployments
+
+**RHADS Business Protection:**
+* **Zero Security Incidents:** Automated validation catches issues before they reach customers
+* **100% Consistent Standards:** Every deployment meets the same enterprise security policies
+* **Instant Compliance:** SOC 2, PCI, and regulatory requirements enforced automatically
+* **No Deployment Delays:** Security validation happens in minutes, not weeks
+
+=== Step 1: Observe Enterprise Contract Validation Process
+
+**Pipeline Task:** `verify-enterprise-contract`
+
+. In the pipeline execution view, locate the `verify-enterprise-contract` task
+. Observe the task's progress through multiple security validations
+. Note the comprehensive security checks being performed automatically
+
+**Enterprise Security Validations Performed:**
+* **Digital signature verification:** Proves the image hasn't been tampered with
+* **SBOM validation:** Complete dependency scanning for vulnerability management
+* **Provenance verification:** Confirms the image came from trusted build processes
+* **CVE scanning:** Automatic vulnerability detection and policy enforcement
+* **Organizational policy compliance:** Custom security rules enforced automatically
+
+=== Step 2: Understand the Security Technologies
+
+[IMPORTANT]
+====
+**Key Security Components:**
+
+* **Enterprise Contract (EC):** Protects your business by ensuring only compliant, secure images reach production
+* **TUF (The Update Framework):** Prevents tampering with security metadata — protecting against supply chain attacks
+* **SBOM (Software Bill of Materials):** Enables rapid vulnerability response — critical for security posture
+* **Provenance:** Proves build integrity — essential for compliance and audit requirements
+====
+
+=== Step 3: Examine Security Validation Commands
+
+The pipeline performs these critical security validations:
+
+**Initialize Cryptographic Trust:**
 [source,bash]
 ----
-git checkout -b prod-release-v1.0
+cosign initialize \
+  --mirror http://tuf.tssc-tas.svc \
+  --root http://tuf.tssc-tas.svc/root.json
 ----
 
-. Update the production deployment manifest with the validated staging image
-. Commit your changes:
-+
-[source,bash]
+**Validate Image Security:**
+[source,bash,subs="attributes"]
 ----
-git add .
-git commit -m "Deploy validated application to production"
-git push origin prod-release-v1.0
+ec validate image \
+  --image quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0 \
+  --policy git::github.com/org/ec-policies//default \
+  --public-key k8s://openshift/trusted-keys \
+  --output json
 ----
 
-. Create a merge request for production deployment approval
+**Security Validations Performed:**
+* Digital signature verification with Cosign
+* SBOM presence validation (e.g., SPDX, CycloneDX formats)
+* Provenance metadata verification (how the image was built)
+* CVE scanning and vulnerability assessment
+* Organizational policy compliance checking
 
-=== Step 2: Production Deployment Validation
+=== Step 4: Understanding Failure Protection
 
-. Monitor the GitOps sync process in ArgoCD
-. Watch as the production deployment manifests are applied
-. Verify the production namespace receives the new deployment
-. Confirm all production health checks pass
+. Observe that any failed validation would halt the pipeline automatically
+. This demonstrates protection against risky deployments
+. Note how this prevents security incidents before they reach customers
 
-=== Step 3: Verify Production Application
+**Business Impact:**
+* Security incident prevention: Saves potential millions in damages
+* Compliance confidence: Automatic evidence for audits
+* Deployment velocity: Minutes instead of weeks for security approval
+* Risk mitigation: 100% consistent security enforcement
 
-. Access your production application via its route
-. Verify all functionality works as expected
-. Check application logs for any errors or warnings
-. Validate production monitoring is capturing metrics
+[TIP]
+====
+**Demo Option:** A failed validation can be simulated by modifying the EC policy or image to demonstrate that the pipeline halts automatically if verification fails, protecting the production environment.
+====
 
-== Activity 3: Production Monitoring and Observability
+== Activity 4: Image Promotion and GitOps Deployment
 
-=== Step 1: Application Health Monitoring
+In this activity, you'll observe how validated images are promoted to production and automatically deployed using GitOps, creating a secure bridge from validation to customer value.
 
-. In OpenShift Console, navigate to your production application
-. Review the application metrics and dashboards
-. Check resource utilization and performance indicators
-. Verify readiness and liveness probes are functioning
+=== Step 1: Understand Image Promotion Process
 
-=== Step 2: Security Monitoring
+**Pipeline Task:** `copy-image`
 
-. Monitor security events and alerts
-. Review container security policies enforcement
-. Check for any runtime security violations
-. Validate network policies are properly configured
+This represents an enterprise quality gate — only validated images earn the "prod-" designation, ensuring enterprise security compliance.
 
-=== Step 3: Compliance Reporting
+. Observe the `copy-image` task in the pipeline execution
+. Note how the validated image is promoted with a production label
 
-. Generate compliance reports showing:
-  * Security scan results and remediation status
-  * Container image signatures and verification
-  * Deployment approvals and audit trails
-  * Policy compliance across the supply chain
+**Image Promotion Command:**
+[source,bash,subs="attributes"]
+----
+skopeo copy \
+  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0 \
+  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:prod-v1.0
+----
 
-TIP: These reports demonstrate how RHADS provides automated compliance documentation for auditors.
+**What This Accomplishes:**
+* Creates a new tag prefixed with `prod-` (e.g., `prod-v1.0`) that clearly identifies the image as production-ready
+* Ensures complete traceability — the exact source and validation steps that led to this image are known
+* Only images that pass Enterprise Contract validation make it this far, preventing unsafe code deployment
+* Signals to Argo CD that this image is ready for production deployment
 
-== Understanding Complete Supply Chain Security
+=== Step 2: Examine GitOps Deployment Process
 
-=== What You've Accomplished
+**Pipeline Task:** `update-deployment`
 
-**End-to-End Security:**
+This task serves as an automated bridge from security validation to customer value, ensuring validated changes reach production automatically without manual intervention or risk.
 
-* Source code was cryptographically signed
-* Container images were scanned for vulnerabilities
-* Images were signed with tamper-proof signatures
-* Deployment manifests were validated and approved
-* Runtime security policies are actively enforced
+=== Understanding Traditional vs. RHADS Deployment Approaches
 
-**Complete Audit Trail:**
-* Every build step is recorded and attested
-* All security scan results are preserved
-* Image signatures provide integrity validation
-* GitOps commits show exactly what was deployed
-* Compliance reports document adherence to policies
+**Traditional Production Deployment Risks:**
+* Manual deployment steps prone to human error during critical releases
+* Emergency changes bypass proper validation under pressure
+* Inconsistent deployment processes across different teams
+* Production changes without proper audit trails
 
-**Automated Governance:**
-* Security policies are enforced automatically
-* Manual approvals are captured in audit trails
-* Compliance violations prevent deployment
-* Rollback capabilities ensure rapid recovery
+**RHADS Business Benefits:**
+* **Zero Manual Errors:** GitOps automation eliminates human deployment mistakes
+* **100% Audit Trail:** Every production change tracked and traceable
+* **Consistent Process:** Same deployment method for routine and emergency changes
+* **Continuous Compliance:** All changes follow the same validated security process
 
-== What You Accomplished
+=== Step 3: Observe GitOps Repository Updates
 
-You've successfully implemented a complete OpenShift Pipelines production deployment with:
+. Watch as the pipeline updates the GitOps repository automatically
+. Understand how this triggers Argo CD for production deployment
 
-* **Automated security scanning** integrated into every build
-* **Container image signing** for supply chain verification
-* **GitOps deployment** from staging to production
-* **Policy enforcement** that prevents non-compliant deployments
-* **Complete audit trail** for compliance and troubleshooting
+**Updated Deployment Manifest:**
+[source,yaml,subs="attributes"]
+----
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qrks-tkn-{user}
+spec:
+  template:
+    spec:
+      containers:
+        - name: qrks-tkn-{user}
+          image: quay.tssc-quay/tssc/qrks-tkn-{user}:prod-v1.0
+----
 
-== Real-World Applications
+**File Location:** `overlays/prod/deployment-patch.yaml`
 
-=== When to Use This Approach
+**Kustomization Configuration:**
+[source,yaml]
+----
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+patchesStrategicMerge:
+  - deployment-patch.yaml
+----
 
-**Ideal Scenarios:**
-* **New OpenShift Pipelines applications** - Start with best practices
-* **Microservices architectures** - Consistent deployment patterns
-* **Compliance-heavy industries** - Automated audit trails
-* **DevOps transformation** - Modern pipeline automation
+=== Step 4: Validate GitOps Deployment Process
 
-**Key Benefits:**
-* **Faster time to market** - Eliminate manual bottlenecks
-* **Improved security posture** - Automated vulnerability management
-* **Reduced operational overhead** - Self-service capabilities
-* **Enhanced compliance** - Continuous policy enforcement
+**Automated Process Flow:**
+. The container image reference in the production overlay is updated by this patch
+. The patch is committed and pushed to the GitOps repository by OpenShift Pipelines
+. Argo CD watches this repository and detects the change immediately
+. Argo CD syncs the deployment to the production cluster automatically
+. Only verified, tagged images are deployed by this process, maintaining full auditability
 
-== Reflection and Assessment
+**Business Impact:**
+* **Deployment Confidence:** Argo CD ensures exactly what was validated gets deployed
+* **Risk Elimination:** No manual steps that could introduce errors during critical releases
+* **Compliance Automation:** Production environment continuously reflects audited Git state
+* **Operational Excellence:** Standardized deployment process across all services
 
-Take a moment to consider:
+[NOTE]
+====
+The GitOps overlay system ensures the production environment stays secure, compliant, and traceable while enabling rapid deployment of business-critical features.
+====
 
-1. **Developer Experience**: How does this OpenShift Pipelines approach compare to traditional development workflows?
+== Workshop Summary and Reflection
 
-2. **Security Integration**: What security capabilities are now automatically included that would typically require manual configuration?
+=== What You Accomplished
 
-3. **Operational Impact**: How would this approach affect your organization's platform and security teams?
+Congratulations! You've successfully implemented an enterprise-grade production deployment pipeline and experienced the complete transformation from manual processes to automated confidence.
 
-4. **Business Value**: What business outcomes could your organization achieve with this level of automation?
+**Pipeline Tasks Summary:**
 
-== Congratulations!
+|===
+| Task | Description | Business Value
 
-You've successfully completed the OpenShift Pipelines development path using Tekton! You've experienced:
+| Git Release Trigger
+| Initiated via GitLab Release from Tag
+| Replaces weeks of manual approval processes
 
-* **Self-service application creation** with enterprise security built-in
-* **OpenShift Pipelines development** using modern browser-based tools
-* **Automated CI/CD pipelines** with integrated security scanning
-* **GitOps deployment** from development through production
-* **Complete supply chain security** with audit trails and compliance reporting
+| extract-destination-image-tag
+| Extracts the Git tag for production image naming
+| Ensures perfect traceability and audit compliance
 
-This represents the future of enterprise application development - secure, automated, and developer-friendly.
+| gather-images-to-verify
+| Generates `images.json` with complete metadata
+| Provides definitive proof of deployment artifacts
 
-**Next:** Consider exploring the Jenkins module to see alternative RHADS implementation approaches, or review the complete workshop summary to plan your organization's implementation strategy.
+| verify-enterprise-contract
+| Validates signature, SBOM, provenance, CVEs, and policies
+| Prevents security incidents and ensures compliance
+
+| copy-image
+| Promotes validated image with `prod-` designation
+| Creates quality gate ensuring only secure images reach production
+
+| update-deployment
+| Updates GitOps repository to trigger Argo CD deployment
+| Eliminates manual deployment errors and ensures consistency
+|===
+
+=== Key Business Transformations Achieved
+
+You've demonstrated how enterprise security and business velocity reinforce each other:
+
+**Measurable Business Impact:**
+* **Production Release Time:** 2-3 weeks → 30 minutes (99% reduction)
+* **Security Compliance:** 100% automated with zero manual reviews
+* **Competitive Advantage:** Deploy features while competitors wait for approvals
+* **Audit Readiness:** Continuous compliance evidence generated automatically
+
+**Risk Mitigation:**
+* Eliminated human error in production deployments
+* Prevented security vulnerabilities from reaching customers
+* Ensured consistent security standards across all deployments
+* Created complete audit trails for compliance requirements
+
+== Assessment and Reflection
+
+Take a moment to consider these questions about your workshop experience:
+
+1. **Process Transformation:** How does this automated approach compare to traditional deployment processes in your organization?
+
+2. **Security Integration:** What security capabilities are now automatically included that would typically require manual configuration and review?
+
+3. **Business Impact:** How would this level of automation affect your organization's ability to respond to market demands and competitive pressures?
+
+4. **Operational Excellence:** What operational benefits would your platform and security teams gain from this approach?
+
+5. **Implementation Planning:** What would be the first steps to implement similar capabilities in your organization?
+
+== Next Steps and Advanced Topics
+
+=== Recommended Follow-up Activities
+
+**For Technical Teams:**
+* Explore Enterprise Contract policy customization for your organization's requirements
+* Investigate integration with existing security scanning tools
+* Review GitOps repository structure and branching strategies
+* Examine monitoring and alerting integration options
+
+**For Business Leaders:**
+* Calculate potential ROI based on deployment time reduction and risk mitigation
+* Plan organizational change management for DevOps transformation
+* Consider compliance requirements and audit trail benefits
+* Evaluate competitive advantages of faster time-to-market
+
+=== Optional Demonstration Enhancements
+
+The following demonstrations can further illustrate enterprise transformation capabilities:
+
+* **Security Failure Simulation:** Modify Enterprise Contract policies to demonstrate automatic pipeline failure when security requirements aren't met
+* **Image Registry Exploration:** Display Quay registry showing production-tagged images and security scan results
+* **Argo CD Monitoring:** Demonstrate real-time GitOps synchronization and deployment status
+* **Policy Customization:** Show how Enterprise Contract policies can be customized for specific organizational requirements
+
+== Congratulations on Completing the Production Workshop!
+
+You've successfully experienced the future of enterprise application deployment — secure, automated, and business-focused. This represents a fundamental shift from traditional deployment practices to modern, risk-mitigated automation that enables competitive advantage through technology.
+
+**Key Achievements:**
+* Implemented end-to-end automated production deployment
+* Experienced enterprise-grade security validation
+* Observed GitOps-based deployment automation
+* Understood the business value of supply chain security
+
+This production workshop demonstrates how Red Hat Advanced Developer Suite enables organizations to achieve both security excellence and business velocity simultaneously.
+

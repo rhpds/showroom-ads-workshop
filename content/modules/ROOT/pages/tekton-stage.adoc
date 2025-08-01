@@ -304,7 +304,7 @@ ArgoCD (OpenShift GitOps) continuously monitors your GitOps repository and autom
 === Step 1: Verify Deployment Updates
 
 . Access your GitOps repository at {gitlab_url}/development/qrks-tkn-{user}-gitops[qrks-tkn-{user}-gitops^]
-. Check the updated deployment manifests in the `overlays/stage` directory
+. Check the updated deployment manifests in the `components/qrks-tkn-{user}/overlays/stage` directory
 . Notice how the image tag has been automatically updated to your release version
 . Observe that this happens without any manual intervention
 
