@@ -171,13 +171,13 @@ Click *Review* to see a summary of your OpenShift Pipelines configuration.
 
 === Step 4: Create Your OpenShift Pipelines Application
 
-. Review all the settings in the summary page
-+
+* Review all the settings in the summary page
+
 image::tekton-dev-4.png[]
-+
+
 image::tekton-dev-5.png[]
 
-. Click *Create* to generate your OpenShift Pipelines application
+* Click *Create* to generate your OpenShift Pipelines application
 
 The OpenShift Pipelines software template will now:
 
@@ -191,14 +191,14 @@ TIP: This entire OpenShift Pipelines setup that traditionally takes weeks is com
 
 === Step 5: Access Your New OpenShift Pipelines Component
 
-. Once the template execution completes, click *Open Component in Catalog*
+* Once the template execution completes, click *Open Component in Catalog*
 
-. In Red Hat Developer Hub, go to the *Catalog* and locate your new component (`my-quarkus-tkn`)
-+
+* In Red Hat Developer Hub, go to the *Catalog* and locate your new component (`my-quarkus-tkn`)
+
 image::tekton-dev-6.png[]
 
-. Click the component name to open its *Overview* page
-+
+* Click the component name to open its *Overview* page
+
 image::tekton-dev-7.png[]
 
 . You'll see your new OpenShift Pipelines application component with links to:
@@ -294,9 +294,9 @@ Pipeline as Code means your CI/CD pipeline definitions live alongside your appli
 
 Now that you understand the concept, let's look at the actual pipeline files that were generated for you:
 
-. In OpenShift Dev Spaces (or back in your component overview), navigate to your repository
-. Open the `.tekton/` directory to see your pipeline definitions
-. You'll find three files that control your entire CI/CD workflow:
+* In OpenShift Dev Spaces (or back in your component overview), navigate to your repository
+* Open the `.tekton/` directory to see your pipeline definitions
+* You'll find three files that control your entire CI/CD workflow:
 
 **📄 `.tekton/on-push.yaml`**
 
