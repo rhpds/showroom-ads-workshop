@@ -49,7 +49,7 @@ Let's create a Git tag to trigger the automated staging pipeline and observe how
 
 === Step 1: Access Your GitLab Repository
 
-. Open your GitLab repository at {gitlab_url}/development/my-quarkus-tkn[my-quarkus-tkn^]
+. Open your GitLab repository at {gitlab_url}/development/qrks-tkn-{user}[qrks-tkn-{user}^]
 . Sign in using:
 +
 [source,bash,subs="attributes"]
@@ -94,7 +94,7 @@ The CLI approach does the same thing — triggers the pipeline tied to this Git 
 === Step 3: Monitor Pipeline Execution
 
 . Go to Red Hat Developer Hub
-. Navigate to the *my-quarkus-tkn* component
+. Navigate to the *qrks-tkn-{user}* component
 . Click the *CI* tab to see pipeline runs
 . Expand the job labeled *promote-to-stage* to follow its progress
 +
@@ -140,10 +140,10 @@ This mapping between Git commit and container image provides end-to-end traceabi
 {
   "components": [
     {
-      "containerImage": "quay.tssc-quay/tssc/my-quarkus-tkn:abc123def456",
+      "containerImage": "quay.tssc-quay/tssc/qrks-tkn-{user}:abc123def456",
       "source": {
         "git": {
-          "url": "{gitlab_url}/development/my-quarkus-tkn",
+          "url": "{gitlab_url}/development/qrks-tkn-{user}",
           "revision": "abc123def456"
         }
       }
@@ -195,10 +195,10 @@ cosign initialize \
 
 Then, the Enterprise Contract CLI performs validation:
 
-[source,bash]
+[source,bash,subs="attributes"]
 ----
 ec validate image \
-  --image quay.tssc-quay/tssc/my-quarkus-tkn:abc123... \
+  --image quay.tssc-quay/tssc/qrks-tkn-{user}:abc123... \
   --policy default \
   --public-key k8s://openshift/trusted-keys \
   --output json
@@ -230,11 +230,11 @@ This task promotes the validated image with a human-readable tag (e.g., `v1.0`),
 
 **Technical Implementation:**
 
-[source,bash]
+[source,bash,subs="attributes"]
 ----
 skopeo copy \
-  docker://quay.tssc-quay/tssc/my-quarkus-tkn:abc123... \
-  docker://quay.tssc-quay/tssc/my-quarkus-tkn:v1.0
+  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:abc123... \
+  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
 ----
 
 [IMPORTANT]
@@ -274,42 +274,45 @@ resources:
 ----
 
 **`deployment-patch.yaml`:**
-[source,yaml]
+[source,yaml,subs="attributes"]
 ----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-quarkus-tkn
+  name: qrks-tkn-{user}
 spec:
   template:
     spec:
       containers:
-        - name: my-quarkus-tkn
-          image: quay.tssc-quay/tssc/my-quarkus-tkn:v1.0
+        - name: qrks-tkn-{user}
+          image: quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
 ----
 
 **Example Git diff showing automatic update:**
-[source,diff]
+[source,diff,subs="attributes"]
 ----
 -          image: quay.io/redhat-appstudio/rhtap-task-runner:latest
-+          image: quay.tssc-quay/tssc/my-quarkus-tkn:v1.0
++          image: quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
 ----
 
 == Activity 3: Observing GitOps Deployment
 
 Watch how ArgoCD automatically syncs your validated changes to the staging environment.
 
+ArgoCD (OpenShift GitOps) continuously monitors your GitOps repository and automatically applies any changes to your staging environment. When the pipeline updates deployment manifests, ArgoCD detects these changes and deploys them without any manual intervention - ensuring your staging environment always matches what's defined in Git.
+
 === Step 1: Verify Deployment Updates
 
-. Check your GitOps repository for the updated deployment manifests
+. Access your GitOps repository at {gitlab_url}/development/qrks-tkn-{user}-gitops[qrks-tkn-{user}-gitops^]
+. Check the updated deployment manifests in the `overlays/stage` directory
 . Notice how the image tag has been automatically updated to your release version
 . Observe that this happens without any manual intervention
 
 === Step 2: Monitor ArgoCD Synchronization
 
-. Access the ArgoCD interface (if available)
-. Watch as ArgoCD detects the Git changes and syncs to staging
-. Verify that the deployment completes successfully
+. ArgoCD automatically detects the Git changes in your GitOps repository
+. ArgoCD syncs these changes to the staging environment
+. The deployment completes successfully without manual kubectl commands
 
 === Step 3: Validate Staging Environment
 

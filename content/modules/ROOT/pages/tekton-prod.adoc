@@ -69,8 +69,8 @@ TIP: Creating this release triggers the production pipeline automatically - demo
 
 === Step 1: View Pipeline in Developer Hub
 
-. Go to Red Hat Developer Hub  
-. Navigate to the *my-quarkus-tkn* component
+. Go to Red Hat Developer Hub
+. Navigate to the *qrks-tkn-{user}* component
 . Click the *CI* tab to see pipeline runs
 . Look for a pipeline run labeled *promote-to-prod* and expand it to view details
 
