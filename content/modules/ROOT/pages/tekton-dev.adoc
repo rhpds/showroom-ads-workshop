@@ -278,7 +278,7 @@ Pipeline as Code means your CI/CD pipeline definitions live alongside your appli
 * **Location**: `{gitlab_url}/rhdh/tssc-sample-pipelines[^]`
 * **Purpose**: Contains reusable Tekton pipeline and task definitions
 * **Components**:
-  - `pipelines/` - Complete workflow definitions
+  - `pipelines/` - Complete pipeline definitions
   - `tasks/` - Individual pipeline step definitions
 * **What it provides**: The building blocks your application pipelines reference
 
@@ -379,7 +379,6 @@ Password: {rhdh_user_password}
 Once your workspace loads, you'll see:
 
 * **Pre-configured Quarkus project** with OpenShift Pipelines best practices
-* **Kubernetes manifests** in the `/deploy` directory
 * **Tekton pipeline definitions** showing your OpenShift Pipelines workflow
 * **Container configuration** with security scanning integration
 
@@ -415,7 +414,19 @@ git add .
 git commit -m "Add OpenShift Pipelines documentation"
 ----
 
-* Something interesting happens - you're prompted for signed commit authentication. You follow the browser flow to cryptographically sign your commit
+* Something interesting happens - you're prompted for signed commit authentication. You need to follow the browser flow to cryptographically sign your commit:
+  - Click on the browser link that appears in your terminal
+  - Login with your credentials if prompted:
++
+[source,bash,subs="attributes"]
+----
+Username: {rhdh_user}
+Password: {rhdh_user_password}
+----
+  - Copy the authentication code from the browser
+  +
+  image::tekton-dev-16.png[]
+  - Paste the code back into your terminal to complete the signing process
 
 * After completing the signing process, you feel a sense of accomplishment - your commit is now cryptographically signed for security
 
