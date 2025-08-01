@@ -1,4 +1,4 @@
-= Cloud-Native Pipeline - Production
+= OpenShift Pipelines - Production
 :source-highlighter: rouge
 :toc: macro
 :toclevels: 2
@@ -12,11 +12,11 @@ By the end of this section, you will:
 * Understand production deployment approval workflows
 * Execute a secure production release using GitOps
 * Monitor production application health and security posture
-* Comprehend the complete cloud-native supply chain security model
+* Comprehend the complete OpenShift Pipelines supply chain security model
 
 == Understanding Production Deployment Strategy
 
-Production deployments in cloud-native environments require additional safeguards and approval processes:
+Production deployments in OpenShift Pipelines environments require additional safeguards and approval processes:
 
 === Enterprise Production Requirements
 
@@ -202,7 +202,7 @@ TIP: These reports demonstrate how RHADS provides automated compliance documenta
 === When to Use This Approach
 
 **Ideal Scenarios:**
-* **New cloud-native applications** - Start with best practices
+* **New OpenShift Pipelines applications** - Start with best practices
 * **Microservices architectures** - Consistent deployment patterns
 * **Compliance-heavy industries** - Automated audit trails
 * **DevOps transformation** - Modern pipeline automation
@@ -217,7 +217,7 @@ TIP: These reports demonstrate how RHADS provides automated compliance documenta
 
 Take a moment to consider:
 
-1. **Developer Experience**: How does this cloud-native approach compare to traditional development workflows?
+1. **Developer Experience**: How does this OpenShift Pipelines approach compare to traditional development workflows?
 
 2. **Security Integration**: What security capabilities are now automatically included that would typically require manual configuration?
 
@@ -227,14 +227,14 @@ Take a moment to consider:
 
 == Congratulations!
 
-You've successfully completed the cloud-native development path using OpenShift Pipelines (Tekton)! You've experienced:
+You've successfully completed the OpenShift Pipelines development path using Tekton! You've experienced:
 
 * **Self-service application creation** with enterprise security built-in
-* **Cloud-native development** using modern browser-based tools
+* **OpenShift Pipelines development** using modern browser-based tools
 * **Automated CI/CD pipelines** with integrated security scanning  
 * **GitOps deployment** from development through production
 * **Complete supply chain security** with audit trails and compliance reporting
 
 This represents the future of enterprise application development - secure, automated, and developer-friendly.
 
-**Next:** Consider exploring the Enterprise Pipeline module to see alternative RHADS implementation approaches, or review the complete workshop summary to plan your organization's implementation strategy.
+**Next:** Consider exploring the Jenkins module to see alternative RHADS implementation approaches, or review the complete workshop summary to plan your organization's implementation strategy.

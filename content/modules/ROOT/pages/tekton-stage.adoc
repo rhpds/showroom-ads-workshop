@@ -1,4 +1,4 @@
-= Cloud-Native Pipeline - Staging
+= OpenShift Pipelines - Staging
 :source-highlighter: rouge
 :toc: macro
 :toclevels: 2
@@ -9,18 +9,18 @@ toc::[]
 
 By the end of this section, you will:
 
-* Understand how Tekton pipelines execute cloud-native CI/CD workflows
+* Understand how Tekton pipelines execute OpenShift Pipelines CI/CD workflows
 * See automated security scanning and validation in action
 * Experience GitOps-based deployment to staging environments
-* Learn about cloud-native monitoring and observability
+* Learn about OpenShift Pipelines monitoring and observability
 
-== Understanding Cloud-Native Pipeline Execution
+== Understanding OpenShift Pipelines Execution
 
-Your code commit has triggered a sophisticated cloud-native pipeline that demonstrates enterprise-grade automation:
+Your code commit has triggered a sophisticated OpenShift Pipelines workflow that demonstrates enterprise-grade automation:
 
 === Tekton Pipeline Advantages
 
-=== Cloud-Native Architecture
+=== OpenShift Pipelines Architecture
 
 * Kubernetes-native execution - Pipelines run as pods
 * Automatic scaling - Pipeline capacity scales with cluster resources
@@ -125,7 +125,7 @@ TIP: GitOps ensures that your staging environment exactly matches what's defined
 . Verify the application responds correctly
 . Test any specific functionality relevant to your changes
 
-== Understanding Cloud-Native Benefits in Action
+== Understanding OpenShift Pipelines Benefits in Action
 
 === What You Just Witnessed
 
@@ -141,7 +141,7 @@ TIP: GitOps ensures that your staging environment exactly matches what's defined
 * Complete audit trail of all changes
 * Easy rollback capabilities if issues occur
 
-**Cloud-Native Scalability:**
+**OpenShift Pipelines Scalability:**
 * Pipeline executed using cluster resources
 * Automatic resource allocation and cleanup
 * No dedicated CI/CD infrastructure to maintain
@@ -200,4 +200,4 @@ In the next section, **Production - Releasing to production**, you'll:
 * Execute a secure production release
 * Monitor production application health and security posture
 
-The cloud-native staging validation is complete - let's move to production deployment!
+The OpenShift Pipelines staging validation is complete - let's move to production deployment!

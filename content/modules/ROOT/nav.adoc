@@ -4,7 +4,7 @@
 
 * xref:introduction.adoc[Introduction to RHADS]
 
-* Cloud-Native Pipeline with OpenShift Pipelines
+* OpenShift Pipelines (Tekton)
 
 ** xref:tekton-intro.adoc[Module Introduction]
 
@@ -16,7 +16,7 @@
 
 ** xref:tekton-finish.adoc[Module Summary]
 
-* Enterprise Pipeline with Jenkins
+* Jenkins
 
 ** xref:jenkins-intro.adoc[Module Introduction]
 

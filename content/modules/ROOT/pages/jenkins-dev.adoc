@@ -1,4 +1,4 @@
-= Enterprise Pipeline - Development
+= Jenkins - Development
 :source-highlighter: rouge
 :toc: macro
 :toclevels: 2

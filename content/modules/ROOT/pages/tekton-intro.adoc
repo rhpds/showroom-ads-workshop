@@ -1,4 +1,4 @@
-= Cloud-Native Pipeline - Module Introduction
+= OpenShift Pipelines (Tekton) - Module Introduction
 :source-highlighter: rouge
 :toc: macro
 :toclevels: 2
@@ -7,7 +7,7 @@ toc::[]
 
 == Module Overview
 
-Welcome to the cloud-native development path! In this module, you'll experience how Red Hat Advanced Developer Suite enables modern, Kubernetes-native development workflows using OpenShift Pipelines.
+Welcome to the OpenShift Pipelines development path! In this module, you'll experience how Red Hat Advanced Developer Suite enables modern, Kubernetes-native development workflows using OpenShift Pipelines.
 
 == Learning Objectives
 
@@ -15,7 +15,7 @@ By completing this module, you will:
 
 * **Create secure applications** using self-service software templates
 * **Develop in the cloud** using browser-based OpenShift Dev Spaces
-* **Understand cloud-native CI/CD** with cloud-native pipelines
+* **Understand OpenShift Pipelines CI/CD** with Tekton workflows
 * **Experience GitOps deployment** from development to production
 * **See automated security** integrated throughout the development lifecycle
 
@@ -23,7 +23,7 @@ By completing this module, you will:
 
 This module is ideal for:
 
-* **Development teams** implementing cloud-native practices
+* **Development teams** implementing OpenShift Pipelines practices
 * **Platform engineers** building modern DevOps workflows
 * **Developers** wanting to experience modern development environments
 * **Organizations** building applications on OpenShift
@@ -38,7 +38,7 @@ In this module, you'll work with:
 * GitLab - Source code management
 
 **CI/CD Platform:**
-* OpenShift Pipelines - Cloud-native pipeline engine
+* OpenShift Pipelines - Kubernetes-native pipeline engine
 * Red Hat Quay - Container image registry
 * OpenShift GitOps (ArgoCD) - Automated deployment
 
@@ -47,9 +47,9 @@ In this module, you'll work with:
 * Advanced Cluster Security - Vulnerability scanning
 * Enterprise Contract - Policy enforcement
 
-## Business Context: ACME's Cloud-Native Journey
+## Business Context: ACME's OpenShift Pipelines Journey
 
-ACME's development team is modernizing their architecture to be cloud-native. They need:
+ACME's development team is modernizing their architecture with OpenShift Pipelines. They need:
 
 * **Fast iteration cycles** for competitive advantage
 * **Scalable development practices** for their growing team
@@ -57,10 +57,10 @@ ACME's development team is modernizing their architecture to be cloud-native. Th
 * **Modern tooling** that attracts top developer talent
 
 **The Challenge:**
-Traditional development processes take too long and don't scale with cloud-native architectures.
+Traditional development processes take too long and don't scale with modern Kubernetes architectures.
 
 **The Solution:**
-Cloud-native pipelines provide CI/CD that scales automatically and integrates seamlessly with Kubernetes.
+OpenShift Pipelines provide CI/CD that scales automatically and integrates seamlessly with Kubernetes.
 
 == Module Structure
 
@@ -69,7 +69,7 @@ This module follows ACME's development workflow:
 === 1. Development - Building your application
 * Access Red Hat Developer Hub
 * Create a new Quarkus application using secure templates
-* Set up your cloud-native development environment
+* Set up your OpenShift Pipelines development environment
 * Make your first code change and trigger a build
 
 === 2. Staging - Promoting to stage environment  
@@ -104,7 +104,7 @@ This module follows ACME's development workflow:
 * Policy enforcement at the platform level
 * Complete audit trails for compliance
 
-IMPORTANT: This cloud-native approach represents the future of enterprise development - you'll experience tomorrow's development practices today.
+IMPORTANT: This OpenShift Pipelines approach represents the future of enterprise development - you'll experience tomorrow's development practices today.
 
 == Prerequisites
 
@@ -114,10 +114,10 @@ No prior experience with OpenShift Pipelines is required. This workshop assumes:
 * Understanding of Git and basic development workflows
 * Awareness of CI/CD pipeline concepts
 
-TIP: Even if you're new to cloud-native development, the workshop is designed to guide you through each step with clear explanations.
+TIP: Even if you're new to OpenShift Pipelines development, the workshop is designed to guide you through each step with clear explanations.
 
 == What's Next
 
-Ready to start your cloud-native development journey? 
+Ready to start your OpenShift Pipelines development journey? 
 
-Click **Development - Building your application** to begin creating your first secure, cloud-native application with RHADS!
+Click **Development - Building your application** to begin creating your first secure, OpenShift Pipelines application with RHADS!

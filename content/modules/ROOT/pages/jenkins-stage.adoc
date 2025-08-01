@@ -1,4 +1,4 @@
-= Enterprise Pipeline - Staging
+= Jenkins - Staging
 :source-highlighter: rouge
 :toc: macro
 :toclevels: 2

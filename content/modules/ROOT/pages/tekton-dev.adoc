@@ -1,4 +1,4 @@
-= Cloud-Native Pipeline - Development
+= OpenShift Pipelines - Development
 :source-highlighter: rouge
 :toc: macro
 :toclevels: 2
@@ -10,20 +10,20 @@ toc::[]
 By the end of this section, you will:
 
 * Access Red Hat Developer Hub and understand its value proposition
-* Create a new secure Quarkus application using cloud-native templates
+* Create a new secure Quarkus application using OpenShift Pipelines templates
 * Experience self-service development that eliminates weeks of setup time
 * Understand how security is built into the development process from day one
 
 == Your Development Challenge
 
-As ACME's newest developer, you're facing the same frustration that developers everywhere experience when trying to create cloud-native applications:
+As ACME's newest developer, you're facing the same frustration that developers everywhere experience when trying to create modern Kubernetes-native applications:
 
 === Your Current Reality: Weeks of Waiting
 
 Here's what you've been dealing with in your traditional development environment:
 
 * 3-5 business days submitting tickets and waiting for the platform team to set up your Kubernetes resources
-* 1-2 weeks of back-and-forth emails trying to get cloud-native CI/CD pipelines configured
+* 1-2 weeks of back-and-forth emails trying to get OpenShift Pipelines configured
 * Multiple handoff meetings between you, the platform team, and security - each one adding delays
 * Complex security integration that you don't fully understand but somehow need to implement
 * Manual setup of GitOps repositories and deployment manifests that feels like starting from scratch every time
@@ -39,23 +39,23 @@ Here's what you've been dealing with in your traditional development environment
 
 But you're about to discover a completely different way of working:
 
-* Zero waiting time: You'll create GitLab repos and cloud-native pipelines instantly - no tickets, no waiting
+* Zero waiting time: You'll create GitLab repos and OpenShift Pipelines instantly - no tickets, no waiting
 * Zero configuration complexity: Kubernetes resources get generated automatically - you focus on your application code
 * Zero security gaps: Container scanning and signing happen automatically - security becomes invisible to you
 * Zero platform team dependency: You become self-sufficient and productive immediately
 
 === What This Means for Your Daily Work
 
-* Cloud-native project setup: 3-4 weeks → 5 minutes
+* OpenShift Pipelines project setup: 3-4 weeks → 5 minutes
 * Pipeline configuration: Manual meetings → Self-service automation
 * Security compliance: 100% consistent without you needing to become a security expert
 * Your productivity: Immediate access to everything you need
 
-IMPORTANT: Today you'll experience this transformation firsthand by creating a production-ready Kubernetes application in minutes, not weeks. You'll be amazed at how empowering this feels!
+IMPORTANT: Today you'll experience this transformation firsthand by creating a production-ready application with OpenShift Pipelines in minutes, not weeks. You'll be amazed at how empowering this feels!
 
-== Activity 1: Your First Steps into Your New Digital Kingdom
+== Activity 1: Your First Steps into Your OpenShift Pipelines Journey
 
-Let's embark on your journey by logging into your new development environment. You're about to discover how different this experience is from what you're used to!
+Let's embark on your journey by logging into your new development environment. You're about to discover how different OpenShift Pipelines makes your development experience!
 
 === Step 1: Open Red Hat Developer Hub
 
@@ -100,33 +100,33 @@ You've just accessed something revolutionary - your organization's **Internal De
 
 "This is going to change everything," you think to yourself as you explore the interface.
 
-== Activity 2: Creating Your First Cloud-Native Application
+== Activity 2: Creating Your First OpenShift Pipelines Application
 
-Now comes the exciting part - you're about to experience the magic of self-service application creation that will transform how you work!
+Now comes the exciting part - you're about to experience the magic of self-service application creation with OpenShift Pipelines that will transform how you work!
 
 === Step 1: Discovering Software Templates
 
 * Eager to get started on your Black Friday project, you spot the **+ Self-service** button in the top-right corner of the Developer Hub
 * You click **+ Self-service** and are amazed to see a catalog of ready-to-use templates - no more starting from scratch!
 
-=== Step 2: Choosing Your Cloud-Native Template
+=== Step 2: Choosing Your OpenShift Pipelines Template
 
 * As you browse through the available templates, one catches your eye:
 +
 `*Securing a Quarkus Service Software Supply Chain (Tekton)*`
 
-* "Perfect!" you think, "This is exactly what I need for a modern cloud-native application"
+* "Perfect!" you think, "This is exactly what I need for a modern application with OpenShift Pipelines"
 * You click *Choose* to select this template, excited to see what happens next
 
-TIP: You're about to witness something amazing - this single template will automatically create your complete cloud-native environment with pipelines, Kubernetes resources, and security scanning. No tickets, no waiting, no manual configuration!
+TIP: You're about to witness something amazing - this single template will automatically create your complete OpenShift Pipelines environment with Tekton workflows, Kubernetes resources, and security scanning. No tickets, no waiting, no manual configuration!
 
-=== Step 3: Configure Your Cloud-Native Application
+=== Step 3: Configure Your OpenShift Pipelines Application
 
-The template form will guide you through cloud-native configuration with three main sections:
+The template form will guide you through OpenShift Pipelines configuration with three main sections:
 
 ==== Application Information
 
-Accept the default values or customize for your cloud-native application:
+Accept the default values or customize for your OpenShift Pipelines application:
 
 [cols="1,2", options="header"]
 |===
@@ -135,14 +135,14 @@ Accept the default values or customize for your cloud-native application:
 | Group ID | `redhat.rhdh`  
 | Artifact ID | `my-quarkus-tkn`
 | Java Package Name | `org.redhat.rhdh`
-| Description | `A cool cloud-native Quarkus app`
+| Description | `A cool OpenShift Pipelines Quarkus app`
 |===
 
 Click *Next* to continue.
 
 ==== Image Registry Information
 
-These settings determine where your cloud-native container images will be stored:
+These settings determine where your OpenShift Pipelines container images will be stored:
 
 [cols="1,2", options="header"]
 |===
@@ -155,7 +155,7 @@ Click *Next* to continue.
 
 ==== Repository Information
 
-This configures your cloud-native source code repository and Tekton integration:
+This configures your OpenShift Pipelines source code repository and Tekton integration:
 
 [cols="1,2", options="header"]
 |===
@@ -165,35 +165,35 @@ This configures your cloud-native source code repository and Tekton integration:
 | Verify Commits | `enabled`
 |===
 
-Note that **Verify Commits** is enabled - this ensures all code commits are cryptographically signed for cloud-native security.
+Note that **Verify Commits** is enabled - this ensures all code commits are cryptographically signed for OpenShift Pipelines security.
 
-Click *Review* to see a summary of your cloud-native configuration.
+Click *Review* to see a summary of your OpenShift Pipelines configuration.
 
-=== Step 4: Create Your Cloud-Native Application
+=== Step 4: Create Your OpenShift Pipelines Application
 
 . Review all the settings in the summary page
-. Click *Create* to generate your cloud-native application
+. Click *Create* to generate your OpenShift Pipelines application
 
-The cloud-native software template will now:
+The OpenShift Pipelines software template will now:
 
 * Create GitLab repositories for your source code and GitOps manifests
 * Set up Tekton pipelines with automated security scanning
 * Configure Kubernetes resources for your application
 * Set up container image signing and verification
-* Deploy the cloud-native application infrastructure to OpenShift
+* Deploy the OpenShift Pipelines application infrastructure to OpenShift
 
-TIP: This entire cloud-native setup that traditionally takes weeks is completed in under a minute!
+TIP: This entire OpenShift Pipelines setup that traditionally takes weeks is completed in under a minute!
 
-=== Step 5: Access Your New Cloud-Native Component
+=== Step 5: Access Your New OpenShift Pipelines Component
 
 . Once the template execution completes, click *Open Component in Catalog*
-. You'll see your new cloud-native application component with links to:
+. You'll see your new OpenShift Pipelines application component with links to:
   * Source code repository with Kubernetes manifests
   * Tekton CI/CD pipelines  
   * Application overview and health status
   * OpenShift Dev Spaces development environment
 
-== Activity 3: Exploring Your New Cloud-Native Development Environment
+== Activity 3: Exploring Your New OpenShift Pipelines Development Environment
 
 === Step 1: Accessing Your Browser-Based IDE
 
@@ -212,13 +212,13 @@ Password: {rhdh_user_password}
 
 * When prompted, you click *Allow selected permissions* to grant access to your development workspace
 
-=== Step 2: Explore the Cloud-Native Development Environment
+=== Step 2: Explore the OpenShift Pipelines Development Environment
 
 Once your workspace loads, you'll see:
 
-* **Pre-configured Quarkus project** with cloud-native best practices
+* **Pre-configured Quarkus project** with OpenShift Pipelines best practices
 * **Kubernetes manifests** in the `/deploy` directory
-* **Tekton pipeline definitions** showing your CI/CD workflow
+* **Tekton pipeline definitions** showing your OpenShift Pipelines workflow
 * **Container configuration** with security scanning integration
 
 === Step 3: Making Your First Code Change
@@ -231,7 +231,7 @@ Time to make your mark on the Black Friday project! Let's trigger your first aut
 +
 [source,markdown]
 ----
-This application uses cloud-native Tekton pipelines for secure CI/CD.
+This application uses OpenShift Pipelines (Tekton) for secure CI/CD.
 ----
 
 * You save the file (Ctrl+S or Cmd+S), ready to see the magic happen
@@ -250,7 +250,7 @@ git add .
 +
 [source,bash]
 ----
-git commit -m "Add cloud-native pipeline documentation"
+git commit -m "Add OpenShift Pipelines documentation"
 ----
 
 * Something interesting happens - you're prompted for signed commit authentication. You follow the browser flow to cryptographically sign your commit
@@ -268,20 +268,20 @@ image::93_Gitsign_Commit_Signed.png[]
 git push
 ----
 
-TIP: You just witnessed something powerful - your commit was automatically signed for security, and now it's triggering a complete cloud-native pipeline. No manual work, no tickets, no waiting!
+TIP: You just witnessed something powerful - your commit was automatically signed for security, and now it's triggering a complete OpenShift Pipelines workflow. No manual work, no tickets, no waiting!
 
 == What You Just Accomplished
 
-Congratulations! You've just experienced the power of cloud-native development with RHADS:
+Congratulations! You've just experienced the power of OpenShift Pipelines development with RHADS:
 
 === Time Savings
-* **Traditional cloud-native setup**: 3-4 weeks of Kubernetes and Tekton configuration
-* **RHADS cloud-native approach**: Less than 5 minutes of self-service
+* **Traditional OpenShift Pipelines setup**: 3-4 weeks of Kubernetes and Tekton configuration
+* **RHADS OpenShift Pipelines approach**: Less than 5 minutes of self-service
 
-=== Cloud-Native Security by Default  
+=== OpenShift Pipelines Security by Default  
 Your application includes:
 * Automated container vulnerability scanning
-* Image signing and verification with cloud-native tools
+* Image signing and verification with OpenShift Pipelines
 * Tekton pipeline security enforcement
 * Kubernetes-native security policies
 
@@ -289,15 +289,15 @@ Your application includes:
 Everything was created automatically:
 * GitLab repositories with Kubernetes manifests
 * Tekton pipelines deployed and configured
-* Security tools integrated with cloud-native workflows
+* Security tools integrated with OpenShift Pipelines workflows
 * OpenShift resources provisioned
 
-== Understanding Cloud-Native Benefits
+== Understanding OpenShift Pipelines Benefits
 
 === Developer Experience
 * **Browser-based development** - No local Kubernetes setup required
 * **Live reload capabilities** - See changes instantly
-* **Integrated debugging** - Cloud-native application troubleshooting
+* **Integrated debugging** - OpenShift Pipelines application troubleshooting
 * **Collaborative workspaces** - Team development in the cloud
 
 === Operational Advantages
@@ -316,9 +316,9 @@ Everything was created automatically:
 
 In the next section, **Staging - Promoting to stage environment**, you'll:
 
-* See your Tekton pipeline execute with cloud-native automation
-* Understand how security validation works in cloud-native pipelines
+* See your Tekton pipeline execute with OpenShift Pipelines automation
+* Understand how security validation works in OpenShift Pipelines
 * Experience GitOps deployment to staging environments
-* Learn about cloud-native monitoring and observability
+* Learn about OpenShift Pipelines monitoring and observability
 
-Your cloud-native foundation is now in place - let's see your Tekton pipeline in action!
+Your OpenShift Pipelines foundation is now in place - let's see your Tekton pipeline in action!

@@ -3,7 +3,7 @@
 == A
 
 [id='ads']
-*Red Hat Advanced Developer Suite (RHADS)*:: An integrated suite of tools and services that enables organizations to build, test, and deploy secure cloud-native applications with automated security and compliance built into the development process.
+*Red Hat Advanced Developer Suite (RHADS)*:: An integrated suite of tools and services that enables organizations to build, test, and deploy secure modern applications with automated security and compliance built into the development process.
 
 == C
 
@@ -26,12 +26,12 @@
 *Red Hat OpenShift*:: An enterprise Kubernetes platform that provides a complete application development and deployment environment with built-in security, monitoring, and management capabilities.
 
 [id='ods']
-*OpenShift Dev Spaces*:: A browser-based development environment that provides fully configured workspaces for cloud-native application development.
+*OpenShift Dev Spaces*:: A browser-based development environment that provides fully configured workspaces for modern application development.
 
 == Q
 
 [id='quarkus']
-*Quarkus*:: A Kubernetes-native Java framework designed for building cloud-native applications with fast startup times, low memory usage, and excellent developer experience.
+*Quarkus*:: A Kubernetes-native Java framework designed for building modern applications with fast startup times, low memory usage, and excellent developer experience.
 
 [id='quay']
 *Red Hat Quay*:: An enterprise container image registry that provides secure storage, scanning, and distribution of container images.
@@ -52,4 +52,4 @@
 == T
 
 [id='tekton']
-*Tekton*:: An open-source framework for creating cloud-native CI/CD pipelines on Kubernetes, providing the foundation for OpenShift Pipelines.
+*Tekton*:: An open-source framework for creating Kubernetes-native CI/CD pipelines, providing the foundation for OpenShift Pipelines.

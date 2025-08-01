@@ -50,25 +50,25 @@ You're about to discover how Red Hat Advanced Developer Suite (RHADS) will trans
 
 This workshop offers two learning paths that demonstrate different approaches to implementing Red Hat Advanced Developer Suite:
 
-=== Path 1: Cloud-Native with OpenShift Pipelines
+=== Path 1: OpenShift Pipelines (Tekton)
 
 === Learning Flow
 
 * Self-service project creation via Red Hat Developer Hub
-* Cloud-native development with OpenShift Dev Spaces
-* Automated security with cloud-native pipelines
+* Kubernetes-native development with OpenShift Dev Spaces
+* Automated security with OpenShift Pipelines
 * GitOps deployment to staging and production
 
 === Value Proposition
 
-Modern cloud-native development velocity with enterprise security
+Modern OpenShift Pipelines development velocity with enterprise security
 
 === Path 2: Enterprise Integration
 
 === Learning Flow
 
 * Self-service project creation via Red Hat Developer Hub
-* Enhanced enterprise pipelines with integrated security
+* Enhanced Jenkins pipelines with integrated security
 * Automated validation and GitOps deployment
 * Enterprise-grade workflows and protection
 
@@ -108,8 +108,8 @@ Your lab environment includes all the components needed to experience RHADS:
 
 === CI/CD Options
 
-* OpenShift Pipelines - Cloud-native implementation
-* Enterprise Pipeline Integration - Enhanced enterprise workflows
+* OpenShift Pipelines (Tekton) - Kubernetes-native implementation
+* Jenkins - Enhanced enterprise workflows
 
 == Success Metrics
 
@@ -139,10 +139,10 @@ TIP: Keep these metrics in mind as you work through the exercises - you'll exper
 
 Ready to become the hero who saves Black Friday? Select the path that matches your team's technology approach:
 
-**🚀 Start with Cloud-Native Pipeline** → Go to the *Cloud-Native Pipeline* module  
-*Perfect if your team is embracing modern cloud-native development practices*
+**🚀 Start with OpenShift Pipelines (Tekton)** → Go to the *OpenShift Pipelines (Tekton)* module  
+*Perfect if your team is embracing modern Kubernetes-native development practices*
 
-**🔧 Start with Enterprise Pipeline** → Go to the *Enterprise Pipeline* module  
+**🔧 Start with Jenkins** → Go to the *Jenkins* module  
 *Ideal if your organization has existing enterprise tooling investments*
 
 Either path will give you the hands-on experience to transform your development workflow and meet that Black Friday deadline!

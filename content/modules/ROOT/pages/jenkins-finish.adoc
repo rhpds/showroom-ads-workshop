@@ -1,4 +1,4 @@
-= Enterprise Pipeline - Summary
+= Jenkins - Summary
 :source-highlighter: rouge
 :toc: macro
 :toclevels: 2
@@ -7,7 +7,7 @@ toc::[]
 
 == Module Completion
 
-Congratulations! You've successfully completed the **Enterprise Pipeline with Jenkins** module of the Red Hat Advanced Developer Suite Workshop.
+Congratulations! You've successfully completed the **Jenkins** module of the Red Hat Advanced Developer Suite Workshop.
 
 This module demonstrated how RHADS enhances existing Jenkins investments while providing modern capabilities and enterprise-grade security.
 
@@ -105,19 +105,19 @@ This module demonstrated how RHADS enhances existing Jenkins investments while p
 
 === Enhanced Jenkins Adoption Path
 
-**Phase 1: Template Implementation**
+**Step 1: Template Implementation**
 * Deploy enhanced Jenkins templates for new project creation
 * Establish self-service capabilities through Red Hat Developer Hub
 * Train teams on enhanced template usage and capabilities
 * Document enhanced Jenkins patterns and best practices
 
-**Phase 2: Existing Pipeline Enhancement**
+**Step 2: Existing Pipeline Enhancement**
 * Gradually enhance existing Jenkins pipelines with security integration
 * Migrate critical applications to enhanced Jenkins patterns
 * Implement GitOps deployment for existing applications
 * Expand self-service capabilities across organization
 
-**Phase 3: Comprehensive Enhancement**
+**Step 3: Comprehensive Enhancement**
 * Standardize enhanced Jenkins patterns across all projects
 * Implement advanced monitoring and observability capabilities
 * Establish comprehensive compliance and audit automation
@@ -200,7 +200,7 @@ This module demonstrated how RHADS enhances existing Jenkins investments while p
 **Enhanced Jenkins Capabilities:**
 * Advanced Jenkins pipeline patterns with integrated security
 * Enterprise Jenkins federation and management strategies
-* Jenkins integration with cloud-native and hybrid environments
+* Jenkins integration with OpenShift Pipelines and hybrid environments
 * Advanced monitoring and observability for enhanced Jenkins
 
 **Broader RHADS Ecosystem:**
@@ -243,7 +243,7 @@ Take a moment to consider these strategic questions:
 Thank you for completing the Enhanced Jenkins module! You've experienced how Red Hat Advanced Developer Suite preserves and enhances existing investments while providing modern capabilities.
 
 **Continue Your Journey:**
-* Explore the **Cloud-Native Pipeline** module to see alternative implementation approaches
+* Explore the **OpenShift Pipelines (Tekton)** module to see alternative implementation approaches
 * Review complete workshop resources and implementation planning materials
 * Develop your organization's RHADS implementation strategy based on today's experience
 

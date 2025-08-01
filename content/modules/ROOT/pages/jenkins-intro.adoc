@@ -1,4 +1,4 @@
-= Enterprise Pipeline - Module Introduction
+= Jenkins - Module Introduction
 :source-highlighter: rouge
 :toc: macro
 :toclevels: 2
@@ -179,7 +179,7 @@ IMPORTANT: This approach demonstrates how RHADS enhances rather than replaces ex
 * GitOps deployment automation improves reliability
 
 **Long-term Strategic Value:**
-* Foundation for eventual cloud-native migration if desired
+* Foundation for eventual OpenShift Pipelines migration if desired
 * Enhanced security and compliance capabilities
 * Improved developer productivity and satisfaction
 * Reduced operational overhead and maintenance burden

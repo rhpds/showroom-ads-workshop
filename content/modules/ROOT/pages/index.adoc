@@ -48,13 +48,20 @@ TIP: All credentials and access information are provided in the "Lab Access Info
 
 == Workshop Structure
 
-This workshop is organized into phases that build upon each other:
+This workshop offers two learning paths to demonstrate RHADS capabilities:
 
-. Getting started with Red Hat Developer Hub and creating your first application
-. Making code changes in a secure development environment  
-. Understanding how the secure pipeline works
-. Promoting your application to production
+**🚀 OpenShift Pipelines (Tekton) Path**: Modern Kubernetes-native development
+. Create applications using OpenShift Pipelines templates  
+. Experience browser-based development with OpenShift Dev Spaces
+. See Tekton workflows automate security and deployment
+. Deploy through staging to production with GitOps
 
-Each phase includes both learning objectives and hands-on activities to reinforce the concepts.
+**🔧 Jenkins Path**: Enhanced enterprise development  
+. Create applications using enhanced Jenkins integration
+. Experience familiar Jenkins workflows with modern security
+. See Jenkins pipelines with built-in compliance and scanning
+. Deploy through enterprise-approved promotion workflows
 
-Ready to get started? Let's begin with Phase 1!
+Each path includes learning objectives and hands-on activities that build upon each other.
+
+Ready to get started? Choose your learning path in the Introduction!

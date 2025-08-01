@@ -1,4 +1,4 @@
-= Enterprise Pipeline - Production
+= Jenkins - Production
 :source-highlighter: rouge
 :toc: macro
 :toclevels: 2
@@ -221,7 +221,7 @@ Take a moment to consider:
 
 4. **Business Value**: What business outcomes could your organization achieve through enhanced Jenkins while preserving existing investments?
 
-== Enhanced Jenkins vs. Cloud-Native Comparison
+== Enhanced Jenkins Architecture
 
 === Both Approaches Provide:
 
@@ -247,7 +247,7 @@ Take a moment to consider:
 
 == Congratulations!
 
-You've successfully completed the **Enterprise Pipeline with Jenkins** module! You've experienced:
+You've successfully completed the **Jenkins** module! You've experienced:
 
 * **Enhanced Jenkins workflows** with integrated modern security
 * **Investment protection** while gaining cutting-edge capabilities
@@ -257,6 +257,6 @@ You've successfully completed the **Enterprise Pipeline with Jenkins** module! Y
 
 This demonstrates how RHADS enhances rather than replaces existing investments, providing a practical path to modernization.
 
-**Next:** Consider exploring the Cloud-Native Pipeline module to see alternative RHADS approaches, or review the complete workshop summary to plan your organization's implementation strategy.
+**Next:** Consider exploring the OpenShift Pipelines (Tekton) module to see alternative RHADS approaches, or review the complete workshop summary to plan your organization's implementation strategy.
 
 Your Jenkins investment is now enhanced with modern capabilities - maximizing value while minimizing disruption!

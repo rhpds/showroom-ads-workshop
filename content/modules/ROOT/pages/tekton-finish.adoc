@@ -1,4 +1,4 @@
-= Cloud-Native Pipeline - Summary
+= OpenShift Pipelines - Summary
 :source-highlighter: rouge
 :toc: macro
 :toclevels: 2
@@ -7,7 +7,7 @@ toc::[]
 
 == Module Completion
 
-Congratulations! You've successfully completed the **Cloud-Native Pipeline with OpenShift Pipelines (Tekton)** module of the Red Hat Advanced Developer Suite Workshop.
+Congratulations! You've successfully completed the **OpenShift Pipelines (Tekton)** module of the Red Hat Advanced Developer Suite Workshop.
 
 == What You Accomplished
 
@@ -15,13 +15,13 @@ Congratulations! You've successfully completed the **Cloud-Native Pipeline with 
 
 **Self-Service Application Creation:**
 * Created a secure Quarkus application using Red Hat Developer Hub templates
-* Configured cloud-native CI/CD with Tekton pipelines automatically
+* Configured OpenShift Pipelines CI/CD with Tekton automatically
 * Set up GitOps deployment workflows with ArgoCD integration
 
-**Cloud-Native Development:**
+**OpenShift Pipelines Development:**
 * Developed in OpenShift Dev Spaces browser-based environment
 * Made code changes that automatically triggered secure build pipelines
-* Experienced modern cloud-native development workflows
+* Experienced modern OpenShift Pipelines development workflows
 
 **Automated Security Integration:**
 * Witnessed automated vulnerability scanning of container images
@@ -55,11 +55,11 @@ Congratulations! You've successfully completed the **Cloud-Native Pipeline with 
 
 == Key Takeaways
 
-=== Cloud-Native Advantages
+=== OpenShift Pipelines Advantages
 
 **Kubernetes-Native Architecture:**
 * Pipelines run as pods, providing natural scaling and resource efficiency
-* Tekton leverages Kubernetes primitives for robust, cloud-native CI/CD
+* Tekton leverages Kubernetes primitives for robust, OpenShift Pipelines CI/CD
 * Container-first approach optimizes for modern application architectures
 
 **Developer Experience:**
@@ -94,16 +94,16 @@ Congratulations! You've successfully completed the **Cloud-Native Pipeline with 
 
 == Real-World Implementation Considerations
 
-=== When Cloud-Native Approaches Excel
+=== When OpenShift Pipelines Approaches Excel
 
 **Ideal Use Cases:**
-* **New application development** - Start with cloud-native best practices
+* **New application development** - Start with OpenShift Pipelines best practices
 * **Microservices architectures** - Consistent deployment and scaling patterns
 * **Container-first organizations** - Leverage existing Kubernetes investments
 * **DevOps transformation initiatives** - Modernize development practices
 
 **Organizational Readiness:**
-* Teams comfortable with cloud-native concepts and tooling
+* Teams comfortable with OpenShift Pipelines concepts and tooling
 * Kubernetes platform already deployed and managed
 * Container-based application architectures
 * Cultural alignment with DevOps and automation principles
@@ -111,9 +111,9 @@ Congratulations! You've successfully completed the **Cloud-Native Pipeline with 
 === Scaling Considerations
 
 **Team Adoption:**
-* Provide training on cloud-native development concepts
+* Provide training on OpenShift Pipelines development concepts
 * Start with pilot projects to demonstrate value
-* Establish cloud-native best practices and standards
+* Establish OpenShift Pipelines best practices and standards
 * Create internal documentation and knowledge sharing
 
 **Platform Evolution:**
@@ -126,7 +126,7 @@ Congratulations! You've successfully completed the **Cloud-Native Pipeline with 
 
 === Hybrid Approaches
 
-The cloud-native approach demonstrated in this module can be combined with:
+The OpenShift Pipelines approach demonstrated in this module can be combined with:
 
 * **Legacy application modernization** - Containerization pathways
 * **Multi-cloud deployments** - Consistent patterns across providers
@@ -136,9 +136,9 @@ The cloud-native approach demonstrated in this module can be combined with:
 === Migration Strategies
 
 **Gradual Adoption:**
-* Start with new projects using cloud-native approaches
+* Start with new projects using OpenShift Pipelines approaches
 * Modernize existing applications incrementally
-* Maintain legacy systems while building cloud-native capabilities
+* Maintain legacy systems while building OpenShift Pipelines capabilities
 * Develop expertise and best practices over time
 
 == Next Steps and Recommendations
@@ -149,7 +149,7 @@ The cloud-native approach demonstrated in this module can be combined with:
 1. **Assess current development practices** - Identify areas for improvement
 2. **Evaluate Kubernetes readiness** - Ensure platform capabilities
 3. **Plan pilot projects** - Start with low-risk, high-value applications
-4. **Develop team skills** - Invest in cloud-native training and education
+4. **Develop team skills** - Invest in OpenShift Pipelines training and education
 
 **Technical Preparation:**
 1. **Review security requirements** - Align with organizational policies
@@ -174,11 +174,11 @@ The cloud-native approach demonstrated in this module can be combined with:
 
 Take a moment to consider these questions:
 
-1. **Value Proposition**: What specific benefits would this cloud-native approach provide for your organization's development practices?
+1. **Value Proposition**: What specific benefits would this OpenShift Pipelines approach provide for your organization's development practices?
 
 2. **Implementation Challenges**: What organizational or technical barriers might need to be addressed for successful adoption?
 
-3. **Strategic Alignment**: How does this cloud-native approach align with your organization's digital transformation goals?
+3. **Strategic Alignment**: How does this OpenShift Pipelines approach align with your organization's digital transformation goals?
 
 4. **Team Impact**: How would this change the day-to-day experience for your development, platform, and security teams?
 
@@ -201,11 +201,11 @@ Take a moment to consider these questions:
 
 == Thank You!
 
-Thank you for completing the Cloud-Native Pipeline module! You've experienced the future of enterprise application development with Red Hat Advanced Developer Suite.
+Thank you for completing the OpenShift Pipelines module! You've experienced the future of enterprise application development with Red Hat Advanced Developer Suite.
 
 **Continue Your Journey:**
-* Explore the **Enterprise Pipeline** module to see alternative RHADS implementation approaches
+* Explore the **Jenkins** module to see alternative RHADS implementation approaches
 * Review the complete workshop resources and additional learning materials
 * Plan your organization's implementation strategy based on your experience today
 
-*Your cloud-native development transformation starts here!*
+*Your OpenShift Pipelines development transformation starts here!*
