@@ -108,6 +108,8 @@ Now comes the exciting part - you're about to experience Jenkins like you've nev
 . Eager to tackle your Black Friday project with your enhanced Jenkins workflow, you spot the **+ Self-service** button in the top-right corner
 . You click **+ Self-service** and are delighted to see templates specifically designed for Jenkins - no more complex manual setup!
 
+image::jenkins-dev-2.png[]
+
 === Step 2: Choosing Your Enhanced Jenkins Template
 
 . As you browse through the available templates, one immediately catches your attention:
@@ -117,7 +119,7 @@ Now comes the exciting part - you're about to experience Jenkins like you've nev
 . "Finally!" you think, "A Jenkins template that includes security and modern practices built-in"
 . You click *Choose* to select this template, excited to see Jenkins enhanced with modern capabilities
 
-image::jenkins-dev-1.png[]
+image::jenkins-dev-3.png[]
 
 TIP: You're about to witness something remarkable - this template will automatically create your complete Jenkins environment with security scanning, container signing, and GitOps deployment, all using the Jenkins patterns you already know and love!
 
@@ -173,6 +175,8 @@ Click *Review* to see a summary of your Jenkins-enhanced configuration.
 === Step 4: Create Your Jenkins-Enhanced Application
 
 . Review all the settings in the summary page
+
+image::jenkins-dev-4.png[]
 
 image::jenkins-dev-5.png[]
 

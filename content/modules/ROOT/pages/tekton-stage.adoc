@@ -180,25 +180,14 @@ TIP: GitOps ensures that your staging environment exactly matches what's defined
 * No dedicated CI/CD infrastructure to maintain
 * Scales with your Kubernetes platform
 
-== Business Value Demonstrated
+== What You Learned
 
-=== Speed and Efficiency
-* **Build to staging deployment**: Under 10 minutes
-* **Zero manual intervention** required
-* **Parallel execution** of pipeline stages
-* **Automatic promotion** based on validation results
+You've experienced OpenShift Pipelines staging deployment with:
 
-=== Security and Compliance  
-* **100% automated security scanning**
-* **Cryptographic proof** of image integrity
-* **Policy enforcement** before deployment
-* **Complete audit trail** for compliance reporting
-
-=== Operational Excellence
-* **Declarative infrastructure** - No configuration drift
-* **Automatic healing** if staging environment deviates
-* **Consistent deployments** across all environments
-* **Self-service capabilities** reduce platform team load
+* **Automated pipeline execution** triggered by Git tags
+* **Security scanning and validation** built into every deployment
+* **GitOps-based promotion** to staging environments
+* **Kubernetes-native execution** that scales with your cluster
 
 == Troubleshooting Common Issues
 

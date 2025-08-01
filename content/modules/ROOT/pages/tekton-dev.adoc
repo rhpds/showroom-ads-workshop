@@ -120,7 +120,7 @@ Now comes the exciting part - you're about to experience the magic of self-servi
 * "Perfect!" you think, "This is exactly what I need for a modern application with OpenShift Pipelines"
 * You click *Choose* to select this template, excited to see what happens next
 
-image::tekton-dev-1.png[]
+image::tekton-dev-3.png[]
 
 TIP: You're about to witness something amazing - this single template will automatically create your complete OpenShift Pipelines environment with Tekton workflows, Kubernetes resources, and security scanning. No tickets, no waiting, no manual configuration!
 
@@ -177,6 +177,8 @@ Click *Review* to see a summary of your OpenShift Pipelines configuration.
 
 . Review all the settings in the summary page
 
+image::tekton-dev-4.png[]
+
 image::tekton-dev-5.png[]
 
 . Click *Create* to generate your OpenShift Pipelines application
@@ -195,15 +197,19 @@ TIP: This entire OpenShift Pipelines setup that traditionally takes weeks is com
 
 . Once the template execution completes, click *Open Component in Catalog*
 
-image::tekton-dev-10.png[]
+. In Red Hat Developer Hub, go to the *Catalog* and locate your new component (`my-quarkus-tkn`)
+
+image::tekton-dev-6.png[]
+
+. Click the component name to open its *Overview* page
+
+image::tekton-dev-7.png[]
 
 . You'll see your new OpenShift Pipelines application component with links to:
   * Source code repository with Kubernetes manifests
   * Tekton CI/CD pipelines  
   * Application overview and health status
   * OpenShift Dev Spaces development environment
-
-image::tekton-dev-11.png[]
 
 == Activity 3: Exploring Your New OpenShift Pipelines Development Environment
 
