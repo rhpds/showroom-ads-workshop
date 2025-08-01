@@ -160,12 +160,14 @@ The OpenShift Pipelines approach demonstrated in this module can be combined wit
 === Immediate Actions
 
 **For Your Organization:**
+
 - **Assess current development practices** - Identify areas for improvement
 - **Evaluate Kubernetes readiness** - Ensure platform capabilities
 - **Plan pilot projects** - Start with low-risk, high-value applications
 - **Develop team skills** - Invest in OpenShift Pipelines training and education
 
 **Technical Preparation:**
+
 - **Review security requirements** - Align with organizational policies
 - **Plan integration points** - Consider existing tool ecosystems
 - **Establish governance** - Define standards and best practices
@@ -174,12 +176,14 @@ The OpenShift Pipelines approach demonstrated in this module can be combined wit
 === Continued Learning
 
 **Explore Related Technologies:**
+
 - **Tekton advanced features** - Custom tasks, triggers, and operators
 - **ArgoCD GitOps patterns** - Advanced deployment strategies
 - **OpenShift service mesh** - Microservices networking and security
 - **Kubernetes operators** - Application lifecycle management
 
 **Related Topics:**
+
 - **Enterprise integration** - How RHADS enhances existing enterprise tooling
 - **Hybrid cloud strategies** - Multi-platform deployment patterns
 - **Legacy modernization** - Gradual transformation approaches

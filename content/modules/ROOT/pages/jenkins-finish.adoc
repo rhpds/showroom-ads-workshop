@@ -46,6 +46,7 @@ This module demonstrated how RHADS enhances existing Jenkins investments while p
 === What You've Learned
 
 **Technical Skills Acquired:**
+
 - **Enhanced Jenkins pipelines** with integrated security scanning
 - **Self-service project creation** using Red Hat Developer Hub templates
 - **GitOps deployment** triggered from familiar Jenkins workflows
@@ -180,12 +181,14 @@ This module demonstrated how RHADS enhances existing Jenkins investments while p
 === Immediate Actions
 
 **For Your Organization:**
+
 - **Assess Jenkins investment**: Document existing Jenkins infrastructure and expertise
 - **Evaluate enhancement potential**: Identify opportunities for enhanced Jenkins implementation
 - **Plan pilot projects**: Start with low-risk, high-value applications for enhancement
 - **Develop enhancement strategy**: Create roadmap for gradual Jenkins enhancement
 
 **Technical Preparation:**
+
 - **Review security requirements**: Ensure enhanced Jenkins aligns with organizational policies
 - **Plan infrastructure capacity**: Ensure adequate resources for enhanced capabilities
 - **Establish integration points**: Consider connections to existing enterprise tools
