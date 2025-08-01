@@ -194,11 +194,13 @@ TIP: This entire OpenShift Pipelines setup that traditionally takes weeks is com
 . Once the template execution completes, click *Open Component in Catalog*
 
 . In Red Hat Developer Hub, go to the *Catalog* and locate your new component (`my-quarkus-tkn`)
-
++
 image::tekton-dev-6.png[]
-. Click the component name to open its *Overview* page
 
+. Click the component name to open its *Overview* page
++
 image::tekton-dev-7.png[]
+
 . You'll see your new OpenShift Pipelines application component with links to:
   * Source code repository with Kubernetes manifests
   * Tekton CI/CD pipelines
