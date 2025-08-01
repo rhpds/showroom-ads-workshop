@@ -41,6 +41,7 @@ Let's create a Git tag to trigger the staging pipeline:
 === Step 1: Access Your GitLab Repository
 
 . In Developer Hub, navigate to the component *Overview* tab and click the *View Source* link to open your GitLab repository:
++
 image::tekton-stage-5.png[]
 
 . If prompted for credentials, use:
@@ -50,6 +51,7 @@ image::tekton-stage-5.png[]
 Username: {gitlab_user}
 Password: {gitlab_user_password}
 ----
+
 image::tekton-stage-1.png[]
 
 === Step 2: Create a Git Tag
