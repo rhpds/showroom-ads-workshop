@@ -14,21 +14,25 @@ Congratulations! You've successfully completed the **OpenShift Pipelines (Tekton
 === Technical Achievements
 
 **Self-Service Application Creation:**
+
 * Created a secure Quarkus application using Red Hat Developer Hub templates
 * Configured OpenShift Pipelines CI/CD with Tekton automatically
 * Set up GitOps deployment workflows with ArgoCD integration
 
 **OpenShift Pipelines Development:**
+
 * Developed in OpenShift Dev Spaces browser-based environment
 * Made code changes that automatically triggered secure build pipelines
 * Experienced modern OpenShift Pipelines development workflows
 
 **Automated Security Integration:**
+
 * Witnessed automated vulnerability scanning of container images
 * Saw cryptographic signing and verification of supply chain artifacts
 * Experienced policy enforcement and compliance validation
 
 **Production Deployment:**
+
 * Promoted applications through staging to production environments
 * Used GitOps for declarative, auditable deployments
 * Monitored production application health and security posture
@@ -58,16 +62,19 @@ Congratulations! You've successfully completed the **OpenShift Pipelines (Tekton
 === OpenShift Pipelines Advantages
 
 **Kubernetes-Native Architecture:**
+
 * Pipelines run as pods, providing natural scaling and resource efficiency
 * Tekton leverages Kubernetes primitives for robust, OpenShift Pipelines CI/CD
 * Container-first approach optimizes for modern application architectures
 
 **Developer Experience:**
+
 * Browser-based development eliminates local environment complexity
 * Self-service capabilities reduce dependency on platform teams
 * Modern tooling attracts and retains top development talent
 
 **Enterprise Security:**
+
 * Security is built into the development process, not bolted on afterward
 * Automated policy enforcement ensures consistent compliance
 * Complete audit trails satisfy enterprise governance requirements
@@ -75,6 +82,7 @@ Congratulations! You've successfully completed the **OpenShift Pipelines (Tekton
 === Organizational Impact
 
 **For Development Teams:**
+
 * Faster iteration cycles improve time-to-market
 * Reduced friction in development workflows
 * Access to enterprise-grade tooling and infrastructure

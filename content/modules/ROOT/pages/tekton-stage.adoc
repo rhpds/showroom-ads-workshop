@@ -77,7 +77,7 @@ link:{openshift_url}[*OpenShift Console*^]
 
 . Sign in with your credentials:
 +
-[source,bash]
+[source,bash,subs="attributes"]
 ----
 Username: {username}
 Password: {password}
@@ -163,18 +163,21 @@ TIP: GitOps ensures that your staging environment exactly matches what's defined
 === What You Just Witnessed
 
 **Automated Quality Gates:**
+
 * Code was automatically built and tested
 * Security vulnerabilities were scanned and reported
 * Container images were signed for integrity
 * Deployment only proceeded after all validations passed
 
 **GitOps Deployment Model:**
+
 * Desired state defined declaratively in Git
 * Automatic synchronization to target environments
 * Complete audit trail of all changes
 * Easy rollback capabilities if issues occur
 
 **OpenShift Pipelines Scalability:**
+
 * Pipeline executed using cluster resources
 * Automatic resource allocation and cleanup
 * No dedicated CI/CD infrastructure to maintain

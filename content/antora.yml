@@ -15,6 +15,7 @@ asciidoc:
     chapter-signifier: 
     part-signifier:
     guid: my-guid
+    gitlab_url: https://gitlab-gitlab.apps.cluster-pc8p5.pc8p5.sandbox275.opentlc.com
     rhdh_url: https://backstage-backstage.apps.cluster-{guid}.{guid}.sandbox.opentlc.com
     rhdh_user: user
     rhdh_user_password: password

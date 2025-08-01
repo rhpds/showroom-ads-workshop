@@ -33,16 +33,19 @@ This module is ideal for:
 In this module, you'll work with:
 
 **Development Environment:**
+
 * Red Hat Developer Hub - Self-service portal
 * OpenShift Dev Spaces - Browser-based IDE
 * GitLab - Source code management
 
 **CI/CD Platform:**
+
 * Jenkins - Enhanced with modern security integration
 * Red Hat Quay - Container image registry
 * OpenShift GitOps (ArgoCD) - Automated deployment
 
 **Security & Compliance:**
+
 * Trusted Artifact Signer - Container image signing
 * Advanced Cluster Security - Vulnerability scanning
 * Enterprise Contract - Policy enforcement
@@ -87,18 +90,21 @@ This module follows ACME's Jenkins enhancement workflow:
 == Key Advantages of This Approach
 
 **Investment Preservation:**
+
 * Leverage existing Jenkins infrastructure and knowledge
 * Maintain familiar workflows and processes
 * Preserve team expertise and operational procedures
 * Protect substantial technology investments
 
 **Enhanced Capabilities:**
+
 * Add modern security scanning without pipeline disruption
 * Integrate container image signing and verification
 * Provide self-service capabilities for developers
 * Enable GitOps deployment patterns
 
 **Gradual Modernization:**
+
 * Enhance existing pipelines incrementally
 * Introduce new capabilities without breaking changes
 * Allow teams to adapt at their own pace
@@ -111,18 +117,21 @@ IMPORTANT: This approach demonstrates how RHADS enhances rather than replaces ex
 === For Jenkins Administrators
 
 **Reduced Configuration Overhead:**
+
 * Self-service templates eliminate repetitive pipeline setup
 * Standardized security integration across all projects
 * Automated best practices enforcement
 * Reduced maintenance burden for custom configurations
 
 **Enhanced Security Integration:**
+
 * Modern vulnerability scanning integrated seamlessly
 * Container image signing and verification workflows
 * Policy enforcement without pipeline disruption
 * Compliance reporting and audit trail generation
 
 **Improved Developer Experience:**
+
 * Self-service project creation reduces tickets and delays
 * Standardized templates ensure consistency
 * Integrated development environments
@@ -131,18 +140,21 @@ IMPORTANT: This approach demonstrates how RHADS enhances rather than replaces ex
 === For Development Teams
 
 **Familiar Workflows:**
+
 * Jenkins pipelines work exactly as expected
 * Existing Jenkins knowledge remains valuable
 * Gradual introduction of new capabilities
 * No disruption to established practices
 
 **Enhanced Capabilities:**
+
 * Automatic security scanning and validation
 * Modern development environment access
 * GitOps deployment automation
 * Complete supply chain security
 
 **Faster Project Setup:**
+
 * Self-service application creation in minutes
 * Pre-configured Jenkins pipelines with security
 * Automatic repository and infrastructure setup
@@ -153,18 +165,21 @@ IMPORTANT: This approach demonstrates how RHADS enhances rather than replaces ex
 === Preserving Jenkins Value
 
 **Infrastructure Reuse:**
+
 * Existing Jenkins controllers and agents remain operational
 * Current compute and storage investments continue to provide value
 * Network configurations and security boundaries maintained
 * Operational procedures and runbooks remain valid
 
 **Knowledge Preservation:**
+
 * Jenkins expertise continues to be valuable and relevant
 * Existing pipeline patterns can be enhanced incrementally
 * Team training investments are protected
 * Institutional knowledge remains applicable
 
 **Gradual Enhancement:**
+
 * New projects can adopt enhanced templates immediately
 * Existing projects can be migrated at appropriate times
 * Risk is minimized through incremental adoption

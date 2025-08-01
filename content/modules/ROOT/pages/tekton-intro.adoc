@@ -33,16 +33,19 @@ This module is ideal for:
 In this module, you'll work with:
 
 **Development Environment:**
+
 * Red Hat Developer Hub - Self-service portal
-* OpenShift Dev Spaces - Browser-based IDE
+* OpenShift Dev Spaces - Browser-based IDE  
 * GitLab - Source code management
 
 **CI/CD Platform:**
+
 * OpenShift Pipelines - Kubernetes-native pipeline engine
 * Red Hat Quay - Container image registry
 * OpenShift GitOps (ArgoCD) - Automated deployment
 
 **Security & Compliance:**
+
 * Trusted Artifact Signer - Container image signing
 * Advanced Cluster Security - Vulnerability scanning
 * Enterprise Contract - Policy enforcement
@@ -87,18 +90,21 @@ This module follows ACME's development workflow:
 == Key Advantages of This Approach
 
 **Developer Experience:**
+
 * Browser-based development - no local setup required
 * Instant environment provisioning
 * Live reload and rapid iteration
 * Integrated debugging and testing
 
 **Operational Benefits:**
+
 * Kubernetes-native scaling and resource management
 * GitOps automation for consistent deployments
 * Built-in observability and monitoring
 * Cloud-portable across any Kubernetes platform
 
 **Security Advantages:**
+
 * Container-first security scanning
 * Immutable infrastructure patterns
 * Policy enforcement at the platform level

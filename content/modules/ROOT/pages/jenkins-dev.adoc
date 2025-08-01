@@ -28,6 +28,7 @@ Here's what you've been dealing with in your enterprise Jenkins environment:
 * **Configuration inconsistencies** that create mysterious failures across different Jenkins pipelines
 
 **What This Really Means for You:**
+
 * You spend more time waiting than coding - frustrating when you want to be productive
 * Platform teams are overwhelmed with setup requests from developers like you
 * Security integration feels like a black box that only DevOps specialists understand
@@ -43,6 +44,7 @@ But you're about to discover how RHADS transforms your Jenkins experience while 
 * **Zero security gaps**: Enterprise security gets automatically integrated without you needing to understand the complexities
 
 **What This Transforms for Your Daily Work:**
+
 * Jenkins pipeline creation: **1-2 weeks → 5 minutes**
 * Security integration: **Complex manual process → Automatic and invisible**
 * Platform team dependency: **75% reduction** in tickets and requests
@@ -72,7 +74,7 @@ TIP: Your organization uses OIDC authentication powered by Red Hat build of Keyc
 
 . You enter your lab credentials, anticipating what you'll discover:
 +
-[source,bash]
+[source,bash,subs="attributes"]
 ----
 Username: {rhdh_user}
 Password: {rhdh_user_password}
@@ -237,8 +239,9 @@ pipeline {
 These files handle staging and production deployments using the same enhanced Jenkins patterns with modern security integration.
 
 **Why This Matters:**
+
 * **Familiar Syntax**: Standard Jenkins Pipeline DSL you already know
-* **Enhanced Security**: Modern vulnerability scanning integrated seamlessly
+* **Enhanced Security**: Modern vulnerability scanning integrated seamlessly  
 * **GitOps Integration**: Automated deployment without abandoning Jenkins
 * **Investment Protection**: Your Jenkins expertise becomes more valuable
 
@@ -276,7 +279,7 @@ TIP: Notice how modern security capabilities are seamlessly integrated into fami
 
 . Sign in with your credentials:
 +
-[source,bash]
+[source,bash,subs="attributes"]
 ----
 Username: {rhdh_user}
 Password: {rhdh_user_password}
@@ -407,12 +410,14 @@ Everything was enhanced automatically:
 === When This Approach Excels
 
 **Ideal Scenarios:**
+
 * **Existing Jenkins investments** - Protect substantial infrastructure investments
 * **Team expertise** - Leverage existing Jenkins knowledge and skills
 * **Gradual modernization** - Enhance capabilities without disruption
 * **Risk management** - Minimize change while gaining modern capabilities
 
 **Key Benefits:**
+
 * **Faster value realization** - Enhance existing systems immediately
 * **Reduced retraining costs** - Existing skills remain valuable
 * **Lower risk adoption** - Familiar patterns with enhanced capabilities

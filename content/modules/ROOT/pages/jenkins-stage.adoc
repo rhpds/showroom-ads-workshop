@@ -191,6 +191,7 @@ If your enhanced Jenkins pipeline fails:
 === Jenkins-Specific Solutions
 
 **Leverage Existing Jenkins Expertise:**
+
 * Use familiar Jenkins troubleshooting approaches
 * Review pipeline logs using standard Jenkins interface
 * Apply existing Jenkins debugging techniques
@@ -203,12 +204,14 @@ TIP: Enhanced Jenkins pipelines troubleshoot like traditional Jenkins - your exi
 === Traditional Jenkins Setup
 
 **Manual Configuration Required:**
+
 * Custom pipeline creation for each project
 * Manual security tool integration and configuration
 * Separate deployment automation setup
 * Individual credential and secret management
 
 **Enhanced Jenkins with RHADS:**
+
 * **Automated pipeline creation** from self-service templates
 * **Integrated security scanning** with zero configuration
 * **Built-in GitOps deployment** triggered automatically
@@ -217,12 +220,14 @@ TIP: Enhanced Jenkins pipelines troubleshoot like traditional Jenkins - your exi
 === Value Proposition
 
 **For Jenkins Administrators:**
+
 * Reduced manual pipeline setup and maintenance
 * Standardized security integration across all projects
 * Enhanced capabilities without infrastructure changes
 * Preserved investment in Jenkins expertise and infrastructure
 
 **For Development Teams:**
+
 * Self-service project creation reduces waiting time
 * Familiar Jenkins interface with enhanced capabilities
 * Automatic security scanning without workflow changes

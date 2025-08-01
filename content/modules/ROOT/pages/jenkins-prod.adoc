@@ -21,18 +21,21 @@ Production deployments with enhanced Jenkins maintain familiar patterns while ad
 === Enhanced Jenkins Production Benefits
 
 **Familiar Jenkins Workflows:**
+
 * Production deployments use standard Jenkins pipeline patterns
 * Existing Jenkins approval processes remain valid
 * Traditional Jenkins role-based access control applies
 * Jenkins build promotion workflows enhanced with security
 
 **Modern Security Integration:**
+
 * All production deployments include automated security validation
 * Container images must pass signing verification
 * Supply chain security enforced through Jenkins pipelines
 * Compliance reporting generated from Jenkins build history
 
 **Investment Protection:**
+
 * Existing Jenkins infrastructure handles production workloads
 * Jenkins expertise directly applicable to enhanced workflows
 * Gradual enhancement possible for existing production pipelines
@@ -165,18 +168,21 @@ TIP: Enhanced Jenkins provides automated compliance documentation while maintain
 === What You've Accomplished with Enhanced Jenkins
 
 **Investment Protection:**
+
 * Existing Jenkins infrastructure provided modern CI/CD capabilities
 * Jenkins expertise remained valuable and applicable
 * Familiar interfaces and workflows enhanced with security
 * Gradual adoption path preserved operational stability
 
 **Modern Capabilities Added:**
+
 * Automatic security scanning integrated into Jenkins pipelines
 * Container image signing and verification workflows
 * GitOps deployment automation triggered from Jenkins
 * Complete supply chain security with audit trails
 
 **Enhanced Developer Experience:**
+
 * Self-service application creation reduced waiting time
 * Familiar Jenkins interface with enhanced security capabilities
 * No disruption to established development workflows
@@ -211,12 +217,14 @@ You've successfully enhanced Jenkins with modern security capabilities:
 === Scaling Enhanced Jenkins
 
 **Organizational Adoption:**
+
 * Provide training on enhanced Jenkins capabilities
 * Create internal documentation for enhanced pipeline patterns
 * Establish standards for enhanced Jenkins usage
 * Share success stories and best practices across teams
 
 **Infrastructure Evolution:**
+
 * Plan for enhanced Jenkins capacity requirements
 * Consider federated Jenkins management for large organizations
 * Implement proper monitoring and alerting for enhanced pipelines
@@ -239,12 +247,14 @@ Take a moment to consider:
 === Both Approaches Provide:
 
 **Core RHADS Benefits:**
+
 * Self-service application creation through Red Hat Developer Hub
 * Integrated security scanning and container image signing
 * GitOps deployment automation and audit trails
 * Complete supply chain security and compliance reporting
 
 **Organizational Benefits:**
+
 * Reduced platform team overhead through self-service capabilities
 * Standardized security policies across all applications
 * Faster project setup and reduced time-to-market

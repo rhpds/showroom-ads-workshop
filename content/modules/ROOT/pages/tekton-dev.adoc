@@ -75,7 +75,7 @@ TIP: Your organization uses OIDC authentication powered by Red Hat build of Keyc
 
 * You enter your lab credentials that were provided to you:
 +
-[source,bash]
+[source,bash,subs="attributes"]
 ----
 Username: {rhdh_user}
 Password: {rhdh_user_password}
@@ -220,12 +220,14 @@ image::tekton-dev-7.png[]
 The template you just used is part of a sophisticated system with three key repositories:
 
 **🏗️ Developer Hub Configuration Repository:**
+
 * **Location**: `{gitlab_url}/rhdh/tssc-developer-hub-configuration`
 * **Purpose**: Contains the OpenShift Pipelines template you just used
 * **Template**: `scaffolder-templates/quarkus-stssc-template/`
 * **What it does**: Defines the self-service template that generated your application
 
 **⚙️ Your Generated Application Repository:**
+
 * **Location**: `{gitlab_url}/development/my-quarkus-tkn`
 * **Purpose**: Contains your application source code with embedded OpenShift Pipelines
 * **Pipeline files**: `.tekton/` directory with three key pipeline definitions:
@@ -236,6 +238,7 @@ The template you just used is part of a sophisticated system with three key repo
 === Understanding Pipeline as Code
 
 **What is Pipeline as Code?**
+
 Pipeline as Code means your CI/CD pipeline definitions live alongside your application code in the same Git repository. This is revolutionary because:
 
 * **Version Control**: Pipeline changes are tracked with your code changes
@@ -270,20 +273,23 @@ Pipeline as Code means your CI/CD pipeline definitions live alongside your appli
 ```
 
 **Why This Matters for You:**
+
 * **No More Tickets**: Change your pipeline by editing YAML, not filing platform tickets
 * **Full Transparency**: See exactly what happens when you deploy
 * **Environment Consistency**: Same pipeline logic across dev, staging, production
 * **Audit Trail**: Every pipeline change is tracked in Git history
 
 **🔧 Pipeline Definitions Repository:**
+
 * **Location**: `{gitlab_url}/rhdh/tssc-sample-pipelines`
 * **Purpose**: Contains reusable Tekton pipeline and task definitions
-* **Components**:
+* **Components**: 
   - `pipelines/` - Complete workflow definitions
   - `tasks/` - Individual pipeline step definitions
 * **What it provides**: The building blocks your application pipelines reference
 
 **📦 GitOps Repository:**
+
 * **Location**: `{gitlab_url}/development/my-quarkus-tkn-gitops`
 * **Purpose**: Contains Kubernetes manifests for deployment
 * **What it does**: OpenShift GitOps (ArgoCD) monitors this repo and automatically deploys changes
@@ -299,7 +305,9 @@ Now that you understand the concept, let's look at the actual pipeline files tha
 . You'll find three files that control your entire CI/CD workflow:
 
 **📄 `.tekton/on-push.yaml`**
+
 This file defines what happens when you push code:
+
 * Clones your repository
 * Runs unit tests
 * Builds your Quarkus application
@@ -309,7 +317,9 @@ This file defines what happens when you push code:
 * Deploys to development environment
 
 **📄 `.tekton/on-tag.yaml`**
+
 This file defines staging promotion:
+
 * Takes the signed image from development
 * Runs additional integration tests
 * Performs enhanced security scanning
@@ -317,7 +327,9 @@ This file defines staging promotion:
 * Triggers GitOps deployment to staging
 
 **📄 `.tekton/on-release.yaml`**
+
 This file defines production deployment:
+
 * Validates staging deployment success
 * Runs final security and compliance checks
 * Updates production deployment manifests
@@ -360,7 +372,7 @@ image::tekton-dev-13.png[]
 
 * You sign in with the same credentials you've been using:
 +
-[source,bash]
+[source,bash,subs="attributes"]
 ----
 Username: {rhdh_user}
 Password: {rhdh_user_password}
