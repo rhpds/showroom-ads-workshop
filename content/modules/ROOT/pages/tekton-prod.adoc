@@ -11,11 +11,11 @@ toc::[]
 
 By the end of this workshop section, you will:
 
-* **Understand** enterprise production deployment workflows and security requirements
-* **Execute** a secure production release using automated GitOps promotion
-* **Implement** enterprise-grade security validation using Enterprise Contract
-* **Monitor** production deployment pipelines and validate security posture
-* **Comprehend** the complete supply chain security model and business value
+- **Understand** enterprise production deployment workflows and security requirements
+- **Execute** a secure production release using automated GitOps promotion
+- **Implement** enterprise-grade security validation using Enterprise Contract
+- **Monitor** production deployment pipelines and validate security posture
+- **Comprehend** the complete supply chain security model and business value
 
 == Workshop Scenario: Enterprise Production Transformation
 
@@ -149,10 +149,10 @@ This is the most critical business protection activity — you'll observe automa
 * Inconsistent security standards across different teams and deployments
 
 **RHADS Business Protection:**
-* **Zero Security Incidents:** Automated validation catches issues before they reach customers
-* **100% Consistent Standards:** Every deployment meets the same enterprise security policies
-* **Instant Compliance:** SOC 2, PCI, and regulatory requirements enforced automatically
-* **No Deployment Delays:** Security validation happens in minutes, not weeks
+- **Zero Security Incidents:** Automated validation catches issues before they reach customers
+- **100% Consistent Standards:** Every deployment meets the same enterprise security policies
+- **Instant Compliance:** SOC 2, PCI, and regulatory requirements enforced automatically
+- **No Deployment Delays:** Security validation happens in minutes, not weeks
 
 === Step 1: Observe Enterprise Contract Validation Process
 
@@ -163,11 +163,11 @@ This is the most critical business protection activity — you'll observe automa
 . Note the comprehensive security checks being performed automatically
 
 **Enterprise Security Validations Performed:**
-* **Digital signature verification:** Proves the image hasn't been tampered with
-* **SBOM validation:** Complete dependency scanning for vulnerability management
-* **Provenance verification:** Confirms the image came from trusted build processes
-* **CVE scanning:** Automatic vulnerability detection and policy enforcement
-* **Organizational policy compliance:** Custom security rules enforced automatically
+- **Digital signature verification:** Proves the image hasn't been tampered with
+- **SBOM validation:** Complete dependency scanning for vulnerability management
+- **Provenance verification:** Confirms the image came from trusted build processes
+- **CVE scanning:** Automatic vulnerability detection and policy enforcement
+- **Organizational policy compliance:** Custom security rules enforced automatically
 
 === Step 2: Understand the Security Technologies
 
@@ -175,10 +175,10 @@ This is the most critical business protection activity — you'll observe automa
 ====
 **Key Security Components:**
 
-* **Enterprise Contract (EC):** Protects your business by ensuring only compliant, secure images reach production
-* **TUF (The Update Framework):** Prevents tampering with security metadata — protecting against supply chain attacks
-* **SBOM (Software Bill of Materials):** Enables rapid vulnerability response — critical for security posture
-* **Provenance:** Proves build integrity — essential for compliance and audit requirements
+- **Enterprise Contract (EC):** Protects your business by ensuring only compliant, secure images reach production
+- **TUF (The Update Framework):** Prevents tampering with security metadata — protecting against supply chain attacks
+- **SBOM (Software Bill of Materials):** Enables rapid vulnerability response — critical for security posture
+- **Provenance:** Proves build integrity — essential for compliance and audit requirements
 ====
 
 === Step 3: Examine Security Validation Commands
@@ -263,16 +263,18 @@ This task serves as an automated bridge from security validation to customer val
 === Understanding Traditional vs. RHADS Deployment Approaches
 
 **Traditional Production Deployment Risks:**
+
 * Manual deployment steps prone to human error during critical releases
 * Emergency changes bypass proper validation under pressure
 * Inconsistent deployment processes across different teams
 * Production changes without proper audit trails
 
 **RHADS Business Benefits:**
-* **Zero Manual Errors:** GitOps automation eliminates human deployment mistakes
-* **100% Audit Trail:** Every production change tracked and traceable
-* **Consistent Process:** Same deployment method for routine and emergency changes
-* **Continuous Compliance:** All changes follow the same validated security process
+
+- **Zero Manual Errors:** GitOps automation eliminates human deployment mistakes
+- **100% Audit Trail:** Every production change tracked and traceable
+- **Consistent Process:** Same deployment method for routine and emergency changes
+- **Continuous Compliance:** All changes follow the same validated security process
 
 === Step 3: Observe GitOps Repository Updates
 
@@ -317,10 +319,10 @@ patchesStrategicMerge:
 . Only verified, tagged images are deployed by this process, maintaining full auditability
 
 **Business Impact:**
-* **Deployment Confidence:** Argo CD ensures exactly what was validated gets deployed
-* **Risk Elimination:** No manual steps that could introduce errors during critical releases
-* **Compliance Automation:** Production environment continuously reflects audited Git state
-* **Operational Excellence:** Standardized deployment process across all services
+- **Deployment Confidence:** Argo CD ensures exactly what was validated gets deployed
+- **Risk Elimination:** No manual steps that could introduce errors during critical releases
+- **Compliance Automation:** Production environment continuously reflects audited Git state
+- **Operational Excellence:** Standardized deployment process across all services
 
 [NOTE]
 ====
@@ -368,10 +370,10 @@ Congratulations! You've successfully implemented an enterprise-grade production 
 You've demonstrated how enterprise security and business velocity reinforce each other:
 
 **Measurable Business Impact:**
-* **Production Release Time:** 2-3 weeks → 30 minutes (99% reduction)
-* **Security Compliance:** 100% automated with zero manual reviews
-* **Competitive Advantage:** Deploy features while competitors wait for approvals
-* **Audit Readiness:** Continuous compliance evidence generated automatically
+- **Production Release Time:** 2-3 weeks → 30 minutes (99% reduction)
+- **Security Compliance:** 100% automated with zero manual reviews
+- **Competitive Advantage:** Deploy features while competitors wait for approvals
+- **Audit Readiness:** Continuous compliance evidence generated automatically
 
 **Risk Mitigation:**
 * Eliminated human error in production deployments
@@ -413,10 +415,10 @@ Take a moment to consider these questions about your workshop experience:
 
 The following demonstrations can further illustrate enterprise transformation capabilities:
 
-* **Security Failure Simulation:** Modify Enterprise Contract policies to demonstrate automatic pipeline failure when security requirements aren't met
-* **Image Registry Exploration:** Display Quay registry showing production-tagged images and security scan results
-* **Argo CD Monitoring:** Demonstrate real-time GitOps synchronization and deployment status
-* **Policy Customization:** Show how Enterprise Contract policies can be customized for specific organizational requirements
+- **Security Failure Simulation:** Modify Enterprise Contract policies to demonstrate automatic pipeline failure when security requirements aren't met
+- **Image Registry Exploration:** Display Quay registry showing production-tagged images and security scan results
+- **Argo CD Monitoring:** Demonstrate real-time GitOps synchronization and deployment status
+- **Policy Customization:** Show how Enterprise Contract policies can be customized for specific organizational requirements
 
 == Congratulations on Completing the Production Workshop!
 

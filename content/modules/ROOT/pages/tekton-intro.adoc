@@ -13,20 +13,20 @@ Welcome to the OpenShift Pipelines development path! In this module, you'll expe
 
 By completing this module, you will:
 
-* **Create secure applications** using self-service software templates
-* **Develop in the cloud** using browser-based OpenShift Dev Spaces
-* **Understand OpenShift Pipelines CI/CD** with Tekton workflows
-* **Experience GitOps deployment** from development to production
-* **See automated security** integrated throughout the development lifecycle
+- **Create secure applications** using self-service software templates
+- **Develop in the cloud** using browser-based OpenShift Dev Spaces
+- **Understand OpenShift Pipelines CI/CD** with Tekton workflows
+- **Experience GitOps deployment** from development to production
+- **See automated security** integrated throughout the development lifecycle
 
 == Target Audience
 
 This module is ideal for:
 
-* **Development teams** implementing OpenShift Pipelines practices
-* **Platform engineers** building modern DevOps workflows
-* **Developers** wanting to experience modern development environments
-* **Organizations** building applications on OpenShift
+- **Development teams** implementing OpenShift Pipelines practices
+- **Platform engineers** building modern DevOps workflows
+- **Developers** wanting to experience modern development environments
+- **Organizations** building applications on OpenShift
 
 == Technology Stack
 
@@ -35,7 +35,7 @@ In this module, you'll work with:
 **Development Environment:**
 
 * Red Hat Developer Hub - Self-service portal
-* OpenShift Dev Spaces - Browser-based IDE  
+* OpenShift Dev Spaces - Browser-based IDE
 * GitLab - Source code management
 
 **CI/CD Platform:**
@@ -75,7 +75,7 @@ This module follows ACME's development workflow:
 * Set up your OpenShift Pipelines development environment
 * Make your first code change and trigger a build
 
-=== 2. Staging - Promoting to stage environment  
+=== 2. Staging - Promoting to stage environment
 * Understand the automated pipeline execution
 * Review security scanning and validation results
 * Promote your application to the staging environment
@@ -124,6 +124,6 @@ TIP: Even if you're new to OpenShift Pipelines development, the workshop is desi
 
 == What's Next
 
-Ready to start your OpenShift Pipelines development journey? 
+Ready to start your OpenShift Pipelines development journey?
 
 Click **Development - Building your application** to begin creating your first secure, OpenShift Pipelines application with RHADS!

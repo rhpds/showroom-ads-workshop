@@ -10,9 +10,9 @@ Your main entry point to the workshop activities:
 
 [subs="attributes"]
 ****
-* **URL**: link:{rhdh_url}[Red Hat Developer Hub^]
-* **Username**: `{rhdh_user}`
-* **Password**: `{rhdh_user_password}`
+- **URL**: link:{rhdh_url}[Red Hat Developer Hub^]
+- **Username**: `{rhdh_user}`
+- **Password**: `{rhdh_user_password}`
 ****
 
 TIP: Use the OIDC authentication option when prompted to sign in. Authentication is powered by Red Hat build of Keycloak for secure access.
@@ -23,9 +23,9 @@ For viewing your applications and pipeline runs:
 
 [subs="attributes"]
 ****
-* **URL**: link:{openshift_url}[OpenShift Console^]
-* **Username**: `{username}`
-* **Password**: `{password}`
+- **URL**: link:{openshift_url}[OpenShift Console^]
+- **Username**: `{username}`
+- **Password**: `{password}`
 ****
 
 == Lab Environment Details

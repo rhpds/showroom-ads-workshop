@@ -166,16 +166,16 @@ image::jenkins-stage-6.png[]
 
 You've enhanced Jenkins with modern capabilities while preserving familiar workflows:
 
-* **Jenkins pipelines with integrated security** using syntax you already know
-* **Automated vulnerability scanning** without changing Jenkins operations
-* **GitOps deployment** triggered from standard Jenkins builds
-* **Blue Ocean visualization** for monitoring enhanced pipeline execution
+- **Jenkins pipelines with integrated security** using syntax you already know
+- **Automated vulnerability scanning** without changing Jenkins operations
+- **GitOps deployment** triggered from standard Jenkins builds
+- **Blue Ocean visualization** for monitoring enhanced pipeline execution
 
 === Operational Excellence
-* **Consistent security**: Automated scanning in every Jenkins build
-* **Audit readiness**: Jenkins build history provides compliance trails
-* **Self-service capabilities**: Reduced platform team overhead
-* **Scalable enhancement**: Templates can enhance any Jenkins pipeline
+- **Consistent security**: Automated scanning in every Jenkins build
+- **Audit readiness**: Jenkins build history provides compliance trails
+- **Self-service capabilities**: Reduced platform team overhead
+- **Scalable enhancement**: Templates can enhance any Jenkins pipeline
 
 == Troubleshooting Enhanced Jenkins Pipelines
 
@@ -212,10 +212,10 @@ TIP: Enhanced Jenkins pipelines troubleshoot like traditional Jenkins - your exi
 
 **Enhanced Jenkins with RHADS:**
 
-* **Automated pipeline creation** from self-service templates
-* **Integrated security scanning** with zero configuration
-* **Built-in GitOps deployment** triggered automatically
-* **Standardized credential management** across all pipelines
+- **Automated pipeline creation** from self-service templates
+- **Integrated security scanning** with zero configuration
+- **Built-in GitOps deployment** triggered automatically
+- **Standardized credential management** across all pipelines
 
 === Value Proposition
 

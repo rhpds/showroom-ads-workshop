@@ -20,21 +20,21 @@ Enterprise development teams often face significant challenges with staging vali
 
 === Traditional Staging Challenges
 
-* **3-5 days** required for staging validation processes
-* **1-2 weeks** for manual security reviews and compliance checks
-* **Multiple coordination meetings** between development, security, and platform teams
-* **Manual deployment processes** that are error-prone and time-consuming
-* **"Works in staging, fails in production"** surprises due to environment inconsistencies
+- **3-5 days** required for staging validation processes
+- **1-2 weeks** for manual security reviews and compliance checks
+- **Multiple coordination meetings** between development, security, and platform teams
+- **Manual deployment processes** that are error-prone and time-consuming
+- **"Works in staging, fails in production"** surprises due to environment inconsistencies
 
 === Red Hat Advanced Developer Suite Solution
 
 Red Hat Advanced Developer Suite (RHADS) transforms this experience with:
 
-* **Staging time: 3-5 days → 30 minutes** with automated validation pipelines
-* **Security validation: 1-2 weeks → minutes** with integrated Enterprise Contract validation
-* **Zero manual coordination overhead** between teams
-* **Production-ready confidence** with every staging deployment
-* **Consistent validation** that eliminates environment surprises
+- **Staging time: 3-5 days → 30 minutes** with automated validation pipelines
+- **Security validation: 1-2 weeks → minutes** with integrated Enterprise Contract validation
+- **Zero manual coordination overhead** between teams
+- **Production-ready confidence** with every staging deployment
+- **Consistent validation** that eliminates environment surprises
 
 **Key Business Benefits:**
 
@@ -159,11 +159,11 @@ This mapping between Git commit and container image provides end-to-end traceabi
 This step enforces multiple critical validations that protect your business and customers:
 
 **Enterprise Security Validations:**
-* **Container image signature verification** using cryptographic signing
-* **Software Bill of Materials (SBOM) validation** for supply chain security
-* **CVE scanning** to catch security vulnerabilities before production
-* **Policy compliance** ensuring enterprise security standards
-* **Provenance attestation** to verify source repository integrity
+- **Container image signature verification** using cryptographic signing
+- **Software Bill of Materials (SBOM) validation** for supply chain security
+- **CVE scanning** to catch security vulnerabilities before production
+- **Policy compliance** ensuring enterprise security standards
+- **Provenance attestation** to verify source repository integrity
 
 **Business Value:**
 * Security validation: 1-2 weeks → Minutes

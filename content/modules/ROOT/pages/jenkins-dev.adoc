@@ -22,10 +22,10 @@ As ACME's newest developer working with enterprise tooling, you know the pain of
 
 Here's what you've been dealing with in your enterprise Jenkins environment:
 
-* **1-2 weeks** submitting DevOps tickets and waiting for custom Jenkins pipelines to be created
-* **Multiple coordination meetings** with platform teams, security teams, and other developers - each one slowing you down
-* **Manual security integration** that requires specialized knowledge you don't have
-* **Configuration inconsistencies** that create mysterious failures across different Jenkins pipelines
+- **1-2 weeks** submitting DevOps tickets and waiting for custom Jenkins pipelines to be created
+- **Multiple coordination meetings** with platform teams, security teams, and other developers - each one slowing you down
+- **Manual security integration** that requires specialized knowledge you don't have
+- **Configuration inconsistencies** that create mysterious failures across different Jenkins pipelines
 
 **What This Really Means for You:**
 
@@ -38,10 +38,10 @@ Here's what you've been dealing with in your enterprise Jenkins environment:
 
 But you're about to discover how RHADS transforms your Jenkins experience while keeping everything familiar:
 
-* **Zero Jenkins setup time**: You'll get production-ready Jenkins pipelines instantly - no tickets, no waiting for DevOps
-* **Zero platform coordination**: You become self-sufficient while using the Jenkins tools you already know
-* **Zero configuration drift**: Standardized templates eliminate the inconsistencies that cause failures
-* **Zero security gaps**: Enterprise security gets automatically integrated without you needing to understand the complexities
+- **Zero Jenkins setup time**: You'll get production-ready Jenkins pipelines instantly - no tickets, no waiting for DevOps
+- **Zero platform coordination**: You become self-sufficient while using the Jenkins tools you already know
+- **Zero configuration drift**: Standardized templates eliminate the inconsistencies that cause failures
+- **Zero security gaps**: Enterprise security gets automatically integrated without you needing to understand the complexities
 
 **What This Transforms for Your Daily Work:**
 
@@ -139,7 +139,7 @@ Accept the default values or customize for your Jenkins application:
 |===
 | Field | Default Value
 | Name | `my-quarkus-jenkins`
-| Group ID | `redhat.rhdh`  
+| Group ID | `redhat.rhdh`
 | Artifact ID | `my-quarkus-jenkins`
 | Java Package Name | `org.redhat.rhdh`
 | Description | `A cool Quarkus app with enhanced Jenkins`
@@ -166,7 +166,7 @@ This configures your source code repository and Jenkins integration:
 
 [cols="1,2", options="header"]
 |===
-| Field | Default Value  
+| Field | Default Value
 | Source Repo | `GitLab`
 | Repo Owner | `development`
 | Verify Commits | `enabled`
@@ -219,7 +219,7 @@ pipeline {
         stage('Checkout') { /* Standard Jenkins checkout */ }
         stage('Build') { /* Familiar Quarkus build */ }
         stage('Test') { /* Unit test execution */ }
-        stage('Security Scan') { 
+        stage('Security Scan') {
             // Enhanced: Integrated vulnerability scanning
             // Uses modern security tools via Jenkins plugins
         }
@@ -240,10 +240,10 @@ These files handle staging and production deployments using the same enhanced Je
 
 **Why This Matters:**
 
-* **Familiar Syntax**: Standard Jenkins Pipeline DSL you already know
-* **Enhanced Security**: Modern vulnerability scanning integrated seamlessly  
-* **GitOps Integration**: Automated deployment without abandoning Jenkins
-* **Investment Protection**: Your Jenkins expertise becomes more valuable
+- **Familiar Syntax**: Standard Jenkins Pipeline DSL you already know
+- **Enhanced Security**: Modern vulnerability scanning integrated seamlessly
+- **GitOps Integration**: Automated deployment without abandoning Jenkins
+- **Investment Protection**: Your Jenkins expertise becomes more valuable
 
 TIP: These Jenkinsfiles reference shared functions from `{gitlab_url}/rhdh/tssc-sample-jenkins`, enabling consistent security practices across all Jenkins-enhanced applications.
 
@@ -366,12 +366,12 @@ image::jenkins-dev-20.png[]
 Congratulations! You've just experienced the power of Jenkins enhancement with RHADS:
 
 === Investment Preservation
-* **Familiar Jenkins interface** - No retraining required for your team
-* **Existing Jenkins patterns** - Pipelines work exactly as expected
-* **Infrastructure reuse** - Leverage your current Jenkins investment
-* **Knowledge retention** - Existing Jenkins expertise remains valuable
+- **Familiar Jenkins interface** - No retraining required for your team
+- **Existing Jenkins patterns** - Pipelines work exactly as expected
+- **Infrastructure reuse** - Leverage your current Jenkins investment
+- **Knowledge retention** - Existing Jenkins expertise remains valuable
 
-=== Modern Capabilities Added  
+=== Modern Capabilities Added
 Your enhanced Jenkins environment now includes:
 * Automated vulnerability scanning integrated into familiar pipelines
 * Container image signing and verification workflows
@@ -388,22 +388,22 @@ Everything was enhanced automatically:
 == Understanding Enhanced Jenkins Benefits
 
 === Developer Experience
-* **Familiar workflows** - Jenkins patterns remain unchanged
-* **Enhanced capabilities** - Modern security without complexity
-* **Self-service creation** - No waiting for pipeline setup
-* **Integrated development** - Modern IDE connected to Jenkins
+- **Familiar workflows** - Jenkins patterns remain unchanged
+- **Enhanced capabilities** - Modern security without complexity
+- **Self-service creation** - No waiting for pipeline setup
+- **Integrated development** - Modern IDE connected to Jenkins
 
 === Operational Advantages
-* **Investment protection** - Existing Jenkins infrastructure valuable
-* **Gradual enhancement** - Modernize without disruption
-* **Reduced overhead** - Self-service reduces platform team load
-* **Consistent security** - Standardized across all applications
+- **Investment protection** - Existing Jenkins infrastructure valuable
+- **Gradual enhancement** - Modernize without disruption
+- **Reduced overhead** - Self-service reduces platform team load
+- **Consistent security** - Standardized across all applications
 
 === Security Enhancements
-* **Automated scanning** - Security integrated without workflow changes
-* **Supply chain protection** - Image signing and verification
-* **Policy enforcement** - Compliance built into Jenkins pipelines
-* **Audit trails** - Complete visibility into build and deployment processes
+- **Automated scanning** - Security integrated without workflow changes
+- **Supply chain protection** - Image signing and verification
+- **Policy enforcement** - Compliance built into Jenkins pipelines
+- **Audit trails** - Complete visibility into build and deployment processes
 
 == Real-World Jenkins Enhancement
 
@@ -411,17 +411,17 @@ Everything was enhanced automatically:
 
 **Ideal Scenarios:**
 
-* **Existing Jenkins investments** - Protect substantial infrastructure investments
-* **Team expertise** - Leverage existing Jenkins knowledge and skills
-* **Gradual modernization** - Enhance capabilities without disruption
-* **Risk management** - Minimize change while gaining modern capabilities
+- **Existing Jenkins investments** - Protect substantial infrastructure investments
+- **Team expertise** - Leverage existing Jenkins knowledge and skills
+- **Gradual modernization** - Enhance capabilities without disruption
+- **Risk management** - Minimize change while gaining modern capabilities
 
 **Key Benefits:**
 
-* **Faster value realization** - Enhance existing systems immediately
-* **Reduced retraining costs** - Existing skills remain valuable
-* **Lower risk adoption** - Familiar patterns with enhanced capabilities
-* **Investment protection** - Maximize value from existing infrastructure
+- **Faster value realization** - Enhance existing systems immediately
+- **Reduced retraining costs** - Existing skills remain valuable
+- **Lower risk adoption** - Familiar patterns with enhanced capabilities
+- **Investment protection** - Maximize value from existing infrastructure
 
 == Next Steps
 

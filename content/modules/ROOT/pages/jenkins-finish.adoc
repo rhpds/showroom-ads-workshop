@@ -46,10 +46,10 @@ This module demonstrated how RHADS enhances existing Jenkins investments while p
 === What You've Learned
 
 **Technical Skills Acquired:**
-* **Enhanced Jenkins pipelines** with integrated security scanning
-* **Self-service project creation** using Red Hat Developer Hub templates
-* **GitOps deployment** triggered from familiar Jenkins workflows
-* **Container image signing** within Jenkins pipeline syntax you know
+- **Enhanced Jenkins pipelines** with integrated security scanning
+- **Self-service project creation** using Red Hat Developer Hub templates
+- **GitOps deployment** triggered from familiar Jenkins workflows
+- **Container image signing** within Jenkins pipeline syntax you know
 
 == Key Takeaways
 
