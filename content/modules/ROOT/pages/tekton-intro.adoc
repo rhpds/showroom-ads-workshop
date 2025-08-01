@@ -47,7 +47,7 @@ In this module, you'll work with:
 * Advanced Cluster Security - Vulnerability scanning
 * Enterprise Contract - Policy enforcement
 
-## Business Context: ACME's OpenShift Pipelines Journey
+== Business Context: ACME's OpenShift Pipelines Journey
 
 ACME's development team is modernizing their architecture with OpenShift Pipelines. They need:
 
@@ -100,7 +100,7 @@ This module follows ACME's development workflow:
 
 **Security Advantages:**
 * Container-first security scanning
-* Immutable infrastructure patterns  
+* Immutable infrastructure patterns
 * Policy enforcement at the platform level
 * Complete audit trails for compliance
 

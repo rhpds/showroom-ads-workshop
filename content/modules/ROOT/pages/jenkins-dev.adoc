@@ -23,7 +23,7 @@ As ACME's newest developer working with enterprise tooling, you know the pain of
 Here's what you've been dealing with in your enterprise Jenkins environment:
 
 * **1-2 weeks** submitting DevOps tickets and waiting for custom Jenkins pipelines to be created
-* **Multiple coordination meetings** with platform teams, security teams, and other developers - each one slowing you down  
+* **Multiple coordination meetings** with platform teams, security teams, and other developers - each one slowing you down
 * **Manual security integration** that requires specialized knowledge you don't have
 * **Configuration inconsistencies** that create mysterious failures across different Jenkins pipelines
 
@@ -61,7 +61,9 @@ Let's start your journey into a completely new Jenkins experience - one where yo
 link:{rhdh_url}[*Red Hat Developer Hub*^]
 
 . You see the "Select a sign-in method" screen and click the *OIDC* option to sign in
-+
+
+image::jenkins-dev-1.png[]
+
 TIP: Your organization uses OIDC authentication powered by Red Hat build of Keycloak, which seamlessly integrates with your enhanced Jenkins workflows.
 
 === Step 2: Enter Your Credentials
@@ -201,15 +203,59 @@ TIP: This entire Jenkins enhancement that traditionally takes weeks is completed
   * Application overview and deployment status
   * OpenShift Dev Spaces development environment
 
-== Activity 3: Exploring Your Enhanced Jenkins Pipeline
+== Activity 3: Understanding Your Enhanced Jenkins Pipeline as Code
 
-=== Step 1: Access Jenkins Dashboard
+=== Step 1: Examining Enhanced Jenkins Pipeline Files
+
+Before accessing Jenkins, let's understand the pipeline files that were generated:
+
+**📄 `Jenkinsfile.push` - Enhanced Development Pipeline**
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') { /* Standard Jenkins checkout */ }
+        stage('Build') { /* Familiar Quarkus build */ }
+        stage('Test') { /* Unit test execution */ }
+        stage('Security Scan') { 
+            // Enhanced: Integrated vulnerability scanning
+            // Uses modern security tools via Jenkins plugins
+        }
+        stage('Build Image') { /* Container image creation */ }
+        stage('Sign Image') {
+            // Enhanced: Cryptographic signing via Jenkins
+            // Provides supply chain security
+        }
+        stage('Deploy Dev') {
+            // Enhanced: GitOps deployment triggered from Jenkins
+        }
+    }
+}
+```
+
+**📄 `Jenkinsfile.tag` & `Jenkinsfile.release`**
+These files handle staging and production deployments using the same enhanced Jenkins patterns with modern security integration.
+
+**Why This Matters:**
+* **Familiar Syntax**: Standard Jenkins Pipeline DSL you already know
+* **Enhanced Security**: Modern vulnerability scanning integrated seamlessly
+* **GitOps Integration**: Automated deployment without abandoning Jenkins
+* **Investment Protection**: Your Jenkins expertise becomes more valuable
+
+TIP: These Jenkinsfiles reference shared functions from `{gitlab_url}/rhdh/tssc-sample-jenkins`, enabling consistent security practices across all Jenkins-enhanced applications.
+
+=== Step 2: Access Your Enhanced Jenkins Dashboard
 
 . In your component overview, find and click the *Jenkins* link
 . This opens your Jenkins instance showing the automatically created job
+
+. You can also open the integrated terminal in OpenShift Dev Spaces:
+  * From the top menu bar, click on `Terminal → New Terminal`
+
+image::jenkins-dev-14.png[]
 . Review the Jenkins pipeline configuration that was automatically generated
 
-. You'll see a Jenkins pipeline with stages:
+. You'll see an enhanced Jenkins pipeline with stages:
   * **Checkout** - Source code retrieval
   * **Build** - Quarkus application compilation
   * **Test** - Automated testing execution

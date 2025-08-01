@@ -30,7 +30,7 @@ Your code commit has triggered a sophisticated OpenShift Pipelines workflow that
 === Enterprise Security Integration
 
 * Container image scanning at every build
-* Supply chain verification with cryptographic signing  
+* Supply chain verification with cryptographic signing
 * Policy enforcement before any deployment
 * Compliance reporting for audit requirements
 
@@ -91,7 +91,7 @@ Password: {password}
 
 . You'll see the pipeline execution with multiple stages:
   * **Clone Repository** - Fetch source code
-  * **Build Application** - Compile Quarkus application  
+  * **Build Application** - Compile Quarkus application
   * **Build Container** - Create container image
   * **Security Scan** - Vulnerability assessment
   * **Sign Image** - Cryptographic signing
@@ -107,7 +107,7 @@ TIP: The security scanning happens automatically without any developer intervent
 
 === Step 4: Verify Image Signing
 
-. Click on the *Sign Image* stage  
+. Click on the *Sign Image* stage
 . See how your container image is cryptographically signed
 . This signature ensures image integrity throughout the supply chain
 
@@ -218,7 +218,7 @@ Your application is now successfully running in the staging environment with ful
 In the next section, **Production - Releasing to production**, you'll:
 
 * Review staging validation results and metrics
-* Understand production deployment approval workflows  
+* Understand production deployment approval workflows
 * Execute a secure production release
 * Monitor production application health and security posture
 

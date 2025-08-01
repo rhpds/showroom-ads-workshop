@@ -10,7 +10,7 @@ toc::[]
 By the end of this section, you will:
 
 * Monitor enhanced Jenkins pipeline execution with integrated security
-* Understand how security validation works within familiar Jenkins workflows  
+* Understand how security validation works within familiar Jenkins workflows
 * Experience GitOps-based deployment triggered from Jenkins
 * Learn about monitoring and observability in enhanced Jenkins environments
 

@@ -18,7 +18,7 @@ Throughout this workshop, you will:
 Modern development teams face a common dilemma: they need to move fast to meet business demands, but they also need to ensure security and compliance. Traditional approaches create bottlenecks:
 
 * Long setup times: 2-3 weeks to get a new project configured
-* Manual security reviews: Delays and inconsistencies in security processes  
+* Manual security reviews: Delays and inconsistencies in security processes
 * Platform team overhead: Developers waiting for infrastructure and pipeline setup
 * Configuration drift: Inconsistent setups across different projects
 
@@ -38,7 +38,7 @@ IMPORTANT: This workshop uses a pre-configured lab environment with all the nece
 Your lab environment includes:
 
 * Red Hat Developer Hub: Internal developer portal with self-service capabilities
-* OpenShift Dev Spaces: Browser-based development environment  
+* OpenShift Dev Spaces: Browser-based development environment
 * GitLab: Source code management and Git repositories
 * Red Hat Quay: Container image registry
 * OpenShift Pipelines: Tekton-based CI/CD automation
@@ -56,7 +56,7 @@ This workshop offers two learning paths to demonstrate RHADS capabilities:
 . See Tekton workflows automate security and deployment
 . Deploy through staging to production with GitOps
 
-**🔧 Jenkins Path**: Enhanced enterprise development  
+**🔧 Jenkins Path**: Enhanced enterprise development
 . Create applications using enhanced Jenkins integration
 . Experience familiar Jenkins workflows with modern security
 . See Jenkins pipelines with built-in compliance and scanning

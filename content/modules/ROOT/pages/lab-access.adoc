@@ -6,7 +6,7 @@ For your convenience, this page contains access information to all systems in yo
 
 Your main entry point to the workshop activities:
 
-* **URL**: link:{rhdh_url}[Red Hat Developer Hub^]  
+* **URL**: link:{rhdh_url}[Red Hat Developer Hub^]
 * **Username**: `{rhdh_user}`
 * **Password**: `{rhdh_user_password}`
 
@@ -17,7 +17,7 @@ TIP: Use the OIDC authentication option when prompted to sign in. Authentication
 For viewing your applications and pipeline runs:
 
 * **URL**: link:{openshift_url}[OpenShift Console^]
-* **Username**: `{username}`  
+* **Username**: `{username}`
 * **Password**: `{password}`
 
 == Lab Environment Details

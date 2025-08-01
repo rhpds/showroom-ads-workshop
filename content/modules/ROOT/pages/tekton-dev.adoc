@@ -64,7 +64,9 @@ Let's embark on your journey by logging into your new development environment. Y
 link:{rhdh_url}[*Red Hat Developer Hub*^]
 
 * You see the "Select a sign-in method" screen and click the *OIDC* option to start your journey
-+
+
+image::tekton-dev-1.png[]
+
 TIP: Your organization uses OIDC authentication powered by Red Hat build of Keycloak - this secure authentication integration will save you time throughout your development workflow.
 
 === Step 2: Enter Your Credentials
@@ -96,7 +98,7 @@ IMPORTANT: If you encounter any authentication issues, you can always reference 
 You've just accessed something revolutionary - your organization's **Internal Developer Portal (IDP)** that's been optimized for developers like you. As you look around, you realize this platform provides everything you've been wishing for:
 
 * Self-service application templates that eliminate waiting for platform teams
-* Integrated Kubernetes and OpenShift resources that "just work"  
+* Integrated Kubernetes and OpenShift resources that "just work"
 * Automated pipeline creation that handles the complex stuff for you
 * A streamlined onboarding experience that gets you productive immediately
 
@@ -207,11 +209,124 @@ image::tekton-dev-7.png[]
 
 . You'll see your new OpenShift Pipelines application component with links to:
   * Source code repository with Kubernetes manifests
-  * Tekton CI/CD pipelines  
+  * Tekton CI/CD pipelines
   * Application overview and health status
   * OpenShift Dev Spaces development environment
 
-== Activity 3: Exploring Your New OpenShift Pipelines Development Environment
+== Activity 3: Understanding the Generated Repository Structure
+
+=== Step 1: Exploring the Developer Hub Configuration
+
+The template you just used is part of a sophisticated system with three key repositories:
+
+**🏗️ Developer Hub Configuration Repository:**
+* **Location**: `{gitlab_url}/rhdh/tssc-developer-hub-configuration`
+* **Purpose**: Contains the OpenShift Pipelines template you just used
+* **Template**: `scaffolder-templates/quarkus-stssc-template/`
+* **What it does**: Defines the self-service template that generated your application
+
+**⚙️ Your Generated Application Repository:**
+* **Location**: `{gitlab_url}/development/my-quarkus-tkn`
+* **Purpose**: Contains your application source code with embedded OpenShift Pipelines
+* **Pipeline files**: `.tekton/` directory with three key pipeline definitions:
+  - `on-push.yaml` - Executes when you commit code
+  - `on-tag.yaml` - Executes when you create a Git tag (promotes to staging)
+  - `on-release.yaml` - Executes when you create a release (promotes to production)
+
+=== Understanding Pipeline as Code
+
+**What is Pipeline as Code?**
+Pipeline as Code means your CI/CD pipeline definitions live alongside your application code in the same Git repository. This is revolutionary because:
+
+* **Version Control**: Pipeline changes are tracked with your code changes
+* **Reproducibility**: Anyone can see exactly how your application is built and deployed
+* **Consistency**: The same pipeline runs regardless of environment
+* **Developer Ownership**: Developers control their own pipeline without platform team dependencies
+
+**The Three Pipeline YAML Files Explained:**
+
+**🔄 `on-push.yaml` - Development Pipeline**
+```yaml
+# Triggered by: git push
+# Purpose: Validates code changes, runs tests, builds container
+# Deploys to: Development environment
+# Security: Vulnerability scanning, policy checks
+```
+
+**🏷️ `on-tag.yaml` - Staging Pipeline**
+```yaml
+# Triggered by: git tag v1.0 && git push --tags
+# Purpose: Promotes tested code to staging for validation
+# Deploys to: Staging environment
+# Security: Enhanced security scans, compliance validation
+```
+
+**🚀 `on-release.yaml` - Production Pipeline**
+```yaml
+# Triggered by: Creating a GitLab release
+# Purpose: Deploys validated code to production
+# Deploys to: Production environment  
+# Security: Final security gates, audit trail creation
+```
+
+**Why This Matters for You:**
+* **No More Tickets**: Change your pipeline by editing YAML, not filing platform tickets
+* **Full Transparency**: See exactly what happens when you deploy
+* **Environment Consistency**: Same pipeline logic across dev, staging, production
+* **Audit Trail**: Every pipeline change is tracked in Git history
+
+**🔧 Pipeline Definitions Repository:**
+* **Location**: `{gitlab_url}/rhdh/tssc-sample-pipelines`
+* **Purpose**: Contains reusable Tekton pipeline and task definitions
+* **Components**:
+  - `pipelines/` - Complete workflow definitions
+  - `tasks/` - Individual pipeline step definitions
+* **What it provides**: The building blocks your application pipelines reference
+
+**📦 GitOps Repository:**
+* **Location**: `{gitlab_url}/development/my-quarkus-tkn-gitops`
+* **Purpose**: Contains Kubernetes manifests for deployment
+* **What it does**: OpenShift GitOps (ArgoCD) monitors this repo and automatically deploys changes
+
+== Activity 4: Examining Your Pipeline as Code Files
+
+=== Step 1: Viewing Your Pipeline Definitions
+
+Now that you understand the concept, let's look at the actual pipeline files that were generated for you:
+
+. In OpenShift Dev Spaces (or back in your component overview), navigate to your repository
+. Open the `.tekton/` directory to see your pipeline definitions
+. You'll find three files that control your entire CI/CD workflow:
+
+**📄 `.tekton/on-push.yaml`**
+This file defines what happens when you push code:
+* Clones your repository
+* Runs unit tests
+* Builds your Quarkus application
+* Creates a container image
+* Scans for vulnerabilities
+* Signs the image cryptographically
+* Deploys to development environment
+
+**📄 `.tekton/on-tag.yaml`**
+This file defines staging promotion:
+* Takes the signed image from development
+* Runs additional integration tests
+* Performs enhanced security scanning
+* Updates staging deployment manifests
+* Triggers GitOps deployment to staging
+
+**📄 `.tekton/on-release.yaml`**
+This file defines production deployment:
+* Validates staging deployment success
+* Runs final security and compliance checks
+* Updates production deployment manifests
+* Creates audit trail for compliance
+* Triggers GitOps deployment to production
+
+TIP: These YAML files use references to the shared pipeline definitions in `{gitlab_url}/rhdh/tssc-sample-pipelines`, promoting reusability and consistency across your organization.
+
+== Activity 5: Exploring Your New OpenShift Pipelines Development Environment
 
 === Step 1: Accessing Your Browser-Based IDE
 
@@ -219,6 +334,29 @@ image::tekton-dev-7.png[]
 * "A browser-based development environment?" you wonder, "This should be interesting..."
 
 * If you're redirected to an authentication page, you click *Log in with OpenShift*
+
+image::tekton-dev-8.png[]
+
+* On the *Authorize Access* screen, you click *Allow selected permissions*
+
+image::tekton-dev-9.png[]
+
+* On the repository trust prompt, you click the checkbox and then click *Continue*
+
+image::tekton-dev-10.png[]
+
+* When prompted to authenticate with GitLab, you enter your credentials
+
+image::tekton-dev-11.png[]
+
+* Click *Authorize devspaces* on the next window
+
+image::tekton-dev-12.png[]
+
+* Wait for the workspace to start and fully load VS Code
+* If prompted, trust all workspaces and authors
+
+image::tekton-dev-13.png[]
 
 * You sign in with the same credentials you've been using:
 +

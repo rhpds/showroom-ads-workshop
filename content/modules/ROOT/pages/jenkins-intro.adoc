@@ -47,7 +47,7 @@ In this module, you'll work with:
 * Advanced Cluster Security - Vulnerability scanning
 * Enterprise Contract - Policy enforcement
 
-## Business Context: ACME's Jenkins Modernization
+== Business Context: ACME's Jenkins Modernization
 
 ACME has significant Jenkins investments powering critical applications. They need to:
 
@@ -68,7 +68,7 @@ This module follows ACME's Jenkins enhancement workflow:
 
 === 1. Development - Building your application
 * Access Red Hat Developer Hub
-* Create a new Quarkus application using Jenkins-enhanced templates  
+* Create a new Quarkus application using Jenkins-enhanced templates
 * Set up your modern development environment
 * Make your first code change and trigger an enhanced Jenkins build
 

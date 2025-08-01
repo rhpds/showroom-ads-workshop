@@ -234,7 +234,7 @@ You've successfully completed the OpenShift Pipelines development path using Tek
 
 * **Self-service application creation** with enterprise security built-in
 * **OpenShift Pipelines development** using modern browser-based tools
-* **Automated CI/CD pipelines** with integrated security scanning  
+* **Automated CI/CD pipelines** with integrated security scanning
 * **GitOps deployment** from development through production
 * **Complete supply chain security** with audit trails and compliance reporting
 
