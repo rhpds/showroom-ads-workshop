@@ -420,10 +420,27 @@ git add .
 ----
 git commit -m "Add OpenShift Pipelines documentation"
 ----
++
+image::tekton-dev-15.png[]
 
-* Something interesting happens - you're prompted for signed commit authentication* You follow the browser flow to cryptographically sign your commit
+* Something interesting happens - you're prompted for signed commit authentication
+* The terminal displays a URL that you need to follow for authentication
+* You click the URL directly in the terminal, or copy and paste it into a new browser window
+* If prompted for credentials during the browser authentication, you use your RHDH credentials:
++
+[source,bash,subs="attributes"]
+----
+Username: {rhdh_user}
+Password: {rhdh_user_password}
+----
 
-* After completing the signing process, you feel a sense of accomplishment - your commit is now cryptographically signed for security
+* Once successfully authenticated in the browser, a verification code appears on the screen
++
+image::tekton-dev-16.png[]
+
+* You copy this verification code from the browser
+* You return to the terminal and paste the verification code when prompted
+* After entering the code, you feel a sense of accomplishment - your commit is now cryptographically signed for security
 
 * You push your changes and watch the magic happen:
 +
