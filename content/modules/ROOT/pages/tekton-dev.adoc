@@ -1,18 +1,16 @@
 = OpenShift Pipelines - Development
 :source-highlighter: rouge
 :toc: macro
-:toclevels: 2
-
-toc::[]
+:toclevels: 1
 
 == Learning Objectives
 
 By the end of this section, you will:
 
-* Access Red Hat Developer Hub and understand its value proposition
-* Create a new secure Quarkus application using OpenShift Pipelines templates
-* Experience self-service development that eliminates weeks of setup time
-* Understand how security is built into the development process from day one
+** Access Red Hat Developer Hub and understand its value proposition
+** Create a new secure Quarkus application using OpenShift Pipelines templates
+** Experience self-service development that eliminates weeks of setup time
+** Understand how security is built into the development process from day one
 
 == Your Development Challenge
 
