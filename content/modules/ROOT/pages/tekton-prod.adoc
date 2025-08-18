@@ -9,11 +9,11 @@ Red Hat Advanced Developer Suite: Enterprise Security and GitOps Promotion
 
 By the end of this workshop section, you will:
 
-** Understand enterprise production deployment workflows and security requirements
-** Execute a secure production release using automated GitOps promotion
-** Implement enterprise-grade security validation using Enterprise Contract
-** Monitor production deployment pipelines and validate security posture
-** Comprehend the complete supply chain security model and business value
+* Understand enterprise production deployment workflows and security requirements
+* Execute a secure production release using automated GitOps promotion
+* Implement enterprise-grade security validation using Enterprise Contract
+* Monitor production deployment pipelines and validate security posture
+* Comprehend the complete supply chain security model and business value
 
 == Workshop Scenario: Enterprise Production Transformation
 
@@ -25,10 +25,10 @@ Transform risky manual processes into confident automated workflows using Red Ha
 
 **Expected Business Outcomes:**
 
-** Production deployment time: 2-3 weeks → 30 minutes
-** Zero manual security reviews or bottlenecks
-** Eliminate human error through automation
-** Complete SOC 2 and PCI audit trails automatically
+* Production deployment time: 2-3 weeks 	 30 minutes
+* Zero manual security reviews or bottlenecks
+* Eliminate human error through automation
+* Complete SOC 2 and PCI audit trails automatically
 
 [NOTE]
 ====
@@ -290,7 +290,7 @@ This task serves as an automated bridge from security validation to customer val
 **Updated Deployment Manifest:**
 [source,yaml,subs="attributes"]
 ----
-apiVersion: apps/v1
+apiversion: apps/v1
 kind: Deployment
 metadata:
   name: qrks-tkn-{user}
@@ -307,7 +307,7 @@ spec:
 **Kustomization Configuration:**
 [source,yaml]
 ----
-apiVersion: kustomize.config.k8s.io/v1beta1
+apiversion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../../base
@@ -377,7 +377,7 @@ Congratulations! You've successfully implemented an enterprise-grade production 
 You've demonstrated how enterprise security and business velocity reinforce each other:
 
 **Measurable Business Impact:**
-- **Production Release Time:** 2-3 weeks → 30 minutes (99% reduction)
+- **Production Release Time:** 2-3 weeks 	 30 minutes (99% reduction)
 - **Security Compliance:** 100% automated with zero manual reviews
 - **Competitive Advantage:** Deploy features while competitors wait for approvals
 - **Audit Readiness:** Continuous compliance evidence generated automatically
@@ -442,4 +442,3 @@ You've successfully experienced the future of enterprise application deployment 
 * Understood the business value of supply chain security
 
 This production workshop demonstrates how Red Hat Advanced Developer Suite enables organizations to achieve both security excellence and business velocity simultaneously.
-

@@ -7,11 +7,11 @@
 
 By the end of this section, you will:
 
-** Understand how Jenkins production deployments transform from weeks to minutes while maintaining enterprise security
-** Experience GitLab Release workflows that trigger production Jenkins pipelines automatically
-** Learn about enterprise-grade security validation integrated into Jenkins production workflows
-** See how GitOps ensures safe production deployments through Jenkins automation
-** Understand how Jenkins expertise becomes more valuable with enhanced production capabilities
+* Understand how Jenkins production deployments transform from weeks to minutes while maintaining enterprise security
+* Experience GitLab Release workflows that trigger production Jenkins pipelines automatically
+* Learn about enterprise-grade security validation integrated into Jenkins production workflows
+* See how GitOps ensures safe production deployments through Jenkins automation
+* Understand how Jenkins expertise becomes more valuable with enhanced production capabilities
 
 == Understanding Jenkins Production Transformation
 
@@ -19,27 +19,27 @@ Enterprise development teams often face substantial challenges with production d
 
 === Traditional Jenkins Production Challenges
 
-** 2-3 weeks required for manual Jenkins production deployment coordination
-** Multiple approval workflows that create bottlenecks in Jenkins-based delivery
-** Manual security reviews that delay Jenkins production releases
-** Risk of human error during manual Jenkins production deployment processes
-** Inconsistent deployment procedures across different Jenkins production environments
+* 2-3 weeks required for manual Jenkins production deployment coordination
+* Multiple approval workflows that create bottlenecks in Jenkins-based delivery
+* Manual security reviews that delay Jenkins production releases
+* Risk of human error during manual Jenkins production deployment processes
+* Inconsistent deployment procedures across different Jenkins production environments
 
 === Red Hat Advanced Developer Suite Solution for Jenkins
 
 Red Hat Advanced Developer Suite (RHADS) transforms your Jenkins production experience with:
 
-** Production deployment time: 2-3 weeks → 30 minutes with automated Jenkins pipelines
-** Preserves millions in Jenkins infrastructure investment while adding modern capabilities
-** Zero manual security reviews through automated policy enforcement in Jenkins workflows
-** Complete SOC 2 and PCI audit trails automatically generated through Jenkins processes
+* Production deployment time: 2-3 weeks 	 30 minutes with automated Jenkins pipelines
+* Preserves millions in Jenkins infrastructure investment while adding modern capabilities
+* Zero manual security reviews through automated policy enforcement in Jenkins workflows
+* Complete SOC 2 and PCI audit trails automatically generated through Jenkins processes
 
 **Key Business Benefits for Jenkins Production:**
 
-** Jenkins production deployment time from weeks to minutes
-** Enhanced security validation integrated into familiar Jenkins production workflows
-** Jenkins expertise becomes more valuable with modern production capabilities
-** Complete audit trails for enterprise compliance through Jenkins automation
+* Jenkins production deployment time from weeks to minutes
+* Enhanced security validation integrated into familiar Jenkins production workflows
+* Jenkins expertise becomes more valuable with modern production capabilities
+* Complete audit trails for enterprise compliance through Jenkins automation
 
 == Activity 1: Understanding Jenkins Production Triggers
 
@@ -67,7 +67,7 @@ Let's trigger your Jenkins production pipeline using GitLab Release functionalit
 
 === Step 1: Access Your GitLab Repository
 
-* Open your GitLab repository at {gitlab_url}/development/qrks-jnk-{user}[qrks-jnk-{user}^]
+* Open your GitLab repository at {gitlab_url}/development/qrks-jnk-{user}[qrks-jnk-{user}^
 * Sign in using:
 +
 [source,bash,subs="attributes"]
@@ -117,7 +117,7 @@ image::jenkins-prod-5.png[]
 
 [TIP]
 ====
-The same Jenkins pipeline is reused for both staging and production, but its behavior changes based on the trigger type — demonstrating how enhanced Jenkins workflows provide appropriate safeguards for each environment.
+The same Jenkins pipeline is reused for both staging and production, but its behavior changes based on the trigger type 	 demonstrating how enhanced Jenkins workflows provide appropriate safeguards for each environment.
 ====
 
 == Activity 3: Understanding Jenkins Production Pipeline Tasks
@@ -220,7 +220,7 @@ ec validate image \
 
 [IMPORTANT]
 ====
-If any of these production checks fail through Jenkins, the pipeline stops immediately — ensuring no risky code reaches your customers* This automated production security gate protects your business reputation and customer trust.
+If any of these production checks fail through Jenkins, the pipeline stops immediately 	 ensuring no risky code reaches your customers* This automated production security gate protects your business reputation and customer trust.
 ====
 
 === Task 3: update-image-tag-for-prod
@@ -244,7 +244,7 @@ skopeo copy \
   docker://quay.tssc-quay/tssc/qrks-jnk-{user}:prod-v1.0
 ----
 
-This Jenkins step doesn't rebuild the image* It simply re-tags a verified, immutable image — ensuring complete traceability and production readiness confidence.
+This Jenkins step doesn't rebuild the image* It simply re-tags a verified, immutable image 	 ensuring complete traceability and production readiness confidence.
 
 By tagging it `prod-v1.0` through Jenkins automation, we make it clear to downstream systems, release teams, and auditors that:
 - The image has passed all enterprise validations through Jenkins
@@ -288,7 +288,7 @@ Argo CD continuously watches this GitOps repository* Once it detects Jenkins upd
 - Deploys the new image to the production cluster
 - No manual approval or CLI interaction is needed
 
-This final Jenkins step completes the production promotion workflow — fully automated, fully auditable, and GitOps-native while preserving Jenkins expertise.
+This final Jenkins step completes the production promotion workflow 	 fully automated, fully auditable, and GitOps-native while preserving Jenkins expertise.
 
 == Activity 4: Observing Jenkins Production Deployment
 
@@ -306,7 +306,7 @@ Watch how your Jenkins pipeline safely deploys to production using enterprise-gr
 
 === Step 2: Verify Production GitOps Integration
 
-* Access your GitOps repository at {gitlab_url}/development/qrks-jnk-{user}-gitops[qrks-jnk-{user}-gitops^]
+* Access your GitOps repository at {gitlab_url}/development/qrks-jnk-{user}-gitops[qrks-jnk-{user}-gitops^
 * Check the updated deployment manifests in the `overlays/prod` directory
 * Notice how Jenkins automatically updated the image tag with the `prod-` prefix
 * Observe the Git diff showing the automated production update through Jenkins
@@ -340,11 +340,12 @@ You've experienced how Red Hat Advanced Developer Suite transforms enterprise Je
 |===
 | Jenkins Task | Purpose
 
+
 | gather-images
 | Jenkins pulls production image from staging using Git tag and builds production `images.json`
 
 | verify-ec
-| Jenkins validates image using EC policies — checking signatures, SBOM, provenance, and CVEs for production
+| Jenkins validates image using EC policies 	 checking signatures, SBOM, provenance, and CVEs for production
 
 | update-image-tag-for-prod
 | Jenkins re-tags validated image with `prod-<tag>` suffix to indicate production readiness
@@ -357,7 +358,7 @@ You've experienced how Red Hat Advanced Developer Suite transforms enterprise Je
 
 **Enhanced Jenkins Production Benefits:**
 
-- **Deployment Speed:** Jenkins production releases from 2-3 weeks → 30 minutes
+- **Deployment Speed:** Jenkins production releases from 2-3 weeks 	 30 minutes
 - **Investment Protection:** Jenkins infrastructure and expertise enhanced rather than replaced
 - **Security Automation:** 100% automated policy enforcement through enhanced Jenkins workflows
 - **Risk Elimination:** Enterprise-grade security without disrupting proven Jenkins production processes
@@ -431,10 +432,10 @@ Congratulations! You've successfully experienced the complete Jenkins enhancemen
 
 === Business Impact Realized
 
-- **Jenkins Pipeline Setup:** 1-2 weeks → 5 minutes with self-service templates
-- **Security Integration:** Manual coordination → Automatic enforcement in Jenkins workflows
-- **Staging Validation:** 3-5 days → 30 minutes through enhanced Jenkins automation
-- **Production Deployment:** 2-3 weeks → 30 minutes with Jenkins-driven GitOps
+- **Jenkins Pipeline Setup:** 1-2 weeks 	 5 minutes with self-service templates
+- **Security Integration:** Manual coordination 	 Automatic enforcement in Jenkins workflows
+- **Staging Validation:** 3-5 days 	 30 minutes through enhanced Jenkins automation
+- **Production Deployment:** 2-3 weeks 	 30 minutes with Jenkins-driven GitOps
 
 === Enterprise Benefits Delivered
 

@@ -7,11 +7,11 @@
 
 By the end of this section, you will:
 
-** Understand how organizations preserve Jenkins investments while gaining modern self-service capabilities
-** Create a new secure Quarkus application using Jenkins pipeline templates
-** Experience self-service development that reduces setup time from weeks to minutes
-** Learn how security is automatically integrated into Jenkins workflows
-** See how existing Jenkins expertise becomes more valuable with enhanced capabilities
+* Understand how organizations preserve Jenkins investments while gaining modern self-service capabilities
+* Create a new secure Quarkus application using Jenkins pipeline templates
+* Experience self-service development that reduces setup time from weeks to minutes
+* Learn how security is automatically integrated into Jenkins workflows
+* See how existing Jenkins expertise becomes more valuable with enhanced capabilities
 
 == Your Jenkins Development Challenge
 
@@ -21,35 +21,35 @@ As a developer joining a team with significant Jenkins investments, you're facin
 
 Here's what you've been experiencing with traditional Jenkins pipeline setup:
 
-** 1-2 weeks waiting for the DevOps team to create custom Jenkins pipelines for your project
-** Multiple coordination meetings between development, platform, and security teams
-** Manual integration of security tools into Jenkins workflows that feels complex and error-prone
-** High risk of configuration inconsistencies across different Jenkins pipelines
-** Each custom Jenkins pipeline becomes a maintenance burden requiring ongoing platform team support
+* 1-2 weeks waiting for the DevOps team to create custom Jenkins pipelines for your project
+* Multiple coordination meetings between development, platform, and security teams
+* Manual integration of security tools into Jenkins workflows that feels complex and error-prone
+* High risk of configuration inconsistencies across different Jenkins pipelines
+* Each custom Jenkins pipeline becomes a maintenance burden requiring ongoing platform team support
 
 === What This Really Costs Your Team
 
-** Platform team spends 40+ hours per new application on Jenkins pipeline setup
-** Security integration delays add another 1-2 weeks to project timelines
-** You spend more time coordinating Jenkins setup than writing code
-** Each Jenkins pipeline configuration feels like starting from scratch
-** Teams are hesitant to create new services due to Jenkins setup complexity
+* Platform team spends 40+ hours per new application on Jenkins pipeline setup
+* Security integration delays add another 1-2 weeks to project timelines
+* You spend more time coordinating Jenkins setup than writing code
+* Each Jenkins pipeline configuration feels like starting from scratch
+* Teams are hesitant to create new services due to Jenkins setup complexity
 
 === Your New Reality with RHADS: Enhanced Jenkins Self-Service
 
 But you're about to discover how your Jenkins investment can be transformed:
 
-** Zero Jenkins setup time: Instant production-ready Jenkins pipelines with security built-in
-** Zero platform coordination: Self-serve Jenkins capabilities without DevOps team involvement
-** Zero configuration drift: Standardized Jenkins templates ensure consistency
-** Zero security gaps: Enterprise security automatically integrated into Jenkins workflows
+* Zero Jenkins setup time: Instant production-ready Jenkins pipelines with security built-in
+* Zero platform coordination: Self-serve Jenkins capabilities without DevOps team involvement
+* Zero configuration drift: Standardized Jenkins templates ensure consistency
+* Zero security gaps: Enterprise security automatically integrated into Jenkins workflows
 
 === What This Means for Your Daily Jenkins Work
 
-** Jenkins pipeline creation time: 1-2 weeks → 5 minutes
-** Pipeline configuration: Manual coordination → Self-service automation with Jenkins expertise
-** Security compliance: 100% consistent without becoming a Jenkins security expert
-** Your productivity: Immediate access to enhanced Jenkins capabilities
+* Jenkins pipeline creation time: 1-2 weeks → 5 minutes
+* Pipeline configuration: Manual coordination → Self-service automation with Jenkins expertise
+* Security compliance: 100% consistent without becoming a Jenkins security expert
+* Your productivity: Immediate access to enhanced Jenkins capabilities
 
 IMPORTANT: Today you'll experience how organizations can transform their Jenkins investment from a bottleneck into a competitive advantage, creating production-ready Jenkins applications in minutes while preserving valuable team expertise.
 
@@ -86,10 +86,10 @@ Password: {rhdh_user_password}
 
 You've just accessed your organization's **Internal Developer Portal (IDP)** that's been specifically designed to enhance your Jenkins capabilities while preserving familiar workflows:
 
-** Self-service Jenkins pipeline templates that eliminate waiting for platform teams
-** Integrated Jenkins resources that "just work" with security built-in
-** Automated Jenkins pipeline creation that handles the complex security integration for you
-** A streamlined onboarding experience that makes Jenkins expertise more valuable
+* Self-service Jenkins pipeline templates that eliminate waiting for platform teams
+* Integrated Jenkins resources that "just work" with security built-in
+* Automated Jenkins pipeline creation that handles the complex security integration for you
+* A streamlined onboarding experience that makes Jenkins expertise more valuable
 
 "This will transform how we work with Jenkins," you realize as you explore the enhanced interface.
 
@@ -176,11 +176,11 @@ image::jenkins-dev-5.png[]
 
 The Jenkins software template will now:
 
-** Create GitLab repositories for your source code and GitOps manifests
-** Set up Jenkins pipelines with automated security scanning and signing
-** Configure Kubernetes resources for your application
-** Set up container image signing and verification in Jenkins workflows
-** Deploy the Jenkins pipeline infrastructure and trigger the initial build
+* Create GitLab repositories for your source code and GitOps manifests
+* Set up Jenkins pipelines with automated security scanning and signing
+* Configure Kubernetes resources for your application
+* Set up container image signing and verification in Jenkins workflows
+* Deploy the Jenkins pipeline infrastructure and trigger the initial build
 
 TIP: This entire Jenkins setup that traditionally takes weeks is completed in under a minute while preserving familiar Jenkins workflows!
 
@@ -604,3 +604,4 @@ In the next section, **Staging - Jenkins Pipeline Promotion**, you'll:
 * Understand GitOps deployment through Jenkins pipeline automation
 
 Your enhanced Jenkins foundation is now in place - let's see your staging promotion in action!
+
