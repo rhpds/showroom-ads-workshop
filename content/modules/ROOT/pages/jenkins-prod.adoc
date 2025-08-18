@@ -7,11 +7,11 @@
 
 By the end of this section, you will:
 
-* Understand how Jenkins production deployments transform from weeks to minutes while maintaining enterprise security
-* Experience GitLab Release workflows that trigger production Jenkins pipelines automatically
-* Learn about enterprise-grade security validation integrated into Jenkins production workflows
-* See how GitOps ensures safe production deployments through Jenkins automation
-* Understand how Jenkins expertise becomes more valuable with enhanced production capabilities
+- **Understand** how Jenkins production deployments transform from weeks to minutes while maintaining enterprise security
+- **Experience** GitLab Release workflows that trigger production Jenkins pipelines automatically
+- **Learn** about enterprise-grade security validation integrated into Jenkins production workflows
+- **See** how GitOps ensures safe production deployments through Jenkins automation
+- **Understand** how Jenkins expertise becomes more valuable with enhanced production capabilities
 
 == Understanding Jenkins Production Transformation
 

@@ -143,10 +143,10 @@ Keep these metrics in mind as you work through the exercises - you'll experience
 
 Ready to become the hero who saves Black Friday? Select the path that matches your team's technology approach:
 
-*🚀 Start with OpenShift Pipelines (Tekton)* → Go to the *OpenShift Pipelines (Tekton)* module
+**🚀 Start with OpenShift Pipelines (Tekton)** → Go to the *OpenShift Pipelines (Tekton)* module
 *Perfect if your team is embracing modern Kubernetes-native development practices*
 
-*🔧 Start with Jenkins* → Go to the *Jenkins* module
+**🔧 Start with Jenkins** → Go to the *Jenkins* module
 *Ideal if your organization has existing enterprise tooling investments*
 
 Either path will give you the hands-on experience to transform your development workflow and meet that Black Friday deadline!

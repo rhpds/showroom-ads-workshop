@@ -7,11 +7,11 @@
 
 By the end of this section, you will:
 
-* Understand how organizations preserve Jenkins investments while gaining modern self-service capabilities
-* Create a new secure Quarkus application using Jenkins pipeline templates
-* Experience self-service development that reduces setup time from weeks to minutes
-* Learn how security is automatically integrated into Jenkins workflows
-* See how existing Jenkins expertise becomes more valuable with enhanced capabilities
+- **Understand** how organizations preserve Jenkins investments while gaining modern self-service capabilities
+- **Create** a new secure Quarkus application using Jenkins pipeline templates
+- **Experience** self-service development that reduces setup time from weeks to minutes
+- **Learn** how security is automatically integrated into Jenkins workflows
+- **See** how existing Jenkins expertise becomes more valuable with enhanced capabilities
 
 == Your Jenkins Development Challenge
 

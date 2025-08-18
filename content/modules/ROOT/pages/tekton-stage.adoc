@@ -7,10 +7,10 @@
 
 By the end of this section, you will:
 
-* Understand how automated staging validation transforms development cycles from weeks to minutes
-* Experience enterprise-grade security validation with Enterprise Contract and Artifact Signer
-* Trigger staging pipelines using Git tags and observe automated promotion workflows
-* Learn how GitOps ensures validated changes reach staging environments automatically
+- **Understand** how automated staging validation transforms development cycles from weeks to minutes
+- **Experience** enterprise-grade security validation with Enterprise Contract and Artifact Signer
+- **Trigger** staging pipelines using Git tags and observe automated promotion workflows
+- **Learn** how GitOps ensures validated changes reach staging environments automatically
 
 == Understanding Staging Validation Transformation
 
