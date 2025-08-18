@@ -3,19 +3,17 @@ Red Hat Advanced Developer Suite: Enterprise Security and GitOps Promotion
 :icons: font
 :source-highlighter: rouge
 :toc: macro
-:toclevels: 2
-
-toc::[]
+:toclevels: 1
 
 == Learning Objectives
 
 By the end of this workshop section, you will:
 
-- **Understand** enterprise production deployment workflows and security requirements
-- **Execute** a secure production release using automated GitOps promotion
-- **Implement** enterprise-grade security validation using Enterprise Contract
-- **Monitor** production deployment pipelines and validate security posture
-- **Comprehend** the complete supply chain security model and business value
+** Understand enterprise production deployment workflows and security requirements
+** Execute a secure production release using automated GitOps promotion
+** Implement enterprise-grade security validation using Enterprise Contract
+** Monitor production deployment pipelines and validate security posture
+** Comprehend the complete supply chain security model and business value
 
 == Workshop Scenario: Enterprise Production Transformation
 
@@ -27,10 +25,10 @@ Transform risky manual processes into confident automated workflows using Red Ha
 
 **Expected Business Outcomes:**
 
-* Production deployment time: 2-3 weeks → 30 minutes
-* Zero manual security reviews or bottlenecks
-* Eliminate human error through automation
-* Complete SOC 2 and PCI audit trails automatically
+** Production deployment time: 2-3 weeks → 30 minutes
+** Zero manual security reviews or bottlenecks
+** Eliminate human error through automation
+** Complete SOC 2 and PCI audit trails automatically
 
 [NOTE]
 ====

@@ -20,34 +20,34 @@ As ACME's newest developer, you're facing the same frustration that developers e
 
 Here's what you've been dealing with in your traditional development environment:
 
-* 3-5 business days submitting tickets and waiting for the platform team to set up your Kubernetes resources
-* 1-2 weeks of back-and-forth emails trying to get OpenShift Pipelines configured
-* Multiple handoff meetings between you, the platform team, and security - each one adding delays
-* Complex security integration that you don't fully understand but somehow need to implement
-* Manual setup of GitOps repositories and deployment manifests that feels like starting from scratch every time
+** 3-5 business days submitting tickets and waiting for the platform team to set up your Kubernetes resources
+** 1-2 weeks of back-and-forth emails trying to get OpenShift Pipelines configured
+** Multiple handoff meetings between you, the platform team, and security - each one adding delays
+** Complex security integration that you don't fully understand but somehow need to implement
+** Manual setup of GitOps repositories and deployment manifests that feels like starting from scratch every time
 
 === What This Really Costs You
 
-* You spend more time in meetings than writing code
-* Platform teams are overwhelmed and can't respond quickly to your requests
-* Security integration feels like black magic that only senior developers understand
-* Every new project feels like reinventing the wheel
+** You spend more time in meetings than writing code
+** Platform teams are overwhelmed and can't respond quickly to your requests
+** Security integration feels like black magic that only senior developers understand
+** Every new project feels like reinventing the wheel
 
 === Your New Reality with RHADS: Self-Service in Minutes
 
 But you're about to discover a completely different way of working:
 
-* Zero waiting time: You'll create GitLab repos and OpenShift Pipelines instantly - no tickets, no waiting
-* Zero configuration complexity: Kubernetes resources get generated automatically - you focus on your application code
-* Zero security gaps: Container scanning and signing happen automatically - security becomes invisible to you
-* Zero platform team dependency: You become self-sufficient and productive immediately
+** Zero waiting time: You'll create GitLab repos and OpenShift Pipelines instantly - no tickets, no waiting
+** Zero configuration complexity: Kubernetes resources get generated automatically - you focus on your application code
+** Zero security gaps: Container scanning and signing happen automatically - security becomes invisible to you
+** Zero platform team dependency: You become self-sufficient and productive immediately
 
 === What This Means for Your Daily Work
 
-* OpenShift Pipelines project setup: 3-4 weeks → 5 minutes
-* Pipeline configuration: Manual meetings → Self-service automation
-* Security compliance: 100% consistent without you needing to become a security expert
-* Your productivity: Immediate access to everything you need
+** OpenShift Pipelines project setup: 3-4 weeks → 5 minutes
+** Pipeline configuration: Manual meetings → Self-service automation
+** Security compliance: 100% consistent without you needing to become a security expert
+** Your productivity: Immediate access to everything you need
 
 IMPORTANT: Today you'll experience this transformation firsthand by creating a production-ready application with OpenShift Pipelines in minutes, not weeks* You'll be amazed at how empowering this feels!
 
@@ -87,10 +87,10 @@ IMPORTANT: If you encounter any authentication issues, you can always reference 
 
 You've just accessed something revolutionary - your organization's **Internal Developer Portal (IDP)** that's been optimized for developers like you* As you look around, you realize this platform provides everything you've been wishing for:
 
-* Self-service application templates that eliminate waiting for platform teams
-* Integrated Kubernetes and OpenShift resources that "just work"
-* Automated pipeline creation that handles the complex stuff for you
-* A streamlined onboarding experience that gets you productive immediately
+** Self-service application templates that eliminate waiting for platform teams
+** Integrated Kubernetes and OpenShift resources that "just work"
+** Automated pipeline creation that handles the complex stuff for you
+** A streamlined onboarding experience that gets you productive immediately
 
 "This is going to change everything," you think to yourself as you explore the interface.
 
@@ -179,11 +179,11 @@ image::tekton-dev-5.png[]
 
 The OpenShift Pipelines software template will now:
 
-* Create GitLab repositories for your source code and GitOps manifests
-* Set up Tekton pipelines with automated security scanning
-* Configure Kubernetes resources for your application
-* Set up container image signing and verification
-* Deploy the OpenShift Pipelines application infrastructure to OpenShift
+** Create GitLab repositories for your source code and GitOps manifests
+** Set up Tekton pipelines with automated security scanning
+** Configure Kubernetes resources for your application
+** Set up container image signing and verification
+** Deploy the OpenShift Pipelines application infrastructure to OpenShift
 
 TIP: This entire OpenShift Pipelines setup that traditionally takes weeks is completed in under a minute!
 
