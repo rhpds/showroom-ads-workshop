@@ -7,10 +7,10 @@
 
 By the end of this section, you will:
 
-** Access Red Hat Developer Hub and understand its value proposition
-** Create a new secure Quarkus application using OpenShift Pipelines templates
-** Experience self-service development that eliminates weeks of setup time
-** Understand how security is built into the development process from day one
+* Access Red Hat Developer Hub and understand its value proposition
+* Create a new secure Quarkus application using OpenShift Pipelines templates
+* Experience self-service development that eliminates weeks of setup time
+* Understand how security is built into the development process from day one
 
 == Your Development Challenge
 
@@ -20,36 +20,39 @@ As ACME's newest developer, you're facing the same frustration that developers e
 
 Here's what you've been dealing with in your traditional development environment:
 
-** 3-5 business days submitting tickets and waiting for the platform team to set up your Kubernetes resources
-** 1-2 weeks of back-and-forth emails trying to get OpenShift Pipelines configured
-** Multiple handoff meetings between you, the platform team, and security - each one adding delays
-** Complex security integration that you don't fully understand but somehow need to implement
-** Manual setup of GitOps repositories and deployment manifests that feels like starting from scratch every time
+* 3-5 business days submitting tickets and waiting for the platform team to set up your Kubernetes resources
+* 1-2 weeks of back-and-forth emails trying to get OpenShift Pipelines configured
+* Multiple handoff meetings between you, the platform team, and security - each one adding delays
+* Complex security integration that you don't fully understand but somehow need to implement
+* Manual setup of GitOps repositories and deployment manifests that feels like starting from scratch every time
 
 === What This Really Costs You
 
-** You spend more time in meetings than writing code
-** Platform teams are overwhelmed and can't respond quickly to your requests
-** Security integration feels like black magic that only senior developers understand
-** Every new project feels like reinventing the wheel
+* You spend more time in meetings than writing code
+* Platform teams are overwhelmed and can't respond quickly to your requests
+* Security integration feels like black magic that only senior developers understand
+* Every new project feels like reinventing the wheel
 
 === Your New Reality with RHADS: Self-Service in Minutes
 
 But you're about to discover a completely different way of working:
 
-** Zero waiting time: You'll create GitLab repos and OpenShift Pipelines instantly - no tickets, no waiting
-** Zero configuration complexity: Kubernetes resources get generated automatically - you focus on your application code
-** Zero security gaps: Container scanning and signing happen automatically - security becomes invisible to you
-** Zero platform team dependency: You become self-sufficient and productive immediately
+* Zero waiting time: You'll create GitLab repos and OpenShift Pipelines instantly - no tickets, no waiting
+* Zero configuration complexity: Kubernetes resources get generated automatically - you focus on your application code
+* Zero security gaps: Container scanning and signing happen automatically - security becomes invisible to you
+* Zero platform team dependency: You become self-sufficient and productive immediately
 
 === What This Means for Your Daily Work
 
-** OpenShift Pipelines project setup: 3-4 weeks → 5 minutes
-** Pipeline configuration: Manual meetings → Self-service automation
-** Security compliance: 100% consistent without you needing to become a security expert
-** Your productivity: Immediate access to everything you need
+* OpenShift Pipelines project setup: 3-4 weeks → 5 minutes
+* Pipeline configuration: Manual meetings → Self-service automation
+* Security compliance: 100% consistent without you needing to become a security expert
+* Your productivity: Immediate access to everything you need
 
-IMPORTANT: Today you'll experience this transformation firsthand by creating a production-ready application with OpenShift Pipelines in minutes, not weeks* You'll be amazed at how empowering this feels!
+[IMPORTANT]
+====
+Today you'll experience this transformation firsthand by creating a production-ready application with OpenShift Pipelines in minutes, not weeks* You'll be amazed at how empowering this feels!
+====
 
 == Activity 1: Your First Steps into Your OpenShift Pipelines Journey
 
@@ -65,7 +68,10 @@ link:{rhdh_url}[*Red Hat Developer Hub*^]
 
 image::tekton-dev-1.png[]
 
-TIP: Your organization uses OIDC authentication powered by Red Hat build of Keycloak - this secure authentication integration will save you time throughout your development workflow.
+[TIP]
+====
+Your organization uses OIDC authentication powered by Red Hat build of Keycloak - this secure authentication integration will save you time throughout your development workflow.
+====
 
 === Step 2: Enter Your Credentials
 
@@ -81,16 +87,19 @@ Password: {rhdh_user_password}
 
 * Click the blue *Sign In* button to proceed
 
-IMPORTANT: If you encounter any authentication issues, you can always reference the "Lab Access Information" page for your credentials.
+[IMPORTANT]
+====
+If you encounter any authentication issues, you can always reference the "Lab Access Information" page for your credentials.
+====
 
 === What You Just Discovered
 
 You've just accessed something revolutionary - your organization's **Internal Developer Portal (IDP)** that's been optimized for developers like you* As you look around, you realize this platform provides everything you've been wishing for:
 
-** Self-service application templates that eliminate waiting for platform teams
-** Integrated Kubernetes and OpenShift resources that "just work"
-** Automated pipeline creation that handles the complex stuff for you
-** A streamlined onboarding experience that gets you productive immediately
+* Self-service application templates that eliminate waiting for platform teams
+* Integrated Kubernetes and OpenShift resources that "just work"
+* Automated pipeline creation that handles the complex stuff for you
+* A streamlined onboarding experience that gets you productive immediately
 
 "This is going to change everything," you think to yourself as you explore the interface.
 
@@ -116,7 +125,10 @@ image::tekton-dev-2.png[]
 
 image::tekton-dev-3.png[]
 
-TIP: You're about to witness something amazing - this single template will automatically create your complete OpenShift Pipelines environment with Tekton workflows, Kubernetes resources, and security scanning* No tickets, no waiting, no manual configuration!
+[TIP]
+====
+You're about to witness something amazing - this single template will automatically create your complete OpenShift Pipelines environment with Tekton workflows, Kubernetes resources, and security scanning* No tickets, no waiting, no manual configuration!
+====
 
 === Step 3: Configure Your OpenShift Pipelines Application
 
@@ -179,13 +191,16 @@ image::tekton-dev-5.png[]
 
 The OpenShift Pipelines software template will now:
 
-** Create GitLab repositories for your source code and GitOps manifests
-** Set up Tekton pipelines with automated security scanning
-** Configure Kubernetes resources for your application
-** Set up container image signing and verification
-** Deploy the OpenShift Pipelines application infrastructure to OpenShift
+* Create GitLab repositories for your source code and GitOps manifests
+* Set up Tekton pipelines with automated security scanning
+* Configure Kubernetes resources for your application
+* Set up container image signing and verification
+* Deploy the OpenShift Pipelines application infrastructure to OpenShift
 
-TIP: This entire OpenShift Pipelines setup that traditionally takes weeks is completed in under a minute!
+[TIP]
+====
+This entire OpenShift Pipelines setup that traditionally takes weeks is completed in under a minute!
+====
 
 === Step 5: Access Your New OpenShift Pipelines Component
 
@@ -201,9 +216,9 @@ image::tekton-dev-7.png[]
 
 * You'll see your new OpenShift Pipelines application component with links to:
   * Source code repository with Kubernetes manifests
-  * Tekton CI/CD pipelines
-  * Application overview and health status
-  * OpenShift Dev Spaces development environment
+* Tekton CI/CD pipelines
+* Application overview and health status
+* OpenShift Dev Spaces development environment
 
 == Activity 3: Understanding the Generated Repository Structure
 
@@ -447,7 +462,10 @@ image::tekton-dev-16.png[]
 git push
 ----
 
-TIP: You just witnessed something powerful - your commit was automatically signed for security, and now it's triggering a complete OpenShift Pipelines workflow* No manual work, no tickets, no waiting!
+[TIP]
+====
+You just witnessed something powerful - your commit was automatically signed for security, and now it's triggering a complete OpenShift Pipelines workflow* No manual work, no tickets, no waiting!
+====
 
 image::tekton-dev-17.png[]
 

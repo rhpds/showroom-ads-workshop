@@ -11,11 +11,11 @@ Congratulations on your new position at ACME Retail! You've just joined as a dev
 
 **The Problems You'll Face:** Like most enterprise developers, you'll encounter familiar obstacles:
 
-** 6-8 week deployment cycles due to manual processes that slow everything down
-** 2-week security review bottlenecks that delay every release
-** Manual compliance audits across 50+ applications in your portfolio
-** Platform teams drowning in repetitive setup requests from developers like you
-** Configuration inconsistencies that create bugs and delays across different projects
+* 6-8 week deployment cycles due to manual processes that slow everything down
+* 2-week security review bottlenecks that delay every release
+* Manual compliance audits across 50+ applications in your portfolio
+* Platform teams drowning in repetitive setup requests from developers like you
+* Configuration inconsistencies that create bugs and delays across different projects
 
 *Throughout this workshop, you'll experience firsthand how Red Hat Advanced Developer Suite transforms your daily development experience.*
 
@@ -25,24 +25,24 @@ You're about to discover how Red Hat Advanced Developer Suite (RHADS) will trans
 
 === What This Means for You as a Developer
 
-** You can create new projects yourself with zero waiting time
-** No more delays waiting for security reviews or coordination meetings
-** You'll use familiar development tools and workflows - no steep learning curves
-** Instant access to production-ready environments whenever you need them
+* You can create new projects yourself with zero waiting time
+* No more delays waiting for security reviews or coordination meetings
+* You'll use familiar development tools and workflows - no steep learning curves
+* Instant access to production-ready environments whenever you need them
 
 === How This Helps Your Security Team
 
-** Automated policy enforcement runs across all your projects automatically
-** Complete audit trails and compliance reports generate themselves
-** 75% reduction in manual security reviews means faster approvals
-** Consistent security posture across your entire application portfolio
+* Automated policy enforcement runs across all your projects automatically
+* Complete audit trails and compliance reports generate themselves
+* 75% reduction in manual security reviews means faster approvals
+* Consistent security posture across your entire application portfolio
 
 === What Your Platform Team Will Experience
 
-** Standardized patterns eliminate the custom configurations that create tickets
-** Dramatic reduction in setup requests from developers like you
-** Your platform team can focus on innovation instead of repetitive tasks
-** Measurable compliance and governance become automatic
+* Standardized patterns eliminate the custom configurations that create tickets
+* Dramatic reduction in setup requests from developers like you
+* Your platform team can focus on innovation instead of repetitive tasks
+* Measurable compliance and governance become automatic
 
 == Workshop Paths
 
@@ -74,7 +74,10 @@ Modern OpenShift Pipelines development velocity with enterprise security
 
 Enterprise integration with modern capabilities
 
-IMPORTANT: Both paths demonstrate core RHADS capabilities including self-service development, integrated security, and automated deployment workflows.
+[IMPORTANT]
+====
+Both paths demonstrate core RHADS capabilities including self-service development, integrated security, and automated deployment workflows.
+====
 
 == Your Personal Journey
 
@@ -131,16 +134,19 @@ By completing this workshop, you'll understand how RHADS delivers:
 * 60% fewer platform team setup requests
 * Zero configuration drift across environments
 
-TIP: Keep these metrics in mind as you work through the exercises - you'll experience these improvements firsthand.
+[TIP]
+====
+Keep these metrics in mind as you work through the exercises - you'll experience these improvements firsthand.
+====
 
 == Choose Your Learning Path
 
 Ready to become the hero who saves Black Friday? Select the path that matches your team's technology approach:
 
-**🚀 Start with OpenShift Pipelines (Tekton)** → Go to the *OpenShift Pipelines (Tekton)* module
+*🚀 Start with OpenShift Pipelines (Tekton)* → Go to the *OpenShift Pipelines (Tekton)* module
 *Perfect if your team is embracing modern Kubernetes-native development practices*
 
-**🔧 Start with Jenkins** → Go to the *Jenkins* module
+*🔧 Start with Jenkins* → Go to the *Jenkins* module
 *Ideal if your organization has existing enterprise tooling investments*
 
 Either path will give you the hands-on experience to transform your development workflow and meet that Black Friday deadline!
