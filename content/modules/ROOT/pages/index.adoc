@@ -1,6 +1,6 @@
 = Workshop Overview - {lab_name}
 
-Welcome to the Red Hat Advanced Developer Suite (RHADS) Workshop! 
+Welcome to the Red Hat Advanced Developer Suite (RHADS): TSSC Workshop
 
 In this hands-on workshop, you'll experience how modern development teams can deliver secure applications at enterprise speed without compromising on security or developer productivity.
 
@@ -51,7 +51,7 @@ TIP: All credentials and access information are provided in the "Lab Access Info
 This workshop offers two learning paths to demonstrate RHADS capabilities:
 
 **🚀 OpenShift Pipelines (Tekton) Path**: Modern Kubernetes-native development
-. Create applications using OpenShift Pipelines templates  
+. Create applications using OpenShift Pipelines templates
 . Experience browser-based development with OpenShift Dev Spaces
 . See Tekton workflows automate security and deployment
 . Deploy through staging to production with GitOps

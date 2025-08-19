@@ -1,18 +1,18 @@
 name: modules
-title: "Red Hat Advanced Developer Suite Workshop"
+title: "Red Hat Advanced Developer Suite: TSSC Workshop"
 version: master
 nav:
   - modules/ROOT/nav.adoc
 
 asciidoc:
   attributes:
-    lab_name: "Red Hat Advanced Developer Suite Workshop"
+    lab_name: "Red Hat Advanced Developer Suite: TSSC Workshop"
     release-version: master
     page-pagination: true
     experimental:
     sectnums!:
     numbered!:
-    chapter-signifier: 
+    chapter-signifier:
     part-signifier:
     guid: my-guid
     gitlab_url: https://gitlab-gitlab.apps.cluster-pc8p5.pc8p5.sandbox275.opentlc.com
