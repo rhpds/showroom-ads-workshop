@@ -100,7 +100,7 @@ image::tekton-stage-4.png[]
 
 [TIP]
 ====
-Use the Developer Hub view to observe each task as it executes* You'll see automation in action — no manual approvals, just policy-driven promotion.
+Use the Developer Hub view to observe each task as it executes. You'll see automation in action — no manual approvals, just policy-driven promotion.
 ====
 
 == Activity 2: Understanding Pipeline Tasks

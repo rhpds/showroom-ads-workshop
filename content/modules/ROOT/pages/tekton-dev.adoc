@@ -136,7 +136,7 @@ The template form will guide you through OpenShift Pipelines configuration with 
 
 ==== Application Information
 
-Ensure that the following values are set for your template calues:
+Ensure that the following values are set for your template values:
 
 [cols="1,2", options="header"]
 |===
