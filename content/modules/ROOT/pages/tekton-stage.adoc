@@ -1,18 +1,16 @@
 = OpenShift Pipelines - Staging
 :source-highlighter: rouge
 :toc: macro
-:toclevels: 2
-
-toc::[]
+:toclevels: 1
 
 == Learning Objectives
 
 By the end of this section, you will:
 
-* Understand how automated staging validation transforms development cycles from weeks to minutes
-* Experience enterprise-grade security validation with Enterprise Contract and Artifact Signer
-* Trigger staging pipelines using Git tags and observe automated promotion workflows
-* Learn how GitOps ensures validated changes reach staging environments automatically
+* **Understand** how automated staging validation transforms development cycles from weeks to minutes
+* **Experience** enterprise-grade security validation with Enterprise Contract and Artifact Signer
+* **Trigger** staging pipelines using Git tags and observe automated promotion workflows
+* **Learn** how GitOps ensures validated changes reach staging environments automatically
 
 == Understanding Staging Validation Transformation
 
@@ -20,21 +18,21 @@ Enterprise development teams often face significant challenges with staging vali
 
 === Traditional Staging Challenges
 
-- **3-5 days** required for staging validation processes
-- **1-2 weeks** for manual security reviews and compliance checks
-- **Multiple coordination meetings** between development, security, and platform teams
-- **Manual deployment processes** that are error-prone and time-consuming
-- **"Works in staging, fails in production"** surprises due to environment inconsistencies
+* 3-5 days required for staging validation processes
+* 1-2 weeks for manual security reviews and compliance checks
+* Multiple coordination meetings between development, security, and platform teams
+* Manual deployment processes that are error-prone and time-consuming
+* "Works in staging, fails in production" surprises due to environment inconsistencies
 
 === Red Hat Advanced Developer Suite Solution
 
 Red Hat Advanced Developer Suite (RHADS) transforms this experience with:
 
-- **Staging time: 3-5 days → 30 minutes** with automated validation pipelines
-- **Security validation: 1-2 weeks → minutes** with integrated Enterprise Contract validation
-- **Zero manual coordination overhead** between teams
-- **Production-ready confidence** with every staging deployment
-- **Consistent validation** that eliminates environment surprises
+* Staging time: 3-5 days → 30 minutes with automated validation pipelines
+* Security validation: 1-2 weeks → minutes with integrated Enterprise Contract validation
+* Zero manual coordination overhead between teams
+* Production-ready confidence with every staging deployment
+* Consistent validation that eliminates environment surprises
 
 **Key Business Benefits:**
 
@@ -102,7 +100,7 @@ image::tekton-stage-4.png[]
 
 [TIP]
 ====
-Use the Developer Hub view to observe each task as it executes* You'll see automation in action — no manual approvals, just policy-driven promotion.
+Use the Developer Hub view to observe each task as it executes. You'll see automation in action — no manual approvals, just policy-driven promotion.
 ====
 
 == Activity 2: Understanding Pipeline Tasks
@@ -159,11 +157,12 @@ This mapping between Git commit and container image provides end-to-end traceabi
 This step enforces multiple critical validations that protect your business and customers:
 
 **Enterprise Security Validations:**
-- **Container image signature verification** using cryptographic signing
-- **Software Bill of Materials (SBOM) validation** for supply chain security
-- **CVE scanning** to catch security vulnerabilities before production
-- **Policy compliance** ensuring enterprise security standards
-- **Provenance attestation** to verify source repository integrity
+
+* **Container image signature verification** using cryptographic signing
+* **Software Bill of Materials (SBOM) validation** for supply chain security
+* **CVE scanning** to catch security vulnerabilities before production
+* **Policy compliance** ensuring enterprise security standards
+* **Provenance attestation** to verify source repository integrity
 
 **Business Value:**
 
@@ -301,7 +300,7 @@ spec:
 
 Watch how ArgoCD automatically syncs your validated changes to the staging environment.
 
-ArgoCD (OpenShift GitOps) continuously monitors your GitOps repository and automatically applies any changes to your staging environment* When the pipeline updates deployment manifests, ArgoCD detects these changes and deploys them without any manual intervention - ensuring your staging environment always matches what's defined in Git.
+ArgoCD (OpenShift GitOps) continuously monitors your GitOps repository and automatically applies any changes to your staging environment. When the pipeline updates deployment manifests, ArgoCD detects these changes and deploys them without any manual intervention - ensuring your staging environment always matches what's defined in Git.
 
 === Step 1: Verify Deployment Updates
 
@@ -375,3 +374,4 @@ In the next section, you'll experience:
 * Zero-downtime deployment strategies for production environments
 
 The transformation from weeks-long staging cycles to 30-minute automated validation demonstrates the power of Red Hat Advanced Developer Suite in modern enterprise development.
+

@@ -1,9 +1,7 @@
 = Introduction to Red Hat Advanced Developer Suite
-:source-highlighter: rouge
-:toc: macro
-:toclevels: 2
-
-toc::[]
+:toc:
+:toc-placement: preamble
+:icons: font
 
 == Your New Role at ACME Retail
 
@@ -76,7 +74,10 @@ Modern OpenShift Pipelines development velocity with enterprise security
 
 Enterprise integration with modern capabilities
 
-IMPORTANT: Both paths demonstrate core RHADS capabilities including self-service development, integrated security, and automated deployment workflows.
+[IMPORTANT]
+====
+Both paths demonstrate core RHADS capabilities including self-service development, integrated security, and automated deployment workflows.
+====
 
 == Your Personal Journey
 
@@ -133,7 +134,10 @@ By completing this workshop, you'll understand how RHADS delivers:
 * 60% fewer platform team setup requests
 * Zero configuration drift across environments
 
-TIP: Keep these metrics in mind as you work through the exercises - you'll experience these improvements firsthand.
+[TIP]
+====
+Keep these metrics in mind as you work through the exercises - you'll experience these improvements firsthand.
+====
 
 == Choose Your Learning Path
 

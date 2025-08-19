@@ -1,9 +1,7 @@
 = OpenShift Pipelines - Development
 :source-highlighter: rouge
 :toc: macro
-:toclevels: 2
-
-toc::[]
+:toclevels: 1
 
 == Learning Objectives
 
@@ -51,7 +49,10 @@ But you're about to discover a completely different way of working:
 * Security compliance: 100% consistent without you needing to become a security expert
 * Your productivity: Immediate access to everything you need
 
-IMPORTANT: Today you'll experience this transformation firsthand by creating a production-ready application with OpenShift Pipelines in minutes, not weeks* You'll be amazed at how empowering this feels!
+[IMPORTANT]
+====
+Today you'll experience this transformation firsthand by creating a production-ready application with OpenShift Pipelines in minutes, not weeks* You'll be amazed at how empowering this feels!
+====
 
 == Activity 1: Your First Steps into Your OpenShift Pipelines Journey
 
@@ -67,7 +68,10 @@ link:{rhdh_url}[*Red Hat Developer Hub*^]
 
 image::tekton-dev-1.png[]
 
-TIP: Your organization uses OIDC authentication powered by Red Hat build of Keycloak - this secure authentication integration will save you time throughout your development workflow.
+[TIP]
+====
+Your organization uses OIDC authentication powered by Red Hat build of Keycloak - this secure authentication integration will save you time throughout your development workflow.
+====
 
 === Step 2: Enter Your Credentials
 
@@ -83,7 +87,10 @@ Password: {rhdh_user_password}
 
 * Click the blue *Sign In* button to proceed
 
-IMPORTANT: If you encounter any authentication issues, you can always reference the "Lab Access Information" page for your credentials.
+[IMPORTANT]
+====
+If you encounter any authentication issues, you can always reference the "Lab Access Information" page for your credentials.
+====
 
 === What You Just Discovered
 
@@ -118,7 +125,10 @@ image::tekton-dev-2.png[]
 
 image::tekton-dev-3.png[]
 
-TIP: You're about to witness something amazing - this single template will automatically create your complete OpenShift Pipelines environment with Tekton workflows, Kubernetes resources, and security scanning* No tickets, no waiting, no manual configuration!
+[TIP]
+====
+You're about to witness something amazing - this single template will automatically create your complete OpenShift Pipelines environment with Tekton workflows, Kubernetes resources, and security scanning* No tickets, no waiting, no manual configuration!
+====
 
 === Step 3: Configure Your OpenShift Pipelines Application
 
@@ -126,7 +136,7 @@ The template form will guide you through OpenShift Pipelines configuration with 
 
 ==== Application Information
 
-Ensure that the following values are set for your template calues:
+Ensure that the following values are set for your template values:
 
 [cols="1,2", options="header"]
 |===
@@ -187,7 +197,10 @@ The OpenShift Pipelines software template will now:
 * Set up container image signing and verification
 * Deploy the OpenShift Pipelines application infrastructure to OpenShift
 
-TIP: This entire OpenShift Pipelines setup that traditionally takes weeks is completed in under a minute!
+[TIP]
+====
+This entire OpenShift Pipelines setup that traditionally takes weeks is completed in under a minute!
+====
 
 === Step 5: Access Your New OpenShift Pipelines Component
 
@@ -203,9 +216,9 @@ image::tekton-dev-7.png[]
 
 * You'll see your new OpenShift Pipelines application component with links to:
   * Source code repository with Kubernetes manifests
-  * Tekton CI/CD pipelines
-  * Application overview and health status
-  * OpenShift Dev Spaces development environment
+* Tekton CI/CD pipelines
+* Application overview and health status
+* OpenShift Dev Spaces development environment
 
 == Activity 3: Understanding the Generated Repository Structure
 
@@ -215,16 +228,16 @@ The template you just used is part of a sophisticated system with three key repo
 
 **🏗️ Developer Hub Configuration Repository:**
 
-- **Location**: `{gitlab_url}/rhdh/tssc-developer-hub-configuration[^]`
-- **Purpose**: Contains the OpenShift Pipelines template you just used
-- **Template**: `scaffolder-templates/quarkus-stssc-template/`
-- **What it does**: Defines the self-service template that generated your application
+* **Location**: `{gitlab_url}/rhdh/tssc-developer-hub-configuration[^]`
+* **Purpose**: Contains the OpenShift Pipelines template you just used
+* **Template**: `scaffolder-templates/quarkus-stssc-template/`
+* **What it does**: Defines the self-service template that generated your application
 
 **⚙️ Your Generated Application Repository:**
 
-- **Location**: `{gitlab_url}/development/qrks-tkn-{user}[^]`
-- **Purpose**: Contains your application source code with embedded OpenShift Pipelines
-- **Pipeline files**: `.tekton/` directory with three key pipeline definitions:
+* **Location**: `{gitlab_url}/development/qrks-tkn-{user}[^]`
+* **Purpose**: Contains your application source code with embedded OpenShift Pipelines
+* **Pipeline files**: `.tekton/` directory with three key pipeline definitions:
   - `on-push.yaml` - Executes when you commit code
   - `on-tag.yaml` - Executes when you create a Git tag (promotes to staging)
   - `on-release.yaml` - Executes when you create a release (promotes to production)
@@ -235,10 +248,10 @@ The template you just used is part of a sophisticated system with three key repo
 
 Pipeline as Code means your CI/CD pipeline definitions live alongside your application code in the same Git repository* This is revolutionary because:
 
-- **Version Control**: Pipeline changes are tracked with your code changes
-- **Reproducibility**: Anyone can see exactly how your application is built and deployed
-- **Consistency**: The same pipeline runs regardless of environment
-- **Developer Ownership**: Developers control their own pipeline without platform team dependencies
+* **Version Control**: Pipeline changes are tracked with your code changes
+* **Reproducibility**: Anyone can see exactly how your application is built and deployed
+* **Consistency**: The same pipeline runs regardless of environment
+* **Developer Ownership**: Developers control their own pipeline without platform team dependencies
 
 **The Three Pipeline YAML Files Explained:**
 
@@ -268,25 +281,25 @@ Pipeline as Code means your CI/CD pipeline definitions live alongside your appli
 
 **Why This Matters for You:**
 
-- **No More Tickets**: Change your pipeline by editing YAML, not filing platform tickets
-- **Full Transparency**: See exactly what happens when you deploy
-- **Environment Consistency**: Same pipeline logic across dev, staging, production
-- **Audit Trail**: Every pipeline change is tracked in Git history
+* **No More Tickets**: Change your pipeline by editing YAML, not filing platform tickets
+* **Full Transparency**: See exactly what happens when you deploy
+* **Environment Consistency**: Same pipeline logic across dev, staging, production
+* **Audit Trail**: Every pipeline change is tracked in Git history
 
 **🔧 Pipeline Definitions Repository:**
 
-- **Location**: `{gitlab_url}/rhdh/tssc-sample-pipelines[^]`
-- **Purpose**: Contains reusable Tekton pipeline and task definitions
-- **Components**:
-  - `pipelines/` - Complete workflow definitions
-  - `tasks/` - Individual pipeline step definitions
-- **What it provides**: The building blocks your application pipelines reference
+* **Location**: `{gitlab_url}/rhdh/tssc-sample-pipelines[^]`
+* **Purpose**: Contains reusable Tekton pipeline and task definitions
+* **Components**:
+* `pipelines/` - Complete workflow definitions
+* `tasks/` - Individual pipeline step definitions
+* **What it provides**: The building blocks your application pipelines reference
 
 **📦 GitOps Repository:**
 
-- **Location**: `{gitlab_url}/development/qrks-tkn-{user}-gitops[^]`
-- **Purpose**: Contains Kubernetes manifests for deployment
-- **What it does**: OpenShift GitOps (ArgoCD) monitors this repo and automatically deploys changes
+* **Location**: `{gitlab_url}/development/qrks-tkn-{user}-gitops[^]`
+* **Purpose**: Contains Kubernetes manifests for deployment
+* **What it does**: OpenShift GitOps (ArgoCD) monitors this repo and automatically deploys changes
 
 == Activity 4: Examining Your Pipeline as Code Files
 
@@ -384,10 +397,10 @@ Password: {rhdh_user_password}
 
 Once your workspace loads, you'll see:
 
-- **Pre-configured Quarkus project** with OpenShift Pipelines best practices
-- **Kubernetes manifests** in the `/deploy` directory
-- **Tekton pipeline definitions** showing your OpenShift Pipelines workflow
-- **Container configuration** with security scanning integration
+* **Pre-configured Quarkus project** with OpenShift Pipelines best practices
+* **Kubernetes manifests** in the `/deploy` directory
+* **Tekton pipeline definitions** showing your OpenShift Pipelines workflow
+* **Container configuration** with security scanning integration
 
 === Step 3: Making Your First Code Change
 
@@ -449,7 +462,10 @@ image::tekton-dev-16.png[]
 git push
 ----
 
-TIP: You just witnessed something powerful - your commit was automatically signed for security, and now it's triggering a complete OpenShift Pipelines workflow* No manual work, no tickets, no waiting!
+[TIP]
+====
+You just witnessed something powerful - your commit was automatically signed for security, and now it's triggering a complete OpenShift Pipelines workflow* No manual work, no tickets, no waiting!
+====
 
 image::tekton-dev-17.png[]
 
@@ -458,42 +474,123 @@ image::tekton-dev-17.png[]
 Congratulations! You've just experienced the power of OpenShift Pipelines development with RHADS:
 
 === Time Savings
-- **Traditional OpenShift Pipelines setup**: 3-4 weeks of Kubernetes and Tekton configuration
-- **RHADS OpenShift Pipelines approach**: Less than 5 minutes of self-service
+* **Traditional OpenShift Pipelines setup**: 3-4 weeks of Kubernetes and Tekton configuration
+* **RHADS OpenShift Pipelines approach**: Less than 5 minutes of self-service
 
 === OpenShift Pipelines Security by Default
+
 Your application includes:
+
 * Automated container vulnerability scanning
 * Image signing and verification with OpenShift Pipelines
 * Tekton pipeline security enforcement
 * Kubernetes-native security policies
 
 === Zero Platform Overhead
+
 Everything was created automatically:
+
 * GitLab repositories with Kubernetes manifests
 * Tekton pipelines deployed and configured
 * Security tools integrated with OpenShift Pipelines workflows
 * OpenShift resources provisioned
 
+== Understanding Your OpenShift Pipelines(Tekton) Pipeline
+
+Now that you've triggered your first pipeline, let's understand what's happening behind the scenes. Your OpenShift Pipelines (Tekton) pipeline is executing several key tasks that ensure security, quality, and deployment automation.
+
+=== Pipeline Tasks Overview
+
+**Task 1: `init`**
+Pipeline resources and artifacts required for this pipeline run are initialized. Any reusable components needed downstream are set up.
+
+**Task 2: `clone-repository`**
+The source code repository that triggered the pipeline is cloned. The latest code is ensured to be fetched for verification and build.
+
+**Task 3: `verify-commit`**
+The Git commit signature is verified using the `gitsign` tool, which is integrated with Red Hat Trusted Application Pipeline (RHTAP). It is ensured by this step that the commit comes from a trusted source and hasn't been tampered with. Details like who signed the commit and whether it passed verification will be shown by clicking on this task in the pipeline UI.
+
+**Task 4: `package`**
+The Java source code is built and a Maven artifact — in this case, a Quarkus JAR file — is created.
+
+**Task 5: `build-container`**
+A container image for the Quarkus application is built. The following is then performed:
+
+* The image is signed using **Cosign**
+* An **SBOM** (Software Bill of Materials) is generated
+* The image is attested using **in-toto** for provenance
+
+The image tag corresponds to the Git commit ID that triggered the pipeline.
+
+**Task 6.1: `upload-sboms-to-trustification`**
+The SBOM is uploaded to **Red Hat Trusted Profile Analyzer (TPA)** so teams can analyze it for CVEs, vendor advisories, and vulnerabilities. TPA can be accessed at {tpa_url}[Red Hat Trusted Profile Analyzer^] using username `{tpa_user}` and password `{tpa_user_password}`. *SBOMs* on the left menu can be clicked to view results.
+
+**Task 6.2: `update-deployment`**
+The new image reference is committed into the GitOps repository. **OpenShift GitOps** (Argo CD) is allowed by this to automatically deploy the new version.
+
+**Task 7.1: `acs-image-check`**
+Policy checks on the container image are performed using **Red Hat Advanced Cluster Security (ACS)**. It is ensured that the image doesn't violate any organization-defined security policies.
+
+**Task 7.2: `acs-image-scan`**
+The image is scanned for known vulnerabilities and a report is generated. CVEs and risk scores identified in the image will be shown by clicking on this step.
+
+**Task 7.3: `acs-deploy-check`**
+The deployment configuration and image are evaluated from a security and compliance perspective. The results are stored in ACS for auditability and enforcement. ACS can also be visited at {acs_url}[Red Hat Advanced Cluster Security^] using `{acs_admin_user}` / `{acs_admin_password}` to explore deeper policy and scan results.
+
+**Task 8.1: `show-sbom`**
+The SBOM generated in earlier stages is displayed.
+
+**Task 8.2: `show-summary`**
+A high-level summary of the build, verification, signing, and scan results is shown.
+
+---
+
+These aren't just traditional CI steps, as can be seen. Every stage adds a layer of trust, traceability, and security — without slowing down the developer. These steps are not optional or best-effort — they are **enforced** through policy and integrated tooling, giving teams security by default.
+
+=== Brief Note on Pipelines as Code
+
+These pipelines are defined and version-controlled alongside the application code. The CI/CD process is made by this design to be:
+
+* **Transparent** — developers can see exactly how their builds work
+* **Consistent** — pipelines follow a shared structure across projects
+* **Adaptable** — changes to pipelines are tracked like any other code
+
+For developers at ACME:
+
+* No need to file tickets or wait on DevOps — pipelines are part of the repo.
+* Updates to pipeline steps can be proposed via pull requests, just like application code.
+* How a change moves from code to container to deployment is easier to understand.
+
+For the ACME platform team:
+
+* Security, compliance, and best practices are automatically enforced by pipeline templates.
+* Shared logic updates (like SBOM scanning or image signing) can be reused across all projects.
+* Troubleshooting and auditing each change is easier with pipelines stored alongside code.
+
+More autonomy is given to developers by this approach while ensuring the platform team still enforces security and governance by default.
+
 == Understanding OpenShift Pipelines Benefits
 
 === Developer Experience
-- **Browser-based development** - No local Kubernetes setup required
-- **Live reload capabilities** - See changes instantly
-- **Integrated debugging** - OpenShift Pipelines application troubleshooting
-- **Collaborative workspaces** - Team development in the cloud
+
+* **Browser-based development** - No local Kubernetes setup required
+* **Live reload capabilities** - See changes instantly
+* **Integrated debugging** - OpenShift Pipelines application troubleshooting
+* **Collaborative workspaces** - Team development in the cloud
 
 === Operational Advantages
-- **Kubernetes-native scaling** - Applications scale with platform capabilities
-- **GitOps automation** - Declarative, auditable deployments
-- **Resource efficiency** - Optimal resource utilization
-- **Multi-cloud portability** - Run anywhere Kubernetes runs
+
+* **Kubernetes-native scaling** - Applications scale with platform capabilities
+* **GitOps automation** - Declarative, auditable deployments
+* **Resource efficiency** - Optimal resource utilization
+* **Multi-cloud portability** - Run anywhere Kubernetes runs
 
 === Security Enhancements
-- **Container-first security** - Security scanning at every layer
-- **Immutable infrastructure** - Consistent, secure deployments
-- **Policy enforcement** - Platform-level security controls
-- **Complete audit trails** - Full supply chain visibility
+
+* **Container-first security** - Security scanning at every layer
+* **Immutable infrastructure** - Consistent, secure deployments
+* **Policy enforcement** - Platform-level security controls
+* **Complete audit trails** - Full supply chain visibility
 
 == Next Steps
 
