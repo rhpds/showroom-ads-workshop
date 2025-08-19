@@ -299,7 +299,7 @@ spec:
 
 Watch how ArgoCD automatically syncs your validated changes to the staging environment.
 
-ArgoCD (OpenShift GitOps) continuously monitors your GitOps repository and automatically applies any changes to your staging environment* When the pipeline updates deployment manifests, ArgoCD detects these changes and deploys them without any manual intervention - ensuring your staging environment always matches what's defined in Git.
+ArgoCD (OpenShift GitOps) continuously monitors your GitOps repository and automatically applies any changes to your staging environment. When the pipeline updates deployment manifests, ArgoCD detects these changes and deploys them without any manual intervention - ensuring your staging environment always matches what's defined in Git.
 
 === Step 1: Verify Deployment Updates
 
