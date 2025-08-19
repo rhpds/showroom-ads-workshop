@@ -260,6 +260,31 @@ spec:
 +          image: quay.tssc-quay/tssc/qrks-tkn-{user}:prod-v1.0
 ----
 
+== Activity 3: Observing Production GitOps Deployment
+
+Watch how ArgoCD automatically syncs your validated changes to the production environment.
+
+ArgoCD (OpenShift GitOps) continuously monitors your GitOps repository and automatically applies any changes to your production environment. When the pipeline updates deployment manifests, ArgoCD detects these changes and deploys them without any manual intervention - ensuring your production environment always matches what's defined in Git.
+
+=== Step 1: Verify Production Deployment Updates
+
+* Access your GitOps repository at {gitlab_url}/development/qrks-tkn-{user}-gitops[qrks-tkn-{user}-gitops^]
+* Check the updated deployment manifests in the `components/qrks-tkn-{user}/overlays/prod` directory
+* Notice how the image tag has been automatically updated to your production release version (e.g., `prod-v1.0`)
+* Observe that this happens without any manual intervention
+
+=== Step 2: Monitor ArgoCD Production Synchronization
+
+* ArgoCD automatically detects the Git changes in your GitOps repository
+* ArgoCD syncs these changes to the production environment
+* The production deployment completes successfully without manual kubectl commands
+
+=== Step 3: Validate Production Environment
+
+* Access your production application through its route
+* Verify that your changes are live and functioning correctly in production
+* Confirm that the production environment matches your expectations
+
 == Workshop Summary and Reflection
 
 === What You Accomplished
