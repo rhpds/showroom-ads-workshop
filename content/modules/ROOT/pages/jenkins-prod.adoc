@@ -7,11 +7,11 @@
 
 By the end of this section, you will:
 
-- **Understand** how Jenkins production deployments transform from weeks to minutes while maintaining enterprise security
-- **Experience** GitLab Release workflows that trigger production Jenkins pipelines automatically
-- **Learn** about enterprise-grade security validation integrated into Jenkins production workflows
-- **See** how GitOps ensures safe production deployments through Jenkins automation
-- **Understand** how Jenkins expertise becomes more valuable with enhanced production capabilities
+* **Understand** how Jenkins production deployments transform from weeks to minutes while maintaining enterprise security
+* **Experience** GitLab Release workflows that trigger production Jenkins pipelines automatically
+* **Learn** about enterprise-grade security validation integrated into Jenkins production workflows
+* **See** how GitOps ensures safe production deployments through Jenkins automation
+* **Understand** how Jenkins expertise becomes more valuable with enhanced production capabilities
 
 == Understanding Jenkins Production Transformation
 
@@ -49,17 +49,17 @@ RHADS provides flexible production deployment options that work with your existi
 
 Your Jenkins pipeline reacts differently based on the trigger type, providing appropriate control for different environments:
 
-- **Git tag push** promotes the image to *staging* using familiar Jenkins workflows
-- **GitLab Release creation** triggers *production* promotion with additional safeguards
+* **Git tag push** promotes the image to *staging* using familiar Jenkins workflows
+* **GitLab Release creation** triggers *production* promotion with additional safeguards
 
 This separation allows teams to enforce distinct policies and approval flows for different environments while using the same enhanced Jenkins pipeline infrastructure.
 
 **Business Value:**
 
-- **Staging Speed:** Git tag push enables rapid staging validation through Jenkins
-- **Production Control:** GitLab Release provides intentional production gate with audit trail
-- **Risk Management:** Different triggers allow appropriate validation rigor per environment
-- **Jenkins Consistency:** Same familiar Jenkins pipeline handles both environments
+* **Staging Speed:** Git tag push enables rapid staging validation through Jenkins
+* **Production Control:** GitLab Release provides intentional production gate with audit trail
+* **Risk Management:** Different triggers allow appropriate validation rigor per environment
+* **Jenkins Consistency:** Same familiar Jenkins pipeline handles both environments
 
 == Activity 2: Creating a GitLab Release for Production
 
@@ -132,10 +132,10 @@ image::jenkins-prod-6.png[]
 
 This Jenkins task ensures complete accountability for production deployments:
 
-- **Production Audit Confidence:** Regulators can trace every production change to its source through Jenkins
-- **Compliance Automation:** SOC 2 and PCI requirements satisfied automatically via Jenkins workflows
-- **Risk Management:** Perfect tracking of what was deployed when production issues arise
-- **Investment Leverage:** Enhanced traceability through existing Jenkins infrastructure
+* **Production Audit Confidence:** Regulators can trace every production change to its source through Jenkins
+* **Compliance Automation:** SOC 2 and PCI requirements satisfied automatically via Jenkins workflows
+* **Risk Management:** Perfect tracking of what was deployed when production issues arise
+* **Investment Leverage:** Enhanced traceability through existing Jenkins infrastructure
 
 **Technical Implementation:**
 
@@ -169,18 +169,18 @@ This Jenkins stage provides the most critical business protection by validating 
 
 **Business Value for Jenkins Production:**
 
-- **Zero Security Incidents:** Automated validation catches issues before customers are affected
-- **Compliance Automation:** SOC 2, PCI requirements enforced automatically through Jenkins
-- **Speed Enhancement:** Security validation in minutes vs* weeks using Jenkins workflows
-- **Risk Elimination:** 100% consistent security enforcement across all Jenkins production deployments
+* **Zero Security Incidents:** Automated validation catches issues before customers are affected
+* **Compliance Automation:** SOC 2, PCI requirements enforced automatically through Jenkins
+* **Speed Enhancement:** Security validation in minutes vs* weeks using Jenkins workflows
+* **Risk Elimination:** 100% consistent security enforcement across all Jenkins production deployments
 
 **Enterprise Production Security Validations in Jenkins:**
 
-- **Verifies signatures (Cosign)** integrated with Jenkins security processes
-- **Checks for Software Bill of Materials (SBOM)** for production supply chain security
-- **Confirms supply chain integrity (SLSA provenance)** through Jenkins audit trails
-- **Runs CVE checks** to prevent production vulnerabilities
-- **Enforces custom organizational rules** through Jenkins policy integration
+* **Verifies signatures (Cosign)** integrated with Jenkins security processes
+* **Checks for Software Bill of Materials (SBOM)** for production supply chain security
+* **Confirms supply chain integrity (SLSA provenance)** through Jenkins audit trails
+* **Runs CVE checks** to prevent production vulnerabilities
+* **Enforces custom organizational rules** through Jenkins policy integration
 
 **Technical Implementation in Jenkins:**
 
@@ -229,10 +229,10 @@ If any of these production checks fail through Jenkins, the pipeline stops immed
 
 This Jenkins task ensures only enterprise-validated images receive production designation:
 
-- **Clear Production Intent:** `prod-v1.0` tag signals security validation complete through Jenkins
-- **Audit Trail:** Complete traceability from source code to production via Jenkins workflows
-- **Risk Mitigation:** Only validated, compliant images reach customers through Jenkins processes
-- **Operational Clarity:** Teams know instantly which images are production-approved via Jenkins
+* **Clear Production Intent:** `prod-v1.0` tag signals security validation complete through Jenkins
+* **Audit Trail:** Complete traceability from source code to production via Jenkins workflows
+* **Risk Mitigation:** Only validated, compliant images reach customers through Jenkins processes
+* **Operational Clarity:** Teams know instantly which images are production-approved via Jenkins
 
 **Technical Implementation in Jenkins:**
 
@@ -247,9 +247,9 @@ skopeo copy \
 This Jenkins step doesn't rebuild the image* It simply re-tags a verified, immutable image 	 ensuring complete traceability and production readiness confidence.
 
 By tagging it `prod-v1.0` through Jenkins automation, we make it clear to downstream systems, release teams, and auditors that:
-- The image has passed all enterprise validations through Jenkins
-- It's safe and approved for production deployment
-- Its origin and promotion path are completely transparent via Jenkins audit trails
+* The image has passed all enterprise validations through Jenkins
+* It's safe and approved for production deployment
+* Its origin and promotion path are completely transparent via Jenkins audit trails
 
 === Task 4: deploy-to-prod
 
@@ -257,10 +257,10 @@ By tagging it `prod-v1.0` through Jenkins automation, we make it clear to downst
 
 This Jenkins task ensures validated changes reach production automatically without manual intervention:
 
-- **Zero Manual Errors:** GitOps automation eliminates deployment mistakes in Jenkins production workflows
-- **100% Audit Trail:** Every production change tracked and traceable through Jenkins processes
-- **Consistent Process:** Same Jenkins deployment method for routine and emergency production changes
-- **Risk Elimination:** No manual steps that could introduce errors during critical production releases
+* **Zero Manual Errors:** GitOps automation eliminates deployment mistakes in Jenkins production workflows
+* **100% Audit Trail:** Every production change tracked and traceable through Jenkins processes
+* **Consistent Process:** Same Jenkins deployment method for routine and emergency production changes
+* **Risk Elimination:** No manual steps that could introduce errors during critical production releases
 
 **Technical Implementation through Jenkins:**
 
@@ -284,9 +284,9 @@ spec:
 ----
 
 Argo CD continuously watches this GitOps repository* Once it detects Jenkins updates:
-- It syncs the production manifests
-- Deploys the new image to the production cluster
-- No manual approval or CLI interaction is needed
+* It syncs the production manifests
+* Deploys the new image to the production cluster
+* No manual approval or CLI interaction is needed
 
 This final Jenkins step completes the production promotion workflow 	 fully automated, fully auditable, and GitOps-native while preserving Jenkins expertise.
 
@@ -358,10 +358,10 @@ You've experienced how Red Hat Advanced Developer Suite transforms enterprise Je
 
 **Enhanced Jenkins Production Benefits:**
 
-- **Deployment Speed:** Jenkins production releases from 2-3 weeks 	 30 minutes
-- **Investment Protection:** Jenkins infrastructure and expertise enhanced rather than replaced
-- **Security Automation:** 100% automated policy enforcement through enhanced Jenkins workflows
-- **Risk Elimination:** Enterprise-grade security without disrupting proven Jenkins production processes
+* **Deployment Speed:** Jenkins production releases from 2-3 weeks 	 30 minutes
+* **Investment Protection:** Jenkins infrastructure and expertise enhanced rather than replaced
+* **Security Automation:** 100% automated policy enforcement through enhanced Jenkins workflows
+* **Risk Elimination:** Enterprise-grade security without disrupting proven Jenkins production processes
 
 **Enterprise Production Security through Jenkins:**
 
@@ -406,17 +406,17 @@ Now that you've seen the complete development to production flow, let's review t
 
 **For Jenkins Teams:**
 
-- **Familiar Tools:** Continue using Jenkins Blue Ocean, pipeline syntax, and troubleshooting approaches you know
-- **Enhanced Capabilities:** Gain enterprise security, GitOps, and compliance automation within Jenkins
-- **Preserved Investment:** Leverage existing Jenkins infrastructure, expertise, and operational knowledge
-- **Modern Integration:** Bridge Jenkins CI with modern GitOps CD patterns seamlessly
+* **Familiar Tools:** Continue using Jenkins Blue Ocean, pipeline syntax, and troubleshooting approaches you know
+* **Enhanced Capabilities:** Gain enterprise security, GitOps, and compliance automation within Jenkins
+* **Preserved Investment:** Leverage existing Jenkins infrastructure, expertise, and operational knowledge
+* **Modern Integration:** Bridge Jenkins CI with modern GitOps CD patterns seamlessly
 
 **For Enterprise Leadership:**
 
-- **ROI Protection:** Jenkins investments enhanced rather than replaced
-- **Risk Reduction:** Enterprise security automatically enforced in all Jenkins workflows
-- **Compliance Automation:** SOC 2, PCI, and audit requirements met through Jenkins processes
-- **Competitive Advantage:** Deploy faster with higher confidence using enhanced Jenkins capabilities
+* **ROI Protection:** Jenkins investments enhanced rather than replaced
+* **Risk Reduction:** Enterprise security automatically enforced in all Jenkins workflows
+* **Compliance Automation:** SOC 2, PCI, and audit requirements met through Jenkins processes
+* **Competitive Advantage:** Deploy faster with higher confidence using enhanced Jenkins capabilities
 
 == What's Next
 
@@ -424,24 +424,24 @@ Congratulations! You've successfully experienced the complete Jenkins enhancemen
 
 === What You Accomplished
 
-- **Self-Service Application Creation:** Generated complete Jenkins applications in minutes instead of weeks
-- **Enhanced Security Integration:** Experienced enterprise security seamlessly integrated into Jenkins workflows
-- **Automated Staging Validation:** Triggered sophisticated validation through simple Git tags in Jenkins
-- **Safe Production Deployment:** Deployed to production with enterprise confidence through enhanced Jenkins
-- **Preserved Jenkins Expertise:** Used familiar Jenkins tools enhanced with modern capabilities
+* **Self-Service Application Creation:** Generated complete Jenkins applications in minutes instead of weeks
+* **Enhanced Security Integration:** Experienced enterprise security seamlessly integrated into Jenkins workflows
+* **Automated Staging Validation:** Triggered sophisticated validation through simple Git tags in Jenkins
+* **Safe Production Deployment:** Deployed to production with enterprise confidence through enhanced Jenkins
+* **Preserved Jenkins Expertise:** Used familiar Jenkins tools enhanced with modern capabilities
 
 === Business Impact Realized
 
-- **Jenkins Pipeline Setup:** 1-2 weeks 	 5 minutes with self-service templates
-- **Security Integration:** Manual coordination 	 Automatic enforcement in Jenkins workflows
-- **Staging Validation:** 3-5 days 	 30 minutes through enhanced Jenkins automation
-- **Production Deployment:** 2-3 weeks 	 30 minutes with Jenkins-driven GitOps
+* **Jenkins Pipeline Setup:** 1-2 weeks 	 5 minutes with self-service templates
+* **Security Integration:** Manual coordination 	 Automatic enforcement in Jenkins workflows
+* **Staging Validation:** 3-5 days 	 30 minutes through enhanced Jenkins automation
+* **Production Deployment:** 2-3 weeks 	 30 minutes with Jenkins-driven GitOps
 
 === Enterprise Benefits Delivered
 
-- **Investment Protection:** Enhanced Jenkins capabilities preserve infrastructure and team expertise
-- **Security Excellence:** Enterprise-grade security integrated into familiar Jenkins workflows
-- **Operational Efficiency:** Platform teams focus on innovation rather than Jenkins maintenance
-- **Competitive Advantage:** Faster, safer delivery through enhanced Jenkins automation
+* **Investment Protection:** Enhanced Jenkins capabilities preserve infrastructure and team expertise
+* **Security Excellence:** Enterprise-grade security integrated into familiar Jenkins workflows
+* **Operational Efficiency:** Platform teams focus on innovation rather than Jenkins maintenance
+* **Competitive Advantage:** Faster, safer delivery through enhanced Jenkins automation
 
 The transformation demonstrates how Red Hat Advanced Developer Suite enhances rather than replaces your valuable Jenkins investment, making your Jenkins expertise more valuable while delivering enterprise security and modern development capabilities.

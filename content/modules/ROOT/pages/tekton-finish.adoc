@@ -40,22 +40,22 @@ Congratulations! You've successfully completed the **OpenShift Pipelines (Tekton
 === Business Value Demonstrated
 
 **Speed and Efficiency:**
-- **Application setup**: 3-4 weeks → 5 minutes
-- **Security integration**: Manual → Fully automated
-- **Deployment pipeline**: Custom → Standardized templates
-- **Developer onboarding**: Days → Minutes
+* **Application setup**: 3-4 weeks → 5 minutes
+* **Security integration**: Manual → Fully automated
+* **Deployment pipeline**: Custom → Standardized templates
+* **Developer onboarding**: Days → Minutes
 
 **Security and Compliance:**
-- **Vulnerability management**: 100% automated scanning
-- **Supply chain integrity**: Cryptographic verification
-- **Policy enforcement**: Built-in compliance validation
-- **Audit readiness**: Continuous compliance documentation
+* **Vulnerability management**: 100% automated scanning
+* **Supply chain integrity**: Cryptographic verification
+* **Policy enforcement**: Built-in compliance validation
+* **Audit readiness**: Continuous compliance documentation
 
 **Operational Excellence:**
-- **Platform overhead**: Eliminated manual setup requests
-- **Configuration consistency**: Standardized across all projects
-- **Infrastructure management**: Self-healing and self-scaling
-- **Developer productivity**: Focus on business value creation
+* **Platform overhead**: Eliminated manual setup requests
+* **Configuration consistency**: Standardized across all projects
+* **Infrastructure management**: Self-healing and self-scaling
+* **Developer productivity**: Focus on business value creation
 
 == Key Takeaways
 
@@ -108,10 +108,10 @@ Congratulations! You've successfully completed the **OpenShift Pipelines (Tekton
 
 **Ideal Use Cases:**
 
-- **New application development** - Start with OpenShift Pipelines best practices
-- **Microservices architectures** - Consistent deployment and scaling patterns
-- **Container-first organizations** - Leverage existing Kubernetes investments
-- **DevOps transformation initiatives** - Modernize development practices
+* **New application development** - Start with OpenShift Pipelines best practices
+* **Microservices architectures** - Consistent deployment and scaling patterns
+* **Container-first organizations** - Leverage existing Kubernetes investments
+* **DevOps transformation initiatives** - Modernize development practices
 
 **Organizational Readiness:**
 
@@ -142,10 +142,10 @@ Congratulations! You've successfully completed the **OpenShift Pipelines (Tekton
 
 The OpenShift Pipelines approach demonstrated in this module can be combined with:
 
-- **Legacy application modernization** - Containerization pathways
-- **Multi-cloud deployments** - Consistent patterns across providers
-- **Compliance frameworks** - Integration with enterprise governance
-- **Existing enterprise tools** - Gradual integration strategies
+* **Legacy application modernization** - Containerization pathways
+* **Multi-cloud deployments** - Consistent patterns across providers
+* **Compliance frameworks** - Integration with enterprise governance
+* **Existing enterprise tools** - Gradual integration strategies
 
 === Migration Strategies
 
@@ -162,44 +162,44 @@ The OpenShift Pipelines approach demonstrated in this module can be combined wit
 
 **For Your Organization:**
 
-- **Assess current development practices** - Identify areas for improvement
-- **Evaluate Kubernetes readiness** - Ensure platform capabilities
-- **Plan pilot projects** - Start with low-risk, high-value applications
-- **Develop team skills** - Invest in OpenShift Pipelines training and education
+* **Assess current development practices** - Identify areas for improvement
+* **Evaluate Kubernetes readiness** - Ensure platform capabilities
+* **Plan pilot projects** - Start with low-risk, high-value applications
+* **Develop team skills** - Invest in OpenShift Pipelines training and education
 
 **Technical Preparation:**
 
-- **Review security requirements** - Align with organizational policies
-- **Plan integration points** - Consider existing tool ecosystems
-- **Establish governance** - Define standards and best practices
-- **Prepare infrastructure** - Ensure adequate platform capacity
+* **Review security requirements** - Align with organizational policies
+* **Plan integration points** - Consider existing tool ecosystems
+* **Establish governance** - Define standards and best practices
+* **Prepare infrastructure** - Ensure adequate platform capacity
 
 === Continued Learning
 
 **Explore Related Technologies:**
 
-- **Tekton advanced features** - Custom tasks, triggers, and operators
-- **ArgoCD GitOps patterns** - Advanced deployment strategies
-- **OpenShift service mesh** - Microservices networking and security
-- **Kubernetes operators** - Application lifecycle management
+* **Tekton advanced features** - Custom tasks, triggers, and operators
+* **ArgoCD GitOps patterns** - Advanced deployment strategies
+* **OpenShift service mesh** - Microservices networking and security
+* **Kubernetes operators** - Application lifecycle management
 
 **Related Topics:**
 
-- **Enterprise integration** - How RHADS enhances existing enterprise tooling
-- **Hybrid cloud strategies** - Multi-platform deployment patterns
-- **Legacy modernization** - Gradual transformation approaches
+* **Enterprise integration** - How RHADS enhances existing enterprise tooling
+* **Hybrid cloud strategies** - Multi-platform deployment patterns
+* **Legacy modernization** - Gradual transformation approaches
 
 == Workshop Reflection
 
 Take a moment to consider these questions:
 
-- **Value Proposition**: What specific benefits would this OpenShift Pipelines approach provide for your organization's development practices?
+* **Value Proposition**: What specific benefits would this OpenShift Pipelines approach provide for your organization's development practices?
 
-- **Implementation Challenges**: What organizational or technical barriers might need to be addressed for successful adoption?
+* **Implementation Challenges**: What organizational or technical barriers might need to be addressed for successful adoption?
 
-- **Strategic Alignment**: How does this OpenShift Pipelines approach align with your organization's digital transformation goals?
+* **Strategic Alignment**: How does this OpenShift Pipelines approach align with your organization's digital transformation goals?
 
-- **Team Impact**: How would this change the day-to-day experience for your development, platform, and security teams?
+* **Team Impact**: How would this change the day-to-day experience for your development, platform, and security teams?
 
 == Additional Resources
 

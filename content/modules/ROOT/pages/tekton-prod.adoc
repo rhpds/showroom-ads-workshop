@@ -9,11 +9,11 @@ Red Hat Advanced Developer Suite: Enterprise Security and GitOps Promotion
 
 By the end of this workshop section, you will:
 
-- **Understand** enterprise production deployment workflows and security requirements
-- **Execute** a secure production release using automated GitOps promotion
-- **Implement** enterprise-grade security validation using Enterprise Contract
-- **Monitor** production deployment pipelines and validate security posture
-- **Comprehend** the complete supply chain security model and business value
+* **Understand** enterprise production deployment workflows and security requirements
+* **Execute** a secure production release using automated GitOps promotion
+* **Implement** enterprise-grade security validation using Enterprise Contract
+* **Monitor** production deployment pipelines and validate security posture
+* **Comprehend** the complete supply chain security model and business value
 
 == Workshop Scenario: Enterprise Production Transformation
 
@@ -152,10 +152,10 @@ This is the most critical business protection activity — you'll observe automa
 * Inconsistent security standards across different teams and deployments
 
 **RHADS Business Protection:**
-- **Zero Security Incidents:** Automated validation catches issues before they reach customers
-- **100% Consistent Standards:** Every deployment meets the same enterprise security policies
-- **Instant Compliance:** SOC 2, PCI, and regulatory requirements enforced automatically
-- **No Deployment Delays:** Security validation happens in minutes, not weeks
+* **Zero Security Incidents:** Automated validation catches issues before they reach customers
+* **100% Consistent Standards:** Every deployment meets the same enterprise security policies
+* **Instant Compliance:** SOC 2, PCI, and regulatory requirements enforced automatically
+* **No Deployment Delays:** Security validation happens in minutes, not weeks
 
 === Step 1: Observe Enterprise Contract Validation Process
 
@@ -166,11 +166,11 @@ This is the most critical business protection activity — you'll observe automa
 * Note the comprehensive security checks being performed automatically
 
 **Enterprise Security Validations Performed:**
-- **Digital signature verification:** Proves the image hasn't been tampered with
-- **SBOM validation:** Complete dependency scanning for vulnerability management
-- **Provenance verification:** Confirms the image came from trusted build processes
-- **CVE scanning:** Automatic vulnerability detection and policy enforcement
-- **Organizational policy compliance:** Custom security rules enforced automatically
+* **Digital signature verification:** Proves the image hasn't been tampered with
+* **SBOM validation:** Complete dependency scanning for vulnerability management
+* **Provenance verification:** Confirms the image came from trusted build processes
+* **CVE scanning:** Automatic vulnerability detection and policy enforcement
+* **Organizational policy compliance:** Custom security rules enforced automatically
 
 === Step 2: Understand the Security Technologies
 
@@ -178,10 +178,10 @@ This is the most critical business protection activity — you'll observe automa
 ====
 **Key Security Components:**
 
-- **Enterprise Contract (EC):** Protects your business by ensuring only compliant, secure images reach production
-- **TUF (The Update Framework):** Prevents tampering with security metadata — protecting against supply chain attacks
-- **SBOM (Software Bill of Materials):** Enables rapid vulnerability response — critical for security posture
-- **Provenance:** Proves build integrity — essential for compliance and audit requirements
+* **Enterprise Contract (EC):** Protects your business by ensuring only compliant, secure images reach production
+* **TUF (The Update Framework):** Prevents tampering with security metadata — protecting against supply chain attacks
+* **SBOM (Software Bill of Materials):** Enables rapid vulnerability response — critical for security posture
+* **Provenance:** Proves build integrity — essential for compliance and audit requirements
 ====
 
 === Step 3: Examine Security Validation Commands
@@ -277,10 +277,10 @@ This task serves as an automated bridge from security validation to customer val
 
 **RHADS Business Benefits:**
 
-- **Zero Manual Errors:** GitOps automation eliminates human deployment mistakes
-- **100% Audit Trail:** Every production change tracked and traceable
-- **Consistent Process:** Same deployment method for routine and emergency changes
-- **Continuous Compliance:** All changes follow the same validated security process
+* **Zero Manual Errors:** GitOps automation eliminates human deployment mistakes
+* **100% Audit Trail:** Every production change tracked and traceable
+* **Consistent Process:** Same deployment method for routine and emergency changes
+* **Continuous Compliance:** All changes follow the same validated security process
 
 === Step 3: Observe GitOps Repository Updates
 
@@ -326,15 +326,199 @@ patchesStrategicMerge:
 * Only verified, tagged images are deployed by this process, maintaining full auditability
 
 **Business Impact:**
-- **Deployment Confidence:** Argo CD ensures exactly what was validated gets deployed
-- **Risk Elimination:** No manual steps that could introduce errors during critical releases
-- **Compliance Automation:** Production environment continuously reflects audited Git state
-- **Operational Excellence:** Standardized deployment process across all services
+* **Deployment Confidence:** Argo CD ensures exactly what was validated gets deployed
+* **Risk Elimination:** No manual steps that could introduce errors during critical releases
+* **Compliance Automation:** Production environment continuously reflects audited Git state
+* **Operational Excellence:** Standardized deployment process across all services
 
 [NOTE]
 ====
 The GitOps overlay system ensures the production environment stays secure, compliant, and traceable while enabling rapid deployment of business-critical features.
 ====
+
+== Activity 2: Understanding Pipeline Tasks
+
+The production pipeline provides enterprise-grade security validation while eliminating manual bottlenecks* Let's examine each task in detail.
+
+=== Task 1.1: extract-destination-image-tag
+
+**Purpose:** Production image tag extraction from Git releases
+
+This task extracts the Git tag from the GitLab Release and converts it to a production image tag, enabling:
+
+* Production release coordination through GitLab Releases
+* Complete audit trails for production deployments
+* End-to-end traceability from release to production deployment
+
+=== Task 1.2: gather-images-to-verify
+
+**Purpose:** Production image selection and metadata generation
+
+This task selects the production-ready image based on the Git tag and generates `images.json`, which:
+
+* Ensures only production-validated images are considered for deployment
+* Provides production deployment metadata for compliance
+* Creates mapping between Git release and production container image
+
+[NOTE]
+====
+This mapping between Git release and production image provides end-to-end traceability — we know exactly what release went into what production deployment.
+====
+
+**Sample `images.json` for production:**
+[source,json,subs="attributes"]
+----
+{
+  "components": [
+    {
+      "containerImage": "quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0",
+      "source": {
+        "git": {
+          "url": "{gitlab_url}/development/qrks-tkn-{user}",
+          "revision": "v1.0"
+        }
+      }
+    }
+  ]
+}
+----
+
+=== Task 2: verify-enterprise-contract
+
+**Purpose:** Production security validation through Enterprise Contract
+
+This step enforces production-grade security validations that protect your business and customers:
+
+**Production Security Validations:**
+* **Container image signature verification** using cryptographic signing
+* **Software Bill of Materials (SBOM) validation** for production supply chain security
+* **CVE scanning** to prevent production vulnerabilities
+* **Production policy compliance** ensuring enterprise security standards
+* **Provenance attestation** to verify production build integrity
+
+**Production Business Value:**
+
+* Production security validation: 2-3 weeks → Minutes
+* Production risk prevention before customer exposure
+* Production audit readiness for compliance
+* Automatic production CVE scanning and policy enforcement
+
+**Production Enterprise Impact:**
+
+* Production incident prevention: Issues caught before customer exposure
+* Production audit confidence: Complete compliance evidence
+* Production deployment velocity: Minutes instead of weeks
+* Production risk elimination: 100% consistent security enforcement
+
+[IMPORTANT]
+====
+If any production security check fails, the pipeline halts* Only fully validated images proceed to production deployment.
+====
+
+**Production Technical Implementation:**
+
+The Enterprise Contract CLI performs production validation:
+
+[source,bash,subs="attributes"]
+----
+ec validate image \
+  --image quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0 \
+  --policy production \
+  --public-key k8s://openshift/trusted-keys \
+  --output json
+----
+
+**Production validation output:**
+[source,json]
+----
+{
+  "successes": [
+    "Production image is signed and verified with cosign",
+    "Production SBOM (CycloneDX) is present",
+    "Production provenance attestation matches source repo",
+    "No production vulnerabilities found",
+    "Production policy compliance verified"
+  ],
+  "failures": []
+}
+----
+
+=== Task 3: copy-image
+
+**Purpose:** Production image promotion with security designation
+
+This task promotes the production-validated image with a production tag (e.g., `prod-v1.0`), ensuring:
+
+* Only production-validated images receive production designation
+* Production-grade security assurance
+* No unauthorized images reach production deployment
+
+**Production Technical Implementation:**
+
+[source,bash,subs="attributes"]
+----
+skopeo copy \
+  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0 \
+  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:prod-v1.0
+----
+
+[IMPORTANT]
+====
+This guarantees that only production-validated artifacts are promoted — no unauthorized images slip through to production.
+====
+
+=== Task 4: update-deployment
+
+**Purpose:** Production GitOps deployment automation
+
+This task ensures production-validated changes reach production automatically through GitOps, enabling:
+
+* Production deployment immediately after validation completion
+* Production configuration validation before customer exposure
+* No manual production coordination needed
+* Production success ensures customer satisfaction
+
+[NOTE]
+====
+No manual production kubectl commands, no production YAML editing — the system automatically deploys to production based on Git* That's the production GitOps advantage.
+====
+
+**Production GitOps Implementation:**
+
+The pipeline updates production deployment files automatically:
+
+**Production `kustomization.yaml`:**
+[source,yaml]
+----
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+patchesStrategicMerge:
+  - deployment-patch.yaml
+----
+
+**Production `deployment-patch.yaml`:**
+[source,yaml,subs="attributes"]
+----
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qrks-tkn-{user}
+spec:
+  template:
+    spec:
+      containers:
+        - name: qrks-tkn-{user}
+          image: quay.tssc-quay/tssc/qrks-tkn-{user}:prod-v1.0
+----
+
+**Production Git diff showing automatic update:**
+[source,diff,subs="attributes"]
+----
+-          image: quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
++          image: quay.tssc-quay/tssc/qrks-tkn-{user}:prod-v1.0
+----
 
 == Workshop Summary and Reflection
 
@@ -345,31 +529,22 @@ Congratulations! You've successfully implemented an enterprise-grade production 
 **Pipeline Tasks Summary:**
 
 |===
-| Task | Description | Business Value
+| Phase | Purpose
 
-| Git Release Trigger
-| Initiated via GitLab Release from Tag
-| Replaces weeks of manual approval processes
+| 1.1 extract-destination-image-tag
+| Extracts the Git tag for production image naming* The Git tag becomes the image tag for production promotion.
 
-| extract-destination-image-tag
-| Extracts the Git tag for production image naming
-| Ensures perfect traceability and audit compliance
+| 1.2 gather-images-to-verify
+| Selects the image based on the Git tag and generates `images.json` with complete metadata.
 
-| gather-images-to-verify
-| Generates `images.json` with complete metadata
-| Provides definitive proof of deployment artifacts
+| 2 verify-enterprise-contract
+| Validates signature, SBOM, provenance, CVEs, and policies — all enforced via the EC CLI.
 
-| verify-enterprise-contract
-| Validates signature, SBOM, provenance, CVEs, and policies
-| Prevents security incidents and ensures compliance
+| 3 copy-image
+| Promotes the validated image with `prod-` designation (e.g., `prod-v1.0`).
 
-| copy-image
-| Promotes validated image with `prod-` designation
-| Creates quality gate ensuring only secure images reach production
-
-| update-deployment
-| Updates GitOps repository to trigger Argo CD deployment
-| Eliminates manual deployment errors and ensures consistency
+| 4 update-deployment
+| Updates `overlays/prod` to trigger Argo CD deployment to production.
 |===
 
 === Key Business Transformations Achieved
@@ -377,10 +552,10 @@ Congratulations! You've successfully implemented an enterprise-grade production 
 You've demonstrated how enterprise security and business velocity reinforce each other:
 
 **Measurable Business Impact:**
-- **Production Release Time:** 2-3 weeks 	 30 minutes (99% reduction)
-- **Security Compliance:** 100% automated with zero manual reviews
-- **Competitive Advantage:** Deploy features while competitors wait for approvals
-- **Audit Readiness:** Continuous compliance evidence generated automatically
+* **Production Release Time:** 2-3 weeks 	 30 minutes (99% reduction)
+* **Security Compliance:** 100% automated with zero manual reviews
+* **Competitive Advantage:** Deploy features while competitors wait for approvals
+* **Audit Readiness:** Continuous compliance evidence generated automatically
 
 **Risk Mitigation:**
 
@@ -393,15 +568,15 @@ You've demonstrated how enterprise security and business velocity reinforce each
 
 Take a moment to consider these questions about your workshop experience:
 
-- **Process Transformation:** How does this automated approach compare to traditional deployment processes in your organization?
+* **Process Transformation:** How does this automated approach compare to traditional deployment processes in your organization?
 
-- **Security Integration:** What security capabilities are now automatically included that would typically require manual configuration and review?
+* **Security Integration:** What security capabilities are now automatically included that would typically require manual configuration and review?
 
-- **Business Impact:** How would this level of automation affect your organization's ability to respond to market demands and competitive pressures?
+* **Business Impact:** How would this level of automation affect your organization's ability to respond to market demands and competitive pressures?
 
-- **Operational Excellence:** What operational benefits would your platform and security teams gain from this approach?
+* **Operational Excellence:** What operational benefits would your platform and security teams gain from this approach?
 
-- **Implementation Planning:** What would be the first steps to implement similar capabilities in your organization?
+* **Implementation Planning:** What would be the first steps to implement similar capabilities in your organization?
 
 == Next Steps and Advanced Topics
 
@@ -425,10 +600,10 @@ Take a moment to consider these questions about your workshop experience:
 
 The following demonstrations can further illustrate enterprise transformation capabilities:
 
-- **Security Failure Simulation:** Modify Enterprise Contract policies to demonstrate automatic pipeline failure when security requirements aren't met
-- **Image Registry Exploration:** Display Quay registry showing production-tagged images and security scan results
-- **Argo CD Monitoring:** Demonstrate real-time GitOps synchronization and deployment status
-- **Policy Customization:** Show how Enterprise Contract policies can be customized for specific organizational requirements
+* **Security Failure Simulation:** Modify Enterprise Contract policies to demonstrate automatic pipeline failure when security requirements aren't met
+* **Image Registry Exploration:** Display Quay registry showing production-tagged images and security scan results
+* **Argo CD Monitoring:** Demonstrate real-time GitOps synchronization and deployment status
+* **Policy Customization:** Show how Enterprise Contract policies can be customized for specific organizational requirements
 
 == Congratulations on Completing the Production Workshop!
 

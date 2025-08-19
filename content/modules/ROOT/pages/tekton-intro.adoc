@@ -13,20 +13,20 @@ Welcome to the OpenShift Pipelines development path! In this module, you'll expe
 
 By completing this module, you will:
 
-- **Create secure applications** using self-service software templates
-- **Develop in the cloud** using browser-based OpenShift Dev Spaces
-- **Understand OpenShift Pipelines CI/CD** with Tekton workflows
-- **Experience GitOps deployment** from development to production
-- **See automated security** integrated throughout the development lifecycle
+* **Create secure applications** using self-service software templates
+* **Develop in the cloud** using browser-based OpenShift Dev Spaces
+* **Understand OpenShift Pipelines CI/CD** with Tekton workflows
+* **Experience GitOps deployment** from development to production
+* **See automated security** integrated throughout the development lifecycle
 
 == Target Audience
 
 This module is ideal for:
 
-- **Development teams** implementing OpenShift Pipelines practices
-- **Platform engineers** building modern DevOps workflows
-- **Developers** wanting to experience modern development environments
-- **Organizations** building applications on OpenShift
+* **Development teams** implementing OpenShift Pipelines practices
+* **Platform engineers** building modern DevOps workflows
+* **Developers** wanting to experience modern development environments
+* **Organizations** building applications on OpenShift
 
 == Technology Stack
 
@@ -54,10 +54,10 @@ In this module, you'll work with:
 
 ACME's development team is modernizing their architecture with OpenShift Pipelines. They need:
 
-- **Fast iteration cycles** for competitive advantage
-- **Scalable development practices** for their growing team
-- **Built-in security** that doesn't slow down development
-- **Modern tooling** that attracts top developer talent
+* **Fast iteration cycles** for competitive advantage
+* **Scalable development practices** for their growing team
+* **Built-in security** that doesn't slow down development
+* **Modern tooling** that attracts top developer talent
 
 **The Challenge:**
 Traditional development processes take too long and don't scale with modern Kubernetes architectures.
