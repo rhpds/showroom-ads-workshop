@@ -78,99 +78,189 @@ You've initiated an automated production pipeline that will perform enterprise s
 
 == Activity 2: Understanding Pipeline Tasks
 
-This is the most critical business protection activity — you'll observe automated security validation that prevents costly production incidents while eliminating manual security review delays.
+The production pipeline provides enterprise-grade security validation while eliminating manual bottlenecks* Let's examine each task in detail.
 
-=== Understanding the Business Risk and Protection
+=== Task 1.1: extract-destination-image-tag
 
-**Business Risk Without Automated Validation:**
+**Purpose:** Production image tag extraction from Git releases
 
-* Security vulnerabilities in production could cost millions in damages and compliance fines
-* Manual security reviews create 2-3 week deployment delays
-* Human error in security checks leads to production incidents
-* Inconsistent security standards across different teams and deployments
+This task extracts the Git tag from the GitLab Release and converts it to a production image tag, enabling:
 
-**RHADS Business Protection:**
-* **Zero Security Incidents:** Automated validation catches issues before they reach customers
-* **100% Consistent Standards:** Every deployment meets the same enterprise security policies
-* **Instant Compliance:** SOC 2, PCI, and regulatory requirements enforced automatically
-* **No Deployment Delays:** Security validation happens in minutes, not weeks
+* Production release coordination through GitLab Releases
+* Complete audit trails for production deployments
+* End-to-end traceability from release to production deployment
 
-=== Step 1: Observe Enterprise Contract Validation Process
+=== Task 1.2: gather-images-to-verify
 
-**Pipeline Task:** `verify-enterprise-contract`
+**Purpose:** Production image selection and metadata generation
 
-* In the pipeline execution view, locate the `verify-enterprise-contract` task
-* Observe the task's progress through multiple security validations
-* Note the comprehensive security checks being performed automatically
+This task selects the production-ready image based on the Git tag and generates `images.json`, which:
 
-**Enterprise Security Validations Performed:**
-* **Digital signature verification:** Proves the image hasn't been tampered with
-* **SBOM validation:** Complete dependency scanning for vulnerability management
-* **Provenance verification:** Confirms the image came from trusted build processes
-* **CVE scanning:** Automatic vulnerability detection and policy enforcement
-* **Organizational policy compliance:** Custom security rules enforced automatically
+* Ensures only production-validated images are considered for deployment
+* Provides production deployment metadata for compliance
+* Creates mapping between Git release and production container image
 
-=== Step 2: Understand the Security Technologies
+[NOTE]
+====
+This mapping between Git release and production image provides end-to-end traceability — we know exactly what release went into what production deployment.
+====
+
+**Sample `images.json` for production:**
+[source,json,subs="attributes"]
+----
+{
+  "components": [
+    {
+      "containerImage": "quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0",
+      "source": {
+        "git": {
+          "url": "{gitlab_url}/development/qrks-tkn-{user}",
+          "revision": "v1.0"
+        }
+      }
+    }
+  ]
+}
+----
+
+=== Task 2: verify-enterprise-contract
+
+**Purpose:** Production security validation through Enterprise Contract
+
+This step enforces production-grade security validations that protect your business and customers:
+
+**Production Security Validations:**
+* **Container image signature verification** using cryptographic signing
+* **Software Bill of Materials (SBOM) validation** for production supply chain security
+* **CVE scanning** to prevent production vulnerabilities
+* **Production policy compliance** ensuring enterprise security standards
+* **Provenance attestation** to verify production build integrity
+
+**Production Business Value:**
+
+* Production security validation: 2-3 weeks → Minutes
+* Production risk prevention before customer exposure
+* Production audit readiness for compliance
+* Automatic production CVE scanning and policy enforcement
+
+**Production Enterprise Impact:**
+
+* Production incident prevention: Issues caught before customer exposure
+* Production audit confidence: Complete compliance evidence
+* Production deployment velocity: Minutes instead of weeks
+* Production risk elimination: 100% consistent security enforcement
 
 [IMPORTANT]
 ====
-**Key Security Components:**
-
-* **Enterprise Contract (EC):** Protects your business by ensuring only compliant, secure images reach production
-* **TUF (The Update Framework):** Prevents tampering with security metadata — protecting against supply chain attacks
-* **SBOM (Software Bill of Materials):** Enables rapid vulnerability response — critical for security posture
-* **Provenance:** Proves build integrity — essential for compliance and audit requirements
+If any production security check fails, the pipeline halts* Only fully validated images proceed to production deployment.
 ====
 
-=== Step 3: Examine Security Validation Commands
+**Production Technical Implementation:**
 
-The pipeline performs these critical security validations:
+The Enterprise Contract CLI performs production validation:
 
-**Initialize Cryptographic Trust:**
-[source,bash]
-----
-cosign initialize \
-  --mirror http://tuf.tssc-tas.svc \
-  --root http://tuf.tssc-tas.svc/root.json
-----
-
-**Validate Image Security:**
 [source,bash,subs="attributes"]
 ----
 ec validate image \
   --image quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0 \
-  --policy git::github.com/org/ec-policies//default \
+  --policy production \
   --public-key k8s://openshift/trusted-keys \
   --output json
 ----
 
-**Security Validations Performed:**
+**Production validation output:**
+[source,json]
+----
+{
+  "successes": [
+    "Production image is signed and verified with cosign",
+    "Production SBOM (CycloneDX) is present",
+    "Production provenance attestation matches source repo",
+    "No production vulnerabilities found",
+    "Production policy compliance verified"
+  ],
+  "failures": []
+}
+----
 
-* Digital signature verification with Cosign
-* SBOM presence validation (e.g., SPDX, CycloneDX formats)
-* Provenance metadata verification (how the image was built)
-* CVE scanning and vulnerability assessment
-* Organizational policy compliance checking
+=== Task 3: copy-image
 
-=== Step 4: Understanding Failure Protection
+**Purpose:** Production image promotion with security designation
 
-* Observe that any failed validation would halt the pipeline automatically
-* This demonstrates protection against risky deployments
-* Note how this prevents security incidents before they reach customers
+This task promotes the production-validated image with a production tag (e.g., `prod-v1.0`), ensuring:
 
-**Business Impact:**
+* Only production-validated images receive production designation
+* Production-grade security assurance
+* No unauthorized images reach production deployment
 
-* Security incident prevention: Saves potential millions in damages
-* Compliance confidence: Automatic evidence for audits
-* Deployment velocity: Minutes instead of weeks for security approval
-* Risk mitigation: 100% consistent security enforcement
+**Production Technical Implementation:**
 
-[TIP]
+[source,bash,subs="attributes"]
+----
+skopeo copy \
+  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0 \
+  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:prod-v1.0
+----
+
+[IMPORTANT]
 ====
-**Demo Option:** A failed validation can be simulated by modifying the EC policy or image to demonstrate that the pipeline halts automatically if verification fails, protecting the production environment.
+This guarantees that only production-validated artifacts are promoted — no unauthorized images slip through to production.
 ====
 
-== Activity 3: Image Promotion and GitOps Deployment
+=== Task 4: update-deployment
+
+**Purpose:** Production GitOps deployment automation
+
+This task ensures production-validated changes reach production automatically through GitOps, enabling:
+
+* Production deployment immediately after validation completion
+* Production configuration validation before customer exposure
+* No manual production coordination needed
+* Production success ensures customer satisfaction
+
+[NOTE]
+====
+No manual production kubectl commands, no production YAML editing — the system automatically deploys to production based on Git* That's the production GitOps advantage.
+====
+
+**Production GitOps Implementation:**
+
+The pipeline updates production deployment files automatically:
+
+**Production `kustomization.yaml`:**
+[source,yaml]
+----
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+patchesStrategicMerge:
+  - deployment-patch.yaml
+----
+
+**Production `deployment-patch.yaml`:**
+[source,yaml,subs="attributes"]
+----
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qrks-tkn-{user}
+spec:
+  template:
+    spec:
+      containers:
+        - name: qrks-tkn-{user}
+          image: quay.tssc-quay/tssc/qrks-tkn-{user}:prod-v1.0
+----
+
+**Production Git diff showing automatic update:**
+[source,diff,subs="attributes"]
+----
+-          image: quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
++          image: quay.tssc-quay/tssc/qrks-tkn-{user}:prod-v1.0
+----
+
+== Activity 3: Understanding the Complete Production Pipeline
 
 In this activity, you'll observe how validated images are promoted to production and automatically deployed using GitOps, creating a secure bridge from validation to customer value.
 
@@ -200,11 +290,9 @@ skopeo copy \
 
 === Step 2: Examine GitOps Deployment Process
 
-**Pipeline Task:** `update-deployment`
+This step shows how the validated image is automatically deployed to production through GitOps, creating an automated bridge from security validation to customer value.
 
-This task serves as an automated bridge from security validation to customer value, ensuring validated changes reach production automatically without manual intervention or risk.
-
-=== Understanding Traditional vs* RHADS Deployment Approaches
+=== Understanding Traditional vs RHADS Deployment Approaches
 
 **Traditional Production Deployment Risks:**
 
