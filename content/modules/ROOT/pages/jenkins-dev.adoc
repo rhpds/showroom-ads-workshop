@@ -561,14 +561,18 @@ Congratulations! You've experienced the transformation of Jenkins capabilities w
 * **RHADS Jenkins approach**: Less than 5 minutes of self-service with enhanced security
 
 === Security by Default in Jenkins
+
 Your Jenkins application now includes:
+
 * Automated container vulnerability scanning in Jenkins workflows
 * Image signing and verification integrated with Jenkins pipelines
 * Enterprise security policies enforced automatically
 * Complete audit trails generated through Jenkins processes
 
 === Preserved Jenkins Investment
+
 Everything leverages your existing Jenkins knowledge:
+
 * Familiar Jenkins Blue Ocean interface with enhanced capabilities
 * Same Jenkins pipeline concepts with modern security integration
 * Jenkins expertise becomes more valuable, not obsolete
@@ -577,18 +581,21 @@ Everything leverages your existing Jenkins knowledge:
 == Understanding Enhanced Jenkins Benefits
 
 === Developer Experience
+
 * **Familiar Jenkins Interface** - Blue Ocean and tools you already know
 * **Enhanced Pipeline Capabilities** - Modern security without complexity
 * **Self-Service Power** - Create Jenkins pipelines without platform team dependency
 * **Integrated Development** - Cloud-based development environment with Jenkins integration
 
 === Operational Advantages
+
 * **Jenkins Investment Protection** - Leverage existing Jenkins infrastructure and expertise
 * **Enhanced Security** - Enterprise-grade security automatically integrated
 * **Standardized Pipelines** - Consistent Jenkins workflows across all applications
 * **Reduced Maintenance** - Shared Jenkins libraries eliminate custom pipeline overhead
 
 === Enterprise Security Enhancements
+
 * **Automated Security Scanning** - Integrated into familiar Jenkins workflows
 * **Cryptographic Signing** - Container and commit signing through Jenkins
 * **Policy Enforcement** - Enterprise security policies enforced automatically

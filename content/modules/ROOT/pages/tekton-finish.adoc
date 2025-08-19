@@ -40,18 +40,21 @@ Congratulations! You've successfully completed the **OpenShift Pipelines (Tekton
 === Business Value Demonstrated
 
 **Speed and Efficiency:**
+
 * **Application setup**: 3-4 weeks → 5 minutes
 * **Security integration**: Manual → Fully automated
 * **Deployment pipeline**: Custom → Standardized templates
 * **Developer onboarding**: Days → Minutes
 
 **Security and Compliance:**
+
 * **Vulnerability management**: 100% automated scanning
 * **Supply chain integrity**: Cryptographic verification
 * **Policy enforcement**: Built-in compliance validation
 * **Audit readiness**: Continuous compliance documentation
 
 **Operational Excellence:**
+
 * **Platform overhead**: Eliminated manual setup requests
 * **Configuration consistency**: Standardized across all projects
 * **Infrastructure management**: Self-healing and self-scaling
