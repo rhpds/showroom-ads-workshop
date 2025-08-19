@@ -157,6 +157,7 @@ This mapping between Git commit and container image provides end-to-end traceabi
 This step enforces multiple critical validations that protect your business and customers:
 
 **Enterprise Security Validations:**
+
 * **Container image signature verification** using cryptographic signing
 * **Software Bill of Materials (SBOM) validation** for supply chain security
 * **CVE scanning** to catch security vulnerabilities before production

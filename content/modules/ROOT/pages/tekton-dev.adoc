@@ -478,14 +478,18 @@ Congratulations! You've just experienced the power of OpenShift Pipelines develo
 * **RHADS OpenShift Pipelines approach**: Less than 5 minutes of self-service
 
 === OpenShift Pipelines Security by Default
+
 Your application includes:
+
 * Automated container vulnerability scanning
 * Image signing and verification with OpenShift Pipelines
 * Tekton pipeline security enforcement
 * Kubernetes-native security policies
 
 === Zero Platform Overhead
+
 Everything was created automatically:
+
 * GitLab repositories with Kubernetes manifests
 * Tekton pipelines deployed and configured
 * Security tools integrated with OpenShift Pipelines workflows

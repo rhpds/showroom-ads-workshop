@@ -78,7 +78,7 @@ You've initiated an automated production pipeline that will perform enterprise s
 
 == Activity 2: Understanding Pipeline Tasks
 
-The production pipeline provides enterprise-grade security validation while eliminating manual bottlenecks* Let's examine each task in detail.
+The production pipeline provides enterprise-grade security validation while eliminating manual bottlenecks. Let's examine each task in detail.
 
 === Task 1.1: extract-destination-image-tag
 
@@ -130,6 +130,7 @@ This mapping between Git release and production image provides end-to-end tracea
 This step enforces production-grade security validations that protect your business and customers:
 
 **Production Security Validations:**
+
 * **Container image signature verification** using cryptographic signing
 * **Software Bill of Materials (SBOM) validation** for production supply chain security
 * **CVE scanning** to prevent production vulnerabilities
