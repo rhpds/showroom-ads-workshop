@@ -149,7 +149,7 @@ Jenkins creates an `images.json` file to describe the image metadata and where i
 {
   "components": [
     {
-      "containerImage": "quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0",
+      "containerImage": "quay-{guid}/tssc/qrks-jnk-{user}:v1.0",
       "source": {
         "git": {
           "url": "{gitlab_url}/development/qrks-jnk-{user}",
@@ -201,7 +201,7 @@ ec validate image \
   --policy default \
   --public-key k8s://openshift/trusted-keys \
   --output json \
-  --image quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0
+  --image quay-{guid}/tssc/qrks-jnk-{user}:v1.0
 ----
 
 **Sample Jenkins production validation output:**
@@ -240,8 +240,8 @@ Jenkins uses `skopeo` to copy the image and apply a production tag with the `pro
 [source,bash,subs="attributes"]
 ----
 skopeo copy \
-  docker://quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0 \
-  docker://quay.tssc-quay/tssc/qrks-jnk-{user}:prod-v1.0
+  docker://quay-{guid}/tssc/qrks-jnk-{user}:v1.0 \
+  docker://quay-{guid}/tssc/qrks-jnk-{user}:prod-v1.0
 ----
 
 This Jenkins step doesn't rebuild the image* It simply re-tags a verified, immutable image 	 ensuring complete traceability and production readiness confidence.
@@ -281,7 +281,7 @@ spec:
     spec:
       containers:
         - name: qrks-jnk-{user}
-          image: quay.tssc-quay/tssc/qrks-jnk-{user}:prod-v1.0
+          image: quay-{guid}/tssc/qrks-jnk-{user}:prod-v1.0
 ----
 
 Argo CD continuously watches this GitOps repository* Once it detects Jenkins updates:
@@ -319,7 +319,7 @@ Watch how your Jenkins pipeline safely deploys to production using enterprise-gr
 [source,diff,subs="attributes"]
 ----
 -          image: quay.io/redhat-appstudio/rhtap-task-runner:latest
-+          image: quay.tssc-quay/tssc/qrks-jnk-{user}:prod-v1.0
++          image: quay-{guid}/tssc/qrks-jnk-{user}:prod-v1.0
 ----
 
 === Step 3: Monitor Production Deployment Success

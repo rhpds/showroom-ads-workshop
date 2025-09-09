@@ -138,7 +138,7 @@ This mapping between Git commit and container image provides end-to-end traceabi
 {
   "components": [
     {
-      "containerImage": "quay.tssc-quay/tssc/qrks-tkn-{user}:abc123def456",
+      "containerImage": "quay-{guid}/tssc/qrks-tkn-{user}:abc123def456",
       "source": {
         "git": {
           "url": "{gitlab_url}/development/qrks-tkn-{user}",
@@ -199,7 +199,7 @@ Then, the Enterprise Contract CLI performs validation:
 [source,bash,subs="attributes"]
 ----
 ec validate image \
-  --image quay.tssc-quay/tssc/qrks-tkn-{user}:abc123..* \
+  --image quay-{guid}/tssc/qrks-tkn-{user}:abc123..* \
   --policy default \
   --public-key k8s://openshift/trusted-keys \
   --output json
@@ -234,8 +234,8 @@ This task promotes the validated image with a human-readable tag (e.g., `v1.0`),
 [source,bash,subs="attributes"]
 ----
 skopeo copy \
-  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:abc123..* \
-  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
+  docker://quay-{guid}/tssc/qrks-tkn-{user}:abc123..* \
+  docker://quay-{guid}/tssc/qrks-tkn-{user}:v1.0
 ----
 
 [IMPORTANT]
@@ -286,14 +286,14 @@ spec:
     spec:
       containers:
         - name: qrks-tkn-{user}
-          image: quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
+          image: quay-{guid}/tssc/qrks-tkn-{user}:v1.0
 ----
 
 **Example Git diff showing automatic update:**
 [source,diff,subs="attributes"]
 ----
 -          image: quay.io/redhat-appstudio/rhtap-task-runner:latest
-+          image: quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
++          image: quay-{guid}/tssc/qrks-tkn-{user}:v1.0
 ----
 
 == Activity 3: Observing GitOps Deployment

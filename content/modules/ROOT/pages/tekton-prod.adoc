@@ -111,7 +111,7 @@ This mapping between Git release and production image provides end-to-end tracea
 {
   "components": [
     {
-      "containerImage": "quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0",
+      "containerImage": "quay-{guid}/tssc/qrks-tkn-{user}:v1.0",
       "source": {
         "git": {
           "url": "{gitlab_url}/development/qrks-tkn-{user}",
@@ -163,7 +163,7 @@ The Enterprise Contract CLI performs production validation:
 [source,bash,subs="attributes"]
 ----
 ec validate image \
-  --image quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0 \
+  --image quay-{guid}/tssc/qrks-tkn-{user}:v1.0 \
   --policy production \
   --public-key k8s://openshift/trusted-keys \
   --output json
@@ -199,8 +199,8 @@ This task promotes the production-validated image with a production tag (e.g., `
 [source,bash,subs="attributes"]
 ----
 skopeo copy \
-  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0 \
-  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:prod-v1.0
+  docker://quay-{guid}/tssc/qrks-tkn-{user}:v1.0 \
+  docker://quay-{guid}/tssc/qrks-tkn-{user}:prod-v1.0
 ----
 
 [IMPORTANT]
@@ -251,14 +251,14 @@ spec:
     spec:
       containers:
         - name: qrks-tkn-{user}
-          image: quay.tssc-quay/tssc/qrks-tkn-{user}:prod-v1.0
+          image: quay-{guid}/tssc/qrks-tkn-{user}:prod-v1.0
 ----
 
 **Production Git diff showing automatic update:**
 [source,diff,subs="attributes"]
 ----
--          image: quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
-+          image: quay.tssc-quay/tssc/qrks-tkn-{user}:prod-v1.0
+-          image: quay-{guid}/tssc/qrks-tkn-{user}:v1.0
++          image: quay-{guid}/tssc/qrks-tkn-{user}:prod-v1.0
 ----
 
 == Activity 3: Observing Production GitOps Deployment

@@ -137,7 +137,7 @@ This Jenkins task identifies exactly what needs to be promoted by:
 {
   "components": [
     {
-      "containerImage": "quay.tssc-quay/tssc/qrks-jnk-{user}:123456",
+      "containerImage": "quay-{guid}/tssc/qrks-jnk-{user}:123456",
       "source": {
         "git": {
           "url": "{gitlab_url}/development/qrks-jnk-{user}",
@@ -191,7 +191,7 @@ ec validate image \
   --policy git::github.com/org/ec-policies//default \
   --public-key k8s://openshift/trusted-keys \
   --output json \
-  --image quay.tssc-quay/tssc/qrks-jnk-{user}:123456
+  --image quay-{guid}/tssc/qrks-jnk-{user}:123456
 ----
 
 **Sample Jenkins validation output:**
@@ -230,8 +230,8 @@ Jenkins uses `skopeo` to copy the image and apply the new tag:
 [source,bash,subs="attributes"]
 ----
 skopeo copy \
-  docker://quay.tssc-quay/tssc/qrks-jnk-{user}:123456 \
-  docker://quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0
+  docker://quay-{guid}/tssc/qrks-jnk-{user}:123456 \
+  docker://quay-{guid}/tssc/qrks-jnk-{user}:v1.0
 ----
 
 [IMPORTANT]
@@ -279,7 +279,7 @@ spec:
     spec:
       containers:
         - name: qrks-jnk-{user}
-          image: quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0
+          image: quay-{guid}/tssc/qrks-jnk-{user}:v1.0
 ----
 
 Jenkins commits and pushes this change to the GitOps repository, and Argo CD detects the update and syncs the deployment to the `stage` environment automatically.
