@@ -210,7 +210,7 @@ ec validate image \
 
 [IMPORTANT]
 ====
-If any security check fails, your Jenkins pipeline stops immediately 	 ensuring no risky code progresses to the next stage. This automated security gate in Jenkins protects your business without manual intervention.
+If any security check fails, your Jenkins pipeline stops immediately ensuring no risky code progresses to the next stage. This automated security gate in Jenkins protects your business without manual intervention.
 ====
 
 === Task 3: update-image-tag-for-stage
