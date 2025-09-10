@@ -115,7 +115,7 @@ image::jenkins-dev-2.png[]
 
 image::jenkins-dev-3.png[]
 
-TIP: You're about to witness something powerful - this single template will automatically create your complete Jenkins environment with pipelines, security integration, and Kubernetes resources* No tickets, no waiting, no manual Jenkins configuration!
+TIP: You're about to witness something powerful - this single template will automatically create your complete Jenkins environment with pipelines, security integration, and Kubernetes resources. No tickets, no waiting, no manual Jenkins configuration!
 
 === Step 3: Configure Your Jenkins Application
 
@@ -285,7 +285,7 @@ These shared library functions ensure consistency, security, and compliance acro
 
 **What is Jenkins Pipelines as Code?**
 
-Your Jenkins pipeline definition lives alongside your application code in the same Git repository* This approach provides:
+Your Jenkins pipeline definition lives alongside your application code in the same Git repository. This approach provides:
 
 * **Version Control**: Jenkins pipeline changes are tracked with your code changes
 * **Reproducibility**: Anyone can see exactly how your application is built in Jenkins
@@ -611,4 +611,3 @@ In the next section, **Staging - Jenkins Pipeline Promotion**, you'll:
 * Understand GitOps deployment through Jenkins pipeline automation
 
 Your enhanced Jenkins foundation is now in place - let's see your staging promotion in action!
-

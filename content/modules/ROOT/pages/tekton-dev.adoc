@@ -51,12 +51,12 @@ But you're about to discover a completely different way of working:
 
 [IMPORTANT]
 ====
-Today you'll experience this transformation firsthand by creating a production-ready application with OpenShift Pipelines in minutes, not weeks* You'll be amazed at how empowering this feels!
+Today you'll experience this transformation firsthand by creating a production-ready application with OpenShift Pipelines in minutes, not weeks. You'll be amazed at how empowering this feels!
 ====
 
 == Activity 1: Your First Steps into Your OpenShift Pipelines Journey
 
-Let's embark on your journey by logging into your new development environment* You're about to discover how different OpenShift Pipelines makes your development experience!
+Let's embark on your journey by logging into your new development environment. You're about to discover how different OpenShift Pipelines makes your development experience!
 
 === Step 1: Open Red Hat Developer Hub
 
@@ -94,7 +94,7 @@ If you encounter any authentication issues, you can always reference the "Lab Ac
 
 === What You Just Discovered
 
-You've just accessed something revolutionary - your organization's **Internal Developer Portal (IDP)** that's been optimized for developers like you* As you look around, you realize this platform provides everything you've been wishing for:
+You've just accessed something revolutionary - your organization's **Internal Developer Portal (IDP)** that's been optimized for developers like you. As you look around, you realize this platform provides everything you've been wishing for:
 
 * Self-service application templates that eliminate waiting for platform teams
 * Integrated Kubernetes and OpenShift resources that "just work"
@@ -127,7 +127,7 @@ image::tekton-dev-3.png[]
 
 [TIP]
 ====
-You're about to witness something amazing - this single template will automatically create your complete OpenShift Pipelines environment with Tekton workflows, Kubernetes resources, and security scanning* No tickets, no waiting, no manual configuration!
+You're about to witness something amazing - this single template will automatically create your complete OpenShift Pipelines environment with Tekton workflows, Kubernetes resources, and security scanning. No tickets, no waiting, no manual configuration!
 ====
 
 === Step 3: Configure Your OpenShift Pipelines Application
@@ -246,7 +246,7 @@ The template you just used is part of a sophisticated system with three key repo
 
 **What is Pipeline as Code?**
 
-Pipeline as Code means your CI/CD pipeline definitions live alongside your application code in the same Git repository* This is revolutionary because:
+Pipeline as Code means your CI/CD pipeline definitions live alongside your application code in the same Git repository. This is revolutionary because:
 
 * **Version Control**: Pipeline changes are tracked with your code changes
 * **Reproducibility**: Anyone can see exactly how your application is built and deployed
@@ -464,7 +464,7 @@ git push
 
 [TIP]
 ====
-You just witnessed something powerful - your commit was automatically signed for security, and now it's triggering a complete OpenShift Pipelines workflow* No manual work, no tickets, no waiting!
+You just witnessed something powerful - your commit was automatically signed for security, and now it's triggering a complete OpenShift Pipelines workflow. No manual work, no tickets, no waiting!
 ====
 
 image::tekton-dev-17.png[]
