@@ -59,11 +59,7 @@ Let's begin your journey by logging into your modernized development environment
 
 === Step 1: Open Red Hat Developer Hub
 
-* Navigate to the Red Hat Developer Hub, which now provides self-service Jenkins capabilities:
-+
-link:{rhdh_url}[*Red Hat Developer Hub*^]
-
-* You see the "Select a sign-in method" screen and click the *OIDC* option
+* In the Red Hat Developer Hub view on the right, click *Sign In* on the OIDC login prompt.
 
 image::jenkins-dev-1.png[]
 

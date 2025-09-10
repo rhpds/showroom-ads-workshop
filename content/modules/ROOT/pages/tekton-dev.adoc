@@ -60,11 +60,7 @@ Let's embark on your journey by logging into your new development environment. Y
 
 === Step 1: Open Red Hat Developer Hub
 
-* Excited to explore your new tools, you navigate to the Red Hat Developer Hub using the URL from your welcome email:
-+
-link:{rhdh_url}[*Red Hat Developer Hub*^]
-
-* You see the "Select a sign-in method" screen and click the *OIDC* option to start your journey
+* In the Red Hat Developer Hub view on the right, click *Sign In* on the OIDC login prompt.
 
 image::tekton-dev-1.png[]
 
