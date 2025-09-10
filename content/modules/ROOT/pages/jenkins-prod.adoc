@@ -190,8 +190,8 @@ Cosign trust initialization in Jenkins:
 [source,bash]
 ----
 cosign initialize \
-  --mirror https://tuf.tssc.dev \
-  --root https://tuf.tssc.dev/root.json
+  --mirror https://tuf.tssc-tas.dev \
+  --root https://tuf.tssc-tas.dev/root.json
 ----
 
 Enterprise Contract validation through Jenkins:
