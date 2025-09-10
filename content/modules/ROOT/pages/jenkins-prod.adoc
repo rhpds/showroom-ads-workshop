@@ -95,7 +95,7 @@ image::jenkins-prod-3.png[]
 
 [NOTE]
 ====
-This GitLab release creation triggers a webhook that starts your Jenkins production pipeline* The pipeline automatically detects this is a *release event* and switches into production promotion mode, ensuring the same validated image is promoted to the production environment through Jenkins automation.
+This GitLab release creation triggers a webhook that starts your Jenkins production pipeline. The pipeline automatically detects this is a *release event* and switches into production promotion mode, ensuring the same validated image is promoted to the production environment through Jenkins automation.
 ====
 
 === Step 3: Monitor Jenkins Production Pipeline
@@ -122,7 +122,7 @@ The same Jenkins pipeline is reused for both staging and production, but its beh
 
 == Activity 3: Understanding Jenkins Production Pipeline Tasks
 
-Your Jenkins production pipeline ensures enterprise-grade security while maintaining familiar workflows* Let's examine each critical task:
+Your Jenkins production pipeline ensures enterprise-grade security while maintaining familiar workflows. Let's examine each critical task:
 
 image::jenkins-prod-6.png[]
 
@@ -139,7 +139,7 @@ This Jenkins task ensures complete accountability for production deployments:
 
 **Technical Implementation:**
 
-In the `gather-images` stage, Jenkins calls the GitLab API to fetch the release tag (e.g* `v1.0`)* Based on this tag, it constructs the container image URL that was built and signed in the staging phase through Jenkins automation.
+In the `gather-images` stage, Jenkins calls the GitLab API to fetch the release tag (e.g* `v1.0`). Based on this tag, it constructs the container image URL that was built and signed in the staging phase through Jenkins automation.
 
 Jenkins creates an `images.json` file to describe the image metadata and where it came from, becoming the source of truth for the production validation step.
 
@@ -220,7 +220,7 @@ ec validate image \
 
 [IMPORTANT]
 ====
-If any of these production checks fail through Jenkins, the pipeline stops immediately 	 ensuring no risky code reaches your customers* This automated production security gate protects your business reputation and customer trust.
+If any of these production checks fail through Jenkins, the pipeline stops immediately 	 ensuring no risky code reaches your customers. This automated production security gate protects your business reputation and customer trust.
 ====
 
 === Task 3: update-image-tag-for-prod
@@ -244,7 +244,7 @@ skopeo copy \
   docker://quay-{guid}/tssc/qrks-jnk-{user}:prod-v1.0
 ----
 
-This Jenkins step doesn't rebuild the image* It simply re-tags a verified, immutable image 	 ensuring complete traceability and production readiness confidence.
+This Jenkins step doesn't rebuild the image. It simply re-tags a verified, immutable image 	 ensuring complete traceability and production readiness confidence.
 
 By tagging it `prod-v1.0` through Jenkins automation, we make it clear to downstream systems, release teams, and auditors that:
 
@@ -265,7 +265,7 @@ This Jenkins task ensures validated changes reach production automatically witho
 
 **Technical Implementation through Jenkins:**
 
-In the `deploy-to-prod` stage, Jenkins uses `rhtap.update_deployment()` to patch the `kustomization.yaml` overlay for production* This updates the image tag in the `deployment-patch.yaml` to reference the new production-approved image.
+In the `deploy-to-prod` stage, Jenkins uses `rhtap.update_deployment()` to patch the `kustomization.yaml` overlay for production. This updates the image tag in the `deployment-patch.yaml` to reference the new production-approved image.
 
 Jenkins commits and pushes this change to the GitOps repository under the `overlays/prod/` directory.
 
@@ -284,7 +284,7 @@ spec:
           image: quay-{guid}/tssc/qrks-jnk-{user}:prod-v1.0
 ----
 
-Argo CD continuously watches this GitOps repository* Once it detects Jenkins updates:
+Argo CD continuously watches this GitOps repository. Once it detects Jenkins updates:
 
 * It syncs the production manifests
 * Deploys the new image to the production cluster
