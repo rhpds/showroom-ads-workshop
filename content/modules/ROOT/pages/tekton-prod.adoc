@@ -32,7 +32,7 @@ Transform risky manual processes into confident automated workflows using Red Ha
 
 [NOTE]
 ====
-The examples and commands in this workshop demonstrate enterprise production deployment capabilities* Adapt repository URLs, credentials, and configurations as needed for your specific setup.
+The examples and commands in this workshop demonstrate enterprise production deployment capabilities. Adapt repository URLs, credentials, and configurations as needed for your specific setup.
 ====
 
 == Activity 1: Triggering Production Deployment with Git Release
@@ -111,7 +111,7 @@ This mapping between Git release and production image provides end-to-end tracea
 {
   "components": [
     {
-      "containerImage": "quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0",
+      "containerImage": "quay-{guid}/tssc/qrks-tkn-{user}:v1.0",
       "source": {
         "git": {
           "url": "{gitlab_url}/development/qrks-tkn-{user}",
@@ -153,7 +153,7 @@ This step enforces production-grade security validations that protect your busin
 
 [IMPORTANT]
 ====
-If any production security check fails, the pipeline halts* Only fully validated images proceed to production deployment.
+If any production security check fails, the pipeline halts. Only fully validated images proceed to production deployment.
 ====
 
 **Production Technical Implementation:**
@@ -163,7 +163,7 @@ The Enterprise Contract CLI performs production validation:
 [source,bash,subs="attributes"]
 ----
 ec validate image \
-  --image quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0 \
+  --image quay-{guid}/tssc/qrks-tkn-{user}:v1.0 \
   --policy production \
   --public-key k8s://openshift/trusted-keys \
   --output json
@@ -199,8 +199,8 @@ This task promotes the production-validated image with a production tag (e.g., `
 [source,bash,subs="attributes"]
 ----
 skopeo copy \
-  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0 \
-  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:prod-v1.0
+  docker://quay-{guid}/tssc/qrks-tkn-{user}:v1.0 \
+  docker://quay-{guid}/tssc/qrks-tkn-{user}:prod-v1.0
 ----
 
 [IMPORTANT]
@@ -221,7 +221,7 @@ This task ensures production-validated changes reach production automatically th
 
 [NOTE]
 ====
-No manual production kubectl commands, no production YAML editing — the system automatically deploys to production based on Git* That's the production GitOps advantage.
+No manual production kubectl commands, no production YAML editing — the system automatically deploys to production based on Git. That's the production GitOps advantage.
 ====
 
 **Production GitOps Implementation:**
@@ -251,14 +251,14 @@ spec:
     spec:
       containers:
         - name: qrks-tkn-{user}
-          image: quay.tssc-quay/tssc/qrks-tkn-{user}:prod-v1.0
+          image: quay-{guid}/tssc/qrks-tkn-{user}:prod-v1.0
 ----
 
 **Production Git diff showing automatic update:**
 [source,diff,subs="attributes"]
 ----
--          image: quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
-+          image: quay.tssc-quay/tssc/qrks-tkn-{user}:prod-v1.0
+-          image: quay-{guid}/tssc/qrks-tkn-{user}:v1.0
++          image: quay-{guid}/tssc/qrks-tkn-{user}:prod-v1.0
 ----
 
 == Activity 3: Observing Production GitOps Deployment
@@ -298,7 +298,7 @@ Congratulations! You've successfully implemented an enterprise-grade production 
 | Phase | Purpose
 
 | 1.1 extract-destination-image-tag
-| Extracts the Git tag for production image naming* The Git tag becomes the image tag for production promotion.
+| Extracts the Git tag for production image naming. The Git tag becomes the image tag for production promotion.
 
 | 1.2 gather-images-to-verify
 | Selects the image based on the Git tag and generates `images.json` with complete metadata.

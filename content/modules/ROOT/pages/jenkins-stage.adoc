@@ -105,12 +105,12 @@ image::jenkins-stage-5.png[]
 
 [TIP]
 ====
-Use the Developer Hub view combined with Jenkins Blue Ocean to observe each task as it executes* You'll see enterprise automation in action using familiar Jenkins tools 	 no manual approvals, just policy-driven promotion through enhanced Jenkins workflows.
+Use the Developer Hub view combined with Jenkins Blue Ocean to observe each task as it executes. You'll see enterprise automation in action using familiar Jenkins tools 	 no manual approvals, just policy-driven promotion through enhanced Jenkins workflows.
 ====
 
 == Activity 2: Understanding Jenkins Pipeline Tasks
 
-Your Jenkins staging pipeline provides production-level confidence while eliminating manual bottlenecks and preserving your Jenkins expertise* Let's examine each task in detail.
+Your Jenkins staging pipeline provides production-level confidence while eliminating manual bottlenecks and preserving your Jenkins expertise. Let's examine each task in detail.
 
 image::jenkins-stage-6.png[]
 
@@ -137,7 +137,7 @@ This Jenkins task identifies exactly what needs to be promoted by:
 {
   "components": [
     {
-      "containerImage": "quay.tssc-quay/tssc/qrks-jnk-{user}:123456",
+      "containerImage": "quay-{guid}/tssc/qrks-jnk-{user}:123456",
       "source": {
         "git": {
           "url": "{gitlab_url}/development/qrks-jnk-{user}",
@@ -191,7 +191,7 @@ ec validate image \
   --policy git::github.com/org/ec-policies//default \
   --public-key k8s://openshift/trusted-keys \
   --output json \
-  --image quay.tssc-quay/tssc/qrks-jnk-{user}:123456
+  --image quay-{guid}/tssc/qrks-jnk-{user}:123456
 ----
 
 **Sample Jenkins validation output:**
@@ -210,7 +210,7 @@ ec validate image \
 
 [IMPORTANT]
 ====
-If any security check fails, your Jenkins pipeline stops immediately 	 ensuring no risky code progresses to the next stage* This automated security gate in Jenkins protects your business without manual intervention.
+If any security check fails, your Jenkins pipeline stops immediately ensuring no risky code progresses to the next stage. This automated security gate in Jenkins protects your business without manual intervention.
 ====
 
 === Task 3: update-image-tag-for-stage
@@ -230,8 +230,8 @@ Jenkins uses `skopeo` to copy the image and apply the new tag:
 [source,bash,subs="attributes"]
 ----
 skopeo copy \
-  docker://quay.tssc-quay/tssc/qrks-jnk-{user}:123456 \
-  docker://quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0
+  docker://quay-{guid}/tssc/qrks-jnk-{user}:123456 \
+  docker://quay-{guid}/tssc/qrks-jnk-{user}:v1.0
 ----
 
 [IMPORTANT]
@@ -279,14 +279,14 @@ spec:
     spec:
       containers:
         - name: qrks-jnk-{user}
-          image: quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0
+          image: quay-{guid}/tssc/qrks-jnk-{user}:v1.0
 ----
 
 Jenkins commits and pushes this change to the GitOps repository, and Argo CD detects the update and syncs the deployment to the `stage` environment automatically.
 
 [NOTE]
 ====
-No manual `kubectl` commands, no YAML editing in the console 	 Jenkins triggers the GitOps system to react to Git changes* That's the enhanced Jenkins advantage with GitOps integration.
+No manual `kubectl` commands, no YAML editing in the console 	 Jenkins triggers the GitOps system to react to Git changes. That's the enhanced Jenkins advantage with GitOps integration.
 ====
 
 == Activity 3: Observing Jenkins-Integrated GitOps Deployment

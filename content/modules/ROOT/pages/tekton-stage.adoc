@@ -105,13 +105,13 @@ Use the Developer Hub view to observe each task as it executes. You'll see autom
 
 == Activity 2: Understanding Pipeline Tasks
 
-The staging pipeline provides production-level confidence while eliminating manual bottlenecks* Let's examine each task in detail.
+The staging pipeline provides production-level confidence while eliminating manual bottlenecks. Let's examine each task in detail.
 
 === Task 1.1: extract-destination-image-tag
 
 **Purpose:** Perfect traceability through Git tags
 
-This task extracts the commit ID of the Git tag* The commit ID becomes the image tag of the image we are promoting to staging, enabling:
+This task extracts the commit ID of the Git tag. The commit ID becomes the image tag of the image we are promoting to staging, enabling:
 
 * Coordinated feature rollouts
 * Complete audit trails for compliance
@@ -138,7 +138,7 @@ This mapping between Git commit and container image provides end-to-end traceabi
 {
   "components": [
     {
-      "containerImage": "quay.tssc-quay/tssc/qrks-tkn-{user}:abc123def456",
+      "containerImage": "quay-{guid}/tssc/qrks-tkn-{user}:abc123def456",
       "source": {
         "git": {
           "url": "{gitlab_url}/development/qrks-tkn-{user}",
@@ -180,7 +180,7 @@ This step enforces multiple critical validations that protect your business and 
 
 [IMPORTANT]
 ====
-If any check fails, the pipeline halts* If everything passes, the image moves forward to the next promotion step.
+If any check fails, the pipeline halts. If everything passes, the image moves forward to the next promotion step.
 ====
 
 **Technical Implementation:**
@@ -199,7 +199,7 @@ Then, the Enterprise Contract CLI performs validation:
 [source,bash,subs="attributes"]
 ----
 ec validate image \
-  --image quay.tssc-quay/tssc/qrks-tkn-{user}:abc123..* \
+  --image quay-{guid}/tssc/qrks-tkn-{user}:abc123..* \
   --policy default \
   --public-key k8s://openshift/trusted-keys \
   --output json
@@ -234,8 +234,8 @@ This task promotes the validated image with a human-readable tag (e.g., `v1.0`),
 [source,bash,subs="attributes"]
 ----
 skopeo copy \
-  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:abc123..* \
-  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
+  docker://quay-{guid}/tssc/qrks-tkn-{user}:abc123..* \
+  docker://quay-{guid}/tssc/qrks-tkn-{user}:v1.0
 ----
 
 [IMPORTANT]
@@ -256,7 +256,7 @@ This task ensures validated changes reach staging automatically through GitOps, 
 
 [NOTE]
 ====
-No manual `kubectl`, no YAML editing in the console — the system reacts to Git* That's the GitOps advantage.
+No manual `kubectl`, no YAML editing in the console — the system reacts to Git. That's the GitOps advantage.
 ====
 
 **GitOps Implementation Details:**
@@ -286,14 +286,14 @@ spec:
     spec:
       containers:
         - name: qrks-tkn-{user}
-          image: quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
+          image: quay-{guid}/tssc/qrks-tkn-{user}:v1.0
 ----
 
 **Example Git diff showing automatic update:**
 [source,diff,subs="attributes"]
 ----
 -          image: quay.io/redhat-appstudio/rhtap-task-runner:latest
-+          image: quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
++          image: quay-{guid}/tssc/qrks-tkn-{user}:v1.0
 ----
 
 == Activity 3: Observing GitOps Deployment
@@ -331,7 +331,7 @@ You've experienced how Red Hat Advanced Developer Suite transforms enterprise st
 | Phase | Purpose
 
 | 1.1 extract-destination-image-tag
-| Extracts the commit ID of the Git tag* The commit ID is the image tag of the image we are promoting to `stage`.
+| Extracts the commit ID of the Git tag. The commit ID is the image tag of the image we are promoting to `stage`.
 
 | 1.2 gather-images-to-verify
 | Selects the image based on the commit ID and generates `images.json`.
@@ -374,4 +374,3 @@ In the next section, you'll experience:
 * Zero-downtime deployment strategies for production environments
 
 The transformation from weeks-long staging cycles to 30-minute automated validation demonstrates the power of Red Hat Advanced Developer Suite in modern enterprise development.
-

@@ -59,11 +59,7 @@ Let's begin your journey by logging into your modernized development environment
 
 === Step 1: Open Red Hat Developer Hub
 
-* Navigate to the Red Hat Developer Hub, which now provides self-service Jenkins capabilities:
-+
-link:{rhdh_url}[*Red Hat Developer Hub*^]
-
-* You see the "Select a sign-in method" screen and click the *OIDC* option
+* In the Red Hat Developer Hub view on the right, click *Sign In* on the OIDC login prompt.
 
 image::jenkins-dev-1.png[]
 
@@ -115,7 +111,7 @@ image::jenkins-dev-2.png[]
 
 image::jenkins-dev-3.png[]
 
-TIP: You're about to witness something powerful - this single template will automatically create your complete Jenkins environment with pipelines, security integration, and Kubernetes resources* No tickets, no waiting, no manual Jenkins configuration!
+TIP: You're about to witness something powerful - this single template will automatically create your complete Jenkins environment with pipelines, security integration, and Kubernetes resources. No tickets, no waiting, no manual Jenkins configuration!
 
 === Step 3: Configure Your Jenkins Application
 
@@ -285,7 +281,7 @@ These shared library functions ensure consistency, security, and compliance acro
 
 **What is Jenkins Pipelines as Code?**
 
-Your Jenkins pipeline definition lives alongside your application code in the same Git repository* This approach provides:
+Your Jenkins pipeline definition lives alongside your application code in the same Git repository. This approach provides:
 
 * **Version Control**: Jenkins pipeline changes are tracked with your code changes
 * **Reproducibility**: Anyone can see exactly how your application is built in Jenkins
@@ -611,4 +607,3 @@ In the next section, **Staging - Jenkins Pipeline Promotion**, you'll:
 * Understand GitOps deployment through Jenkins pipeline automation
 
 Your enhanced Jenkins foundation is now in place - let's see your staging promotion in action!
-
