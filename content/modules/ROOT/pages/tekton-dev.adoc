@@ -64,6 +64,7 @@ Let's embark on your journey by logging into your new development environment. Y
 
 // image::tekton-dev-1.png[role=zoomable]
 image::tekton-dev-1.png[link=ROOT/assets/images/tekton-dev-1.png[, window=_blank, title="Click to expand"]]
+image::tekton-dev-1.png[link=tekton-dev-1.png[, window=_blank, title="Click to expand"]]
 // image::tekton-dev-1.png[role=zoomable]
 
 [TIP]
