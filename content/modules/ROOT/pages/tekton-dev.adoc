@@ -105,10 +105,11 @@ Now comes the exciting part - you're about to experience the magic of self-servi
 
 === Step 1: Discovering Software Templates
 
-* Eager to get started on your Black Friday project, you spot the **+ Self-service** button in the top-right corner of the Developer Hub
-* You click **+ Self-service** and are amazed to see a catalog of ready-to-use templates - no more starting from scratch!
-
+* Eager to get started on your Black Friday project you spot the **+** button (Self-service), in the top-right corner of the Developer Hub
++
 image::tekton-dev-2.png[]
+* You click **+** and are amazed to see a catalog of ready-to-use templates - no more starting from scratch!
+
 
 === Step 2: Choosing Your OpenShift Pipelines Template
 

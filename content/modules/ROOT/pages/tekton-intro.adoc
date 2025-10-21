@@ -126,4 +126,4 @@ TIP: Even if you're new to OpenShift Pipelines development, the workshop is desi
 
 Ready to start your OpenShift Pipelines development journey?
 
-Click **Development - Building your application** to begin creating your first secure, OpenShift Pipelines application with RHADS!
+Click **Development - Building your application** to begin creating your first secure OpenShift Pipelines application with RHADS!

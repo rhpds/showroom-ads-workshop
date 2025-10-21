@@ -50,7 +50,7 @@ This workshop offers two learning paths that demonstrate different approaches to
 
 === Path 1: OpenShift Pipelines (Tekton)
 
-=== Learning Flow
+=== Topics
 
 * Self-service project creation via Red Hat Developer Hub
 * Kubernetes-native development with OpenShift Dev Spaces
@@ -61,9 +61,9 @@ This workshop offers two learning paths that demonstrate different approaches to
 
 Modern OpenShift Pipelines development velocity with enterprise security
 
-=== Path 2: Enterprise Integration
+=== Path 2: Jenkins Pipelines
 
-=== Learning Flow
+=== Topics
 
 * Self-service project creation via Red Hat Developer Hub
 * Enhanced Jenkins pipelines with integrated security

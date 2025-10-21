@@ -95,8 +95,8 @@ Now comes the exciting part - you're about to experience the magic of self-servi
 
 === Step 1: Discovering Jenkins Software Templates
 
-* Ready to leverage your Jenkins skills on a new project, you spot the **+ Self-service** button in the top-right corner
-* You click **+ Self-service** and discover a catalog of ready-to-use Jenkins templates
+* Ready to leverage your Jenkins skills on a new project, you spot the **+** button (Self-service) in the top-right corner
+* You click **+** and discover a catalog of ready-to-use Jenkins templates
 
 image::jenkins-dev-2.png[]
 
