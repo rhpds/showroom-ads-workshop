@@ -62,7 +62,7 @@ Let's embark on your journey by logging into your new development environment. Y
 
 * In the Red Hat Developer Hub view on the right, click *Sign In* on the OIDC login prompt.
 
-image::tekton-dev-1.png[]
+link:image::tekton-dev-1.png[image::tekton-dev-1.png[]]
 
 [TIP]
 ====
@@ -304,7 +304,9 @@ Pipeline as Code means your CI/CD pipeline definitions live alongside your appli
 
 Now that you understand the concept, let's look at the actual pipeline files that were generated for you:
 
-* In OpenShift Dev Spaces (or back in your component overview), navigate to your repository
+* In OpenShift Dev Spaces, in your project view, locate the `.tekton/` folder under the root directory.
++
+image::tekton-dev-19.png[]
 * Open the `.tekton/` directory to see your pipeline definitions
 * You'll find three files that control your entire CI/CD workflow:
 
