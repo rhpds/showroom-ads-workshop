@@ -67,8 +67,8 @@ Creating a Git tag triggers your Jenkins staging pipeline, demonstrating how sim
 +
 image::jenkins-stage-2.png[link=self, window=_blank]
 
-* Enter a version tag like `v1.0`
-* Choose the target branch (typically `main`)
+* Enter `v1.0` as the tag name
+* Select `master` as the target branch
 * Click *Create Tag*
 +
 image::jenkins-stage-3.png[link=self, window=_blank]

@@ -54,8 +54,8 @@ image::tekton-prod-1.png[link=self, window=_blank]
 
 image::tekton-prod-2.png[link=self, window=_blank]
 
-* Select an existing tag (e.g., `v1.0`) or create a new one
-* Enter meaningful release notes describing the changes
+* Select the existing tag `v1.0` from the dropdown
+* Enter release notes describing the changes
 * Click *Create release*
 
 image::tekton-prod-3.png[link=self, window=_blank]

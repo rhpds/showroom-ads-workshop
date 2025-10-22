@@ -418,15 +418,22 @@ This application uses OpenShift Pipelines (Tekton) for secure CI/CD.
 
 === Step 4: Your First Signed Commit
 
+[IMPORTANT]
+====
+**New Security Feature: Cryptographically Signed Commits**
+
+Your commits will be cryptographically signed to prove they came from you. You'll authenticate once via browser - this takes 30 seconds but provides enterprise-grade security. We'll explain how it works as you go.
+====
+
 * You open a terminal in Dev Spaces (*Terminal → New Terminal*) - no need to install anything locally!
-* You stage your changes, feeling the anticipation build:
+* You stage your changes:
 +
 [source,bash,role="execute"]
 ----
 git add .
 ----
 
-* You commit your changes with confidence:
+* You commit your changes:
 +
 [source,bash,role="execute"]
 ----
@@ -435,10 +442,13 @@ git commit -m "Add OpenShift Pipelines documentation"
 +
 image::tekton-dev-15.png[link=self, window=_blank]
 
-* Something interesting happens - you're prompted for signed commit authentication
-* The terminal displays a URL that you need to follow for authentication
+* **What's happening now?** You're prompted for signed commit authentication
+  - The terminal shows a URL - this is an OAuth flow to verify your identity
+  - **Why?** Your organization requires cryptographic proof of who made each commit
+  - **Who's signing?** YOU are, using **gitsign** and **Red Hat Trusted Artifact Signer** (based on Sigstore)
+
 * You click the URL directly in the terminal, or copy and paste it into a new browser window
-* If prompted for credentials during the browser authentication, you use your RHDH credentials:
+* If prompted for credentials, you enter your RHDH credentials to prove your identity:
 +
 [source,bash,subs="attributes"]
 ----
@@ -452,9 +462,9 @@ image::tekton-dev-16.png[link=self, window=_blank]
 
 * You copy this verification code from the browser
 * You return to the terminal and paste the verification code when prompted
-* After entering the code, you feel a sense of accomplishment - your commit is now cryptographically signed for security
+* **Result:** Your commit now has unforgeable cryptographic proof it came from you
 
-* You push your changes and watch the magic happen:
+* You push your changes to trigger the pipeline:
 +
 [source,bash,role="execute"]
 ----
@@ -463,7 +473,24 @@ git push
 
 [TIP]
 ====
-You just witnessed something powerful - your commit was automatically signed for security, and now it's triggering a complete OpenShift Pipelines workflow. No manual work, no tickets, no waiting!
+**What You Just Did: Supply Chain Security in Action**
+
+Traditional Git commits can be forged - anyone can pretend to be you by setting `git config user.name "YourName"`. Your signed commit is different:
+
+✓ **Proves your verified identity** made this change
+✓ **Can't be tampered with or forged** by attackers
+✓ **Provides audit trails** for compliance (SOC 2, PCI)
+✓ **Builds trust** throughout your software supply chain
+
+**The Technical Flow:**
+
+1. You ran `git commit` → Git invoked **gitsign**
+2. Gitsign requested authentication → Browser OAuth flow opened
+3. You verified your identity → **Sigstore** issued a short-lived certificate
+4. The commit was signed → Cryptographic signature attached to commit
+5. The signature was pushed → Verifiable by anyone using public keys
+
+This 30-second authentication protects your code, your team, and your customers. Plus, it triggered a complete OpenShift Pipelines workflow with security scanning and automated deployment!
 ====
 
 image::tekton-dev-17.png[link=self, window=_blank]

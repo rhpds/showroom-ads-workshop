@@ -87,8 +87,8 @@ Creating a GitLab release triggers your Jenkins production pipeline with enhance
 image::jenkins-prod-2.png[link=self, window=_blank]
 
 * Click *Create a new release*
-* Select the existing tag, such as `v1.0`
-* Optionally add release notes
+* Select the existing tag `v1.0` from the dropdown
+* Add release notes (optional)
 * Click *Create release*
 +
 image::jenkins-prod-3.png[link=self, window=_blank]

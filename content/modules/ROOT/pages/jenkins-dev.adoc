@@ -412,6 +412,13 @@ This application uses Jenkins pipelines with enterprise security integration.
 
 === Step 4: Your First Signed Commit for Jenkins
 
+[IMPORTANT]
+====
+**New Security Feature: Cryptographically Signed Commits**
+
+Your commits will be cryptographically signed to prove they came from you. You'll authenticate once via browser - this takes 30 seconds but provides enterprise-grade security that integrates seamlessly with your Jenkins workflows. We'll explain how it works as you go.
+====
+
 * You open a terminal in Dev Spaces (*Terminal → New Terminal*)
 * You stage your changes:
 +
@@ -429,10 +436,14 @@ git commit -m "Add Jenkins pipeline documentation"
 +
 image::jenkins-dev-15.png[link=self, window=_blank]
 
-* You're prompted for signed commit authentication - this integrates with your Jenkins security workflow
-* The terminal displays a URL that you need to follow for authentication
+* **What's happening now?** You're prompted for signed commit authentication
+  - The terminal shows a URL - this is an OAuth flow to verify your identity
+  - **Why?** Your organization requires cryptographic proof of who made each commit
+  - **Who's signing?** YOU are, using **gitsign** and **Red Hat Trusted Artifact Signer** (based on Sigstore)
+  - **Jenkins Integration:** Your Jenkins pipeline will verify this signature as part of its security checks
+
 * You click the URL directly in the terminal, or copy and paste it into a new browser window
-* If prompted for credentials during the browser authentication, you use your RHDH credentials:
+* If prompted for credentials, you enter your RHDH credentials to prove your identity:
 +
 [source,bash,subs="attributes"]
 ----
@@ -446,15 +457,40 @@ image::jenkins-dev-16.png[link=self, window=_blank]
 
 * You copy this verification code from the browser
 * You return to the terminal and paste the verification code when prompted
-* After entering the code, your commit is cryptographically signed for enterprise security
-* You push your changes:
+* **Result:** Your commit now has unforgeable cryptographic proof it came from you
+
+* You push your changes to trigger your Jenkins pipeline:
 +
 [source,bash,role="execute"]
 ----
 git push
 ----
 
-TIP: You just witnessed the power of enhanced Jenkins workflows - your commit triggered a complete Jenkins pipeline with enterprise security, all automatically configured and integrated!
+[TIP]
+====
+**What You Just Did: Supply Chain Security in Jenkins**
+
+Traditional Git commits can be forged - anyone can pretend to be you by setting `git config user.name "YourName"`. Your signed commit is different:
+
+✓ **Proves your verified identity** made this change
+✓ **Can't be tampered with or forged** by attackers
+✓ **Provides audit trails** for compliance (SOC 2, PCI)
+✓ **Integrates with Jenkins** for automated verification in your pipeline
+
+**The Technical Flow:**
+
+1. You ran `git commit` → Git invoked **gitsign**
+2. Gitsign requested authentication → Browser OAuth flow opened
+3. You verified your identity → **Sigstore** issued a short-lived certificate
+4. The commit was signed → Cryptographic signature attached to commit
+5. The signature was pushed → Your Jenkins pipeline can verify it automatically
+
+**Jenkins Enhancement:**
+
+Your Jenkins pipeline includes a `verify-commit` stage that checks this signature. This ensures only verified, signed commits progress through your pipeline - adding enterprise security without slowing down your familiar Jenkins workflow.
+
+This 30-second authentication protects your code, your team, and your customers while triggering your enhanced Jenkins pipeline with automated security scanning and deployment!
+====
 
 image::jenkins-dev-17.png[link=self, window=_blank]
 
