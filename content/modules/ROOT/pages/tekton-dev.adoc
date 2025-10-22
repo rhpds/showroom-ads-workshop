@@ -398,7 +398,7 @@ Password: {rhdh_user_password}
 
 Once your workspace loads, you'll see:
 
-* Your quarkus source code repository cloned into the environment
+* Your quarkus source code repository, quarkus-tkn-{user}, cloned into the environment
 * In the quarkus-tkn-{user} folder
 ** A `.tekton` folder showing your OpenShift Pipelines workflow
 ** A `docs` folder which stores the adocs used for generating your tech docs.
