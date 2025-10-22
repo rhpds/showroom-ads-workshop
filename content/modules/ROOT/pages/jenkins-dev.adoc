@@ -371,7 +371,7 @@ image::jenkins-dev-13.png[link=self, window=_blank]
 
 Once your workspace loads, you'll see your Quarkus source code repository cloned into the environment. In the `qrks-jnk-{user}` folder you'll find:
 
-* 3 `Jenkinsfile.*` pipeline files triggered when committing, tagging and releasing your code
+* 3 `Jenkinsfile.*` pipeline files triggered triggered when committing, tagging and releasing your code
 * A `docs` folder which stores the adocs used for generating your tech docs
 * A `src` directory which is the source code you will use as your base code
 
