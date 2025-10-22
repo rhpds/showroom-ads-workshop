@@ -282,8 +282,12 @@ ArgoCD (OpenShift GitOps) continuously monitors your GitOps repository and autom
 
 **Step 3: Validate Production Environment**
 
-* In the `Topology` tab in Developer Hub, locate the production application and click on the 'Open URL' icon (the arrow on the top right of your application) to open the route.
+* In the `Topology` tab in Developer Hub, locate the production application `qrks-tkn-{user}-prod` and click on the 'Open URL' icon (the arrow on the top right of your application) to open the route.
 * Verify that your changes are live and functioning correctly in production
+[NOTE]
+====
+It might take ArgoCD a few minutes to sync your changes.  Refresh your app browser window after a minute.
+====
 * Confirm that the production environment matches your expectations
 
 == Workshop Summary and Reflection
