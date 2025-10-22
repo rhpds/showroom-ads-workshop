@@ -415,14 +415,14 @@ This application uses Jenkins pipelines with enterprise security integration.
 * You open a terminal in Dev Spaces (*Terminal → New Terminal*)
 * You stage your changes:
 +
-[source,bash]
+[source,bash,role="execute"]
 ----
 git add .
 ----
 
 * You commit your changes:
 +
-[source,bash]
+[source,bash,role="execute"]
 ----
 git commit -m "Add Jenkins pipeline documentation"
 ----
@@ -449,7 +449,7 @@ image::jenkins-dev-16.png[link=self, window=_blank]
 * After entering the code, your commit is cryptographically signed for enterprise security
 * You push your changes:
 +
-[source,bash]
+[source,bash,role="execute"]
 ----
 git push
 ----

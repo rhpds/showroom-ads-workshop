@@ -409,7 +409,7 @@ Time to make your mark on the Black Friday project! Let's trigger your first aut
 * You open the `index.md` file and decide to document your modern setup
 * You add this line at the end of the document, proud of what you're building:
 +
-[source,markdown]
+[source,markdown,role="execute"]
 ----
 This application uses OpenShift Pipelines (Tekton) for secure CI/CD.
 ----
@@ -421,14 +421,14 @@ This application uses OpenShift Pipelines (Tekton) for secure CI/CD.
 * You open a terminal in Dev Spaces (*Terminal → New Terminal*) - no need to install anything locally!
 * You stage your changes, feeling the anticipation build:
 +
-[source,bash]
+[source,bash,role="execute"]
 ----
 git add .
 ----
 
 * You commit your changes with confidence:
 +
-[source,bash]
+[source,bash,role="execute"]
 ----
 git commit -m "Add OpenShift Pipelines documentation"
 ----
@@ -456,7 +456,7 @@ image::tekton-dev-16.png[link=self, window=_blank]
 
 * You push your changes and watch the magic happen:
 +
-[source,bash]
+[source,bash,role="execute"]
 ----
 git push
 ----
