@@ -175,6 +175,8 @@ Click *Review* to see a summary of your Jenkins configuration.
 
 * Review all the settings in the summary page
 
+image::jenkins-dev-4.png[link=self, window=_blank]
+
 image::jenkins-dev-5.png[link=self, window=_blank]
 
 * Click *Create* to generate your Jenkins application
