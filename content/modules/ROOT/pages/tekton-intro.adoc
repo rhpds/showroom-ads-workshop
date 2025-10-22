@@ -92,47 +92,23 @@ This module follows ACME's development workflow:
 * Monitor application health and security posture
 * Understand the complete supply chain security
 
-== Key Advantages of This Approach
-
-**Developer Experience:**
-
-* Browser-based development - no local setup required
-* Instant environment provisioning
-* Live reload and rapid iteration
-* Integrated debugging and testing
-
-**Operational Benefits:**
-
-* Kubernetes-native scaling and resource management
-* GitOps automation for consistent deployments
-* Built-in observability and monitoring
-* Cloud-portable across any Kubernetes platform
-
-**Security Advantages:**
-
-* Container-first security scanning
-* Immutable infrastructure patterns
-* Policy enforcement at the platform level
-* Complete audit trails for compliance
-
-IMPORTANT: This OpenShift Pipelines approach represents the future of enterprise development - you'll experience tomorrow's development practices today.
-
 == Why This Approach Works
 
 === For Development Teams
 
 **Cloud-Native Development:**
 
-* Zero local setup required - develop entirely in the browser
+* Browser-based development - no local setup required
+* Instant environment provisioning
 * Consistent development environments across all team members
 * No "works on my machine" issues
-* Instant access to enterprise tooling and resources
 
 **Modern Workflows:**
 
 * GitOps-based deployment eliminates manual steps
 * Automated security scanning integrated into development flow
 * Self-service capabilities reduce dependency on platform teams
+* Live reload and rapid iteration
 * Focus on writing code, not managing infrastructure
 
 === For Platform Teams
@@ -146,10 +122,11 @@ IMPORTANT: This OpenShift Pipelines approach represents the future of enterprise
 
 **Built-in Best Practices:**
 
-* Security scanning and policy enforcement automated
 * Kubernetes-native scaling and resource management
-* Complete observability and monitoring
+* Security scanning and policy enforcement automated
 * GitOps ensures declarative, auditable deployments
+* Complete observability and monitoring
+* Cloud-portable across any Kubernetes platform
 
 === When This Approach Excels
 
@@ -166,6 +143,8 @@ IMPORTANT: This OpenShift Pipelines approach represents the future of enterprise
 * Cultural alignment with DevOps and automation
 * Teams comfortable with cloud-native concepts
 * Desire for modern development tooling
+
+IMPORTANT: This OpenShift Pipelines approach represents the future of enterprise development - you'll experience tomorrow's development practices today.
 
 == Prerequisites
 
