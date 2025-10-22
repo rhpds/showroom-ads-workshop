@@ -76,7 +76,7 @@ Username: {gitlab_user}
 Password: {gitlab_user_password}
 ----
 +
-image::jenkins-prod-1.png[]
+image::jenkins-prod-1.png[link=self, window=_blank]
 
 === Step 2: Create a GitLab Release
 
@@ -84,14 +84,14 @@ Creating a GitLab release triggers your Jenkins production pipeline with enhance
 
 * In the left navigation menu, go to *Deploy > Releases*
 +
-image::jenkins-prod-2.png[]
+image::jenkins-prod-2.png[link=self, window=_blank]
 
 * Click *Create a new release*
 * Select the existing tag, such as `v1.0`
 * Optionally add release notes
 * Click *Create release*
 +
-image::jenkins-prod-3.png[]
+image::jenkins-prod-3.png[link=self, window=_blank]
 
 [NOTE]
 ====
@@ -103,17 +103,17 @@ This GitLab release creation triggers a webhook that starts your Jenkins product
 * Navigate to Red Hat Developer Hub
 * Go to your `qrks-jnk-{user}` component under *Catalog > Component*
 +
-image::jenkins-prod-7.png[]
+image::jenkins-prod-7.png[link=self, window=_blank]
 
 * Click the *CI* tab to see your Jenkins pipeline runs
 * Locate the build labeled **promote-to-prod**
 * Click on the *View build* icon to follow progress in Jenkins
 +
-image::jenkins-prod-4.png[]
+image::jenkins-prod-4.png[link=self, window=_blank]
 
 * Click *Open Blue Ocean* to view the Jenkins production pipeline stages
 +
-image::jenkins-prod-5.png[]
+image::jenkins-prod-5.png[link=self, window=_blank]
 
 [TIP]
 ====
@@ -124,7 +124,7 @@ The same Jenkins pipeline is reused for both staging and production, but its beh
 
 Your Jenkins production pipeline ensures enterprise-grade security while maintaining familiar workflows. Let's examine each critical task:
 
-image::jenkins-prod-6.png[]
+image::jenkins-prod-6.png[link=self, window=_blank]
 
 === Task 1: gather-images
 

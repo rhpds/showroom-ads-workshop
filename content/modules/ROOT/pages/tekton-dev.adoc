@@ -107,7 +107,7 @@ Now comes the exciting part - you're about to experience the magic of self-servi
 
 * Eager to get started on your Black Friday project you spot the **+** button (Self-service), in the top-right corner of the Developer Hub
 +
-image::tekton-dev-2.png[]
+image::tekton-dev-2.png[link=self, window=_blank]
 * You click **+** and are amazed to see a catalog of ready-to-use templates - no more starting from scratch!
 
 
@@ -120,7 +120,7 @@ image::tekton-dev-2.png[]
 * "Perfect!" you think, "This is exactly what I need for a modern application with OpenShift Pipelines"
 * You click *Choose* to select this template, excited to see what happens next
 
-image::tekton-dev-3.png[]
+image::tekton-dev-3.png[link=self, window=_blank]
 
 [TIP]
 ====
@@ -180,9 +180,9 @@ Click *Review* to see a summary of your OpenShift Pipelines configuration.
 
 * Review all the settings in the summary page
 
-image::tekton-dev-4.png[]
+image::tekton-dev-4.png[link=self, window=_blank]
 
-image::tekton-dev-5.png[]
+image::tekton-dev-5.png[link=self, window=_blank]
 
 * Click *Create* to generate your OpenShift Pipelines application
 
@@ -205,11 +205,11 @@ This entire OpenShift Pipelines setup that traditionally takes weeks is complete
 
 * In Red Hat Developer Hub, go to the *Catalog* and locate your new component (`qrks-tkn-{user}`)
 
-image::tekton-dev-6.png[]
+image::tekton-dev-6.png[link=self, window=_blank]
 
 * Click the component name to open its *Overview* page
 
-image::tekton-dev-7.png[]
+image::tekton-dev-7.png[link=self, window=_blank]
 
 * You'll see your new OpenShift Pipelines application component with links to:
   * Source code repository with Kubernetes manifests
@@ -306,7 +306,7 @@ Now that you understand the concept, let's look at the actual pipeline files tha
 
 * In OpenShift Dev Spaces, in your project view, locate the `.tekton/` folder under the root directory.
 +
-image::tekton-dev-19.png[]
+image::tekton-dev-19.png[link=self, window=_blank]
 * Open the `.tekton/` directory to see your pipeline definitions
 * You'll find three files that control your entire CI/CD workflow:
 
@@ -353,15 +353,15 @@ TIP: These YAML files use references to the shared pipeline definitions in `{git
 
 * If you're redirected to an authentication page, you click *Log in with OpenShift*
 
-image::tekton-dev-8.png[]
+image::tekton-dev-8.png[link=self, window=_blank]
 
 * On the *Authorize Access* screen, you click *Allow selected permissions*
 
-image::tekton-dev-9.png[]
+image::tekton-dev-9.png[link=self, window=_blank]
 
 * On the repository trust prompt, you click the checkbox and then click *Continue*
 
-image::tekton-dev-10.png[]
+image::tekton-dev-10.png[link=self, window=_blank]
 
 * When prompted to authenticate with GitLab, you enter your credentials:
 +
@@ -371,16 +371,16 @@ Username: {gitlab_user}
 Password: {gitlab_user_password}
 ----
 
-image::tekton-dev-11.png[]
+image::tekton-dev-11.png[link=self, window=_blank]
 
 * Click *Authorize devspaces* on the next window
 
-image::tekton-dev-12.png[]
+image::tekton-dev-12.png[link=self, window=_blank]
 
 * Wait for the workspace to start and fully load VS Code
 * If prompted, trust all workspaces and authors
 
-image::tekton-dev-13.png[]
+image::tekton-dev-13.png[link=self, window=_blank]
 
 * You sign in with the same credentials you've been using:
 +
@@ -433,7 +433,7 @@ git add .
 git commit -m "Add OpenShift Pipelines documentation"
 ----
 +
-image::tekton-dev-15.png[]
+image::tekton-dev-15.png[link=self, window=_blank]
 
 * Something interesting happens - you're prompted for signed commit authentication
 * The terminal displays a URL that you need to follow for authentication
@@ -448,7 +448,7 @@ Password: {rhdh_user_password}
 
 * Once successfully authenticated in the browser, a verification code appears on the screen
 +
-image::tekton-dev-16.png[]
+image::tekton-dev-16.png[link=self, window=_blank]
 
 * You copy this verification code from the browser
 * You return to the terminal and paste the verification code when prompted
@@ -466,7 +466,7 @@ git push
 You just witnessed something powerful - your commit was automatically signed for security, and now it's triggering a complete OpenShift Pipelines workflow. No manual work, no tickets, no waiting!
 ====
 
-image::tekton-dev-17.png[]
+image::tekton-dev-17.png[link=self, window=_blank]
 
 == What You Just Accomplished
 

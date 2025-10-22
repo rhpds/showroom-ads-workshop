@@ -46,19 +46,19 @@ In this activity, you'll initiate an enterprise-grade production deployment by c
   * Username: `{gitlab_user}`
   * Password: `{gitlab_user_password}`
 
-image::tekton-prod-1.png[]
+image::tekton-prod-1.png[link=self, window=_blank]
 
 === Step 2: Create a GitLab Release
 
 * Navigate to *Deploy > Releases > Create a new release*
 
-image::tekton-prod-2.png[]
+image::tekton-prod-2.png[link=self, window=_blank]
 
 * Select an existing tag (e.g., `v1.0`) or create a new one
 * Enter meaningful release notes describing the changes
 * Click *Create release*
 
-image::tekton-prod-3.png[]
+image::tekton-prod-3.png[link=self, window=_blank]
 
 [TIP]
 ====
@@ -71,7 +71,7 @@ image::tekton-prod-3.png[]
 * Click the *CI* tab to view pipeline runs
 * Look for a pipeline run labeled *promote-to-prod* and expand it to view details
 
-image::tekton-prod-4.png[]
+image::tekton-prod-4.png[link=self, window=_blank]
 
 **What You've Accomplished:**
 You've initiated an automated production pipeline that will perform enterprise security validation before allowing deployment to production.

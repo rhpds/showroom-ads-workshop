@@ -57,7 +57,7 @@ Username: {gitlab_user}
 Password: {gitlab_user_password}
 ----
 +
-image::jenkins-stage-1.png[]
+image::jenkins-stage-1.png[link=self, window=_blank]
 
 === Step 2: Create a Git Tag for Jenkins Staging
 
@@ -65,13 +65,13 @@ Creating a Git tag triggers your Jenkins staging pipeline, demonstrating how sim
 
 * In the left menu, click on *Code > Tags > New Tag*
 +
-image::jenkins-stage-2.png[]
+image::jenkins-stage-2.png[link=self, window=_blank]
 
 * Enter a version tag like `v1.0`
 * Choose the target branch (typically `main`)
 * Click *Create Tag*
 +
-image::jenkins-stage-3.png[]
+image::jenkins-stage-3.png[link=self, window=_blank]
 
 [NOTE]
 ====
@@ -97,11 +97,11 @@ This CLI method triggers the same Jenkins staging automation while maintaining t
 * Click the *CI* tab to see your Jenkins pipeline runs
 * Look for the job labeled *promote-to-stage* and click *View build* to follow its progress
 +
-image::jenkins-stage-4.png[]
+image::jenkins-stage-4.png[link=self, window=_blank]
 
 * Click *Open Blue Ocean* to view the Jenkins pipeline stages in the familiar interface
 +
-image::jenkins-stage-5.png[]
+image::jenkins-stage-5.png[link=self, window=_blank]
 
 [TIP]
 ====
@@ -112,7 +112,7 @@ Use the Developer Hub view combined with Jenkins Blue Ocean to observe each task
 
 Your Jenkins staging pipeline provides production-level confidence while eliminating manual bottlenecks and preserving your Jenkins expertise. Let's examine each task in detail.
 
-image::jenkins-stage-6.png[]
+image::jenkins-stage-6.png[link=self, window=_blank]
 
 === Task 1: gather-images
 
