@@ -1,6 +1,6 @@
 ---
 type: showroom
 
-tabs: []
-  # - name: Red Hat Developer Hub
-  #   url: https://backstage-developer-hub-tssc-dh.${DOMAIN}
+tabs:
+  - name: Red Hat Developer Hub
+    url: https://backstage-developer-hub-tssc-dh.${DOMAIN}
