@@ -201,9 +201,7 @@ This entire OpenShift Pipelines setup that traditionally takes weeks is complete
 
 **Step 5: Access Your New OpenShift Pipelines Component**
 
-* Once the template execution completes, click *Open Component in Catalog*
-
-* In Red Hat Developer Hub, go to the *Catalog* and locate your new component (`qrks-tkn-{user}`)
+* Once the template execution completes, click *Open Component in Catalog* or if you've navigated away, go to *Catalog* on the left menu and locate your new component (`qrks-tkn-{user}`)
 
 image::tekton-dev-6.png[link=self, window=_blank]
 
