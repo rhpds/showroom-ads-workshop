@@ -58,7 +58,7 @@ Today you'll experience this transformation firsthand by creating a production-r
 
 Let's embark on your journey by logging into your new development environment. You're about to discover how different OpenShift Pipelines makes your development experience!
 
-=== Step 1: Open Red Hat Developer Hub
+**Step 1: Open Red Hat Developer Hub**
 
 * In the Red Hat Developer Hub view on the right, click *Sign In* on the OIDC login prompt.
 
@@ -69,7 +69,7 @@ image::tekton-dev-1.png[link=self, window=_blank]
 Your organization uses OIDC authentication powered by Red Hat build of Keycloak - this secure authentication integration will save you time throughout your development workflow.
 ====
 
-=== Step 2: Enter Your Credentials
+**Step 2: Enter Your Credentials**
 
 * You're presented with the Red Hat Trusted Artifact Signer login form with username and password fields
 
@@ -103,7 +103,7 @@ You've just accessed something revolutionary - your organization's **Internal De
 
 Now comes the exciting part - you're about to experience the magic of self-service application creation with OpenShift Pipelines that will transform how you work!
 
-=== Step 1: Discovering Software Templates
+**Step 1: Discovering Software Templates**
 
 * Eager to get started on your Black Friday project you spot the **+** button (Self-service), in the top-right corner of the Developer Hub
 +
@@ -111,7 +111,7 @@ image::tekton-dev-2.png[link=self, window=_blank]
 * You click **+** and are amazed to see a catalog of ready-to-use templates - no more starting from scratch!
 
 
-=== Step 2: Choosing Your OpenShift Pipelines Template
+**Step 2: Choosing Your OpenShift Pipelines Template**
 
 * As you browse through the available templates, one catches your eye:
 +
@@ -127,7 +127,7 @@ image::tekton-dev-3.png[link=self, window=_blank]
 You're about to witness something amazing - this single template will automatically create your complete OpenShift Pipelines environment with Tekton workflows, Kubernetes resources, and security scanning. No tickets, no waiting, no manual configuration!
 ====
 
-=== Step 3: Configure Your OpenShift Pipelines Application
+**Step 3: Configure Your OpenShift Pipelines Application**
 
 The template form will guide you through OpenShift Pipelines configuration with three main sections:
 
@@ -176,7 +176,7 @@ Note that **Verify Commits** is enabled - this ensures all code commits are cryp
 
 Click *Review* to see a summary of your OpenShift Pipelines configuration.
 
-=== Step 4: Create Your OpenShift Pipelines Application
+**Step 4: Create Your OpenShift Pipelines Application**
 
 * Review all the settings in the summary page
 
@@ -199,7 +199,7 @@ The OpenShift Pipelines software template will now:
 This entire OpenShift Pipelines setup that traditionally takes weeks is completed in under a minute!
 ====
 
-=== Step 5: Access Your New OpenShift Pipelines Component
+**Step 5: Access Your New OpenShift Pipelines Component**
 
 * Once the template execution completes, click *Open Component in Catalog*
 
@@ -219,7 +219,7 @@ image::tekton-dev-7.png[link=self, window=_blank]
 
 == Activity 3: Understanding the Generated Repository Structure
 
-=== Step 1: Exploring the Developer Hub Configuration
+**Step 1: Exploring the Developer Hub Configuration**
 
 The template you just used is part of a sophisticated system with three key repositories:
 
@@ -300,7 +300,7 @@ Pipeline as Code means your CI/CD pipeline definitions live alongside your appli
 
 == Activity 4: Examining Your Pipeline as Code Files
 
-=== Step 1: Viewing Your Pipeline Definitions
+**Step 1: Viewing Your Pipeline Definitions**
 
 Now that you understand the concept, let's look at the actual pipeline files that were generated for you:
 
@@ -346,7 +346,7 @@ TIP: These YAML files use references to the shared pipeline definitions in {gitl
 
 == Activity 5: Exploring Your New OpenShift Pipelines Development Environment
 
-=== Step 1: Accessing Your Browser-Based IDE
+**Step 1: Accessing Your Browser-Based IDE**
 
 * Back in your component overview, you notice a link for *OpenShift Dev Spaces* and click it curiously
 * "A browser-based development environment?" you wonder, "This should be interesting..."
@@ -392,7 +392,7 @@ Password: {rhdh_user_password}
 
 * When prompted, you click *Allow selected permissions* to grant access to your development workspace
 
-=== Step 2: Explore the OpenShift Pipelines Development Environment
+**Step 2: Explore the OpenShift Pipelines Development Environment**
 
 Once your workspace loads, you'll see:
 
@@ -402,7 +402,7 @@ Once your workspace loads, you'll see:
 ** A `docs` folder which stores the adocs used for generating your tech docs.
 ** A `src` directory which is the source code you will use as your base code.
 
-=== Step 3: Making Your First Code Change
+**Step 3: Making Your First Code Change**
 
 Time to make your mark on the Black Friday project! Let's trigger your first automated pipeline:
 
@@ -417,7 +417,7 @@ This application uses OpenShift Pipelines (Tekton) for secure CI/CD.
 
 * You save the file (Ctrl+S or Cmd+S), ready to see the magic happen
 
-=== Step 4: Your First Signed Commit
+**Step 4: Your First Signed Commit**
 
 [IMPORTANT]
 ====

@@ -57,7 +57,7 @@ IMPORTANT: Today you'll experience how organizations can transform their Jenkins
 
 Let's begin your journey by logging into your modernized development environment that preserves your Jenkins workflows while adding powerful self-service capabilities.
 
-=== Step 1: Open Red Hat Developer Hub
+**Step 1: Open Red Hat Developer Hub**
 
 * In the Red Hat Developer Hub view on the right, click *Sign In* on the OIDC login prompt.
 
@@ -65,7 +65,7 @@ image::jenkins-dev-1.png[link=self, window=_blank]
 
 TIP: This secure authentication integration will streamline your Jenkins workflow access and eliminate multiple login prompts.
 
-=== Step 2: Enter Your Credentials
+**Step 2: Enter Your Credentials**
 
 * You're presented with the authentication form
 * Enter your lab credentials:
@@ -93,14 +93,14 @@ You've just accessed your organization's **Internal Developer Portal (IDP)** tha
 
 Now comes the exciting part - you're about to experience the magic of self-service Jenkins application creation that preserves your Jenkins expertise while adding modern capabilities!
 
-=== Step 1: Discovering Jenkins Software Templates
+**Step 1: Discovering Jenkins Software Templates**
 
 * Ready to leverage your Jenkins skills on a new project, you spot the **+** button (Self-service) in the top-right corner
 +
 image::jenkins-dev-2.png[link=self, window=_blank]
 * You click **+** and discover a catalog of ready-to-use Jenkins templates
 
-=== Step 2: Choosing Your Jenkins Pipeline Template
+**Step 2: Choosing Your Jenkins Pipeline Template**
 
 * As you browse through the available templates, one immediately catches your attention:
 +
@@ -113,7 +113,7 @@ image::jenkins-dev-3.png[link=self, window=_blank]
 
 TIP: You're about to witness something powerful - this single template will automatically create your complete Jenkins environment with pipelines, security integration, and Kubernetes resources. No tickets, no waiting, no manual Jenkins configuration!
 
-=== Step 3: Configure Your Jenkins Application
+**Step 3: Configure Your Jenkins Application**
 
 The template form will guide you through Jenkins pipeline configuration:
 
@@ -162,7 +162,7 @@ Note that **Verify Commits** is enabled - this ensures Jenkins pipelines include
 
 Click *Review* to see a summary of your Jenkins configuration.
 
-=== Step 4: Create Your Jenkins Application
+**Step 4: Create Your Jenkins Application**
 
 * Review all the settings in the summary page
 
@@ -180,7 +180,7 @@ The Jenkins software template will now:
 
 TIP: This entire Jenkins setup that traditionally takes weeks is completed in under a minute while preserving familiar Jenkins workflows!
 
-=== Step 5: Access Your New Jenkins Component
+**Step 5: Access Your New Jenkins Component**
 
 * Once the template execution completes, click *Open Component in Catalog*
 
@@ -200,7 +200,7 @@ image::jenkins-dev-7.png[link=self, window=_blank]
 
 == Activity 3: Understanding Your Generated Jenkins Environment
 
-=== Step 1: Exploring the Jenkins Pipeline Structure
+**Step 1: Exploring the Jenkins Pipeline Structure**
 
 The template you just used created a sophisticated Jenkins environment with key components:
 
@@ -350,7 +350,7 @@ Your Jenkins pipeline definition lives alongside your application code in the sa
 
 Time to trigger your enhanced Jenkins pipeline and see the automation in action!
 
-=== Step 1: Accessing Your Development Environment
+**Step 1: Accessing Your Development Environment**
 
 * In your component overview, you notice a link for *OpenShift Dev Spaces* and click it
 * "A browser-based development environment integrated with Jenkins?" you wonder
@@ -386,7 +386,7 @@ image::jenkins-dev-12.png[link=self, window=_blank]
 
 image::jenkins-dev-13.png[link=self, window=_blank]
 
-=== Step 2: Explore Your Jenkins-Integrated Development Environment
+**Step 2: Explore Your Jenkins-Integrated Development Environment**
 
 Once your workspace loads, you'll see:
 
@@ -396,7 +396,7 @@ Once your workspace loads, you'll see:
 ** A `docs` folder which stores the adocs used for generating your tech docs.
 ** A `src` directory which is the source code you will use as your base code.
 
-=== Step 3: Making Your First Code Change
+**Step 3: Making Your First Code Change**
 
 Let's trigger your enhanced Jenkins pipeline:
 
@@ -411,7 +411,7 @@ This application uses Jenkins pipelines with enterprise security integration.
 
 * You save the file (Ctrl+S or Cmd+S)
 
-=== Step 4: Your First Signed Commit for Jenkins
+**Step 4: Your First Signed Commit for Jenkins**
 
 [IMPORTANT]
 ====
@@ -499,7 +499,7 @@ image::jenkins-dev-17.png[link=self, window=_blank]
 
 Now let's see your enhanced Jenkins pipeline in action and understand what's happening behind the scenes.
 
-=== Step 1: Access Jenkins Pipeline Execution
+**Step 1: Access Jenkins Pipeline Execution**
 
 * Navigate back to Developer Hub
 * Go to the *CI* tab of your `qrks-jnk-{user}` component
@@ -515,7 +515,7 @@ image::jenkins-dev-18.png[link=self, window=_blank]
 
 image::jenkins-dev-19.png[link=self, window=_blank]
 
-=== Step 2: Understanding Your Jenkins Pipeline Stages
+**Step 2: Understanding Your Jenkins Pipeline Stages**
 
 As your Jenkins pipeline executes, you can observe each stage in the familiar Blue Ocean interface:
 
@@ -576,7 +576,7 @@ image::jenkins-dev-20.png[link=self, window=_blank]
 * Provides comprehensive build information in familiar Jenkins interface
 * Uses reusable functions from the `rhtap` library
 
-=== Step 3: Exploring the Jenkins Pipeline Definition
+**Step 3: Exploring the Jenkins Pipeline Definition**
 
 * In your GitLab repository, open the `Jenkinsfile` in the root directory
 * Notice how this *Pipelines as Code* approach gives you:

@@ -45,7 +45,7 @@ Red Hat Advanced Developer Suite (RHADS) transforms this experience with:
 
 Let's create a Git tag to trigger the automated staging pipeline and observe how enterprise validation works.
 
-=== Step 1: Access Your GitLab Repository
+**Step 1: Access Your GitLab Repository**
 
 * Open your GitLab repository at {gitlab_url}/development/qrks-tkn-{user}[qrks-tkn-{user}^]
 * Sign in using:
@@ -58,7 +58,7 @@ Password: {gitlab_user_password}
 +
 image::tekton-stage-1.png[link=self, window=_blank]
 
-=== Step 2: Create a Git Tag
+**Step 2: Create a Git Tag**
 
 Creating a Git tag simulates a release event that triggers the staging pipeline.
 
@@ -77,7 +77,7 @@ image::tekton-stage-3.png[link=self, window=_blank]
 This tag creation triggers a GitLab webhook that kicks off the OpenShift Pipelines pipeline — the one that promotes the image to the staging environment.
 ====
 
-=== Alternative: CLI Approach
+**Alternative: CLI Approach**
 
 If you prefer the CLI, you can trigger the same automation:
 
@@ -89,7 +89,7 @@ git push --tags
 
 The CLI approach does the same thing — triggers the pipeline tied to this Git tag.
 
-=== Step 3: Monitor Pipeline Execution
+**Step 3: Monitor Pipeline Execution**
 
 * Go to Red Hat Developer Hub
 * Navigate to the *qrks-tkn-{user}* component
@@ -107,7 +107,7 @@ Use the Developer Hub view to observe each task as it executes. You'll see autom
 
 The staging pipeline provides production-level confidence while eliminating manual bottlenecks. Let's examine each task in detail.
 
-=== Task 1.1: extract-destination-image-tag
+**Task 1.1: `extract-destination-image-tag`**
 
 **Purpose:** Perfect traceability through Git tags
 
@@ -117,7 +117,7 @@ This task extracts the commit ID of the Git tag. The commit ID becomes the image
 * Complete audit trails for compliance
 * End-to-end traceability from code to deployment
 
-=== Task 1.2: gather-images-to-verify
+**Task 1.2: `gather-images-to-verify`**
 
 **Purpose:** Ensuring staging mirrors production exactly
 
@@ -150,7 +150,7 @@ This mapping between Git commit and container image provides end-to-end traceabi
 }
 ----
 
-=== Task 2: verify-enterprise-contract
+**Task 2: `verify-enterprise-contract`**
 
 **Purpose:** Critical business protection through automated security validation
 
@@ -219,7 +219,7 @@ ec validate image \
 }
 ----
 
-=== Task 3: copy-image
+**Task 3: `copy-image`**
 
 **Purpose:** Quality gateway ensuring only validated images reach staging
 
@@ -243,7 +243,7 @@ skopeo copy \
 This guarantees that only validated artifacts are promoted — no sneaky image changes slip through.
 ====
 
-=== Task 4: update-deployment
+**Task 4: `update-deployment`**
 
 **Purpose:** Automated GitOps bridge for immediate feature validation
 
@@ -302,20 +302,20 @@ Watch how ArgoCD automatically syncs your validated changes to the staging envir
 
 ArgoCD (OpenShift GitOps) continuously monitors your GitOps repository and automatically applies any changes to your staging environment. When the pipeline updates deployment manifests, ArgoCD detects these changes and deploys them without any manual intervention - ensuring your staging environment always matches what's defined in Git.
 
-=== Step 1: Verify Deployment Updates
+**Step 1: Verify Deployment Updates**
 
 * Access your GitOps repository at {gitlab_url}/development/qrks-tkn-{user}-gitops[qrks-tkn-{user}-gitops^]
 * Check the updated deployment manifests in the `components/qrks-tkn-{user}/overlays/stage` directory
 * Notice how the image tag has been automatically updated to your release version
 * Observe that this happens without any manual intervention
 
-=== Step 2: Monitor ArgoCD Synchronization
+**Step 2: Monitor ArgoCD Synchronization**
 
 * ArgoCD automatically detects the Git changes in your GitOps repository
 * ArgoCD syncs these changes to the staging environment
 * The deployment completes successfully without manual kubectl commands
 
-=== Step 3: Validate Staging Environment
+**Step 3: Validate Staging Environment**
 
 * Access your staging application through its route
 * Verify that your changes are live and functioning correctly

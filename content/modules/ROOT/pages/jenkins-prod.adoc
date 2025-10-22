@@ -65,7 +65,7 @@ This separation allows teams to enforce distinct policies and approval flows for
 
 Let's trigger your Jenkins production pipeline using GitLab Release functionality that integrates with your enhanced Jenkins workflows.
 
-=== Step 1: Access Your GitLab Repository
+**Step 1: Access Your GitLab Repository**
 
 * Open your GitLab repository at {gitlab_url}/development/qrks-jnk-{user}[qrks-jnk-{user}^]
 * Sign in using:
@@ -78,7 +78,7 @@ Password: {gitlab_user_password}
 +
 image::jenkins-prod-1.png[link=self, window=_blank]
 
-=== Step 2: Create a GitLab Release
+**Step 2: Create a GitLab Release**
 
 Creating a GitLab release triggers your Jenkins production pipeline with enhanced security validation.
 
@@ -98,7 +98,7 @@ image::jenkins-prod-3.png[link=self, window=_blank]
 This GitLab release creation triggers a webhook that starts your Jenkins production pipeline. The pipeline automatically detects this is a *release event* and switches into production promotion mode, ensuring the same validated image is promoted to the production environment through Jenkins automation.
 ====
 
-=== Step 3: Monitor Jenkins Production Pipeline
+**Step 3: Monitor Jenkins Production Pipeline**
 
 * Navigate to Red Hat Developer Hub
 * Go to your `qrks-jnk-{user}` component under *Catalog > Component*
@@ -296,7 +296,7 @@ This final Jenkins step completes the production promotion workflow 	 fully auto
 
 Watch how your Jenkins pipeline safely deploys to production using enterprise-grade validation and GitOps automation.
 
-=== Step 1: Monitor Jenkins Pipeline Execution
+**Step 1: Monitor Jenkins Pipeline Execution**
 
 * In Jenkins Blue Ocean, observe each production stage completing:
 
@@ -307,7 +307,7 @@ Watch how your Jenkins pipeline safely deploys to production using enterprise-gr
 
 * Notice how Jenkins provides familiar monitoring interfaces while handling enterprise production workflows
 
-=== Step 2: Verify Production GitOps Integration
+**Step 2: Verify Production GitOps Integration**
 
 * Access your GitOps repository at {gitlab_url}/development/qrks-jnk-{user}-gitops[qrks-jnk-{user}-gitops^]
 * Check the updated deployment manifests in the `overlays/prod` directory
@@ -322,13 +322,13 @@ Watch how your Jenkins pipeline safely deploys to production using enterprise-gr
 +          image: quay-{guid}/tssc/qrks-jnk-{user}:prod-v1.0
 ----
 
-=== Step 3: Monitor Production Deployment Success
+**Step 3: Monitor Production Deployment Success**
 
 * ArgoCD automatically detects the production changes made by your Jenkins pipeline
 * ArgoCD syncs these validated changes to the production environment
 * The production deployment completes successfully without manual intervention
 
-=== Step 4: Validate Production Application
+**Step 4: Validate Production Application**
 
 * Access your production application through its route
 * Verify that your changes are live and functioning correctly in production
