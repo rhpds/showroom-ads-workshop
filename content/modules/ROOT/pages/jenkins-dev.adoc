@@ -486,7 +486,7 @@ Now let's see your enhanced Jenkins pipeline in action and understand what's hap
 
 * Navigate back to Developer Hub
 * Go to the *CI* tab of your `qrks-jnk-{user}` component
-* You should see your Jenkins pipeline runs: `maven-ci-build`, `promote-to-stage`, and `promote-to-prod`
+* You should see your Jenkins projects: `maven-build-ci`, `promote-to-stage`, and `promote-to-prod`
 
 image::jenkins-dev-18.png[link=self, window=_blank]
 
@@ -500,6 +500,11 @@ image::jenkins-dev-19.png[link=self, window=_blank]
 As your Jenkins pipeline executes, you can observe each stage in the familiar Blue Ocean interface:
 
 image::jenkins-dev-20.png[link=self, window=_blank]
+
+[NOTE]
+====
+Your pipeline may still be executing when you first open Blue Ocean and will not look like the pipeline above.  Wait a few minutes for the job to complete.
+====
 
 * **Stage: verify-commit**: Verifies that your Git commit was cryptographically signed using `gitsign`. Downloads and uses the gitsign client to verify commit signatures, integrates with Red Hat Trusted Application Signer (RHTAS) via Rekor and TUF, and ensures the commit came from a trusted developer identity. This enterprise security happens automatically in your Jenkins workflow.
 
@@ -517,7 +522,7 @@ image::jenkins-dev-20.png[link=self, window=_blank]
 
 **Step 3: Exploring the Jenkins Pipeline Definition**
 
-* In your GitLab repository, open the `Jenkinsfile` in the root directory
+* In your GitLab repository, open the `Jenkinsfile.push` in the root directory
 * Notice how this *Pipelines as Code* approach gives you:
 ** CI logic living alongside your application code
 ** Easy updates via pull requests
