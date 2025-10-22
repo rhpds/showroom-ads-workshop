@@ -299,13 +299,12 @@ Watch how your Jenkins pipeline safely deploys to production using enterprise-gr
 **Step 1: Monitor Jenkins Pipeline Execution**
 
 * In Jenkins Blue Ocean, observe each production stage completing:
+** **gather-images**: Jenkins identifies the exact production image to deploy
+** **verify-ec**: Jenkins validates enterprise security policies for production
+** **update-image-tag-for-prod**: Jenkins tags the image as production-ready
+** **deploy-to-prod**: Jenkins updates production GitOps manifests automatically
 
-  - **gather-images**: Jenkins identifies the exact production image to deploy
-  - **verify-ec**: Jenkins validates enterprise security policies for production
-  - **update-image-tag-for-prod**: Jenkins tags the image as production-ready
-  - **deploy-to-prod**: Jenkins updates production GitOps manifests automatically
-
-* Notice how Jenkins provides familiar monitoring interfaces while handling enterprise production workflows
+* Notice how Jenkins provides familiar monitoring interfaces while handling enterprise production workflows.
 
 **Step 2: Verify Production GitOps Integration**
 

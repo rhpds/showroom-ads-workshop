@@ -296,11 +296,10 @@ Watch how your Jenkins pipeline integrates with ArgoCD to automatically sync val
 **Step 1: Monitor Jenkins Pipeline Progress**
 
 * In Jenkins Blue Ocean, observe each stage completing:
-
-  - **gather-images**: Jenkins identifies the exact image to promote
-  - **verify-ec**: Jenkins validates enterprise security policies
-  - **update-image-tag-for-stage**: Jenkins tags the validated image
-  - **deploy-to-stage**: Jenkins updates GitOps manifests automatically
+** **gather-images**: Jenkins identifies the exact image to promote
+** **verify-ec**: Jenkins validates enterprise security policies
+** **update-image-tag-for-stage**: Jenkins tags the validated image
+** **deploy-to-stage**: Jenkins updates GitOps manifests automatically
 
 * Notice how the Jenkins interface provides familiar monitoring while handling modern GitOps.
 
