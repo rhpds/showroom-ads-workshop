@@ -390,10 +390,11 @@ image::jenkins-dev-13.png[link=self, window=_blank]
 
 Once your workspace loads, you'll see:
 
-* **Pre-configured Quarkus project** with Jenkins best practices
-* **Jenkins pipeline definition** (`Jenkinsfile`) showing your automated workflow
-* **Kubernetes manifests** optimized for Jenkins deployments
-* **Security configuration** that integrates with your Jenkins pipeline
+* Your quarkus source code repository cloned into the environment
+* In the quarkus-jnk-{user} folder
+** 3 Jenkinsfile.* pipeline files triggered when committing, tagging and releasing your code.
+** A `docs` folder which stores the adocs used for generating your tech docs.
+** A `src` directory which is the source code you will use as your base code.
 
 === Step 3: Making Your First Code Change
 
@@ -419,7 +420,7 @@ This application uses Jenkins pipelines with enterprise security integration.
 Your commits will be cryptographically signed to prove they came from you. You'll authenticate once via browser - this takes 30 seconds but provides enterprise-grade security that integrates seamlessly with your Jenkins workflows. We'll explain how it works as you go.
 ====
 
-* You open a terminal in Dev Spaces (*Terminal → New Terminal*)
+* In the hamburger menu at the top left of your screen in Dev Spaces, you open a terminal (*Terminal → New Terminal*)
 * You stage your changes:
 +
 [source,bash,role="execute"]
@@ -439,7 +440,7 @@ image::jenkins-dev-15.png[link=self, window=_blank]
 * **What's happening now?** You're prompted for signed commit authentication
   - The terminal shows a URL - this is an OAuth flow to verify your identity
   - **Why?** Your organization requires cryptographic proof of who made each commit
-  - **Who's signing?** YOU are, using **gitsign** and **Red Hat Trusted Artifact Signer** (based on Sigstore)
+  - **Who's signing?** You are using **gitsign** and **Red Hat Trusted Artifact Signer** (based on Sigstore)
   - **Jenkins Integration:** Your Jenkins pipeline will verify this signature as part of its security checks
 
 * You click the URL directly in the terminal, or copy and paste it into a new browser window

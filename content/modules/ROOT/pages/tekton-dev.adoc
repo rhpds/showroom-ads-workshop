@@ -396,10 +396,11 @@ Password: {rhdh_user_password}
 
 Once your workspace loads, you'll see:
 
-* **Pre-configured Quarkus project** with OpenShift Pipelines best practices
-* **Kubernetes manifests** in the `/deploy` directory
-* **Tekton pipeline definitions** showing your OpenShift Pipelines workflow
-* **Container configuration** with security scanning integration
+* Your quarkus source code repository cloned into the environment
+* In the quarkus-tkn-{user} folder
+** A `.tekton` folder showing your OpenShift Pipelines workflow
+** A `docs` folder which stores the adocs used for generating your tech docs.
+** A `src` directory which is the source code you will use as your base code.
 
 === Step 3: Making Your First Code Change
 
@@ -425,7 +426,7 @@ This application uses OpenShift Pipelines (Tekton) for secure CI/CD.
 Your commits will be cryptographically signed to prove they came from you. You'll authenticate once via browser - this takes 30 seconds but provides enterprise-grade security. We'll explain how it works as you go.
 ====
 
-* You open a terminal in Dev Spaces (*Terminal → New Terminal*) - no need to install anything locally!
+* In the hamburger menu at the top left of your screen in Dev Spaces, open a terminal in (*Terminal → New Terminal*) - no need to install anything locally!
 * You stage your changes:
 +
 [source,bash,role="execute"]
@@ -445,7 +446,7 @@ image::tekton-dev-15.png[link=self, window=_blank]
 * **What's happening now?** You're prompted for signed commit authentication
   - The terminal shows a URL - this is an OAuth flow to verify your identity
   - **Why?** Your organization requires cryptographic proof of who made each commit
-  - **Who's signing?** YOU are, using **gitsign** and **Red Hat Trusted Artifact Signer** (based on Sigstore)
+  - **Who's signing?** You are using **gitsign** and **Red Hat Trusted Artifact Signer** (based on Sigstore)
 
 * You click the URL directly in the terminal, or copy and paste it into a new browser window
 * If prompted for credentials, you enter your RHDH credentials to prove your identity:
