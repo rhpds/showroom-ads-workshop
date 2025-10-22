@@ -307,8 +307,8 @@ Watch how your Jenkins pipeline integrates with ArgoCD to automatically sync val
 **Step 2: Verify GitOps Integration**
 
 * Access your GitOps repository at {gitlab_url}/development/qrks-jnk-{user}-gitops[qrks-jnk-{user}-gitops^]
-* Check the updated deployment manifests in the `overlays/stage` directory
-* Notice how Jenkins automatically updated the image tag to your release version
+* Check the updated deployment manifests in the `components/qrks-jnk-{user}/overlays/stage` directory
+* In the `deployment-patch.yaml` file, notice how the image tag has been automatically updated to your release
 * Observe that this GitOps integration happens seamlessly within Jenkins workflows
 
 **Step 3: Monitor ArgoCD Synchronization**
