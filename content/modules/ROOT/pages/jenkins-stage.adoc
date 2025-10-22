@@ -48,7 +48,7 @@ Let's create a Git tag to trigger your automated Jenkins staging pipeline and ob
 
 === Step 1: Access Your GitLab Repository
 
-* Open your GitLab repository at {gitlab_url}/development/qrks-jnk-{user}[qrks-jnk-{user}^
+* Open your GitLab repository at {gitlab_url}/development/qrks-jnk-{user}[qrks-jnk-{user}^]
 * Sign in using:
 +
 [source,bash,subs="attributes"]
@@ -306,7 +306,7 @@ Watch how your Jenkins pipeline integrates with ArgoCD to automatically sync val
 
 === Step 2: Verify GitOps Integration
 
-* Access your GitOps repository at {gitlab_url}/development/qrks-jnk-{user}-gitops[qrks-jnk-{user}-gitops^
+* Access your GitOps repository at {gitlab_url}/development/qrks-jnk-{user}-gitops[qrks-jnk-{user}-gitops^]
 * Check the updated deployment manifests in the `overlays/stage` directory
 * Notice how Jenkins automatically updated the image tag to your release version
 * Observe that this GitOps integration happens seamlessly within Jenkins workflows

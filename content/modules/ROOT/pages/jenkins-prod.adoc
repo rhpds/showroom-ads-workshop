@@ -67,7 +67,7 @@ Let's trigger your Jenkins production pipeline using GitLab Release functionalit
 
 === Step 1: Access Your GitLab Repository
 
-* Open your GitLab repository at {gitlab_url}/development/qrks-jnk-{user}[qrks-jnk-{user}^
+* Open your GitLab repository at {gitlab_url}/development/qrks-jnk-{user}[qrks-jnk-{user}^]
 * Sign in using:
 +
 [source,bash,subs="attributes"]
@@ -309,7 +309,7 @@ Watch how your Jenkins pipeline safely deploys to production using enterprise-gr
 
 === Step 2: Verify Production GitOps Integration
 
-* Access your GitOps repository at {gitlab_url}/development/qrks-jnk-{user}-gitops[qrks-jnk-{user}-gitops^
+* Access your GitOps repository at {gitlab_url}/development/qrks-jnk-{user}-gitops[qrks-jnk-{user}-gitops^]
 * Check the updated deployment manifests in the `overlays/prod` directory
 * Notice how Jenkins automatically updated the image tag with the `prod-` prefix
 * Observe the Git diff showing the automated production update through Jenkins

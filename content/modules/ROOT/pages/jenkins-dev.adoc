@@ -212,13 +212,13 @@ The template you just used created a sophisticated Jenkins environment with key 
 
 **⚙️ Your Generated Application Repository:**
 
-* **Location**: `{gitlab_url}/development/qrks-jnk-{user}[^]`
+* **Location**: {gitlab_url}/development/qrks-jnk-{user}[^]
 * **Purpose**: Contains your application source code with Jenkins pipeline definitions
 * **Jenkins Pipeline Files**: Multiple Jenkins pipeline files configured for different Git events:
 
 **📁 Jenkins Pipeline Structure in Your Repository**
 
-Your Jenkins application repository at [qrks-jnk-{user}](https://gitlab-gitlab.apps.cluster-sc8ld.sc8ld.sandbox2279.opentlc.com/development/qrks-jnk-user9) contains specialized Jenkins pipeline files that trigger automatically based on Git events:
+Your Jenkins application repository at {gitlab_url}/development/qrks-jnk-{user}[^] contains specialized Jenkins pipeline files that trigger automatically based on Git events:
 
 * **📄 `Jenkinsfile.push`** - **Triggered on Code Commits**
   * Activates when you commit and push code changes to your repository
