@@ -303,7 +303,7 @@ Pipeline as Code means your CI/CD pipeline definitions live alongside your appli
 
 Now that you understand the concept, let's look at the actual pipeline files that were generated for you:
 
-* In OpenShift Dev Spaces, in your project view, locate the `.tekton/` folder under the root directory.
+* While still in the `Overview` tab of the component, locate the `About` section and click the *View Source* link.  This should redirect you to the source code repository for your software component.
 +
 image::tekton-dev-19.png[link=self, window=_blank]
 * Open the `.tekton/` directory to see your pipeline definitions
