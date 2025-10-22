@@ -64,7 +64,7 @@ Let's embark on your journey by logging into your new development environment. Y
 
 ++++
 <a href="_images/tekton-dev-1.png" target="_blank">
-  <img src="_images/tekton-dev-1.png" alt="Click to enlarge" style="cursor: zoom-in;">
+  <img src="_images/tekton-dev-1.png" alt="Click to enlarge" style="height=150%; width=150%; cursor: zoom-in;">
 </a>
 ++++
 // image::tekton-dev-1.png[link=self, window=_blank]
