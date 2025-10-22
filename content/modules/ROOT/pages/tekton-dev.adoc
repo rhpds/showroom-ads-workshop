@@ -63,8 +63,8 @@ Let's embark on your journey by logging into your new development environment. Y
 * In the Red Hat Developer Hub view on the right, click *Sign In* on the OIDC login prompt.
 
 ++++
-<a href="../assets/images/tekton-dev-1.png" target="_blank">
-  <img src="../assets/images/tekton-dev-1.png" alt="Click to enlarge" style="width:300px; cursor: zoom-in;">
+<a href="modules/_images/tekton-dev-1.png" target="_blank">
+  <img src="modules/_images/tekton-dev-1.png" alt="Click to enlarge" style="cursor: zoom-in;">
 </a>
 ++++
 // image::tekton-dev-1.png[link=self, window=_blank]
