@@ -39,39 +39,39 @@ The examples and commands in this workshop demonstrate enterprise production dep
 
 In this activity, you'll initiate an enterprise-grade production deployment by creating a Git release, demonstrating how manual processes transform into automated confidence.
 
-=== Step 1: Access Your GitLab Repository
+**Step 1: Access Your GitLab Repository**
 
 * Open your GitLab repository at: {gitlab_url}/development/qrks-tkn-{user}[qrks-tkn-{user}^,subs="attributes"]
 * Log in using:
   * Username: `{gitlab_user}`
   * Password: `{gitlab_user_password}`
 
-image::tekton-prod-1.png[]
+image::tekton-prod-1.png[link=self, window=_blank]
 
-=== Step 2: Create a GitLab Release
+**Step 2: Create a GitLab Release**
 
 * Navigate to *Deploy > Releases > Create a new release*
 
-image::tekton-prod-2.png[]
+image::tekton-prod-2.png[link=self, window=_blank]
 
-* Select an existing tag (e.g., `v1.0`) or create a new one
-* Enter meaningful release notes describing the changes
+* Select the existing tag `v1.0` from the dropdown
+* Enter release notes describing the changes
 * Click *Create release*
 
-image::tekton-prod-3.png[]
+image::tekton-prod-3.png[link=self, window=_blank]
 
 [TIP]
 ====
 **Business Impact:** This single Git release action triggers the entire enterprise-grade security validation pipeline automatically, replacing weeks of manual approval processes.
 ====
 
-=== Step 3: Monitor Pipeline Activation
+**Step 3: Monitor Pipeline Activation**
 
 * Navigate to the `qrks-tkn-{user}` component in Red Hat Developer Hub
 * Click the *CI* tab to view pipeline runs
 * Look for a pipeline run labeled *promote-to-prod* and expand it to view details
 
-image::tekton-prod-4.png[]
+image::tekton-prod-4.png[link=self, window=_blank]
 
 **What You've Accomplished:**
 You've initiated an automated production pipeline that will perform enterprise security validation before allowing deployment to production.
@@ -267,22 +267,22 @@ Watch how ArgoCD automatically syncs your validated changes to the production en
 
 ArgoCD (OpenShift GitOps) continuously monitors your GitOps repository and automatically applies any changes to your production environment. When the pipeline updates deployment manifests, ArgoCD detects these changes and deploys them without any manual intervention - ensuring your production environment always matches what's defined in Git.
 
-=== Step 1: Verify Production Deployment Updates
+**Step 1: Verify Production Deployment Updates**
 
 * Access your GitOps repository at {gitlab_url}/development/qrks-tkn-{user}-gitops[qrks-tkn-{user}-gitops^]
 * Check the updated deployment manifests in the `components/qrks-tkn-{user}/overlays/prod` directory
-* Notice how the image tag has been automatically updated to your production release version (e.g., `prod-v1.0`)
+* In the `deployment-patch.yaml` file, notice how the image tag has been automatically updated to your release (e.g., `prod-v1.0`)
 * Observe that this happens without any manual intervention
 
-=== Step 2: Monitor ArgoCD Production Synchronization
+**Step 2: Monitor ArgoCD Production Synchronization**
 
 * ArgoCD automatically detects the Git changes in your GitOps repository
 * ArgoCD syncs these changes to the production environment
 * The production deployment completes successfully without manual kubectl commands
 
-=== Step 3: Validate Production Environment
+**Step 3: Validate Production Environment**
 
-* Access your production application through its route
+* In the `Topology` tab in Developer Hub, locate the production application and click on the 'Open URL' icon (the arrow on the top right of your application) to open the route.
 * Verify that your changes are live and functioning correctly in production
 * Confirm that the production environment matches your expectations
 

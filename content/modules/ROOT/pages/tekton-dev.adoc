@@ -7,14 +7,14 @@
 
 By the end of this section, you will:
 
-* Access Red Hat Developer Hub and understand its value proposition
-* Create a new secure Quarkus application using OpenShift Pipelines templates
-* Experience self-service development that eliminates weeks of setup time
-* Understand how security is built into the development process from day one
+* **Access** Red Hat Developer Hub and navigate its self-service capabilities
+* **Create** a new secure Quarkus application using OpenShift Pipelines templates
+* **Experience** self-service development that eliminates weeks of setup time
+* **Understand** how security is built into the development process from day one
 
 == Your Development Challenge
 
-As ACME's newest developer, you're facing the same frustration that developers everywhere experience when trying to create modern Kubernetes-native applications:
+As a developer working with modern Kubernetes-native applications, you're facing the same frustrations that developers everywhere experience:
 
 === Your Current Reality: Weeks of Waiting
 
@@ -35,12 +35,12 @@ Here's what you've been dealing with in your traditional development environment
 
 === Your New Reality with RHADS: Self-Service in Minutes
 
-But you're about to discover a completely different way of working:
+With RHADS, you can work differently:
 
-* Zero waiting time: You'll create GitLab repos and OpenShift Pipelines instantly - no tickets, no waiting
-* Zero configuration complexity: Kubernetes resources get generated automatically - you focus on your application code
-* Zero security gaps: Container scanning and signing happen automatically - security becomes invisible to you
-* Zero platform team dependency: You become self-sufficient and productive immediately
+* Create GitLab repos and OpenShift Pipelines instantly - no tickets, no waiting
+* Kubernetes resources get generated automatically - you focus on your application code
+* Container scanning and signing happen automatically - security is integrated seamlessly
+* Become self-sufficient and productive immediately without platform team dependency
 
 === What This Means for Your Daily Work
 
@@ -51,25 +51,25 @@ But you're about to discover a completely different way of working:
 
 [IMPORTANT]
 ====
-Today you'll experience this transformation firsthand by creating a production-ready application with OpenShift Pipelines in minutes, not weeks. You'll be amazed at how empowering this feels!
+Today you'll experience this transformation firsthand by creating a production-ready application with OpenShift Pipelines in minutes, not weeks.
 ====
 
-== Activity 1: Your First Steps into Your OpenShift Pipelines Journey
+== Activity 1: Accessing Red Hat Developer Hub
 
-Let's embark on your journey by logging into your new development environment. You're about to discover how different OpenShift Pipelines makes your development experience!
+Let's begin by logging into your development environment and exploring the self-service capabilities.
 
-=== Step 1: Open Red Hat Developer Hub
+**Step 1: Open Red Hat Developer Hub**
 
 * In the Red Hat Developer Hub view on the right, click *Sign In* on the OIDC login prompt.
 
-image::tekton-dev-1.png[]
+image::tekton-dev-1.png[link=self, window=_blank]
 
 [TIP]
 ====
 Your organization uses OIDC authentication powered by Red Hat build of Keycloak - this secure authentication integration will save you time throughout your development workflow.
 ====
 
-=== Step 2: Enter Your Credentials
+**Step 2: Enter Your Credentials**
 
 * You're presented with the Red Hat Trusted Artifact Signer login form with username and password fields
 
@@ -90,43 +90,44 @@ If you encounter any authentication issues, you can always reference the "Lab Ac
 
 === What You Just Discovered
 
-You've just accessed something revolutionary - your organization's **Internal Developer Portal (IDP)** that's been optimized for developers like you. As you look around, you realize this platform provides everything you've been wishing for:
+You've just accessed your organization's **Internal Developer Portal (IDP)** - a platform that provides self-service capabilities for developers:
 
 * Self-service application templates that eliminate waiting for platform teams
-* Integrated Kubernetes and OpenShift resources that "just work"
-* Automated pipeline creation that handles the complex stuff for you
+* Integrated Kubernetes and OpenShift resources that work seamlessly
+* Automated pipeline creation that handles the complex configuration for you
 * A streamlined onboarding experience that gets you productive immediately
 
-"This is going to change everything," you think to yourself as you explore the interface.
+As you explore the interface, you can see how this platform will streamline your development workflow.
 
 == Activity 2: Creating Your First OpenShift Pipelines Application
 
-Now comes the exciting part - you're about to experience the magic of self-service application creation with OpenShift Pipelines that will transform how you work!
+Now you'll create a new application using self-service templates with integrated OpenShift Pipelines and security capabilities.
 
-=== Step 1: Discovering Software Templates
+**Step 1: Discovering Software Templates**
 
-* Eager to get started on your Black Friday project, you spot the **+ Self-service** button in the top-right corner of the Developer Hub
-* You click **+ Self-service** and are amazed to see a catalog of ready-to-use templates - no more starting from scratch!
+* Click the **+** button (Self-service) in the top-right corner of the Developer Hub
++
+image::tekton-dev-2.png[link=self, window=_blank]
+* Browse the catalog of ready-to-use templates
 
-image::tekton-dev-2.png[]
 
-=== Step 2: Choosing Your OpenShift Pipelines Template
+**Step 2: Choosing Your OpenShift Pipelines Template**
 
 * As you browse through the available templates, one catches your eye:
 +
 `*Securing a Quarkus Service Software Supply Chain (Tekton)*`
 
-* "Perfect!" you think, "This is exactly what I need for a modern application with OpenShift Pipelines"
-* You click *Choose* to select this template, excited to see what happens next
+* This template provides exactly what you need for a modern application with OpenShift Pipelines
+* Click *Choose* to select this template
 
-image::tekton-dev-3.png[]
+image::tekton-dev-3.png[link=self, window=_blank]
 
 [TIP]
 ====
-You're about to witness something amazing - this single template will automatically create your complete OpenShift Pipelines environment with Tekton workflows, Kubernetes resources, and security scanning. No tickets, no waiting, no manual configuration!
+This single template will automatically create your complete OpenShift Pipelines environment with Tekton workflows, Kubernetes resources, and security scanning. No tickets, no waiting, no manual configuration.
 ====
 
-=== Step 3: Configure Your OpenShift Pipelines Application
+**Step 3: Configure Your OpenShift Pipelines Application**
 
 The template form will guide you through OpenShift Pipelines configuration with three main sections:
 
@@ -175,13 +176,13 @@ Note that **Verify Commits** is enabled - this ensures all code commits are cryp
 
 Click *Review* to see a summary of your OpenShift Pipelines configuration.
 
-=== Step 4: Create Your OpenShift Pipelines Application
+**Step 4: Create Your OpenShift Pipelines Application**
 
 * Review all the settings in the summary page
 
-image::tekton-dev-4.png[]
+image::tekton-dev-4.png[link=self, window=_blank]
 
-image::tekton-dev-5.png[]
+image::tekton-dev-5.png[link=self, window=_blank]
 
 * Click *Create* to generate your OpenShift Pipelines application
 
@@ -198,45 +199,46 @@ The OpenShift Pipelines software template will now:
 This entire OpenShift Pipelines setup that traditionally takes weeks is completed in under a minute!
 ====
 
-=== Step 5: Access Your New OpenShift Pipelines Component
+**Step 5: Access Your New OpenShift Pipelines Component**
 
 * Once the template execution completes, click *Open Component in Catalog*
 
 * In Red Hat Developer Hub, go to the *Catalog* and locate your new component (`qrks-tkn-{user}`)
 
-image::tekton-dev-6.png[]
+image::tekton-dev-6.png[link=self, window=_blank]
 
 * Click the component name to open its *Overview* page
 
-image::tekton-dev-7.png[]
+image::tekton-dev-7.png[link=self, window=_blank]
 
-* You'll see your new OpenShift Pipelines application component with links to:
-  * Source code repository with Kubernetes manifests
+You'll see your new OpenShift Pipelines application component with links to:
+
+* Source code repository with Kubernetes manifests
 * Tekton CI/CD pipelines
 * Application overview and health status
 * OpenShift Dev Spaces development environment
 
 == Activity 3: Understanding the Generated Repository Structure
 
-=== Step 1: Exploring the Developer Hub Configuration
+**Step 1: Exploring the Developer Hub Configuration**
 
 The template you just used is part of a sophisticated system with three key repositories:
 
 **🏗️ Developer Hub Configuration Repository:**
 
-* **Location**: `{gitlab_url}/rhdh/tssc-developer-hub-configuration[^]`
+* **Location**: {gitlab_url}/rhdh/tssc-developer-hub-configuration[^]
 * **Purpose**: Contains the OpenShift Pipelines template you just used
 * **Template**: `scaffolder-templates/quarkus-stssc-template/`
 * **What it does**: Defines the self-service template that generated your application
 
 **⚙️ Your Generated Application Repository:**
 
-* **Location**: `{gitlab_url}/development/qrks-tkn-{user}[^]`
+* **Location**: {gitlab_url}/development/qrks-tkn-{user}[^]
 * **Purpose**: Contains your application source code with embedded OpenShift Pipelines
-* **Pipeline files**: `.tekton/` directory with three key pipeline definitions:
-  - `on-push.yaml` - Executes when you commit code
-  - `on-tag.yaml` - Executes when you create a Git tag (promotes to staging)
-  - `on-release.yaml` - Executes when you create a release (promotes to production)
+* **Pipeline files**: `.tekton/` directory contains three key pipeline definitions:
+** `on-push.yaml` - Executes when you commit code
+** `on-tag.yaml` - Executes when you create a Git tag (promotes to staging)
+** `on-release.yaml` - Executes when you create a release (promotes to production)
 
 === Understanding Pipeline as Code
 
@@ -284,7 +286,7 @@ Pipeline as Code means your CI/CD pipeline definitions live alongside your appli
 
 **🔧 Pipeline Definitions Repository:**
 
-* **Location**: `{gitlab_url}/rhdh/tssc-sample-pipelines[^]`
+* **Location**: {gitlab_url}/rhdh/tssc-sample-pipelines[^]
 * **Purpose**: Contains reusable Tekton pipeline and task definitions
 * **Components**:
 * `pipelines/` - Complete workflow definitions
@@ -293,17 +295,19 @@ Pipeline as Code means your CI/CD pipeline definitions live alongside your appli
 
 **📦 GitOps Repository:**
 
-* **Location**: `{gitlab_url}/development/qrks-tkn-{user}-gitops[^]`
+* **Location**: {gitlab_url}/development/qrks-tkn-{user}-gitops[^]
 * **Purpose**: Contains Kubernetes manifests for deployment
 * **What it does**: OpenShift GitOps (ArgoCD) monitors this repo and automatically deploys changes
 
 == Activity 4: Examining Your Pipeline as Code Files
 
-=== Step 1: Viewing Your Pipeline Definitions
+**Step 1: Viewing Your Pipeline Definitions**
 
 Now that you understand the concept, let's look at the actual pipeline files that were generated for you:
 
-* In OpenShift Dev Spaces (or back in your component overview), navigate to your repository
+* In OpenShift Dev Spaces, in your project view, locate the `.tekton/` folder under the root directory.
++
+image::tekton-dev-19.png[link=self, window=_blank]
 * Open the `.tekton/` directory to see your pipeline definitions
 * You'll find three files that control your entire CI/CD workflow:
 
@@ -339,26 +343,29 @@ This file defines production deployment:
 * Creates audit trail for compliance
 * Triggers GitOps deployment to production
 
-TIP: These YAML files use references to the shared pipeline definitions in `{gitlab_url}/rhdh/tssc-sample-pipelines[^]`, promoting reusability and consistency across your organization.
+[TIP]
+====
+These YAML files use references to the shared pipeline definitions in {gitlab_url}/rhdh/tssc-sample-pipelines[^], promoting reusability and consistency across your organization.
+====
 
 == Activity 5: Exploring Your New OpenShift Pipelines Development Environment
 
-=== Step 1: Accessing Your Browser-Based IDE
+**Step 1: Accessing Your Browser-Based IDE**
 
-* Back in your component overview, you notice a link for *OpenShift Dev Spaces* and click it curiously
-* "A browser-based development environment?" you wonder, "This should be interesting..."
+* In your component overview, click the link for *OpenShift Dev Spaces*
+* A browser-based development environment integrated with your OpenShift Pipelines workflow
 
 * If you're redirected to an authentication page, you click *Log in with OpenShift*
 
-image::tekton-dev-8.png[]
+image::tekton-dev-8.png[link=self, window=_blank]
 
 * On the *Authorize Access* screen, you click *Allow selected permissions*
 
-image::tekton-dev-9.png[]
+image::tekton-dev-9.png[link=self, window=_blank]
 
 * On the repository trust prompt, you click the checkbox and then click *Continue*
 
-image::tekton-dev-10.png[]
+image::tekton-dev-10.png[link=self, window=_blank]
 
 * When prompted to authenticate with GitLab, you enter your credentials:
 +
@@ -368,16 +375,16 @@ Username: {gitlab_user}
 Password: {gitlab_user_password}
 ----
 
-image::tekton-dev-11.png[]
+image::tekton-dev-11.png[link=self, window=_blank]
 
 * Click *Authorize devspaces* on the next window
 
-image::tekton-dev-12.png[]
+image::tekton-dev-12.png[link=self, window=_blank]
 
 * Wait for the workspace to start and fully load VS Code
 * If prompted, trust all workspaces and authors
 
-image::tekton-dev-13.png[]
+image::tekton-dev-13.png[link=self, window=_blank]
 
 * You sign in with the same credentials you've been using:
 +
@@ -389,16 +396,17 @@ Password: {rhdh_user_password}
 
 * When prompted, you click *Allow selected permissions* to grant access to your development workspace
 
-=== Step 2: Explore the OpenShift Pipelines Development Environment
+**Step 2: Explore the OpenShift Pipelines Development Environment**
 
 Once your workspace loads, you'll see:
 
-* **Pre-configured Quarkus project** with OpenShift Pipelines best practices
-* **Kubernetes manifests** in the `/deploy` directory
-* **Tekton pipeline definitions** showing your OpenShift Pipelines workflow
-* **Container configuration** with security scanning integration
+* Your quarkus source code repository cloned into the environment
+* In the quarkus-tkn-{user} folder
+** A `.tekton` folder showing your OpenShift Pipelines workflow
+** A `docs` folder which stores the adocs used for generating your tech docs.
+** A `src` directory which is the source code you will use as your base code.
 
-=== Step 3: Making Your First Code Change
+**Step 3: Making Your First Code Change**
 
 Time to make your mark on the Black Friday project! Let's trigger your first automated pipeline:
 
@@ -406,36 +414,49 @@ Time to make your mark on the Black Friday project! Let's trigger your first aut
 * You open the `index.md` file and decide to document your modern setup
 * You add this line at the end of the document, proud of what you're building:
 +
-[source,markdown]
+[source,markdown,role="execute"]
 ----
 This application uses OpenShift Pipelines (Tekton) for secure CI/CD.
 ----
 
 * You save the file (Ctrl+S or Cmd+S), ready to see the magic happen
 
-=== Step 4: Your First Signed Commit
+**Step 4: Your First Signed Commit**
 
-* You open a terminal in Dev Spaces (*Terminal → New Terminal*) - no need to install anything locally!
-* You stage your changes, feeling the anticipation build:
+[IMPORTANT]
+====
+**New Security Feature: Cryptographically Signed Commits**
+
+Your commits will be cryptographically signed to prove they came from you. You'll authenticate once via browser - this takes 30 seconds but provides enterprise-grade security. We'll explain how it works as you go.
+====
+
+* In the hamburger menu at the top left of your screen in Dev Spaces, open a terminal in (*Terminal → New Terminal*) - no need to install anything locally!
+* You stage your changes:
 +
-[source,bash]
+[source,bash,role="execute"]
 ----
 git add .
 ----
 
-* You commit your changes with confidence:
+* You commit your changes:
 +
-[source,bash]
+[source,bash,role="execute"]
 ----
 git commit -m "Add OpenShift Pipelines documentation"
 ----
 +
-image::tekton-dev-15.png[]
+image::tekton-dev-15.png[link=self, window=_blank]
 
-* Something interesting happens - you're prompted for signed commit authentication
-* The terminal displays a URL that you need to follow for authentication
+**What's happening now?** You're prompted for signed commit authentication. The terminal shows a URL - this is an OAuth flow to verify your identity.
+
+**Why?** Your organization requires cryptographic proof of who made each commit.
+
+**Who's signing?** You are using **gitsign** and **Red Hat Trusted Artifact Signer** (based on Sigstore).
+
+Next steps:
+
 * You click the URL directly in the terminal, or copy and paste it into a new browser window
-* If prompted for credentials during the browser authentication, you use your RHDH credentials:
+* If prompted for credentials, you enter your RHDH credentials to prove your identity:
 +
 [source,bash,subs="attributes"]
 ----
@@ -445,25 +466,42 @@ Password: {rhdh_user_password}
 
 * Once successfully authenticated in the browser, a verification code appears on the screen
 +
-image::tekton-dev-16.png[]
+image::tekton-dev-16.png[link=self, window=_blank]
 
 * You copy this verification code from the browser
 * You return to the terminal and paste the verification code when prompted
-* After entering the code, you feel a sense of accomplishment - your commit is now cryptographically signed for security
+* **Result:** Your commit now has unforgeable cryptographic proof it came from you
 
-* You push your changes and watch the magic happen:
+* You push your changes to trigger the pipeline:
 +
-[source,bash]
+[source,bash,role="execute"]
 ----
 git push
 ----
 
 [TIP]
 ====
-You just witnessed something powerful - your commit was automatically signed for security, and now it's triggering a complete OpenShift Pipelines workflow. No manual work, no tickets, no waiting!
+**What You Just Did: Supply Chain Security in Action**
+
+Traditional Git commits can be forged - anyone can pretend to be you by setting `git config user.name "YourName"`. Your signed commit is different:
+
+✓ **Proves your verified identity** made this change
+✓ **Can't be tampered with or forged** by attackers
+✓ **Provides audit trails** for compliance (SOC 2, PCI)
+✓ **Builds trust** throughout your software supply chain
+
+**The Technical Flow:**
+
+1. You ran `git commit` → Git invoked **gitsign**
+2. Gitsign requested authentication → Browser OAuth flow opened
+3. You verified your identity → **Sigstore** issued a short-lived certificate
+4. The commit was signed → Cryptographic signature attached to commit
+5. The signature was pushed → Verifiable by anyone using public keys
+
+This 30-second authentication protects your code, your team, and your customers. Plus, it triggered a complete OpenShift Pipelines workflow with security scanning and automated deployment!
 ====
 
-image::tekton-dev-17.png[]
+image::tekton-dev-17.png[link=self, window=_blank]
 
 == What You Just Accomplished
 
