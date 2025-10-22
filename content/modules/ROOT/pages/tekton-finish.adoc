@@ -220,7 +220,7 @@ Take a moment to consider these questions:
 
 **Community Resources:**
 
-* link:https://www.redhat.com/en/blog/topics/devops[Red Hat DevOps Blog^]
+* link:https://www.redhat.com/en/topics/devops[Red Hat DevOps Blog^]
 * link:https://developers.redhat.com/[Red Hat Developer Portal^]
 * link:https://access.redhat.com/documentation/[Red Hat Product Documentation^]
 

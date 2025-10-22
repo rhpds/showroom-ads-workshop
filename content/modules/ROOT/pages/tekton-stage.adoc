@@ -309,15 +309,12 @@ ArgoCD (OpenShift GitOps) continuously monitors your GitOps repository and autom
 * In the `deployment-patch.yaml` file, notice how the image tag has been automatically updated to your tag
 * Observe that this happens without any manual intervention
 
-**Step 2: Monitor ArgoCD Synchronization**
-
-* ArgoCD automatically detects the Git changes in your GitOps repository
-* ArgoCD syncs these changes to the staging environment
-* The deployment completes successfully without manual kubectl commands
 
 **Step 3: Validate Staging Environment**
 
-* Access your staging application through its route
+In the background, ArgoCD automatically detects the Git changes made by your Jenkins pipeline. ArgoCD then syncs these changes to the staging environment and deployment completes successfully without manual intervention from Jenkins or kubectl commands.
+
+* In the `Topology` tab in Developer Hub, locate the staging application and click on the 'Open URL' icon (the arrow on the top right of your application) to open the route.
 * Verify that your changes are live and functioning correctly
 * Confirm that the staging environment matches your expectations
 
