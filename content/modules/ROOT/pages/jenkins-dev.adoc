@@ -247,7 +247,7 @@ Each pipeline includes comprehensive security features: cryptographic commit ver
 
 Your Jenkins pipelines leverage the powerful `rhtap` (Red Hat Trusted Application Pipeline) shared library, which provides standardized, enterprise-grade functions:
 
-* **🏗️ `buildah_rhtap()` - Container image building with security integration**: Creates OCI-compliant container images using Buildah, automatically integrates with enterprise registries and signing, and handles multi-architecture builds and security scanning.
+* **🏗️ `buildah_rhtap()` - Container image building with security integration**: Creates OCI-compliant container images using Buildah, automatically integrates with enterprise registries and signing, and handles multi-architecture builds and security scanning.  An SBOM, a manifest or inventory of all the components that make up a software artifact, is also generated in this step.
 
 * **🔐 `cosign_sign_attest()` - Cryptographic signing and attestation**: Signs container images with enterprise PKI certificates, creates SLSA (Supply Chain Levels for Software Artifacts) provenance, and generates cryptographic attestations for compliance.
 
