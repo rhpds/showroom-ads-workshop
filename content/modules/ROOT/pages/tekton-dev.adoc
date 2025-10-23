@@ -549,8 +549,8 @@ The Java source code is built and a Maven artifact — in this case, a Quarkus J
 A container image for the Quarkus application is built. The following is then performed:
 
 * The image is signed using **Cosign**
-* An **SBOM** (Software Bill of Materials) is generated
-* The image is attested using **in-toto** for provenance
+* **SBOM** (Software Bill of Materials) generation — An SBOM is basically a manifest or inventory of all the components that make up a software artifact (like an app, service, container image, library, etc.).  Think of it as the software equivalent of a bill of materials for hardware or manufacturing — if you were assembling a car, you’d want to know what parts came from where. In software, it’s the same idea, just applied to dependencies, libraries, and packages.
+* The image is attested using **in-toto** for provenance - an attestation is a cryptographically signed statement that describes something verifiable about an artifact — for example, how it was built, who built it, and what inputs were used.
 
 The image tag corresponds to the Git commit ID that triggered the pipeline.
 
