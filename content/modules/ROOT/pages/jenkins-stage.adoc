@@ -27,6 +27,8 @@ RHADS fundamentally transforms the Jenkins staging experience through automation
 
 The business benefits compound across your organization. Jenkins staging deployment time drops from days to minutes, directly accelerating feature delivery. Security validation integrates into familiar Jenkins workflows rather than disrupting them with unfamiliar tools. Jenkins expertise grows more valuable as it expands to include modern security and compliance practices. Platform teams shift their focus from manual coordination to innovation and strategic improvements, multiplying their organizational impact.
 
+image::jenkins-stage-aiimage-1.png[]
+
 == Activity 1: Triggering the Jenkins Staging Pipeline
 
 Let's create a Git tag to trigger your automated Jenkins staging pipeline and observe how enterprise validation works within familiar Jenkins workflows.

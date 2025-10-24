@@ -42,6 +42,8 @@ The process for configuring a Jenkins pipeline is often slow and inefficient. It
 * Security compliance: 100% consistent without becoming a Jenkins security expert
 * Your productivity: Immediate access to enhanced Jenkins capabilities
 
+inage::jenkins-dev-aiimage-1.png[]
+
 IMPORTANT: Today you'll experience how organizations can transform their Jenkins investment from a bottleneck into a competitive advantage, creating production-ready Jenkins applications in minutes while preserving valuable team expertise.
 
 == Activity 1: Accessing Your Enhanced Jenkins Environment
@@ -525,6 +527,8 @@ The time savings are dramatic and immediate. Traditional Jenkins setup requires 
 Security becomes a built-in feature rather than a bolt-on afterthought. Your Jenkins application now includes automated container vulnerability scanning that runs with every build. Image signing and verification integrate seamlessly with Jenkins pipelines, providing cryptographic proof of artifact integrity. Enterprise security policies enforce automatically without manual gates, and complete audit trails generate through Jenkins processes rather than requiring separate compliance tools.
 
 Most importantly, everything you've built leverages and enhances your existing Jenkins knowledge rather than replacing it. You're using the familiar Jenkins Blue Ocean interface with enhanced capabilities layered on top. The pipeline concepts remain the same, just augmented with modern security integration. Your Jenkins expertise becomes more valuable as it expands to include these modern practices. The proven Jenkins infrastructure your organization has invested in gets enhanced rather than replaced.
+
+image::jenkins-dev-aiimage-2.png[]
 
 == What You Built: Jenkins Pipelines with Modern Security
 
