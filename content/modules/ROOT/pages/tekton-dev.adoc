@@ -400,24 +400,16 @@ git commit -m "Add OpenShift Pipelines documentation"
 +
 image::tekton-dev-15.png[link=self, window=_blank]
 
-* Something interesting happens - you're prompted for signed commit authentication
+**What's happening now?** You're prompted for signed commit authentication. The terminal shows a URL - this is an OAuth flow to verify your identity.
 
-**Understanding Commit Signing with Gitsign:**
+**Why?** Your organization requires cryptographic proof of who made each commit.
 
-Your commit is being cryptographically signed using `gitsign`, which integrates with Red Hat Trusted Application Signer (Sigstore). This provides:
+**Who's signing?** You are using **gitsign** and **Red Hat Trusted Artifact Signer** (based on Sigstore).
 
-- **Identity verification:** Proves who made the commit using OIDC authentication
-- **Tamper protection:** Prevents unauthorized modification of commit history
-- **Audit trail:** Stores signature in Rekor transparency log for compliance
-- **Supply chain security:** Ensures code provenance from developer to production
+Next steps:
 
-The signing process uses your OIDC identity (same credentials you used to log into Developer Hub), eliminating the need to manage GPG keys manually.
-
-**Complete the signing process:**
-
-* The terminal displays a URL that you need to follow for authentication
-* Click the URL directly in the terminal, or copy and paste it into a new browser window
-* If prompted for credentials during the browser authentication, use your RHDH credentials:
+* You click the URL directly in the terminal, or copy and paste it into a new browser window
+* If prompted for credentials, you enter your RHDH credentials to prove your identity:
 +
 [source,bash,subs="attributes"]
 ----
@@ -429,11 +421,11 @@ Password: {rhdh_user_password}
 +
 image::tekton-dev-16.png[link=self, window=_blank]
 
-* Copy this verification code from the browser
-* Return to the terminal and paste the verification code when prompted
-* Your commit is now cryptographically signed and the signature is stored in the Rekor transparency log
+* You copy this verification code from the browser
+* You return to the terminal and paste the verification code when prompted
+* **Result:** Your commit now has unforgeable cryptographic proof it came from you
 
-* You push your changes and watch the magic happen:
+* You push your changes to trigger the pipeline:
 +
 [source,bash]
 ----
@@ -442,7 +434,24 @@ git push
 
 [TIP]
 ====
-You just witnessed something powerful - your commit was automatically signed for security, and now it's triggering a complete OpenShift Pipelines workflow* No manual work, no tickets, no waiting!
+**What You Just Did: Supply Chain Security in Action**
+
+Traditional Git commits can be forged - anyone can pretend to be you by setting `git config user.name "YourName"`. Your signed commit is different:
+
+✓ **Proves your verified identity** made this change
+✓ **Can't be tampered with or forged** by attackers
+✓ **Provides audit trails** for compliance (SOC 2, PCI)
+✓ **Builds trust** throughout your software supply chain
+
+**The Technical Flow:**
+
+1. You ran `git commit` → Git invoked **gitsign**
+2. Gitsign requested authentication → Browser OAuth flow opened
+3. You verified your identity → **Sigstore** issued a short-lived certificate
+4. The commit was signed → Cryptographic signature attached to commit
+5. The signature was pushed → Verifiable by anyone using public keys
+
+This 30-second authentication protects your code, your team, and your customers. Plus, it triggered a complete OpenShift Pipelines workflow with security scanning and automated deployment!
 ====
 
 image::tekton-dev-17.png[link=self, window=_blank]

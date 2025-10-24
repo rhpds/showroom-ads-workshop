@@ -364,25 +364,18 @@ git commit -m "Add Jenkins pipeline documentation"
 +
 image::jenkins-dev-15.png[link=self, window=_blank]
 
-* You're prompted for signed commit authentication - this integrates with your Jenkins security workflow
+**What's happening now?** You're prompted for signed commit authentication. The terminal shows a URL - this is an OAuth flow to verify your identity.
 
-**Understanding Commit Signing with Gitsign:**
+**Why?** Your organization requires cryptographic proof of who made each commit.
 
-Your commit is being cryptographically signed using `gitsign`, which integrates with Red Hat Trusted Application Signer (Sigstore). This provides:
+**Who's signing?** You are using **gitsign** and **Red Hat Trusted Artifact Signer** (based on Sigstore).
 
-- **Identity verification:** Proves who made the commit using OIDC authentication
-- **Tamper protection:** Prevents unauthorized modification of commit history
-- **Audit trail:** Stores signature in Rekor transparency log for compliance
-- **Supply chain security:** Ensures code provenance from developer to production
-- **Jenkins integration:** Verified commits are checked automatically in the Jenkins pipeline
+**Jenkins Integration:** Your Jenkins pipeline will verify this signature as part of its security checks.
 
-The signing process uses your OIDC identity (same credentials you used to log into Developer Hub), eliminating the need to manage GPG keys manually.
+Next steps:
 
-**Complete the signing process:**
-
-* The terminal displays a URL that you need to follow for authentication
-* Click the URL directly in the terminal, or copy and paste it into a new browser window
-* If prompted for credentials during the browser authentication, use your RHDH credentials:
+* You click the URL directly in the terminal, or copy and paste it into a new browser window
+* If prompted for credentials, you enter your RHDH credentials to prove your identity:
 +
 [source,bash,subs="attributes"]
 ----
@@ -394,17 +387,42 @@ Password: {rhdh_user_password}
 +
 image::jenkins-dev-16.png[link=self, window=_blank]
 
-* Copy this verification code from the browser
-* Return to the terminal and paste the verification code when prompted
-* Your commit is now cryptographically signed and the signature is stored in the Rekor transparency log
-* You push your changes:
+* You copy this verification code from the browser
+* You return to the terminal and paste the verification code when prompted
+* **Result:** Your commit now has unforgeable cryptographic proof it came from you
+
+* You push your changes to trigger your Jenkins pipeline:
 +
 [source,bash]
 ----
 git push
 ----
 
-TIP: You just witnessed the power of enhanced Jenkins workflows - your commit triggered a complete Jenkins pipeline with enterprise security, all automatically configured and integrated!
+[TIP]
+====
+**What You Just Did: Supply Chain Security in Jenkins**
+
+Traditional Git commits can be forged - anyone can pretend to be you by setting `git config user.name "YourName"`. Your signed commit is different:
+
+✓ **Proves your verified identity** made this change
+✓ **Can't be tampered with or forged** by attackers
+✓ **Provides audit trails** for compliance (SOC 2, PCI)
+✓ **Integrates with Jenkins** for automated verification in your pipeline
+
+**The Technical Flow:**
+
+1. You ran `git commit` → Git invoked **gitsign**
+2. Gitsign requested authentication → Browser OAuth flow opened
+3. You verified your identity → **Sigstore** issued a short-lived certificate
+4. The commit was signed → Cryptographic signature attached to commit
+5. The signature was pushed → Your Jenkins pipeline can verify it automatically
+
+**Jenkins Enhancement:**
+
+Your Jenkins pipeline includes a `verify-commit` stage that checks this signature. This ensures only verified, signed commits progress through your pipeline - adding enterprise security without slowing down your familiar Jenkins workflow.
+
+This 30-second authentication protects your code, your team, and your customers while triggering your enhanced Jenkins pipeline with automated security scanning and deployment!
+====
 
 image::jenkins-dev-17.png[link=self, window=_blank]
 
