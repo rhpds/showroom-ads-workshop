@@ -282,20 +282,14 @@ Your Jenkins pipeline definition lives alongside your application code in the sa
 * **Consistency**: The same Jenkins pipeline runs regardless of environment
 * **Developer Ownership**: You control your Jenkins pipeline without platform team dependencies
 
-**Your Jenkins Pipeline Stages:**
-
-**🔍 `verify-commit`**
-```groovy
-// Verifies cryptographic commit signatures using gitsign
-// Downloads gitsign client and verifies commit signatures
-// Integrates with Red Hat Trusted Application Signer via TUF and Rekor
-```
-
-**Jenkinsfile.push stages:**
+**Your Jenkinsfile.push stages:**
 
 [cols="2,5"]
 |===
 | Stage | What it does
+
+| `verify-commit`
+| Verifies cryptographic commit signatures using gitsign. Downloads gitsign client and verifies commit signatures. Integrates with Red Hat Trusted Application Signer via TUF and Rekor.
 
 | `init`
 | Initializes `rhtap` library. Sets `IMAGE_URL` with Git commit as tag. Prepares build environment.
