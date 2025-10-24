@@ -18,34 +18,19 @@ Enterprise development teams often face significant challenges with staging vali
 
 === Traditional Staging Challenges
 
-* 3-5 days required for staging validation processes
-* 1-2 weeks for manual security reviews and compliance checks
-* Multiple coordination meetings between development, security, and platform teams
-* Manual deployment processes that are error-prone and time-consuming
-* "Works in staging, fails in production" surprises due to environment inconsistencies
+Traditional staging processes create significant delays and uncertainty in the delivery pipeline. Manual validation and coordination typically consume 3-5 days as teams navigate scheduling conflicts and competing priorities. Security reviews and compliance checks add another 1-2 weeks through manual processes that don't scale with increased deployment frequency. Multiple coordination meetings between development, security, and platform teams waste time without adding value, as most discussions could be handled asynchronously. Manual deployment processes prove error-prone and time-consuming, with configuration mistakes and missed steps creating incidents. Perhaps worst of all, "works in staging, fails in production" surprises undermine confidence due to environment inconsistencies that make staging a poor predictor of production behavior.
 
 === Red Hat Advanced Developer Suite Solution
 
-Red Hat Advanced Developer Suite (RHADS) transforms this experience with:
+RHADS fundamentally transforms staging through automation and integration that eliminate manual overhead. Staging time collapses from 3-5 days to just 30 minutes through automated validation pipelines that run consistently without human intervention. Security validation accelerates from 1-2 weeks to mere minutes with Enterprise Contract integrated directly into the pipeline, validating compliance automatically. Manual coordination overhead between teams drops to zero as automated processes replace meetings and email threads. Every staging deployment provides production-ready confidence through consistent, comprehensive validation. Environment surprises disappear as consistent validation ensures staging accurately represents production behavior.
 
-* Staging time: 3-5 days → 30 minutes with automated validation pipelines
-* Security validation: 1-2 weeks → minutes with integrated Enterprise Contract validation
-* Zero manual coordination overhead between teams
-* Production-ready confidence with every staging deployment
-* Consistent validation that eliminates environment surprises
-
-**Key Business Benefits:**
-
-* Feature validation: Weeks → Hours
-* Early risk detection prevents costly production incidents
-* Same security standards as production ensure audit readiness
-* Platform teams focus on innovation, not deployment coordination
+The business benefits compound across the organization. Feature validation accelerates from weeks to hours, directly improving time-to-market and competitive responsiveness. Early risk detection prevents costly production incidents by catching issues when they're cheap to fix. The same security standards apply in staging and production, ensuring audit readiness and eliminating compliance gaps. Platform teams shift focus from deployment coordination to innovation and strategic improvements, multiplying their organizational impact.
 
 == Activity 1: Triggering the Staging Pipeline
 
 Let's create a Git tag to trigger the automated staging pipeline and observe how enterprise validation works.
 
-**Step 1: Access Your GitLab Repository**
+=== Step 1: Access Your GitLab Repository
 
 * Open your GitLab repository at {gitlab_url}/development/qrks-tkn-{user}[qrks-tkn-{user}^]
 * Sign in using:
@@ -56,28 +41,28 @@ Username: {gitlab_user}
 Password: {gitlab_user_password}
 ----
 +
-image::tekton-stage-1.png[link=self, window=_blank]
+image::tekton-stage-1.png[]
 
-**Step 2: Create a Git Tag**
+=== Step 2: Create a Git Tag
 
 Creating a Git tag simulates a release event that triggers the staging pipeline.
 
 * In the left menu, click on *Code > Tags > New Tag*
 +
-image::tekton-stage-2.png[link=self, window=_blank]
+image::tekton-stage-2.png[]
 
-* Enter `v1.0` as the tag name
-* Select `master` as the target branch
+* Enter a version tag like `v1.0`
+* Choose the target branch (typically `main`)
 * Click *Create Tag*
 +
-image::tekton-stage-3.png[link=self, window=_blank]
+image::tekton-stage-3.png[]
 
 [NOTE]
 ====
 This tag creation triggers a GitLab webhook that kicks off the OpenShift Pipelines pipeline — the one that promotes the image to the staging environment.
 ====
 
-**Alternative: CLI Approach**
+=== Alternative: CLI Approach
 
 If you prefer the CLI, you can trigger the same automation:
 
@@ -89,14 +74,14 @@ git push --tags
 
 The CLI approach does the same thing — triggers the pipeline tied to this Git tag.
 
-**Step 3: Monitor Pipeline Execution**
+=== Step 3: Monitor Pipeline Execution
 
 * Go to Red Hat Developer Hub
 * Navigate to the *qrks-tkn-{user}* component
 * Click the *CI* tab to see pipeline runs
 * Expand the job labeled *promote-to-stage* to follow its progress
 +
-image::tekton-stage-4.png[link=self, window=_blank]
+image::tekton-stage-4.png[]
 
 [TIP]
 ====
@@ -105,19 +90,19 @@ Use the Developer Hub view to observe each task as it executes. You'll see autom
 
 == Activity 2: Understanding Pipeline Tasks
 
-The staging pipeline provides production-level confidence while eliminating manual bottlenecks. Let's examine each task in detail.
+The staging pipeline provides production-level confidence while eliminating manual bottlenecks* Let's examine each task in detail.
 
-**Task 1.1: `extract-destination-image-tag`**
+=== Task 1.1: extract-destination-image-tag
 
 **Purpose:** Perfect traceability through Git tags
 
-This task extracts the commit ID of the Git tag. The commit ID becomes the image tag of the image we are promoting to staging, enabling:
+This task extracts the commit ID of the Git tag* The commit ID becomes the image tag of the image we are promoting to staging, enabling:
 
 * Coordinated feature rollouts
 * Complete audit trails for compliance
 * End-to-end traceability from code to deployment
 
-**Task 1.2: `gather-images-to-verify`**
+=== Task 1.2: gather-images-to-verify
 
 **Purpose:** Ensuring staging mirrors production exactly
 
@@ -138,7 +123,7 @@ This mapping between Git commit and container image provides end-to-end traceabi
 {
   "components": [
     {
-      "containerImage": "quay-{guid}/tssc/qrks-tkn-{user}:abc123def456",
+      "containerImage": "quay.tssc-quay/tssc/qrks-tkn-{user}:abc123def456",
       "source": {
         "git": {
           "url": "{gitlab_url}/development/qrks-tkn-{user}",
@@ -150,7 +135,7 @@ This mapping between Git commit and container image provides end-to-end traceabi
 }
 ----
 
-**Task 2: `verify-enterprise-contract`**
+=== Task 2: verify-enterprise-contract
 
 **Purpose:** Critical business protection through automated security validation
 
@@ -166,21 +151,15 @@ This step enforces multiple critical validations that protect your business and 
 
 **Business Value:**
 
-* Security validation: 1-2 weeks → Minutes
-* Early risk detection prevents costly production incidents
-* Same security standards as production ensure audit readiness
-* Automatic CVE scanning and policy compliance
+This automated security validation delivers measurable business impact. Security validation time plummets from 1-2 weeks to minutes, removing a major bottleneck from the delivery pipeline. Early risk detection prevents costly production incidents by catching vulnerabilities when they're inexpensive to fix. The same security standards apply in staging and production, ensuring audit readiness and eliminating the "staging doesn't match production" gaps that surprise auditors. Automatic CVE scanning and policy compliance happen continuously without manual intervention, providing assurance without adding process overhead.
 
 **Enterprise Impact:**
 
-* Security incident prevention: Issues caught before customer exposure
-* Audit confidence: Staging proves production security compliance
-* Deployment velocity: Minutes for security validation instead of weeks
-* Risk mitigation: 100% consistent security enforcement across environments
+The enterprise-wide impact transforms how organizations manage security and risk. Security incident prevention improves as issues are caught before customer exposure, protecting brand reputation and customer trust. Audit confidence increases because staging deployments prove production security compliance in advance, turning audits from stressful events into routine validations. Deployment velocity accelerates as security validation completes in minutes instead of weeks, enabling rapid response to market opportunities. Risk mitigation becomes comprehensive through 100% consistent security enforcement across all environments, eliminating the exceptions and configuration drift that create vulnerabilities.
 
 [IMPORTANT]
 ====
-If any check fails, the pipeline halts. If everything passes, the image moves forward to the next promotion step.
+If any check fails, the pipeline halts* If everything passes, the image moves forward to the next promotion step.
 ====
 
 **Technical Implementation:**
@@ -199,7 +178,7 @@ Then, the Enterprise Contract CLI performs validation:
 [source,bash,subs="attributes"]
 ----
 ec validate image \
-  --image quay-{guid}/tssc/qrks-tkn-{user}:abc123..* \
+  --image quay.tssc-quay/tssc/qrks-tkn-{user}:abc123..* \
   --policy default \
   --public-key k8s://openshift/trusted-keys \
   --output json
@@ -219,7 +198,7 @@ ec validate image \
 }
 ----
 
-**Task 3: `copy-image`**
+=== Task 3: copy-image
 
 **Purpose:** Quality gateway ensuring only validated images reach staging
 
@@ -234,8 +213,8 @@ This task promotes the validated image with a human-readable tag (e.g., `v1.0`),
 [source,bash,subs="attributes"]
 ----
 skopeo copy \
-  docker://quay-{guid}/tssc/qrks-tkn-{user}:abc123..* \
-  docker://quay-{guid}/tssc/qrks-tkn-{user}:v1.0
+  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:abc123..* \
+  docker://quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
 ----
 
 [IMPORTANT]
@@ -243,7 +222,7 @@ skopeo copy \
 This guarantees that only validated artifacts are promoted — no sneaky image changes slip through.
 ====
 
-**Task 4: `update-deployment`**
+=== Task 4: update-deployment
 
 **Purpose:** Automated GitOps bridge for immediate feature validation
 
@@ -256,7 +235,7 @@ This task ensures validated changes reach staging automatically through GitOps, 
 
 [NOTE]
 ====
-No manual `kubectl`, no YAML editing in the console — the system reacts to Git. That's the GitOps advantage.
+No manual `kubectl`, no YAML editing in the console — the system reacts to Git* That's the GitOps advantage.
 ====
 
 **GitOps Implementation Details:**
@@ -286,14 +265,14 @@ spec:
     spec:
       containers:
         - name: qrks-tkn-{user}
-          image: quay-{guid}/tssc/qrks-tkn-{user}:v1.0
+          image: quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
 ----
 
 **Example Git diff showing automatic update:**
 [source,diff,subs="attributes"]
 ----
 -          image: quay.io/redhat-appstudio/rhtap-task-runner:latest
-+          image: quay-{guid}/tssc/qrks-tkn-{user}:v1.0
++          image: quay.tssc-quay/tssc/qrks-tkn-{user}:v1.0
 ----
 
 == Activity 3: Observing GitOps Deployment
@@ -302,24 +281,23 @@ Watch how ArgoCD automatically syncs your validated changes to the staging envir
 
 ArgoCD (OpenShift GitOps) continuously monitors your GitOps repository and automatically applies any changes to your staging environment. When the pipeline updates deployment manifests, ArgoCD detects these changes and deploys them without any manual intervention - ensuring your staging environment always matches what's defined in Git.
 
-**Step 1: Verify Deployment Updates**
+=== Step 1: Verify Deployment Updates
 
 * Access your GitOps repository at {gitlab_url}/development/qrks-tkn-{user}-gitops[qrks-tkn-{user}-gitops^]
 * Check the updated deployment manifests in the `components/qrks-tkn-{user}/overlays/stage` directory
-* In the `deployment-patch.yaml` file, notice how the image tag has been automatically updated to your tag
+* Notice how the image tag has been automatically updated to your release version
 * Observe that this happens without any manual intervention
 
+=== Step 2: Monitor ArgoCD Synchronization
 
-**Step 3: Validate Staging Environment**
+* ArgoCD automatically detects the Git changes in your GitOps repository
+* ArgoCD syncs these changes to the staging environment
+* The deployment completes successfully without manual kubectl commands
 
-In the background, ArgoCD automatically detects the Git changes made by your Jenkins pipeline. ArgoCD then syncs these changes to the staging environment and deployment completes successfully without manual intervention from Jenkins or kubectl commands.
+=== Step 3: Validate Staging Environment
 
-* In the `Topology` tab in Developer Hub, locate the staging application `qrks-tkn-{user}-stage` and click on the 'Open URL' icon (the arrow on the top right of your application) to open the route.
+* Access your staging application through its route
 * Verify that your changes are live and functioning correctly
-[NOTE]
-====
-It might take ArgoCD a few minutes to sync your changes.  Refresh your app browser window after a minute.
-====
 * Confirm that the staging environment matches your expectations
 
 == What You've Learned
@@ -332,7 +310,7 @@ You've experienced how Red Hat Advanced Developer Suite transforms enterprise st
 | Phase | Purpose
 
 | 1.1 extract-destination-image-tag
-| Extracts the commit ID of the Git tag. The commit ID is the image tag of the image we are promoting to `stage`.
+| Extracts the commit ID of the Git tag* The commit ID is the image tag of the image we are promoting to `stage`.
 
 | 1.2 gather-images-to-verify
 | Selects the image based on the commit ID and generates `images.json`.
@@ -375,3 +353,4 @@ In the next section, you'll experience:
 * Zero-downtime deployment strategies for production environments
 
 The transformation from weeks-long staging cycles to 30-minute automated validation demonstrates the power of Red Hat Advanced Developer Suite in modern enterprise development.
+
