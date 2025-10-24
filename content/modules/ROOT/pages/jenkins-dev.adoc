@@ -19,7 +19,7 @@ As a developer joining a team with significant Jenkins investments, you're facin
 
 === Your Current Jenkins Reality: Weeks of Setup
 
-1-2 weeks waiting for DevOps to configure your Jenkins pipeline. Multiple meetings to explain requirements. When security finally gets added, it's custom Groovy scripts that break when Jenkins updates. Each project's pipeline configured slightly differently—no standards, no reuse.
+The process for configuring a Jenkins pipeline is often slow and inefficient. It can take one to two weeks to get a pipeline from the DevOps team, which requires multiple meetings to clarify requirements. Furthermore, security is frequently handled by custom Groovy scripts that are prone to breaking during Jenkins updates. This approach lacks standardization, resulting in unique pipeline configurations for each project and preventing code reuse.
 
 === What This Really Costs Your Team
 

@@ -244,7 +244,7 @@ Your `.tekton/` directory contains three pipeline definitions that trigger autom
 
 | `on-push.yaml`
 | `git push`
-| Builds image → scans for CVEs → signs → deploys to dev environment
+| Builds and signs image → generates SBOM and attests image → scans for CVEs → deploys to dev environment
 
 | `on-tag.yaml`
 | `git tag v1.0 && git push --tags`
@@ -270,7 +270,7 @@ Location: `{gitlab_url}/rhdh/tssc-sample-pipelines[^]`
 
 This repository contains reusable Tekton task and pipeline definitions that your application pipelines reference:
 
-- `tasks/` - Individual steps (e.g., `build-container.yaml`, `acs-image-scan.yaml`)
+- `tasks/` - Individual steps (e.g., `buildah-rhtap.yaml`, `acs-image-scan.yaml`)
 - `pipelines/` - Complete workflows composed of tasks
 
 When the platform team improves a task (e.g., better CVE scanning), all applications using that task benefit automatically.
@@ -296,7 +296,7 @@ Navigate to your repository and open the `.tekton/` directory. You'll see three 
 | File | Pipeline tasks included
 
 | `.tekton/on-push.yaml`
-| `init` → `clone-repository` → `verify-commit` → `package` → `build-container` → `upload-sboms` + `update-deployment` (parallel) → `acs-image-check` + `acs-image-scan` + `acs-deploy-check` (parallel) → `show-sbom` + `summary`
+| `init` → `clone-repository` → `verify-commit` → `package` → `build-container` → `sign-and-attest` → `upload-sboms` + `update-deployment` (parallel) → `acs-image-check` + `acs-image-scan` + `acs-deploy-check` (parallel) → `show-sbom` + `summary`
 
 | `.tekton/on-tag.yaml`
 | `extract-tag` → `gather-images` → `verify-enterprise-contract` → `copy-image` → `update-deployment`
