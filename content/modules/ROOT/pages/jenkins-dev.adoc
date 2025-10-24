@@ -35,8 +35,6 @@ The process for configuring a Jenkins pipeline is often slow and inefficient. It
 - Security: Custom scripts → Shared `rhtap` library (maintained centrally)
 - Standards: Every project different → Every project from same template
 
-image::tekton-dev-aiimage-1.png[]
-
 === What This Means for Your Daily Jenkins Work
 
 * Jenkins pipeline creation time: 1-2 weeks → 5 minutes
