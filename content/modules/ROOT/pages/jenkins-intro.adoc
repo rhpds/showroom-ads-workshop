@@ -21,12 +21,13 @@ By completing this module, you will:
 
 == Target Audience
 
-This module is ideal for:
+**You should follow this path if:**
+- You have Jenkins controllers and agents already running
+- Your team knows Jenkins (Groovy pipelines, Blue Ocean, troubleshooting)
+- You want modern security (image signing, SBOM, policy enforcement) without migrating off Jenkins
+- You need to show ROI on existing Jenkins investment while adding new capabilities
 
-* **Organizations with Jenkins investments** wanting to modernize without replacement
-* **Enterprise teams** with established Jenkins expertise and infrastructure
-* **Platform engineers** enhancing existing CI/CD capabilities
-* **Organizations** balancing innovation with investment protection
+**You'll learn:** How to layer RHADS security and self-service on top of Jenkins infrastructure you already own.
 
 == Technology Stack
 
@@ -52,119 +53,186 @@ In this module, you'll work with:
 
 == Business Context: ACME's Jenkins Modernization
 
-ACME has significant Jenkins investments powering critical applications. They need to:
+**ACME's situation:**
+- 50+ Jenkins pipelines in production
+- Jenkins admins with 5+ years experience
+- $2M invested in Jenkins controllers, agents, plugins
+- Security team wants: image signing, SBOM, CVE scanning before production
+- Developers want: faster project setup, fewer tickets to platform team
 
-* **Preserve Jenkins infrastructure** representing millions in investment
-* **Enhance security capabilities** without disrupting existing workflows
-* **Provide self-service options** to reduce platform team overhead
-* **Modernize gradually** while maintaining operational stability
+**Current problems:**
+- Each new project = 40 hours platform team work (custom Jenkinsfile, plugin config, GitLab integration)
+- Security tools bolted on inconsistently (some projects scan, some don't)
+- No standardized way to promote dev → stage → prod
 
-**The Challenge:**
-
-Traditional Jenkins setups require extensive manual configuration and lack modern security integration.
-
-**The Solution:**
-
-RHADS transforms Jenkins into a modern, secure, self-service platform while preserving existing investments and expertise.
+**RHADS solution:**
+- Platform team creates one Jenkins template in Developer Hub
+- Template includes: Jenkinsfile with `rhtap` library (handles scanning/signing), GitLab repo setup, GitOps repo creation
+- Developers self-serve: fill form, get working Jenkins pipeline in 5 minutes
+- Security automatic: `rhtap` library functions run ACS scan, Cosign signing, Enterprise Contract validation
+- Jenkins stays: same controllers, agents, Blue Ocean interface your team knows
 
 == Module Structure
 
 This module follows ACME's Jenkins enhancement workflow:
 
 === 1. Development - Building your application
-
 * Access Red Hat Developer Hub
 * Create a new Quarkus application using Jenkins-enhanced templates
 * Set up your modern development environment
 * Make your first code change and trigger an enhanced Jenkins build
 
 === 2. Staging - Promoting to stage environment
-
 * Understand the enhanced Jenkins pipeline execution
 * Review integrated security scanning and validation
 * Promote your application to the staging environment
 * Verify deployment using GitOps automation
 
 === 3. Production - Releasing to production
-
 * Review staging validation and enhanced approvals
 * Execute production deployment with Jenkins
 * Monitor application health and security posture
 * Understand the modernized Jenkins supply chain
 
-== Why This Approach Works
+== Key Advantages of This Approach
+
+**Investment preservation:**
+- Keep Jenkins controllers, agents (no new infrastructure costs)
+- Reuse team's Jenkins knowledge (no retraining on Tekton/other tools)
+- Existing Jenkinsfiles still work (migration optional, not required)
+
+**Enhanced capabilities without disruption:**
+- Add security scanning: call `acs_image_scan()` from `rhtap` library in your Jenkinsfile
+- Add image signing: call `cosign_sign_attest()`
+- Add GitOps: call `update_deployment()` to update manifests, ArgoCD syncs automatically
+- No plugin sprawl: security tools accessed via library functions, not individual Jenkins plugins
+
+**Gradual adoption:**
+- New projects: use enhanced template immediately
+- Existing projects: migrate when convenient (or never—both models coexist)
+- Brownfield-friendly: RHADS doesn't force "all or nothing" migration
+
+**Example transition:**
+```
+Traditional Jenkins → RHADS-enhanced Jenkins
+├── Manually configure each pipeline → Generate from template
+├── Custom security scripts per project → Shared rhtap library functions
+├── Manual kubectl apply → GitOps (update repo, ArgoCD deploys)
+└── Artisanal each time → Standardized, repeatable
+```
+
+IMPORTANT: This approach enhances Jenkins, doesn't replace it. Your Jenkins expertise becomes more valuable, not obsolete.
+
+== Understanding Jenkins Enhancement Benefits
 
 === For Jenkins Administrators
 
-**Investment Preservation:**
+**Before RHADS:**
+- 40 hours setting up each new Jenkins pipeline
+- "Can you add security scanning to my pipeline?" tickets pile up
+- Each project's Jenkinsfile slightly different (maintenance nightmare)
+- Debugging: "Which version of the security plugin do they have?"
 
-* Leverage existing Jenkins infrastructure representing millions in investment
-* Preserve team expertise and operational procedures built over years
-* Maintain familiar Jenkins workflows and processes that teams trust
-* Protect substantial technology investments while gaining modern capabilities
+**After RHADS:**
+- Maintain one template, developers self-serve (10 new projects = 2 hours to review template updates)
+- Security scanning in `rhtap` library, called by all pipelines (one version, centrally updated)
+- Template changes propagate: update library function → all pipelines using it benefit
+- Debugging: "Check the `rhtap` library version" (consistent across projects)
 
-**Reduced Configuration Overhead:**
+**What you maintain:**
+- Jenkins infrastructure (controllers, agents—unchanged)
+- `rhtap` shared library (security functions)
+- Developer Hub templates (project scaffolding)
+- Enterprise Contract policies (what's allowed in production)
 
-* Self-service templates eliminate repetitive pipeline setup
-* Standardized security integration across all projects
-* Automated best practices enforcement
-* Reduced maintenance burden for custom configurations
-
-**Enhanced Security Integration:**
-
-* Modern vulnerability scanning integrated seamlessly into Jenkins workflows
-* Container image signing and verification without pipeline disruption
-* Policy enforcement that works with existing Jenkins patterns
-* Compliance reporting and audit trail generation automatically
+**What you don't maintain anymore:**
+- Individual Jenkinsfiles for every project
+- Custom security scripts per team
+- Manual GitLab webhook configuration
+- Deployment credentials per project (GitOps handles it)
 
 === For Development Teams
 
-**Familiar Workflows with Modern Capabilities:**
+**Developer experience:**
 
-* Jenkins pipelines work exactly as expected - no retraining needed
-* Existing Jenkins knowledge remains valuable and becomes more powerful
-* Gradual introduction of new capabilities at team's own pace
-* No disruption to established practices or productivity
+**Creating a new project (before):**
+1. Submit ticket: "Need Jenkins pipeline for new microservice"
+2. Wait 1-2 weeks for platform team
+3. Attend 3 meetings explaining requirements
+4. Debug webhook configuration with GitLab admin
+5. Manually add scanning after security team review
 
-**Enhanced Developer Experience:**
+**Creating a new project (after):**
+1. Go to Developer Hub, click "Create"
+2. Choose "Quarkus with Jenkins" template
+3. Fill form: app name, GitLab group
+4. Click "Create"
+5. Get: GitLab repo, Jenkinsfile with security, GitOps repo, Dev Spaces workspace
 
-* Self-service application creation in minutes instead of weeks
-* Pre-configured Jenkins pipelines with enterprise security built-in
-* Automatic repository and infrastructure setup
-* Modern development environment access with GitOps automation
-* Complete supply chain security without becoming security experts
+**What's in the generated Jenkinsfile:**
+```groovy
+// Automatically generated, includes:
+- Maven build
+- Buildah container build
+- cosign_sign_attest() // Image signing
+- acs_image_scan() // CVE scanning
+- update_deployment() // GitOps update
+- Enterprise Contract validation
+```
 
-**Faster Project Setup:**
+**Key point:** You didn't write any of that security code. Template included it. You just customize your app code.
 
-* Immediate productivity without waiting for platform teams
-* Standardized templates ensure consistency across projects
-* Integrated development environments ready to use
-* Automatic GitOps deployment configuration
+== Investment Protection Strategy
 
-=== When This Approach Excels
+=== Preserving Jenkins Value
 
-**Ideal Use Cases:**
+**Infrastructure reuse:**
+- Jenkins controllers, agents run unchanged
+- Same network, firewall rules, service accounts
+- Existing compute/storage allocation stays
+- No rip-and-replace migration downtime
 
-* Significant existing Jenkins infrastructure and expertise to preserve
-* Large number of production pipelines requiring continuity
-* Organizational preference for gradual, low-risk modernization
-* Team expertise and operational procedures that add value
-* Investment protection as primary concern
+**Knowledge reuse:**
+- Groovy pipeline syntax still works
+- Blue Ocean interface unchanged
+- Troubleshooting skills (logs, replay, etc.) still apply
+- Jenkins training/certifications still valuable
 
-**Organizational Readiness:**
+**Coexistence model:**
+```
+Your Jenkins environment
+├── Legacy projects (unchanged)
+│   └── Custom Jenkinsfiles, works as-is
+├── RHADS-enhanced projects
+│   └── Generated Jenkinsfiles + rhtap library
+└── Hybrid projects
+    └── Gradually migrating, both patterns work
+```
 
-* Teams with established Jenkins expertise wanting to enhance capabilities
-* Organizations committed to protecting technology investments
-* Cultural alignment with gradual transformation over disruptive replacement
-* Desire for modern security without abandoning proven tools
+**Migration path (when you're ready):**
+1. Platform team creates template with rhtap library
+2. New projects use template (instant modern security)
+3. Existing projects migrate when business value justifies effort
+4. No forced timeline—both approaches coexist indefinitely
 
-**Core RHADS Benefits Delivered:**
+**Risk mitigation:** Pilot with 1-2 projects before org-wide rollout. Learn, adjust template, then scale.
 
-* Self-service developer portal capabilities through Red Hat Developer Hub
-* Integrated security scanning and compliance validation
-* GitOps deployment automation and audit trail generation
-* Complete supply chain security with cryptographic verification
-* Dramatic reduction in platform team overhead
+=== Modernization Benefits
+
+**Immediate (week 1):**
+- Developers create projects without tickets → platform team time freed
+- Every build scans for CVEs → security posture improves
+- Policies enforced automatically → no "oops, forgot to scan" incidents
+
+**Short-term (month 1-3):**
+- Fewer production security incidents (CVEs caught in dev/staging)
+- Faster onboarding (new developers get working pipeline, not "read these 10 wiki pages")
+- Audit prep easier (export logs showing every build passed policy checks)
+
+**Long-term (year 1+):**
+- Option to migrate to Tekton if needed (but no pressure—Jenkins works fine)
+- Security capabilities improve as `rhtap` library updated (your pipelines benefit automatically)
+- Recruitment easier ("We do modern DevSecOps" vs. "We have Jenkins from 2015")
 
 == Prerequisites
 
@@ -176,6 +244,14 @@ This workshop assumes:
 * Some experience with OpenShift or Kubernetes (helpful but not required)
 
 TIP: Even if you're new to Red Hat Developer Hub or GitOps, the workshop guides you through each step with clear explanations focused on enhancing your Jenkins experience.
+
+== Implementation Approach
+
+=== When This Approach Excels
+
+This Jenkins enhancement approach excels in specific enterprise contexts. Organizations with significant existing Jenkins infrastructure and expertise preserve those investments while gaining modern capabilities. Large portfolios of existing pipelines can be enhanced incrementally rather than requiring simultaneous migration. Teams that prefer familiar tooling and workflows maintain their Jenkins competency while expanding their capabilities. A gradual modernization approach reduces the risk and disruption inherent in big-bang replacements. Investment protection takes priority over pursuing the latest technology trends.
+
+The approach delivers key capabilities that bridge traditional and modern practices. Self-service developer portal capabilities reduce platform team bottlenecks while maintaining governance. Integrated security scanning and compliance checking happen automatically within familiar Jenkins workflows. GitOps deployment automation provides declarative releases without abandoning Jenkins for CI. Complete supply chain security activates through pipeline enhancements rather than separate tooling. Platform team overhead decreases as standardization and automation replace custom configurations and manual processes.
 
 == What's Next
 

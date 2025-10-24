@@ -9,40 +9,35 @@ Congratulations on your new position at ACME Retail! You've just joined as a dev
 
 **Your Challenge:** Your team has been tasked with delivering critical checkout service updates for Black Friday in just 4 weeks. However, the current development and deployment process typically takes 10 weeks.
 
-**The Problems You'll Face:** Like most enterprise developers, you'll encounter familiar obstacles:
-
-* 6-8 week deployment cycles due to manual processes that slow everything down
-* 2-week security review bottlenecks that delay every release
-* Manual compliance audits across 50+ applications in your portfolio
-* Platform teams drowning in repetitive setup requests from developers like you
-* Configuration inconsistencies that create bugs and delays across different projects
+**The Problems You'll Face:** Your deployment cycles take 6-8 weeks. Why? Manual handoffs between teams. Security reviews add another 2 weeks per release. Compliance audits run manually across 50+ applications. Platform teams can't keep up with setup requests. Configuration differs between projects, causing bugs that delay releases further.
 
 *Throughout this workshop, you'll experience firsthand how Red Hat Advanced Developer Suite transforms your daily development experience.*
 
 == Your Solution: Red Hat Advanced Developer Suite
 
-You're about to discover how Red Hat Advanced Developer Suite (RHADS) will transform your development experience. Instead of the manual security gates that currently slow you down, RHADS makes security and compliance *automatic*, revolutionizing how you deliver software:
+Red Hat Advanced Developer Suite (RHADS) automates security and compliance checks that currently slow you down. Here's how it changes your daily work:
 
 === What This Means for You as a Developer
 
-* You can create new projects yourself with zero waiting time
-* No more delays waiting for security reviews or coordination meetings
-* You'll use familiar development tools and workflows - no steep learning curves
-* Instant access to production-ready environments whenever you need them
+You create new projects yourself through a self-service portal. No tickets, no waiting. Security scans run automatically in your pipeline—you see results in minutes, not weeks. You use your existing tools: VS Code (via browser), Git, and familiar CI/CD concepts. Production-ready environments spin up on demand.
 
 === How This Helps Your Security Team
 
-* Automated policy enforcement runs across all your projects automatically
-* Complete audit trails and compliance reports generate themselves
-* 75% reduction in manual security reviews means faster approvals
-* Consistent security posture across your entire application portfolio
+Policy enforcement runs automatically in every pipeline. Enterprise Contract checks image signatures, validates SBOMs, and scans for CVEs before any deployment. Your security team gets:
+
+- Audit trails generated automatically (SOC 2, PCI compliance reports export as JSON)
+- 75% fewer manual reviews (only exceptions need human judgment)
+- Consistent policies across all 50+ applications (one policy repository, enforced everywhere)
+
+When a policy fails, developers see exactly which rule broke and why. Security team defines policies once in Git, not repeatedly in meetings.
 
 === What Your Platform Team Will Experience
 
-* Standardized patterns eliminate the custom configurations that create tickets
-* Dramatic reduction in setup requests from developers like you
-* Your platform team can focus on innovation instead of repetitive tasks
-* Measurable compliance and governance become automatic
+Setup requests drop by 60% because developers self-serve from templates. Your platform team maintains the templates (stored in Git), not individual project configurations.
+
+Example: Instead of configuring 20 Jenkins pipelines individually, you create one template. Developers instantiate it with their app name and repo URL. Updates to the template propagate to all projects that reference it.
+
+Platform team shifts from: "Can you set up my pipeline?" tickets → Template improvements, policy refinement, and new capability development.
 
 == Workshop Paths
 
@@ -50,29 +45,30 @@ This workshop offers two learning paths that demonstrate different approaches to
 
 === Path 1: OpenShift Pipelines (Tekton)
 
-=== Topics
+Kubernetes-native CI/CD using Tekton. Pipelines run as Kubernetes pods, scaling automatically with your workload.
 
-* Self-service project creation via Red Hat Developer Hub
-* Kubernetes-native development with OpenShift Dev Spaces
-* Automated security with OpenShift Pipelines
-* GitOps deployment to staging and production
+**You'll learn:**
+1. Create a Quarkus app via Developer Hub template
+2. Develop in browser-based OpenShift Dev Spaces (no local setup)
+3. Trigger Tekton pipelines with `git push` (builds, scans, signs, deploys to dev)
+4. Promote to staging with `git tag v1.0` (Enterprise Contract validates before deployment)
+5. Release to production via GitLab Release (GitOps handles the rollout)
 
-=== Value Proposition
-
-Modern OpenShift Pipelines development velocity with enterprise security
+**Best for:** Teams building cloud-native apps, organizations standardizing on Kubernetes, greenfield projects.
 
 === Path 2: Jenkins Pipelines
 
-=== Topics
+Enhanced Jenkins with modern security, same familiar interface. Uses existing Jenkins controllers and agents.
 
-* Self-service project creation via Red Hat Developer Hub
-* Enhanced Jenkins pipelines with integrated security
-* Automated validation and GitOps deployment
-* Enterprise-grade workflows and protection
+**You'll learn:**
+1. Generate Jenkins-integrated apps via Developer Hub template (Jenkinsfile included)
+2. Trigger builds with `git push` (Jenkins runs: build → scan → sign → update GitOps repo)
+3. Promote to staging with `git tag` (Jenkins validates with Enterprise Contract)
+4. Deploy to production via GitLab Release (Jenkins orchestrates, ArgoCD deploys)
 
-=== Value Proposition
+**Key difference from traditional Jenkins:** Security scanning (ACS), image signing (Cosign), and policy validation (Enterprise Contract) run automatically in shared library functions. No custom scripting per project.
 
-Enterprise integration with modern capabilities
+**Best for:** Organizations with Jenkins investments, teams with Jenkins expertise, brownfield projects requiring gradual modernization.
 
 [IMPORTANT]
 ====
@@ -91,48 +87,43 @@ Throughout this workshop, you'll experience your own transformation as you solve
 
 == Workshop Environment
 
-Your lab environment includes all the components needed to experience RHADS:
+Your lab includes:
 
-=== Core Platform
+**Core Platform:**
+- Red Hat Developer Hub (your self-service portal)
+- OpenShift Container Platform (Kubernetes distribution)
+- GitLab (source code + GitOps repos)
+- Red Hat Quay (container registry with security scanning)
 
-* Red Hat Developer Hub (Internal Developer Portal)
-* OpenShift Container Platform
-* GitLab (Source Code Management)
-* Red Hat Quay (Container Registry)
+**Security Tools (automated in pipelines):**
+- Red Hat Advanced Cluster Security (ACS) - Scans images for CVEs, enforces deployment policies
+- Red Hat Trusted Artifact Signer (Sigstore/Cosign) - Signs images and commits cryptographically
+- Enterprise Contract - Validates signatures, SBOMs, and provenance before promotion
 
-=== Security & Compliance
+**CI/CD Options:**
+- OpenShift Pipelines (Tekton) - Kubernetes-native, runs as pods
+- Jenkins - Enhanced with shared library (`rhtap`) providing security functions
 
-* Automated vulnerability scanning
-* Container image signing and verification
-* Policy enforcement and compliance checking
-* Supply chain security validation
-
-=== CI/CD Options
-
-* OpenShift Pipelines (Tekton) - Kubernetes-native implementation
-* Jenkins - Enhanced enterprise workflows
+**How they connect:** Developer Hub templates generate app repos with pipeline definitions (`.tekton/*.yaml` or `Jenkinsfile*`). Pipelines build, scan, sign, then update GitOps repos. ArgoCD watches GitOps repos and syncs changes to clusters.
 
 == Success Metrics
 
-By completing this workshop, you'll understand how RHADS delivers:
+**Speed:**
+- Project setup: 6 weeks → 2 days (template instantiation vs. manual configuration)
+- Development cycle: 10 weeks → 4 weeks (parallel security checks vs. sequential gates)
+- Security reviews: 2 weeks → minutes (automated policy enforcement vs. manual review meetings)
 
-=== Speed Improvements
+**Quality:**
+- Policy compliance: 100% (Enterprise Contract fails builds that violate policies)
+- Production security incidents: Zero (CVEs caught in dev/staging, not production)
+- Audit preparation: Continuous (logs export on-demand vs. assembled before audits)
 
-* Project setup: 6 weeks → 2 days
-* Development cycle: 10 weeks → 4 weeks
-* Security reviews: Manual → Automated
+**Efficiency:**
+- Manual security reviews: 75% reduction (only exceptions require human review)
+- Platform team setup requests: 60% reduction (self-service eliminates tickets)
+- Configuration drift: Zero (GitOps ensures clusters match Git state)
 
-=== Quality & Security
-
-* 100% policy compliance across all applications
-* Zero production security incidents
-* Automated audit trails for compliance reporting
-
-=== Efficiency Gains
-
-* 75% reduction in manual security reviews
-* 60% fewer platform team setup requests
-* Zero configuration drift across environments
+**What makes this possible:** Policies defined once in Git, enforced automatically in every pipeline. Developers get fast feedback. Security team maintains rules, not individual project configs.
 
 [TIP]
 ====
@@ -143,10 +134,10 @@ Keep these metrics in mind as you work through the exercises - you'll experience
 
 Ready to become the hero who saves Black Friday? Select the path that matches your team's technology approach:
 
-**🚀 Start with OpenShift Pipelines (Tekton)** → Go to the *OpenShift Pipelines (Tekton)* module
+**Start with OpenShift Pipelines (Tekton)** → Go to the *OpenShift Pipelines (Tekton)* module
 *Perfect if your team is embracing modern Kubernetes-native development practices*
 
-**🔧 Start with Jenkins** → Go to the *Jenkins* module
+**Start with Jenkins** → Go to the *Jenkins* module
 *Ideal if your organization has existing enterprise tooling investments*
 
 Either path will give you the hands-on experience to transform your development workflow and meet that Black Friday deadline!

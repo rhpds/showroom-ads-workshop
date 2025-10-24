@@ -9,220 +9,83 @@ toc::[]
 
 Congratulations! You've successfully completed the **OpenShift Pipelines (Tekton)** module of the Red Hat Advanced Developer Suite Workshop.
 
-== What You Accomplished
+== What You Built
 
-=== Technical Achievements
+You created a complete CI/CD pipeline using Kubernetes-native tooling—no Jenkins server, no build agents, just containers and Git.
 
-**Self-Service Application Creation:**
+**Application repository:** `qrks-tkn-{user}` with three Tekton `PipelineRun` definitions in `.tekton/` directory. Each pipeline triggers automatically via GitLab webhooks: `on-push.yaml` fires on every `git push`, `on-tag.yaml` fires when you create Git tags, `on-release.yaml` fires when you create GitLab releases. These aren't Jenkins Groovy DSL—they're pure YAML that OpenShift Pipelines executes as Kubernetes pods.
 
-* Created a secure Quarkus application using Red Hat Developer Hub templates
-* Configured OpenShift Pipelines CI/CD with Tekton automatically
-* Set up GitOps deployment workflows with ArgoCD integration
+**GitOps repository:** `qrks-tkn-{user}-gitops` with Kustomize overlays for `dev`, `stage`, and `prod` environments. Your pipeline never runs `kubectl apply`—it updates Git, and ArgoCD reconciles cluster state every 3 minutes. Environment promotion is a Git commit, not a deployment script.
 
-**OpenShift Pipelines Development:**
+**Security artifacts generated:** Every image you built has a cosign signature stored in Quay registry, an SBOM uploaded to Red Hat Trusted Profile Analyzer, and SLSA provenance attestation linking the image to your Git commit. Enterprise Contract validates these artifacts before staging and production promotion. This isn't security theater—these are cryptographic guarantees that your image hasn't been tampered with.
 
-* Developed in OpenShift Dev Spaces browser-based environment
-* Made code changes that automatically triggered secure build pipelines
-* Experienced modern OpenShift Pipelines development workflows
+**Development environment:** OpenShift Dev Spaces workspace defined in `.devfile.yaml`. Your entire team can click a link and get identical VSCode environment with same Java version, same Maven settings, same extensions. The workspace is a Kubernetes pod with persistent storage—shutdown your laptop, resume from a different machine, same state.
 
-**Automated Security Integration:**
+**What changed from traditional development:**
 
-* Witnessed automated vulnerability scanning of container images
-* Saw cryptographic signing and verification of supply chain artifacts
-* Experienced policy enforcement and compliance validation
+Traditional approach: 3-4 weeks to get platform team to provision Jenkins agents, configure GitLab webhooks, write custom Groovy pipeline, integrate security scanning tools, set up deployment credentials, configure monitoring.
 
-**Production Deployment:**
+Tekton approach: 5 minutes to fill a form in Developer Hub. Template generates application code, pipeline definitions, GitOps repository, security scanning integration, and Dev Spaces workspace. Push code, pipeline runs automatically. No tickets, no coordination meetings.
 
-* Promoted applications through staging to production environments
-* Used GitOps for declarative, auditable deployments
-* Monitored production application health and security posture
+Traditional pipeline: Build runs on dedicated Jenkins agent, image pushed to registry manually, security scanning happens in separate tool with separate credentials, deployment requires VPN and kubectl access to production cluster.
 
-=== Business Value Demonstrated
+Tekton pipeline: Build runs in ephemeral pod that terminates when done, image automatically signed with cosign, SBOM generated with syft, CVE scanning with ACS—all in the same pipeline. Deployment updates Git; ArgoCD handles cluster reconciliation. No cluster credentials in pipeline.
 
-**Speed and Efficiency:**
+**Quantified improvements:**
 
-* **Application setup**: 3-4 weeks → 5 minutes
-* **Security integration**: Manual → Fully automated
-* **Deployment pipeline**: Custom → Standardized templates
-* **Developer onboarding**: Days → Minutes
+- Pipeline setup: 3-4 weeks → 5 minutes (99.4% reduction)
+- Security scanning integration: 2 weeks manual → automatic (included in template)
+- Deployment to dev after code change: 30-60 minutes manual → 8 minutes automated
+- Staging promotion: 3-5 days coordination → 30 minutes (Git tag triggers pipeline)
+- Production deployment: 2-3 weeks → 30 minutes (GitLab release triggers validation + deployment)
 
-**Security and Compliance:**
+== Key Technical Concepts
 
-* **Vulnerability management**: 100% automated scanning
-* **Supply chain integrity**: Cryptographic verification
-* **Policy enforcement**: Built-in compliance validation
-* **Audit readiness**: Continuous compliance documentation
+**Pipelines as Code:** Your `.tekton/on-push.yaml` file is a Kubernetes `PipelineRun` custom resource. When you push code, GitLab webhook sends POST to OpenShift Pipelines Operator. The operator creates Kubernetes pods for each task (`init`, `clone-repository`, `verify-commit`, etc.). Each pod runs a container image specified in the task definition. When the task completes, the pod terminates. No persistent build agents consuming resources 24/7.
 
-**Operational Excellence:**
+**GitOps reconciliation loop:** ArgoCD runs inside your cluster, polling your GitOps repository every 3 minutes. It compares Git state (desired) to cluster state (actual) using `kubectl diff`. When it detects divergence, it applies the manifests from Git. Your pipeline's `update-deployment` task commits new image tags to Git; ArgoCD sees the change and reconciles automatically. This is pull-based deployment—cluster pulls from Git—vs. push-based where CI system pushes to cluster.
 
-* **Platform overhead**: Eliminated manual setup requests
-* **Configuration consistency**: Standardized across all projects
-* **Infrastructure management**: Self-healing and self-scaling
-* **Developer productivity**: Focus on business value creation
+**Image signing and verification:** During build, `cosign sign` generates an ECDSA signature of your image digest and stores it in Quay registry as an OCI artifact alongside the image. The signing key lives in Red Hat Trusted Artifact Signer (Sigstore), not in your pipeline. During staging promotion, Enterprise Contract runs `cosign verify` with the public key from `openshift/trusted-keys` ConfigMap. If verification fails, the pipeline terminates before deployment. This prevents deployment of unsigned or tampered images.
 
-== Key Takeaways
+**SBOM generation:** The `syft` tool scans your container image filesystem and `pom.xml` to extract all dependencies—Java libraries, OS packages, transitive dependencies. It outputs CycloneDX JSON format listing every component with name, version, and licensing. Enterprise Contract parses this SBOM, extracts package coordinates, and queries Red Hat Security Data API for known CVEs. Any critical vulnerability (CVSS > 9.0) fails the pipeline.
 
-=== OpenShift Pipelines Advantages
+**Kustomize overlays:** Your GitOps repository has `base/` directory with shared Kubernetes manifests (Deployment, Service, Route). The `overlays/dev/`, `overlays/stage/`, and `overlays/prod/` directories contain `deployment-patch.yaml` files that override specific fields like image tag and replica count. Kustomize merges base + overlay to generate final manifests. This eliminates copy-paste duplication across environments.
 
-**Kubernetes-Native Architecture:**
+== When to Use This Approach
 
-* Pipelines run as pods, providing natural scaling and resource efficiency
-* Tekton leverages Kubernetes primitives for robust, OpenShift Pipelines CI/CD
-* Container-first approach optimizes for modern application architectures
+**Tekton/OpenShift Pipelines fits when:**
 
-**Developer Experience:**
+You're building new cloud-native applications on Kubernetes. You want pipelines that run as pods, not dedicated Jenkins agents. Your team knows YAML and kubectl. You're comfortable debugging containers and Kubernetes resources. You value standardization—every project uses the same Tekton task definitions maintained by the platform team.
 
-* Browser-based development eliminates local environment complexity
-* Self-service capabilities reduce dependency on platform teams
-* Modern tooling attracts and retains top development talent
+You're running microservices architectures with dozens or hundreds of services. Each service gets its own `.tekton/` directory with pipeline definitions. Platform team maintains shared task library (`buildah-rhtap.yaml`, `acs-image-scan.yaml`). When platform team improves a task, all projects using it benefit automatically without updating individual pipelines.
 
-**Enterprise Security:**
+You need to scale pipeline execution. Traditional Jenkins agents have capacity limits—if you have 50 build agents and 100 builds queue up, builds wait. Tekton pipelines run as Kubernetes pods. If your cluster has capacity, Kubernetes schedules more pods. If you need more capacity, add worker nodes. No "Jenkins agent offline" debugging.
 
-* Security is built into the development process, not bolted on afterward
-* Automated policy enforcement ensures consistent compliance
-* Complete audit trails satisfy enterprise governance requirements
+**Tekton might not fit when:**
 
-=== Key Concepts Mastered
+You have hundreds of existing Jenkins pipelines with complex Groovy scripting. Migrating Groovy to Tekton YAML would take months. Consider the Jenkins+RHADS approach instead—keep Jenkins, add `rhtap` shared library for security integration.
 
-**For Development Teams:**
+Your team doesn't have Kubernetes knowledge yet. Debugging failed Tekton tasks requires `kubectl logs`, understanding pod lifecycle, checking PVC storage. If your team is comfortable with Jenkins shell scripts but not `kubectl`, the learning curve is steeper.
 
-* Faster iteration cycles improve time-to-market
-* Reduced friction in development workflows
-* Access to enterprise-grade tooling and infrastructure
-* Focus shifts from setup to innovation
+You need complex conditional logic or loops in your pipeline. Tekton tasks can run in parallel or sequence, but complex branching requires `when` expressions that are more verbose than Jenkins Groovy. Jenkins Pipelines as Code might be simpler for intricate workflows.
 
-**For Platform Teams:**
+== Next Steps
 
-* Dramatic reduction in manual setup and configuration requests
-* Standardized patterns reduce maintenance overhead
-* Self-service capabilities scale team effectiveness
-* Platform investment focuses on innovation, not repetitive tasks
+**Explore the Jenkins module** if your organization has existing Jenkins infrastructure. You'll see how the same RHADS security capabilities (Enterprise Contract, image signing, SBOM generation) integrate into Jenkins workflows using the `rhtap` shared library. Same security guarantees, different execution engine.
 
-**For Security Teams:**
+**Experiment with the Developer Hub templates** in your own environment. Clone the `tssc-developer-hub-configuration` repository and modify the `scaffolder-templates/quarkus-stssc-template/` to match your organization's standards—different base images, additional pipeline tasks, custom security policies.
 
-* Automated security scanning eliminates manual bottlenecks
-* Policy enforcement is consistent and auditable
-* Reduced security incidents through built-in best practices
-* Complete visibility into supply chain security
+**Customize Enterprise Contract policies** to enforce your organization's requirements. The default policy validates image signatures, checks for critical CVEs, and verifies provenance. You can add rules like "reject images with GPL licenses," "require specific base image," or "enforce semantic versioning tags."
 
-== Real-World Implementation Strategy
+**Deep dive into specific technologies:**
 
-=== When OpenShift Pipelines Approaches Excel
+- **Tekton Triggers**: Currently GitLab webhooks trigger your pipelines. Tekton Triggers provides EventListeners, TriggerBindings, and TriggerTemplates for more sophisticated event-driven automation (trigger on pull request comments, Slack messages, Jira updates).
 
-**Ideal Use Cases:**
+- **ArgoCD ApplicationSets**: You manually created ArgoCD Applications for dev, stage, and prod environments. ApplicationSets generate Applications automatically from Git repository structure or cluster selectors, eliminating manual setup for each environment.
 
-* **New application development** - Start with OpenShift Pipelines best practices
-* **Microservices architectures** - Consistent deployment and scaling patterns
-* **Container-first organizations** - Leverage existing Kubernetes investments
-* **DevOps transformation initiatives** - Modernize development practices
+- **Cosign keyless signing**: Your workshop used Red Hat Trusted Artifact Signer. Cosign also supports keyless signing with GitHub Actions OIDC tokens—no key management, signature linked to your CI/CD identity provider.
 
-**Organizational Readiness:**
-
-* Teams comfortable with OpenShift Pipelines concepts and tooling
-* Kubernetes platform already deployed and managed
-* Container-based application architectures
-* Cultural alignment with DevOps and automation principles
-
-=== Adoption Path
-
-**Team Adoption:**
-
-* Provide training on OpenShift Pipelines development concepts
-* Start with pilot projects to demonstrate value
-* Establish OpenShift Pipelines best practices and standards
-* Create internal documentation and knowledge sharing
-
-=== Success Factors
-
-**Technical Preparation:**
-
-* Plan for multi-cluster deployments and federated management
-* Consider disaster recovery and business continuity requirements
-* Implement proper monitoring, alerting, and observability
-* Establish capacity planning and resource governance
-
-=== Scaling Considerations
-
-**Platform Evolution:**
-
-* Plan for multi-cluster deployments and federated management
-* Consider disaster recovery and business continuity requirements
-* Implement proper monitoring, alerting, and observability
-* Establish capacity planning and resource governance
-
-== Integration and Migration
-
-=== Hybrid Approach Considerations
-
-The OpenShift Pipelines approach demonstrated in this module can be combined with:
-
-* **Legacy application modernization** - Containerization pathways
-* **Multi-cloud deployments** - Consistent patterns across providers
-* **Compliance frameworks** - Integration with enterprise governance
-* **Existing enterprise tools** - Gradual integration strategies
-
-=== Migration Strategies
-
-**Gradual Adoption:**
-
-* Start with new projects using OpenShift Pipelines approaches
-* Modernize existing applications incrementally
-* Maintain legacy systems while building OpenShift Pipelines capabilities
-* Develop expertise and best practices over time
-
-=== Enterprise Integration Patterns
-
-**Integration Considerations:**
-
-* Integration with existing CI/CD tools and workflows
-* Connection to organizational identity and access management systems
-* Alignment with enterprise change management and approval processes
-* Compatibility with existing monitoring and observability platforms
-
-== Next Steps and Recommendations
-
-=== Immediate Actions
-
-**For Your Organization:**
-
-* **Assess current development practices** - Identify areas for improvement
-* **Evaluate Kubernetes readiness** - Ensure platform capabilities
-* **Plan pilot projects** - Start with low-risk, high-value applications
-* **Develop team skills** - Invest in OpenShift Pipelines training and education
-
-**Technical Preparation:**
-
-* **Review security requirements** - Align with organizational policies
-* **Plan integration points** - Consider existing tool ecosystems
-* **Establish governance** - Define standards and best practices
-* **Prepare infrastructure** - Ensure adequate platform capacity
-
-=== Continued Learning
-
-**Explore Related Technologies:**
-
-* **Tekton advanced features** - Custom tasks, triggers, and operators
-* **ArgoCD GitOps patterns** - Advanced deployment strategies
-* **OpenShift service mesh** - Microservices networking and security
-* **Kubernetes operators** - Application lifecycle management
-
-**Related Topics:**
-
-* **Enterprise integration** - How RHADS enhances existing enterprise tooling
-* **Hybrid cloud strategies** - Multi-platform deployment patterns
-* **Legacy modernization** - Gradual transformation approaches
-
-== Workshop Reflection
-
-Take a moment to consider these questions:
-
-* **Value Proposition**: What specific benefits would this OpenShift Pipelines approach provide for your organization's development practices?
-
-* **Implementation Challenges**: What organizational or technical barriers might need to be addressed for successful adoption?
-
-* **Strategic Alignment**: How does this OpenShift Pipelines approach align with your organization's digital transformation goals?
-
-* **Team Impact**: How would this change the day-to-day experience for your development, platform, and security teams?
+- **Kyverno policy engine**: Enterprise Contract validates images before deployment. Kyverno enforces Kubernetes resource policies at admission time—reject Deployments without resource limits, require specific labels, enforce image pull policies.
 
 == Additional Resources
 

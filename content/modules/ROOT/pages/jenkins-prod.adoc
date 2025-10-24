@@ -19,27 +19,13 @@ Enterprise development teams often face substantial challenges with production d
 
 === Traditional Jenkins Production Challenges
 
-* 2-3 weeks required for manual Jenkins production deployment coordination
-* Multiple approval workflows that create bottlenecks in Jenkins-based delivery
-* Manual security reviews that delay Jenkins production releases
-* Risk of human error during manual Jenkins production deployment processes
-* Inconsistent deployment procedures across different Jenkins production environments
+Traditional Jenkins production deployments create anxiety and delay across organizations. Manual coordination and approvals consume 2-3 weeks as changes navigate through multiple approval workflows, each creating bottlenecks in Jenkins-based delivery. Manual security reviews delay production releases as teams wait for scheduled review meetings and security team bandwidth. The risk of human error looms over every manual deployment process, with configuration mistakes and missed steps causing production incidents. Inconsistent deployment procedures across different Jenkins production environments mean that success in one environment doesn't guarantee success in another, multiplying the stress and uncertainty.
 
 === Red Hat Advanced Developer Suite Solution for Jenkins
 
-Red Hat Advanced Developer Suite (RHADS) transforms your Jenkins production experience with:
+RHADS fundamentally transforms the Jenkins production experience, turning what was once a multi-week ordeal into a confident, automated process. Production deployment time collapses from 2-3 weeks to just 30 minutes through automated Jenkins pipelines that eliminate manual coordination and waiting. Your organization preserves millions in Jenkins infrastructure investment while gaining modern capabilities that were previously only available through complete platform replacement. Manual security reviews become unnecessary as automated policy enforcement in Jenkins workflows provides continuous validation. Complete SOC 2 and PCI audit trails generate automatically through Jenkins processes, satisfying auditors without manual documentation.
 
-* Production deployment time: 2-3 weeks 	 30 minutes with automated Jenkins pipelines
-* Preserves millions in Jenkins infrastructure investment while adding modern capabilities
-* Zero manual security reviews through automated policy enforcement in Jenkins workflows
-* Complete SOC 2 and PCI audit trails automatically generated through Jenkins processes
-
-**Key Business Benefits for Jenkins Production:**
-
-* Jenkins production deployment time from weeks to minutes
-* Enhanced security validation integrated into familiar Jenkins production workflows
-* Jenkins expertise becomes more valuable with modern production capabilities
-* Complete audit trails for enterprise compliance through Jenkins automation
+The business benefits transform your competitive position. Jenkins production deployment time drops from weeks to minutes, directly accelerating time-to-market and enabling rapid response to business opportunities. Enhanced security validation integrates into familiar Jenkins production workflows, providing enterprise-grade protection without disrupting proven processes. Your team's Jenkins expertise becomes more valuable with modern production capabilities, making retention easier and recruitment more successful. Complete audit trails for enterprise compliance flow automatically through Jenkins automation, reducing compliance costs and audit preparation stress.
 
 == Activity 1: Understanding Jenkins Production Triggers
 
@@ -56,18 +42,15 @@ This separation allows teams to enforce distinct policies and approval flows for
 
 **Business Value:**
 
-* **Staging Speed:** Git tag push enables rapid staging validation through Jenkins
-* **Production Control:** GitLab Release provides intentional production gate with audit trail
-* **Risk Management:** Different triggers allow appropriate validation rigor per environment
-* **Jenkins Consistency:** Same familiar Jenkins pipeline handles both environments
+This trigger separation delivers important business value through appropriate controls. Git tag push enables rapid staging validation through Jenkins, allowing quick iteration and testing without bureaucratic overhead. GitLab Release provides an intentional production gate with complete audit trail, ensuring that production deployments are deliberate and traceable. Different triggers allow appropriate validation rigor for each environment, balancing speed in staging with safety in production. The same familiar Jenkins pipeline handles both environments, reducing complexity and maintaining consistency while enforcing different policies.
 
 == Activity 2: Creating a GitLab Release for Production
 
 Let's trigger your Jenkins production pipeline using GitLab Release functionality that integrates with your enhanced Jenkins workflows.
 
-**Step 1: Access Your GitLab Repository**
+=== Step 1: Access Your GitLab Repository
 
-* Open your GitLab repository at {gitlab_url}/development/qrks-jnk-{user}[qrks-jnk-{user}^]
+* Open your GitLab repository at {gitlab_url}/development/qrks-jnk-{user}[qrks-jnk-{user}^
 * Sign in using:
 +
 [source,bash,subs="attributes"]
@@ -78,7 +61,7 @@ Password: {gitlab_user_password}
 +
 image::jenkins-prod-1.png[link=self, window=_blank]
 
-**Step 2: Create a GitLab Release**
+=== Step 2: Create a GitLab Release
 
 Creating a GitLab release triggers your Jenkins production pipeline with enhanced security validation.
 
@@ -87,18 +70,18 @@ Creating a GitLab release triggers your Jenkins production pipeline with enhance
 image::jenkins-prod-2.png[link=self, window=_blank]
 
 * Click *Create a new release*
-* Select the existing tag `v1.0` from the dropdown
-* Add release notes (optional)
+* Select the existing tag, such as `v1.0`
+* Optionally add release notes
 * Click *Create release*
 +
 image::jenkins-prod-3.png[link=self, window=_blank]
 
 [NOTE]
 ====
-This GitLab release creation triggers a webhook that starts your Jenkins production pipeline. The pipeline automatically detects this is a *release event* and switches into production promotion mode, ensuring the same validated image is promoted to the production environment through Jenkins automation.
+This GitLab release creation triggers a webhook that starts your Jenkins production pipeline* The pipeline automatically detects this is a *release event* and switches into production promotion mode, ensuring the same validated image is promoted to the production environment through Jenkins automation.
 ====
 
-**Step 3: Monitor Jenkins Production Pipeline**
+=== Step 3: Monitor Jenkins Production Pipeline
 
 * Navigate to Red Hat Developer Hub
 * Go to your `qrks-jnk-{user}` component under *Catalog > Component*
@@ -122,7 +105,7 @@ The same Jenkins pipeline is reused for both staging and production, but its beh
 
 == Activity 3: Understanding Jenkins Production Pipeline Tasks
 
-Your Jenkins production pipeline ensures enterprise-grade security while maintaining familiar workflows. Let's examine each critical task:
+Your Jenkins production pipeline ensures enterprise-grade security while maintaining familiar workflows* Let's examine each critical task:
 
 image::jenkins-prod-6.png[link=self, window=_blank]
 
@@ -130,16 +113,11 @@ image::jenkins-prod-6.png[link=self, window=_blank]
 
 **Purpose:** Perfect production traceability through Jenkins workflows
 
-This Jenkins task ensures complete accountability for production deployments:
-
-* **Production Audit Confidence:** Regulators can trace every production change to its source through Jenkins
-* **Compliance Automation:** SOC 2 and PCI requirements satisfied automatically via Jenkins workflows
-* **Risk Management:** Perfect tracking of what was deployed when production issues arise
-* **Investment Leverage:** Enhanced traceability through existing Jenkins infrastructure
+This Jenkins task ensures complete accountability for production deployments, providing the traceability that auditors and incident responders demand. Regulators can trace every production change back to its source commit through Jenkins, satisfying compliance requirements without manual documentation. SOC 2 and PCI audit requirements are satisfied automatically via Jenkins workflows, reducing audit preparation time from weeks to hours. Risk management improves through perfect tracking of what was deployed when, enabling rapid troubleshooting when production issues arise. Your organization leverages existing Jenkins infrastructure to deliver enhanced traceability, protecting your investment while gaining modern capabilities.
 
 **Technical Implementation:**
 
-In the `gather-images` stage, Jenkins calls the GitLab API to fetch the release tag (e.g* `v1.0`). Based on this tag, it constructs the container image URL that was built and signed in the staging phase through Jenkins automation.
+In the `gather-images` stage, Jenkins calls the GitLab API to fetch the release tag (e.g* `v1.0`)* Based on this tag, it constructs the container image URL that was built and signed in the staging phase through Jenkins automation.
 
 Jenkins creates an `images.json` file to describe the image metadata and where it came from, becoming the source of truth for the production validation step.
 
@@ -149,7 +127,7 @@ Jenkins creates an `images.json` file to describe the image metadata and where i
 {
   "components": [
     {
-      "containerImage": "quay-{guid}/tssc/qrks-jnk-{user}:v1.0",
+      "containerImage": "quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0",
       "source": {
         "git": {
           "url": "{gitlab_url}/development/qrks-jnk-{user}",
@@ -201,7 +179,7 @@ ec validate image \
   --policy default \
   --public-key k8s://openshift/trusted-keys \
   --output json \
-  --image quay-{guid}/tssc/qrks-jnk-{user}:v1.0
+  --image quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0
 ----
 
 **Sample Jenkins production validation output:**
@@ -220,7 +198,7 @@ ec validate image \
 
 [IMPORTANT]
 ====
-If any of these production checks fail through Jenkins, the pipeline stops immediately 	 ensuring no risky code reaches your customers. This automated production security gate protects your business reputation and customer trust.
+If any of these production checks fail through Jenkins, the pipeline stops immediately 	 ensuring no risky code reaches your customers* This automated production security gate protects your business reputation and customer trust.
 ====
 
 === Task 3: update-image-tag-for-prod
@@ -240,11 +218,11 @@ Jenkins uses `skopeo` to copy the image and apply a production tag with the `pro
 [source,bash,subs="attributes"]
 ----
 skopeo copy \
-  docker://quay-{guid}/tssc/qrks-jnk-{user}:v1.0 \
-  docker://quay-{guid}/tssc/qrks-jnk-{user}:prod-v1.0
+  docker://quay.tssc-quay/tssc/qrks-jnk-{user}:v1.0 \
+  docker://quay.tssc-quay/tssc/qrks-jnk-{user}:prod-v1.0
 ----
 
-This Jenkins step doesn't rebuild the image. It simply re-tags a verified, immutable image 	 ensuring complete traceability and production readiness confidence.
+This Jenkins step doesn't rebuild the image* It simply re-tags a verified, immutable image 	 ensuring complete traceability and production readiness confidence.
 
 By tagging it `prod-v1.0` through Jenkins automation, we make it clear to downstream systems, release teams, and auditors that:
 
@@ -265,7 +243,7 @@ This Jenkins task ensures validated changes reach production automatically witho
 
 **Technical Implementation through Jenkins:**
 
-In the `deploy-to-prod` stage, Jenkins uses `rhtap.update_deployment()` to patch the `kustomization.yaml` overlay for production. This updates the image tag in the `deployment-patch.yaml` to reference the new production-approved image.
+In the `deploy-to-prod` stage, Jenkins uses `rhtap.update_deployment()` to patch the `kustomization.yaml` overlay for production* This updates the image tag in the `deployment-patch.yaml` to reference the new production-approved image.
 
 Jenkins commits and pushes this change to the GitOps repository under the `overlays/prod/` directory.
 
@@ -281,10 +259,10 @@ spec:
     spec:
       containers:
         - name: qrks-jnk-{user}
-          image: quay-{guid}/tssc/qrks-jnk-{user}:prod-v1.0
+          image: quay.tssc-quay/tssc/qrks-jnk-{user}:prod-v1.0
 ----
 
-Argo CD continuously watches this GitOps repository. Once it detects Jenkins updates:
+Argo CD continuously watches this GitOps repository* Once it detects Jenkins updates:
 
 * It syncs the production manifests
 * Deploys the new image to the production cluster
@@ -296,21 +274,22 @@ This final Jenkins step completes the production promotion workflow 	 fully auto
 
 Watch how your Jenkins pipeline safely deploys to production using enterprise-grade validation and GitOps automation.
 
-**Step 1: Monitor Jenkins Pipeline Execution**
+=== Step 1: Monitor Jenkins Pipeline Execution
 
 * In Jenkins Blue Ocean, observe each production stage completing:
-** **gather-images**: Jenkins identifies the exact production image to deploy
-** **verify-ec**: Jenkins validates enterprise security policies for production
-** **update-image-tag-for-prod**: Jenkins tags the image as production-ready
-** **deploy-to-prod**: Jenkins updates production GitOps manifests automatically
 
-* Notice how Jenkins provides familiar monitoring interfaces while handling enterprise production workflows.
+  - **gather-images**: Jenkins identifies the exact production image to deploy
+  - **verify-ec**: Jenkins validates enterprise security policies for production
+  - **update-image-tag-for-prod**: Jenkins tags the image as production-ready
+  - **deploy-to-prod**: Jenkins updates production GitOps manifests automatically
 
-**Step 2: Verify Production GitOps Integration**
+* Notice how Jenkins provides familiar monitoring interfaces while handling enterprise production workflows
 
-* Access your GitOps repository at {gitlab_url}/development/qrks-jnk-{user}-gitops[qrks-jnk-{user}-gitops^]
-* Check the updated deployment manifests in the `components/qrks-jnk-{user}/overlays/prod` directory
-* In the `deployment-patch.yaml` file, notice how the image tag has been automatically updated to your release (e.g., `prod-v1.0`)
+=== Step 2: Verify Production GitOps Integration
+
+* Access your GitOps repository at {gitlab_url}/development/qrks-jnk-{user}-gitops[qrks-jnk-{user}-gitops^
+* Check the updated deployment manifests in the `overlays/prod` directory
+* Notice how Jenkins automatically updated the image tag with the `prod-` prefix
 * Observe the Git diff showing the automated production update through Jenkins
 
 **Example Git diff generated by Jenkins:**
@@ -318,23 +297,19 @@ Watch how your Jenkins pipeline safely deploys to production using enterprise-gr
 [source,diff,subs="attributes"]
 ----
 -          image: quay.io/redhat-appstudio/rhtap-task-runner:latest
-+          image: quay-{guid}/tssc/qrks-jnk-{user}:prod-v1.0
++          image: quay.tssc-quay/tssc/qrks-jnk-{user}:prod-v1.0
 ----
 
-**Step 3: Monitor Production Deployment Success**
+=== Step 3: Monitor Production Deployment Success
 
 * ArgoCD automatically detects the production changes made by your Jenkins pipeline
 * ArgoCD syncs these validated changes to the production environment
 * The production deployment completes successfully without manual intervention
 
-**Step 4: Validate Production Application**
+=== Step 4: Validate Production Application
 
-* In the `Topology` tab in Developer Hub, locate the production application `qrks-tkn-{user}-prod` and click on the 'Open URL' icon (the arrow on the top right of your application) to open the route.
+* Access your production application through its route
 * Verify that your changes are live and functioning correctly in production
-[NOTE]
-====
-It might take ArgoCD a few minutes to sync your changes.  Refresh your app browser window after a minute.
-====
 * Confirm that the production environment reflects exactly what Jenkins validated
 * Test production functionality to ensure successful enterprise deployment
 
@@ -363,26 +338,23 @@ You've experienced how Red Hat Advanced Developer Suite transforms enterprise Je
 
 === Key Business Transformation for Jenkins Production
 
-**Enhanced Jenkins Production Benefits:**
+**What just happened in your production deployment:**
 
-* **Deployment Speed:** Jenkins production releases from 2-3 weeks 	 30 minutes
-* **Investment Protection:** Jenkins infrastructure and expertise enhanced rather than replaced
-* **Security Automation:** 100% automated policy enforcement through enhanced Jenkins workflows
-* **Risk Elimination:** Enterprise-grade security without disrupting proven Jenkins production processes
+Your GitLab Release triggered the `promote-to-prod` Jenkins job, which executed `Jenkinsfile.release`. This pipeline ran Enterprise Contract validation a second time—even though staging already passed, production revalidates to ensure the image wasn't modified between environments. The `gather-images` task queried your production GitOps repository to identify which image tags need validation. Enterprise Contract CLI verified the image signature matches the public key stored in `openshift/trusted-keys` ConfigMap, checked that the SBOM exists and contains no critical CVEs, and confirmed the provenance attestation links to your authorized GitLab repository.
 
-**Enterprise Production Security through Jenkins:**
+After validation passed, the `update-image-tag-prod` task cloned your GitOps repository, updated `components/qrks-jnk-{user}/overlays/prod/deployment-patch.yaml` with the validated image tag, committed this change with message "Promote to production via Jenkins", and pushed to GitLab. ArgoCD detected this Git change within 3 minutes and compared the desired state (your GitOps manifests) to actual state (running pods in production namespace). It calculated the diff, applied the new Deployment manifest, and triggered a rolling update. Old pods terminated gracefully after new pods passed readiness probes.
 
-* Automated security validation integrated into familiar Jenkins production workflows
-* Complete audit trails for compliance requirements through Jenkins processes
-* Cryptographic proof of production image integrity and source via Jenkins pipelines
-* Consistent security enforcement across all Jenkins production deployments
+**Production deployment without kubectl access:**
 
-**Jenkins Investment Enhancement for Production:**
+Your Jenkins pipeline never ran `kubectl apply`. Developers don't need production cluster credentials. Jenkins writes to Git; ArgoCD reads from Git and reconciles cluster state. This separation means production changes are auditable (Git history), reversible (Git revert), and require no VPN access or cluster admin permissions. If you need to rollback, you revert the Git commit and ArgoCD automatically reconciles the previous state.
 
-* Existing Jenkins production infrastructure becomes more powerful and valuable
-* Jenkins production expertise enhanced with modern security and GitOps capabilities
-* Teams continue using familiar Jenkins tools for production with enhanced automation
-* Platform efficiency improves while preserving critical Jenkins production knowledge
+**Enterprise Contract protecting production:**
+
+Your `Jenkinsfile.release` will fail the build if Enterprise Contract detects problems. If the image has a critical CVE (CVSS > 9.0), the pipeline fails with "Policy violation: critical vulnerability found". If the image signature is invalid or missing, it fails with "Image signature verification failed". If the SBOM is missing or doesn't match CycloneDX format, it fails with "SBOM validation failed". These aren't warnings—they're hard stops that prevent deployment. No manual change review board meeting required; the policy enforcement is codified and automated.
+
+**Zero-downtime rolling updates:**
+
+The Deployment manifest in your GitOps repository specifies `strategy: RollingUpdate` with `maxUnavailable: 0`. When ArgoCD applies the updated Deployment, Kubernetes starts new pods with the new image tag. Only after new pods pass liveness and readiness probes does Kubernetes terminate old pods. Your application serves traffic continuously throughout the update. If the new image fails healthchecks, the rollout pauses automatically and old pods continue serving traffic.
 
 == Activity 5: Understanding the Complete Jenkins Workflow
 
