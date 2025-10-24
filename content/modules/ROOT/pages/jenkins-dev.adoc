@@ -282,34 +282,6 @@ Your Jenkins pipeline definition lives alongside your application code in the sa
 * **Consistency**: The same Jenkins pipeline runs regardless of environment
 * **Developer Ownership**: You control your Jenkins pipeline without platform team dependencies
 
-**Your Jenkinsfile.push stages:**
-
-[cols="2,5"]
-|===
-| Stage | What it does
-
-| `verify-commit`
-| Verifies cryptographic commit signatures using gitsign. Downloads gitsign client and verifies commit signatures. Integrates with Red Hat Trusted Application Signer via TUF and Rekor.
-
-| `init`
-| Initializes `rhtap` library. Sets `IMAGE_URL` with Git commit as tag. Prepares build environment.
-
-| `mvn package`
-| Runs `mvn clean package` in Maven 3.8.6 container. Compiles Quarkus application to JAR.
-
-| `build`
-| Calls `buildah_rhtap()` to build container image. Calls `cosign_sign_attest()` to sign image and create SLSA provenance.
-
-| `deploy` + `upload_sbom` (parallel)
-| **deploy:** Calls `update_deployment()` to update GitOps repo. **upload_sbom:** Sends SBOM to Trustification.
-
-| `acs_deploy_check` + `acs_image_check` + `acs_image_scan` (parallel)
-| Validates Kubernetes manifests, checks image policies, scans for CVEs using ACS.
-
-| `summary`
-| Calls `show_sbom_rhdh()` and `summary()` to display results in Developer Hub.
-|===
-
 **Why This Matters for Your Jenkins Work:**
 
 This Pipelines as Code approach transforms how you work with Jenkins while preserving what you know. You continue using familiar Jenkins Blue Ocean interfaces and troubleshooting approaches, so there's no steep learning curve. Your Jenkins expertise gains value as it expands to include modern security and GitOps features. You gain self-service power to modify pipelines through pull requests rather than filing platform tickets and waiting. Perhaps most importantly, all the complex security integration happens automatically within your Jenkins workflows, providing enterprise-grade protection without manual configuration.
