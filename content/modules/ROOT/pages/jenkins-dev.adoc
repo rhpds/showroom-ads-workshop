@@ -526,19 +526,29 @@ Security becomes a built-in feature rather than a bolt-on afterthought. Your Jen
 
 Most importantly, everything you've built leverages and enhances your existing Jenkins knowledge rather than replacing it. You're using the familiar Jenkins Blue Ocean interface with enhanced capabilities layered on top. The pipeline concepts remain the same, just augmented with modern security integration. Your Jenkins expertise becomes more valuable as it expands to include these modern practices. The proven Jenkins infrastructure your organization has invested in gets enhanced rather than replaced.
 
-== Understanding Enhanced Jenkins Benefits
+== What You Built: Jenkins Pipelines with Modern Security
 
-=== Developer Experience
+You just triggered a Jenkins pipeline that most organizations would spend weeks configuring. Let's connect what you experienced to how this architecture works in production.
 
-The developer experience improves without sacrificing familiarity. You continue using the Jenkins Blue Ocean interface and tools you already know, so there's no productivity loss during transition. Pipeline capabilities enhance with modern security features that integrate seamlessly without adding complexity to your daily workflow. Self-service power eliminates platform team dependencies for common tasks, letting you move at your own pace. The cloud-based development environment integrates naturally with Jenkins, providing consistency between local development and CI/CD execution.
+**Jenkins shared library you're using:**
 
-=== Operational Advantages
+Your `Jenkinsfile.push` calls functions from the `rhtap` shared library (`@Library('rhtap')_`). This library lives in a separate Git repository that your Jenkins controller loads dynamically. When you ran `buildah_rhtap()`, Jenkins executed containerized Buildah inside a Kubernetes pod, not on a traditional Jenkins agent. The `cosign_sign_attest()` function communicated with Red Hat Trusted Artifact Signer to sign your image without you needing to manage signing keys. Platform team updates the library once; all projects using it get the improvements automatically.
 
-Operations benefit from enhanced capabilities while protecting existing investments. Your Jenkins infrastructure and the expertise you've developed remain valuable assets that gain new capabilities. Enterprise-grade security integrates automatically rather than requiring custom configurations for each project. Standardized pipelines ensure consistent workflows across all applications, reducing the cognitive overhead of context-switching between teams. Shared Jenkins libraries eliminate the custom pipeline overhead that creates maintenance burdens and knowledge silos.
+**GitLab webhook triggering your pipeline:**
 
-=== Enterprise Security Enhancements
+When you pushed your commit, GitLab sent a webhook POST request to Jenkins with the commit SHA and branch name. Jenkins matched this to your `maven-ci-build` job configuration and triggered the build. The job pulled your repository, parsed `Jenkinsfile.push`, and executed each stage. Three Jenkinsfiles (`Jenkinsfile.push`, `Jenkinsfile.tag`, `Jenkinsfile.release`) handle different Git events—push, tag, release—all configured automatically by the Developer Hub template.
 
-Security enhancements integrate transparently into your existing Jenkins workflows. Automated security scanning runs as a natural part of your builds rather than a separate manual process. Cryptographic signing for both containers and commits happens through Jenkins without developers needing to understand the underlying complexity. Enterprise security policies enforce automatically at the appropriate pipeline stages, catching issues before they reach production. Complete audit trails generate through normal Jenkins processes, providing compliance evidence without additional tools or manual documentation.
+**Jenkins running on Kubernetes:**
+
+Your Jenkins controller runs as a pod in the OpenShift cluster. Each pipeline stage executes in ephemeral Kubernetes pods that terminate when the stage completes. This differs from traditional Jenkins agents that run continuously. The `mvn package` stage ran in a Maven container, `buildah_rhtap()` ran in a Buildah container, and `acs_image_scan()` ran in an ACS CLI container. No agent configuration, no "node is offline" debugging—just container images defined in your Jenkinsfile.
+
+**GitOps integration from Jenkins:**
+
+The `update_deployment()` function in your pipeline clones your GitOps repository, updates `overlays/dev/deployment-patch.yaml` with the new image tag, commits the change, and pushes it back to GitLab. ArgoCD polls your GitOps repository every 3 minutes, detects the Git change, and applies the updated Deployment manifest to your cluster. Jenkins never runs `kubectl apply` directly—it just updates Git, and ArgoCD handles deployment reconciliation.
+
+**Enterprise Contract validation you'll see next:**
+
+When you create a Git tag in the staging section, your `Jenkinsfile.tag` pipeline will call Enterprise Contract CLI to verify your image signature, SBOM, and CVE scan results before promotion. This validation runs in Jenkins as another pipeline stage. If validation fails (e.g., critical CVE found), the Jenkins build fails and the image doesn't get promoted. Policy-as-code enforcement without manual security reviews.
 
 == Next Steps
 

@@ -338,17 +338,23 @@ You've experienced how Red Hat Advanced Developer Suite transforms enterprise Je
 
 === Key Business Transformation for Jenkins Production
 
-**Enhanced Jenkins Production Benefits:**
+**What just happened in your production deployment:**
 
-The production transformation delivers game-changing improvements that matter to business stakeholders. Jenkins production releases accelerate from 2-3 weeks to 30 minutes, directly impacting time-to-market and competitive responsiveness. Jenkins infrastructure and expertise are enhanced rather than replaced, protecting years of organizational investment and knowledge. Security automation reaches 100% through enhanced Jenkins workflows, eliminating the manual gates that slow releases. Enterprise-grade security integrates without disrupting the proven Jenkins production processes that teams trust and understand.
+Your GitLab Release triggered the `promote-to-prod` Jenkins job, which executed `Jenkinsfile.release`. This pipeline ran Enterprise Contract validation a second time—even though staging already passed, production revalidates to ensure the image wasn't modified between environments. The `gather-images` task queried your production GitOps repository to identify which image tags need validation. Enterprise Contract CLI verified the image signature matches the public key stored in `openshift/trusted-keys` ConfigMap, checked that the SBOM exists and contains no critical CVEs, and confirmed the provenance attestation links to your authorized GitLab repository.
 
-**Enterprise Production Security through Jenkins:**
+After validation passed, the `update-image-tag-prod` task cloned your GitOps repository, updated `components/qrks-jnk-{user}/overlays/prod/deployment-patch.yaml` with the validated image tag, committed this change with message "Promote to production via Jenkins", and pushed to GitLab. ArgoCD detected this Git change within 3 minutes and compared the desired state (your GitOps manifests) to actual state (running pods in production namespace). It calculated the diff, applied the new Deployment manifest, and triggered a rolling update. Old pods terminated gracefully after new pods passed readiness probes.
 
-Security validation becomes seamless and continuous rather than episodic and disruptive. Automated security validation integrates into familiar Jenkins production workflows, providing assurance without adding friction. Complete audit trails for compliance generate automatically through Jenkins processes, turning audit preparation from a month-long scramble into a simple report export. Cryptographic proof of production image integrity and source flows through Jenkins pipelines, providing non-repudiable evidence for auditors and incident responders. Consistent security enforcement applies across all Jenkins production deployments, eliminating the configuration drift and exceptions that create vulnerabilities.
+**Production deployment without kubectl access:**
 
-**Jenkins Investment Enhancement for Production:**
+Your Jenkins pipeline never ran `kubectl apply`. Developers don't need production cluster credentials. Jenkins writes to Git; ArgoCD reads from Git and reconciles cluster state. This separation means production changes are auditable (Git history), reversible (Git revert), and require no VPN access or cluster admin permissions. If you need to rollback, you revert the Git commit and ArgoCD automatically reconciles the previous state.
 
-Your production Jenkins infrastructure transforms from potential technical debt into a competitive advantage. Existing production infrastructure becomes more powerful and valuable as modern capabilities layer on top of proven foundations. Jenkins production expertise enhances with modern security and GitOps capabilities, making your team's knowledge more valuable and marketable. Teams continue using familiar Jenkins tools for production with enhanced automation, maintaining productivity while gaining capabilities. Platform efficiency improves dramatically while preserving the critical Jenkins production knowledge that took years to develop.
+**Enterprise Contract protecting production:**
+
+Your `Jenkinsfile.release` will fail the build if Enterprise Contract detects problems. If the image has a critical CVE (CVSS > 9.0), the pipeline fails with "Policy violation: critical vulnerability found". If the image signature is invalid or missing, it fails with "Image signature verification failed". If the SBOM is missing or doesn't match CycloneDX format, it fails with "SBOM validation failed". These aren't warnings—they're hard stops that prevent deployment. No manual change review board meeting required; the policy enforcement is codified and automated.
+
+**Zero-downtime rolling updates:**
+
+The Deployment manifest in your GitOps repository specifies `strategy: RollingUpdate` with `maxUnavailable: 0`. When ArgoCD applies the updated Deployment, Kubernetes starts new pods with the new image tag. Only after new pods pass liveness and readiness probes does Kubernetes terminate old pods. Your application serves traffic continuously throughout the update. If the new image fails healthchecks, the rollout pauses automatically and old pods continue serving traffic.
 
 == Activity 5: Understanding the Complete Jenkins Workflow
 
