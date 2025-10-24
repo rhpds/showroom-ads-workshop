@@ -556,28 +556,27 @@ For the ACME platform team:
 
 More autonomy is given to developers by this approach while ensuring the platform team still enforces security and governance by default.
 
-== Understanding OpenShift Pipelines Benefits
+== What You Built: Production Patterns in Action
 
-=== Developer Experience
+You just created production infrastructure that most teams spend weeks configuring manually. Let's connect what you experienced to how this works in production environments.
 
-* **Browser-based development** - No local Kubernetes setup required
-* **Live reload capabilities** - See changes instantly
-* **Integrated debugging** - OpenShift Pipelines application troubleshooting
-* **Collaborative workspaces** - Team development in the cloud
+**Pipeline as Code you created:**
 
-=== Operational Advantages
+Your `.tekton/` directory contains three `PipelineRun` definitions. Each runs as Kubernetes pods in the `openshift-pipelines` namespace. When you pushed your commit, the `on-push.yaml` pipeline triggered automatically via GitLab webhook. No Jenkins server to maintain, no agents to configure—just Kubernetes-native task execution.
 
-* **Kubernetes-native scaling** - Applications scale with platform capabilities
-* **GitOps automation** - Declarative, auditable deployments
-* **Resource efficiency** - Optimal resource utilization
-* **Multi-cloud portability** - Run anywhere Kubernetes runs
+**Dev Spaces workspace you used:**
 
-=== Security Enhancements
+The browser-based IDE isn't just convenient—it's a Kubernetes pod running in your cluster with persistent storage. Your team shares the same base image, same extensions, same tool versions. No more "works on my machine" debugging sessions. The workspace definition lives in `.devfile.yaml` in your repository, version-controlled like everything else.
 
-* **Container-first security** - Security scanning at every layer
-* **Immutable infrastructure** - Consistent, secure deployments
-* **Policy enforcement** - Platform-level security controls
-* **Complete audit trails** - Full supply chain visibility
+**Security tooling you triggered:**
+
+Your single `git push` invoked `gitsign` for commit verification, `cosign` for image signing, `syft` for SBOM generation, and ACS for vulnerability scanning. These aren't optional security gates you can bypass—they're pipeline tasks that fail the build if checks don't pass. Your staging and production promotions will verify these signatures before deploying.
+
+**GitOps repository structure:**
+
+The `qrks-tkn-{user}-gitops` repository uses Kustomize overlays: `base/` contains shared manifests, `overlays/dev`, `overlays/stage`, and `overlays/prod` patch environment-specific values. When your pipeline updates `overlays/dev/deployment-patch.yaml` with a new image tag, ArgoCD detects the Git change and reconciles your cluster state automatically. You never run `kubectl apply` manually.
+
+This architecture scales from your single application to hundreds of microservices. Each team owns their pipelines and GitOps repos. Platform team maintains shared task definitions and security policies. Changes to security scanning logic propagate to all projects automatically through the shared task references.
 
 == Next Steps
 
