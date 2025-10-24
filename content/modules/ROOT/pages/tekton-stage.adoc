@@ -20,11 +20,15 @@ Enterprise development teams often face significant challenges with staging vali
 
 Traditional staging processes create significant delays and uncertainty in the delivery pipeline. Manual validation and coordination typically consume 3-5 days as teams navigate scheduling conflicts and competing priorities. Security reviews and compliance checks add another 1-2 weeks through manual processes that don't scale with increased deployment frequency. Multiple coordination meetings between development, security, and platform teams waste time without adding value, as most discussions could be handled asynchronously. Manual deployment processes prove error-prone and time-consuming, with configuration mistakes and missed steps creating incidents. Perhaps worst of all, "works in staging, fails in production" surprises undermine confidence due to environment inconsistencies that make staging a poor predictor of production behavior.
 
+image::tekton-stage-aiimage-1.png[]
+
 === Red Hat Advanced Developer Suite Solution
 
 RHADS fundamentally transforms staging through automation and integration that eliminate manual overhead. Staging time collapses from 3-5 days to just 30 minutes through automated validation pipelines that run consistently without human intervention. Security validation accelerates from 1-2 weeks to mere minutes with Enterprise Contract integrated directly into the pipeline, validating compliance automatically. Manual coordination overhead between teams drops to zero as automated processes replace meetings and email threads. Every staging deployment provides production-ready confidence through consistent, comprehensive validation. Environment surprises disappear as consistent validation ensures staging accurately represents production behavior.
 
 The business benefits compound across the organization. Feature validation accelerates from weeks to hours, directly improving time-to-market and competitive responsiveness. Early risk detection prevents costly production incidents by catching issues when they're cheap to fix. The same security standards apply in staging and production, ensuring audit readiness and eliminating compliance gaps. Platform teams shift focus from deployment coordination to innovation and strategic improvements, multiplying their organizational impact.
+
+image::tekton-stage-aiimage-2.png[]
 
 == Activity 1: Triggering the Staging Pipeline
 

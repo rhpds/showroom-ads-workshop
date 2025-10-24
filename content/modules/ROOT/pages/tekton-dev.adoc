@@ -28,6 +28,8 @@ The hidden costs accumulate across your organization and career. You personally 
 
 RHADS transforms your development experience through four fundamental changes that eliminate traditional friction. Waiting time drops to zero as you create GitLab repositories and OpenShift Pipelines instantly through self-service, with no tickets and no coordination overhead. Configuration complexity disappears as Kubernetes resources generate automatically from templates, letting you focus on application code rather than infrastructure plumbing. Security gaps close automatically through container scanning and signing that happen transparently in your pipeline, making security invisible rather than obstructive. Platform team dependency evaporates as you become self-sufficient, gaining immediate productivity without waiting for others.
 
+image::tekton-dev-aiimage-1.png[]
+
 === What This Means for Your Daily Work
 
 * OpenShift Pipelines project setup: 3-4 weeks → 5 minutes

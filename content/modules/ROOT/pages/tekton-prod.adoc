@@ -30,6 +30,8 @@ Transform risky manual processes into confident automated workflows using Red Ha
 * Eliminate human error through automation
 * Complete SOC 2 and PCI audit trails automatically
 
+image::tekton-prod-aiimage-1.png[]
+
 [NOTE]
 ====
 The examples and commands in this workshop demonstrate enterprise production deployment capabilities. Adapt repository URLs, credentials, and configurations as needed for your specific setup.

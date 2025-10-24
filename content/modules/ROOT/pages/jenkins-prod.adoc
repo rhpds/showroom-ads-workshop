@@ -27,6 +27,8 @@ RHADS fundamentally transforms the Jenkins production experience, turning what w
 
 The business benefits transform your competitive position. Jenkins production deployment time drops from weeks to minutes, directly accelerating time-to-market and enabling rapid response to business opportunities. Enhanced security validation integrates into familiar Jenkins production workflows, providing enterprise-grade protection without disrupting proven processes. Your team's Jenkins expertise becomes more valuable with modern production capabilities, making retention easier and recruitment more successful. Complete audit trails for enterprise compliance flow automatically through Jenkins automation, reducing compliance costs and audit preparation stress.
 
+image::jenkins-prod-aiimage-1.png[]
+
 == Activity 1: Understanding Jenkins Production Triggers
 
 RHADS provides flexible production deployment options that work with your existing Jenkins expertise:
