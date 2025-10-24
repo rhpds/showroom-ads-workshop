@@ -365,9 +365,24 @@ git commit -m "Add Jenkins pipeline documentation"
 image::jenkins-dev-15.png[link=self, window=_blank]
 
 * You're prompted for signed commit authentication - this integrates with your Jenkins security workflow
+
+**Understanding Commit Signing with Gitsign:**
+
+Your commit is being cryptographically signed using `gitsign`, which integrates with Red Hat Trusted Application Signer (Sigstore). This provides:
+
+- **Identity verification:** Proves who made the commit using OIDC authentication
+- **Tamper protection:** Prevents unauthorized modification of commit history
+- **Audit trail:** Stores signature in Rekor transparency log for compliance
+- **Supply chain security:** Ensures code provenance from developer to production
+- **Jenkins integration:** Verified commits are checked automatically in the Jenkins pipeline
+
+The signing process uses your OIDC identity (same credentials you used to log into Developer Hub), eliminating the need to manage GPG keys manually.
+
+**Complete the signing process:**
+
 * The terminal displays a URL that you need to follow for authentication
-* You click the URL directly in the terminal, or copy and paste it into a new browser window
-* If prompted for credentials during the browser authentication, you use your RHDH credentials:
+* Click the URL directly in the terminal, or copy and paste it into a new browser window
+* If prompted for credentials during the browser authentication, use your RHDH credentials:
 +
 [source,bash,subs="attributes"]
 ----
@@ -379,9 +394,9 @@ Password: {rhdh_user_password}
 +
 image::jenkins-dev-16.png[link=self, window=_blank]
 
-* You copy this verification code from the browser
-* You return to the terminal and paste the verification code when prompted
-* After entering the code, your commit is cryptographically signed for enterprise security
+* Copy this verification code from the browser
+* Return to the terminal and paste the verification code when prompted
+* Your commit is now cryptographically signed and the signature is stored in the Rekor transparency log
 * You push your changes:
 +
 [source,bash]
