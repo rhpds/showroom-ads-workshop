@@ -56,7 +56,7 @@ link:{rhdh_url}[*Red Hat Developer Hub*^]
 
 * You see the "Select a sign-in method" screen and click the *OIDC* option
 
-image::jenkins-dev-1.png[]
+image::jenkins-dev-1.png[link=self, window=_blank]
 
 TIP: This secure authentication integration will streamline your Jenkins workflow access and eliminate multiple login prompts.
 
@@ -88,7 +88,7 @@ Now comes the exciting part - you're about to experience the magic of self-servi
 * Ready to leverage your Jenkins skills on a new project, you spot the **+ Self-service** button in the top-right corner
 * You click **+ Self-service** and discover a catalog of ready-to-use Jenkins templates
 
-image::jenkins-dev-2.png[]
+image::jenkins-dev-2.png[link=self, window=_blank]
 
 === Step 2: Choosing Your Jenkins Pipeline Template
 
@@ -99,7 +99,7 @@ image::jenkins-dev-2.png[]
 * "Perfect!" you think, "This leverages Jenkins - the tool I know and trust - but with modern security capabilities"
 * You click *Choose* to select this Jenkins template
 
-image::jenkins-dev-3.png[]
+image::jenkins-dev-3.png[link=self, window=_blank]
 
 TIP: You're about to witness something powerful - this single template will automatically create your complete Jenkins environment with pipelines, security integration, and Kubernetes resources* No tickets, no waiting, no manual Jenkins configuration!
 
@@ -156,7 +156,7 @@ Click *Review* to see a summary of your Jenkins configuration.
 
 * Review all the settings in the summary page
 
-image::jenkins-dev-5.png[]
+image::jenkins-dev-5.png[link=self, window=_blank]
 
 * Click *Create* to generate your Jenkins application
 
@@ -176,11 +176,11 @@ TIP: This entire Jenkins setup that traditionally takes weeks is completed in un
 
 * In Red Hat Developer Hub, go to the *Catalog* and locate your new component (`qrks-jnk-{user}`)
 
-image::jenkins-dev-6.png[]
+image::jenkins-dev-6.png[link=self, window=_blank]
 
 * Click the component name to open its *Overview* page
 
-image::jenkins-dev-7.png[]
+image::jenkins-dev-7.png[link=self, window=_blank]
 
 * You'll see your new Jenkins application component with links to:
   * Source code repository with Jenkins pipeline definitions
@@ -331,15 +331,15 @@ Time to trigger your enhanced Jenkins pipeline and see the automation in action!
 
 * If prompted for authentication, click *Log in with OpenShift*
 
-image::jenkins-dev-8.png[]
+image::jenkins-dev-8.png[link=self, window=_blank]
 
 * On the *Authorize Access* screen, click *Allow selected permissions*
 
-image::jenkins-dev-9.png[]
+image::jenkins-dev-9.png[link=self, window=_blank]
 
 * On the repository trust prompt, click the checkbox and then click *Continue*
 
-image::jenkins-dev-10.png[]
+image::jenkins-dev-10.png[link=self, window=_blank]
 
 * When prompted to authenticate with GitLab, enter your credentials:
 +
@@ -349,16 +349,16 @@ Username: {gitlab_user}
 Password: {gitlab_user_password}
 ----
 
-image::jenkins-dev-11.png[]
+image::jenkins-dev-11.png[link=self, window=_blank]
 
 * Click *Authorize devspaces* on the next window
 
-image::jenkins-dev-12.png[]
+image::jenkins-dev-12.png[link=self, window=_blank]
 
 * Wait for the workspace to start and fully load VS Code
 * If prompted, trust all workspaces and authors
 
-image::jenkins-dev-13.png[]
+image::jenkins-dev-13.png[link=self, window=_blank]
 
 === Step 2: Explore Your Jenkins-Integrated Development Environment
 
@@ -396,7 +396,7 @@ git add .
 git commit -m "Add Jenkins pipeline documentation"
 ----
 +
-image::jenkins-dev-15.png[]
+image::jenkins-dev-15.png[link=self, window=_blank]
 
 * You're prompted for signed commit authentication - this integrates with your Jenkins security workflow
 * The terminal displays a URL that you need to follow for authentication
@@ -411,7 +411,7 @@ Password: {rhdh_user_password}
 
 * Once successfully authenticated in the browser, a verification code appears on the screen
 +
-image::jenkins-dev-16.png[]
+image::jenkins-dev-16.png[link=self, window=_blank]
 
 * You copy this verification code from the browser
 * You return to the terminal and paste the verification code when prompted
@@ -425,7 +425,7 @@ git push
 
 TIP: You just witnessed the power of enhanced Jenkins workflows - your commit triggered a complete Jenkins pipeline with enterprise security, all automatically configured and integrated!
 
-image::jenkins-dev-17.png[]
+image::jenkins-dev-17.png[link=self, window=_blank]
 
 == Activity 5: Monitoring Your Jenkins Pipeline
 
@@ -440,18 +440,18 @@ Now let's see your enhanced Jenkins pipeline in action and understand what's hap
   - `promote-to-stage`
   - `promote-to-prod`
 
-image::jenkins-dev-18.png[]
+image::jenkins-dev-18.png[link=self, window=_blank]
 
 * Click on *View build* to open Jenkins
 * Click *Open Blue Ocean* to view the Jenkins pipeline visually
 
-image::jenkins-dev-19.png[]
+image::jenkins-dev-19.png[link=self, window=_blank]
 
 === Step 2: Understanding Your Jenkins Pipeline Stages
 
 As your Jenkins pipeline executes, you can observe each stage in the familiar Blue Ocean interface:
 
-image::jenkins-dev-20.png[]
+image::jenkins-dev-20.png[link=self, window=_blank]
 
 **Stage: verify-commit**
 

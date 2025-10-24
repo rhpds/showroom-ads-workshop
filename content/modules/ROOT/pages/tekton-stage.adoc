@@ -41,7 +41,7 @@ Username: {gitlab_user}
 Password: {gitlab_user_password}
 ----
 +
-image::tekton-stage-1.png[]
+image::tekton-stage-1.png[link=self, window=_blank]
 
 === Step 2: Create a Git Tag
 
@@ -49,13 +49,13 @@ Creating a Git tag simulates a release event that triggers the staging pipeline.
 
 * In the left menu, click on *Code > Tags > New Tag*
 +
-image::tekton-stage-2.png[]
+image::tekton-stage-2.png[link=self, window=_blank]
 
 * Enter a version tag like `v1.0`
 * Choose the target branch (typically `main`)
 * Click *Create Tag*
 +
-image::tekton-stage-3.png[]
+image::tekton-stage-3.png[link=self, window=_blank]
 
 [NOTE]
 ====
@@ -81,7 +81,7 @@ The CLI approach does the same thing — triggers the pipeline tied to this Git 
 * Click the *CI* tab to see pipeline runs
 * Expand the job labeled *promote-to-stage* to follow its progress
 +
-image::tekton-stage-4.png[]
+image::tekton-stage-4.png[link=self, window=_blank]
 
 [TIP]
 ====
